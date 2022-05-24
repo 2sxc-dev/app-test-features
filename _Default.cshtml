@@ -1,0 +1,15 @@
+@inherits Custom.Hybrid.Razor12
+@using ToSic.Sxc.Services;
+@using ToSic.Razor.Blade;
+
+@{
+  var testPath = CmsContext.Page.Parameters["TestPath"];
+}
+
+@* Show Home if no path was given *@
+@if (!Text.Has(testPath)) {
+  @Html.Partial("_Home.cshtml")
+} else {
+  var cshtml = testPath;
+  @Html.Partial(cshtml);
+}

@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.Razor12
+@* This inherits statement gets you features like App, CmsContext, Data etc. - you can delete this comment *@
+@using ToSic.Sxc.Services; @* Make it easier to use https://r.2sxc.org/services *@
+@using System.IO;
+@using System.Linq;
+
+<div @Edit.TagToolbar(Content)>
+  <h1>App To Test Many Features in 2sxc</h1>
+  <p>
+    This app has an unusual setup because it's focus is to test many features of 2sxc in one app.
+  </p>
+  <h2>Tests</h2>
+  <ol>
+    @{
+      var helpers = CreateInstance("Helpers.cs");
+    }
+    @foreach (var subFolder in helpers.SubFolderNames(Path)) {
+      <li>
+        <a href="?testPath=@subFolder/_default.cshtml">@subFolder</a>
+      </li>
+    }
+  </ol>
+</div>
