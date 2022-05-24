@@ -3,13 +3,13 @@
 @using ToSic.Razor.Blade;
 
 @{
+  const string Home = "_Home.cshtml";
   var testPath = CmsContext.Page.Parameters["TestPath"];
+  var root = Text.Has(testPath) ? App.PhysicalPath + "/" + testPath : Path;
+  // Show Home if no path was given
+  var cshtml = Text.First(testPath, Home);
 }
 
-@* Show Home if no path was given *@
-@if (!Text.Has(testPath)) {
-  @Html.Partial("_Home.cshtml")
-} else {
-  var cshtml = testPath;
-  @Html.Partial(cshtml);
-}
+@Html.Partial(cshtml)
+
+@Html.Partial("_Shared/_SubTests.cshtml", new { Path = root, SkipFiles = cshtml == Home })

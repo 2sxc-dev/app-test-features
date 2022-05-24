@@ -1,0 +1,29 @@
+@inherits Custom.Hybrid.Razor12
+@* This inherits statement gets you features like App, CmsContext, Data etc. - you can delete this comment *@
+@using ToSic.Sxc.Services; @* Make it easier to use https://r.2sxc.org/services *@
+@using System.IO;
+@using System.Linq;
+@{
+  var helpers = CreateInstance("../Helpers.cs");
+  var skipFiles = (DynamicModel.SkipFiles as bool?) ?? false;
+}
+<hr>
+<h3>Test Groups</h3>
+<ol>
+  @foreach (var subFolder in helpers.SubFolderNames(DynamicModel.Path)) {
+    <li>
+      <a href="?testPath=@subFolder/_default.cshtml">@subFolder</a>
+    </li>
+  }
+</ol>
+@if (!skipFiles) {
+  <hr>
+  <h3>Tests</h3>
+  <ol>
+    @foreach (var subTest in helpers.FileNames(DynamicModel.Path)) {
+      <li>
+        <a href="?testPath=@subTest">@System.IO.Path.GetFileName(subTest).Trim('_')</a>
+      </li>
+    }
+  </ol>
+}
