@@ -1,0 +1,26 @@
+@inherits Custom.Razor14<dynamic, Kit14>
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Services;
+
+<div @Edit.TagToolbar(Content)>
+  <h1>Page.Activate various in-page features</h1>
+  @{
+    var featParam = "feature";
+    var allFeatures = new string[] { "2sxc.JsCore", "2sxc.JsCms", "2sxc.Toolbars", "2sxc.ToolbarsAuto", "2sxc.ContextPage", "2sxc.ContextModule", "jQuery" };
+
+    var pageFeature = Text.First(CmsContext.Page.Parameters[featParam], allFeatures[0]);
+    Kit.Page.Activate(pageFeature);
+  }
+  <p>
+    This includes "@pageFeature" using Page.Activate() for all users incl. Anonymous. 
+    You should visit this page not-logged in to verify it works. 
+    Try other params to test them:
+  </p>
+  <ol>
+    @foreach (var feature in allFeatures) {
+      <li>
+        <a href='@Link.To(parameters: CmsContext.Page.Parameters.Set(featParam, feature))'>@feature</a>
+      </li>
+    }
+  </ol>
+</div>
