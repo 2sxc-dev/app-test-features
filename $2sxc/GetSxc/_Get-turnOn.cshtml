@@ -1,0 +1,17 @@
+@inherits Custom.Razor14<dynamic, Kit14>
+@using ToSic.Sxc.Services
+@Kit.Page.Activate("turnOn", "2sxc.JsCore")
+
+<h1>Get Sxc of this Module - turnOn</h1>
+<p>
+  These are various tests to get the Sxc of this module.
+</p>
+
+
+<div>
+  <a href="" onclick="alert('Module Id: ' + $2sxc(this).id)">Click me to see module Id</a>
+</div>
+
+<script src="@App.Path/$2sxc/GetSxc/script.js"></script>
+
+<turnOn turn-on='{ "run": "window.turnOnTest()", "data": { "moduleId": @CmsContext.Module.Id } }' />

@@ -1,0 +1,29 @@
+@inherits Custom.Razor14<dynamic, Kit14>
+@using ToSic.Sxc.Services
+@Kit.Page.Activate("turnOn", "2sxc.JsCore")
+
+<h1>Get Sxc of this Module - Inline</h1>
+<p>
+  These are various tests to get the Sxc of this module.
+</p>
+<!-- dummy div, just so we have an element with clear ID -->
+<div id='@("mod" + CmsContext.Module.Id)'></div>
+<script>
+  const sxc = $2sxc(@CmsContext.Module.Id);
+  document.write("Basic Module Id: " + sxc.id + "<br>");
+
+  // With document.GetElement
+  const dom = document.getElementById('mod' + '@CmsContext.Module.Id');
+  const sxcDom = $2sxc(dom);
+  document.write("Dom Module Id: " + sxcDom.id + "<br>");
+
+
+  // Verify old jQuery node would work???
+  const jQ = $('#mod' + '@CmsContext.Module.Id');
+  const sxcjQ = $2sxc(jQ[0]);
+  document.write("jQuery Module Id: " + sxcjQ.id + "<br>");
+</script>
+
+<div>
+  <a href="" onclick="alert('Module Id: ' + $2sxc(this).id)">Click me to see module Id</a>
+</div>
