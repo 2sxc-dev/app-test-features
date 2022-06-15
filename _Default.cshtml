@@ -1,4 +1,4 @@
-@inherits Custom.Razor14<dynamic, Kit14>
+@inherits Custom.Razor14<dynamic, ServiceKit14>
 @using ToSic.Sxc.Services;
 @using ToSic.Razor.Blade;
 
@@ -8,6 +8,8 @@
   var root = Text.Has(testPath) ? App.PhysicalPath + "/" + testPath : Path;
   // Show Home if no path was given
   var cshtml = Text.First(testPath, Home);
+
+  cshtml = cshtml.Contains("_") ? cshtml : cshtml + "_default.cshtml";
 }
 
 @Html.Partial(cshtml)
