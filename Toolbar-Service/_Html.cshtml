@@ -1,0 +1,45 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Toolbar Service - HTML</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+  var tlb = Kit.Toolbar.Default().Metadata(CmsContext.Page).Settings(classes: "test-from-test");
+  var tlbHtml = tlb.With(mode: "html");
+  var tlbJson = tlb.With(mode: "json");
+
+  var item = AsDynamic(App.Data["ToolbarTest"].First());
+  var tlbItm = Kit.Toolbar.Default(item);
+  var tlbIH = tlbItm.With(mode: "html");
+  var tlbIJ = tlbItm.With(mode: "json");
+}
+
+<h2>Show Strings and toolbars</h2>
+<ol>
+  <li>
+    @tlb <strong @tlb>on this tag</strong>
+  </li>
+  <li>
+    mode tag: @tlbHtml
+  </li>
+  <li>
+    mode json: @tlbJson
+  </li>
+</ol>
+
+
+<h2>Show toolbars for an Item</h2>
+<ol>
+  <li>
+    @tlbItm <strong @tlbItm>on this tag</strong>
+  </li>
+  <li>
+    mode tag: @tlbIH
+  </li>
+  <li>
+    mode json: @tlbIJ
+  </li>
+</ol>
+
+

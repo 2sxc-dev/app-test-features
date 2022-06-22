@@ -1,9 +1,9 @@
-@inherits Custom.Hybrid.Razor14<dynamic, ServiceKit14>
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
 @using ToSic.Sxc.Services;
 @using System.IO;
 @using System.Linq;
 @{
-  var helpers = CreateInstance("../Helpers.cs");
+  var helpers = CreateInstance("Helpers.cs");
   var skipFiles = (DynamicModel.SkipFiles as bool?) ?? false;
   var testPath = CmsContext.Page.Parameters["TestPath"] ?? "";
   var pathParts = testPath.Replace("\\", "/").Split('/');
@@ -16,7 +16,7 @@
   }
 }
 <hr>
-<h3>Test Groups</h3>
+<h3>Test Groups / Folders</h3>
 @if (pathParts.Length > 1) {
   <a href="?testPath=">Root</a>
 }
@@ -41,4 +41,15 @@
       </li>
     }
   </ol>
+}
+@{
+  // try to auto-include __Assets-Auto.cshtml
+  var assetsPath = DynamicModel.Path + "__Assets.cshtml";
+  var checkPath = "";
+  if (helpers.HasAutoAssets(DynamicModel.Path)) {
+    var relPath = "../" + System.IO.Path.GetDirectoryName(testPath).Replace("\\", "/") + "/__Assets.cshtml";
+    @Html.Partial(relPath);
+    <br>
+    <sub>Info: __Assets.cshtml auto-included</sub>
+  }
 }

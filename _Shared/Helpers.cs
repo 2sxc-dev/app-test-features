@@ -37,9 +37,18 @@ public class Helpers: Custom.Hybrid.Code12
     return files
       .Where(f => {
         var name = Path.GetFileName(f);
-        return name.StartsWith("_");
+        return name.StartsWith("_") && !name.StartsWith("__");
       })
       .Select(f => f.Substring(App.PhysicalPath.Length + 1))
       .ToArray();
+  }
+  
+  public bool HasAutoAssets(string path) {
+    var mainPath = Path.GetDirectoryName(path); //GetFullPath(path));
+    var assetsPath = mainPath + "\\__Assets.cshtml";
+    var exists = File.Exists(assetsPath);
+    return exists; 
+    // return assetsPath + exists;
+    // return true;
   }
 }

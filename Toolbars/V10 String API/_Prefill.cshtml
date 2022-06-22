@@ -1,0 +1,70 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Toolbar Tests - V10 Prefills</h1>
+
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<h2>Text and Numbers</h2>
+@gen.TestBlock("Basic Prefill of Text - Title should get set", true, "new?contentType=ForPrefillTests&prefill:Title=a great title")
+
+@gen.TestBlock("Basic Prefill of Text with / and ?", true, "new?contentType=ForPrefillTests&prefill:Title=a great title/or what?")
+
+@gen.TestBlock("Basic Prefill of WYSIWYG", false, "new?contentType=ForPrefillTests&prefill:WYSIWYG=<b>bold text</b> and not so bold \"quoted\"")
+
+
+@gen.TestBlock("Basic Prefill of a number", true, "new?contentType=ForPrefillTests&prefill:ANumber=20503")
+
+@gen.TestBlock("Basic Prefill of a text and number", true, "new?contentType=ForPrefillTests&prefill:Title=nice!&prefill:ANumber=20503")
+
+<hr>
+<h2>Related Item IDs</h2>
+@gen.TestBlock("Basic Prefill of a single item with Guid-id as string", true, "new?contentType=ForPrefillTests&prefill:SingleItem=b7c1c2e1-4896-4999-a0bc-87ddf3ce31cb")
+
+
+@gen.TestBlock("Basic Prefill of many items with Guid-id CSV, no array", true, "new?contentType=ForPrefillTests&prefill:ManyItems=b7c1c2e1-4896-4999-a0bc-87ddf3ce31cb,91753b4d-4932-4b22-af1c-f6ac2b76c67a")
+
+@gen.TestBlock("Basic Prefill of many items with Guid-id CSV, no array and space!", true, "new?contentType=ForPrefillTests&prefill:ManyItems=b7c1c2e1-4896-4999-a0bc-87ddf3ce31cb, 91753b4d-4932-4b22-af1c-f6ac2b76c67a")
+
+
+<hr>
+<h2>Date and Time</h2>
+
+@gen.TestBlock("Prefill of Date", true, "new?contentType=ForPrefillTests&prefill:Date=2020-03-04")
+
+@gen.TestBlock("Prefill of Date 3x", true, "new?contentType=ForPrefillTests&prefill:Date=2020-03-04&prefill:Date2=2020-04-05&prefill:Date3=2021-12-31")
+
+@gen.TestBlock("Prefill of Date and Time Zulu-format - must use Zulu!", true, "new?contentType=ForPrefillTests&prefill:Date=2020-03-04T11:27Z")
+
+@gen.TestBlock("Prefill of Date and Time 2x Zulu-format - must use Zulu!", true, "new?contentType=ForPrefillTests&prefill:Date=2020-03-04T11:27Z&prefill:Date2=" + DateTime.UtcNow.ToString("o") + "&prefill:Date3=" + DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ"))
+
+<div>
+  Classic mode: @Edit.Toolbar(actions: "new", contentType: "ForPrefillTests", prefill: new {
+                        Date =  DateTime.UtcNow.ToString("o"), //"2020-02-03",
+                        Date2 = DateTime.UtcNow.ToString("R"),
+                        Date3 = DateTime.UtcNow.AddDays(29).ToString("R") })
+</div>
+
+<hr>
+<h2>Boolean</h2>
+@gen.TestBlock("Basic Prefill of a boolean true", true, "new?contentType=ForPrefillTests&prefill:IsSomething=true")
+
+@gen.TestBlock("Basic Prefill of a boolean false", true, "new?contentType=ForPrefillTests&prefill:IsSomething=false")
+
+
+<hr>
+<h2>Problem Formats / implementations</h2>
+
+@gen.TestBlock("FAILS: Basic Prefill of a single item with int-id NOT SUPPORTED", true, "new?contentType=ForPrefillTests&prefill:SingleItem=71038")
+
+@gen.TestBlock("FAILS: Basic Prefill of a single item with int-id in array NOT SUPPORTED", true, "new?contentType=ForPrefillTests&prefill:SingleItem=[71038]")
+
+
+<hr>
+<h2>Not supported formats - but will work</h2>
+
+@gen.TestBlock("Basic Prefill of a single item with Guid-id in array", true, "new?contentType=ForPrefillTests&prefill:SingleItem=[\"b7c1c2e1-4896-4999-a0bc-87ddf3ce31cb\"]")
+
+@gen.TestBlock("Basic Prefill of many items with Guid-id", true, "new?contentType=ForPrefillTests&prefill:ManyItems=[\"b7c1c2e1-4896-4999-a0bc-87ddf3ce31cb\", \"91753b4d-4932-4b22-af1c-f6ac2b76c67a\"]")
+

@@ -1,0 +1,17 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Toolbar Tests - V10 Metadata</h1>
+
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+
+@gen.TestBlock("Basic Metadata - just key", true, "metadata?entityId=0&contentType=ForPrefillTests&for=file:999")
+
+
+@gen.TestBlock("Basic Metadata - full specs", true, "metadata?entityId=0&contentType=ForPrefillTests&for=10,number,7777")
+
+@gen.TestBlock("Basic Metadata - with entityId", true, "metadata?&metadata=243&entityId=71045&contentType=ForPrefillTests&for=10,number,7777")
+
+
