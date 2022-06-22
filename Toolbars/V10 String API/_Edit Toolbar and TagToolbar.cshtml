@@ -1,0 +1,109 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Many Tests to Split</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+ <hr><h2>Server Side Toolbars</h2>
+    <ol>
+        <li>
+            With 'delete' in third Toolbar
+            @Edit.Toolbar(Content, toolbar: new [] { "%delete&show=true" })
+            <hr>
+        </li>        
+    </ol>
+
+<hr>
+ <h2>Server Rules & Settings</h2>
+    <ol>
+        <li>
+            Without string-only '-layout' 
+            @Edit.Toolbar(Content, toolbar: "-layout")
+            <hr>
+        </li>
+
+        <li>
+            Without most template buttons
+            @Edit.Toolbar(Content, toolbar: new [] { "-template", "-develop", "-template-settings", "-template-query", "-contenttype"})
+            <hr>
+        </li>
+        <li>Basic server settings @Edit.Toolbar(Content, settings: "color=red")
+        </li>
+    </ol>
+
+<hr>
+ <h2>Tag Toolbars</h2>
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: "%delete&show=true")>
+    Some div with content and a floating toolbar - delete activated
+    <br>
+    This is just some demo content.
+</div>
+
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: "new?contentType=Category")>
+    Some div with content and an additional new-button for Category
+    <br>
+    This is just some demo content.
+</div>
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: "new&color=red?contentType=Category")>
+    Some div with content and an additional new-button for Category - red!
+    <br>
+    This is just some demo content.
+</div>
+
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: new [] { 
+    "new&color=red?contentType=Category", 
+    "new&color=teal?contentType=Tag" 
+})>
+    Some div with content and an additional new-button for Category (red) and Tag (pink)
+    <br>
+    This is just some demo content.
+</div>
+
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: new [] { 
+    "-layout",
+    "new&color=red?contentType=Category", 
+    "new&color=teal?contentType=Tag" 
+})>
+    Now without the view (layout) button
+    <br>
+    This is just some demo content.
+</div>
+
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: new [] { 
+    "%layout&icon=icon-sxc-replace&color=white,maroon",
+    "new&color=red?contentType=Category", 
+    "new&color=teal?contentType=Tag" 
+})>
+    Now with a modified the view (layout) button
+    <br>
+    This is just some demo content.
+</div>
+
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: new [] {
+    "toolbar=empty",
+    "new&color=red?contentType=Category", 
+    "new&color=teal?contentType=Tag" 
+})>
+    Some div with only the two new-button for Category (red) and Tag (pink)
+    <br>
+    This is just some demo content.
+</div>
+
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: new [] {
+    "group=add-buttons",
+    "new&color=red&group=add-buttons?contentType=Category", 
+    "new&color=teal&group=add-buttons?contentType=Tag" 
+})>
+    Now we'll start with our custom group and then have the default buttons. 
+    <br>
+    This is just some demo content.
+</div>

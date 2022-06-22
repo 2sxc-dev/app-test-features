@@ -1,0 +1,20 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Custom</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<h2>Custom Code</h2>
+<ol>
+  @gen.LiJsMenuTest("Remove edit, layout, template-code", "[`toolbar=empty`, `custom?call=helloCustom`]")
+  <li>
+    Using edit.toolbar: @Edit.Toolbar(toolbar: new [] { "toolbar=empty", "custom?call=helloCustom" })
+  </li>
+</ol>
+<script>
+  function helloCustom(context, event) {
+    alert('hello from custom button');
+  }
+</script>

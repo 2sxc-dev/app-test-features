@@ -1,0 +1,24 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Basics</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<h2>Basics - Empty or just Remove</h2>
+<ol>
+  @gen.LiJsMenuTest("Empty string without anything", new [] { "" } )
+  @gen.LiJsMenuTest("Remove edit, layout, template-code", "[`-edit`, `-layout?`, `-template-develop?something=other`]")
+</ol>
+
+
+<hr>
+<h2>Multiple New Buttons</h2>
+<ol>
+    @gen.LiJsMenuTest("Single New button", "[`new?contentType=Quotes`]")
+    
+    @gen.LiTagToolbar("same but using razor and current Content", "new?contentType=Quotes", true)
+
+    @gen.LiJsMenuTest("Two New buttons", "[`new-dummy=new?contentType=Dummy`, `new-quote=new?contentType=Quotes`]")
+</ol>

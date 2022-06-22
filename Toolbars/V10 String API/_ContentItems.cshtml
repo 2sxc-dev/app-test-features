@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<h1>Content Items Toolbar</h1>
+<em>These tests need to be updated to values / types that really exist here</em>
+<ol>
+    <li>
+        ContentItems of current content-type (Dummy): @Edit.Toolbar(Content, toolbar: new [] { "contentitems&show=true"})
+    </li>
+    <li>
+        Content-Items Filter: @Edit.Toolbar(Content, toolbar: new [] { "+contentitems?filter:parent=[534]"})
+    </li>
+    <li>
+        Content-Items Filter: @Edit.Toolbar(toolbar: new [] { "+contentitems?contentType=Something&filter:parent=[534]"})
+    </li>
+    <li>
+        Change color on server-Settings: @Edit.Toolbar(Content, settings: new { color = "#FF0000,#00FF00"})
+    </li>
+</ol>

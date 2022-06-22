@@ -1,0 +1,32 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Context V13 - Experimental in 13.12</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+
+<h2>Context changing Toolbars</h2>
+<div>
+  These tests change the context. 
+  Since it's not valid, the click won't work. 
+  Just verify that the source shows what you expect. 
+</div>
+<ol>
+    <li>
+        Change context to app 42 zone 42 - no other params: @Edit.Toolbar(Content, toolbar: new [] { "toolbar=empty", "+edit?context:zoneId=42&context:appId=43"})
+    </li>
+    <li>
+        Change context to app 42 zone 42 - EntityId @Edit.Toolbar(toolbar: new [] { "toolbar=empty", 
+        "+edit?entityId=" + Content.EntityId 
+        + "&context:zoneId=" + App.ZoneId 
+        + "&context:appId=" + App.AppId 
+        @* + "&context:pageId=" + CmsContext.Page.Id 
+        + "&context:moduleId=" + CmsContext.Module.Id  *@
+        })
+    </li>
+    <li>
+        Change context to app 42 zone 42 - EnityId &amp; Color @Edit.Toolbar(toolbar: new [] { "toolbar=empty", "+edit&color=red?entityId=99&context:zoneId=42&context:appId=45"})
+    </li>
+</ol>

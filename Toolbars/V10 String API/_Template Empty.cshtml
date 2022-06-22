@@ -1,0 +1,14 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Many Tests to Split</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<h2>Use other toolbar templates</h2>
+<ol>
+    @gen.LiJsMenuTest("Use empty template", "[`toolbar=empty`]")
+    @gen.LiJsMenuTest("Use empty template with layout button", "[`toolbar=empty`, `layout`]")
+</ol>
+

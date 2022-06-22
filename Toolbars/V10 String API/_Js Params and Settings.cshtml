@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Js Params and Settings</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+
+<h2> JS Settings</h2>
+<ol>
+  <li>
+      $settings and %more=green
+      <ul class="sc-menu" toolbar='["$settings?color=red&autoAddMore=end", "-layout?", "%more#color=green"]'></ul>
+  </li>
+</ol>
+
+<hr>
+<h2>JS Params</h2>
+<ol>
+  <li>
+      JS Params!
+      <ul class="sc-menu" toolbar='["$params?entityId=57&contentType=abcd", "-layout?", "-template-develop?something=other"]'></ul>
+  </li>
+</ol>

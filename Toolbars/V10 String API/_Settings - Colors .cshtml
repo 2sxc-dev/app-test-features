@@ -1,0 +1,34 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Experiment with Colors ?</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+<ol>
+  <li>
+      JS Toolbar with edit-only and colors
+      <ul class="sc-menu" 
+      toolbar='["toolbar=empty", "edit&color=FF0000,00FF00?entityId=@Content.EntityId"]'></ul>
+  </li>
+  <li>
+      JS Toolbar with edit-only and number-only colors - https://github.com/2sic/2sxc-ui/issues/66
+      <ul class="sc-menu" 
+      toolbar='["toolbar=empty", "edit&color=808080?entityId=@Content.EntityId"]'></ul>
+  </li>
+  <li>
+      JS Toolbar with all buttons and additional edit in color - just testing, can't work as it doesn't have IDs
+      <ul class="sc-menu" 
+      toolbar='["edit&color=FF0000,00FF00"]'></ul>
+  </li>
+  <li>
+      Server Toolbar with all buttons and modified edit in color
+      @Edit.Toolbar(Content, toolbar: "%edit&color=FF0000,00FF00")
+  </li>
+  <li>
+      Change background color server-toolbar: @Edit.Toolbar(Content, toolbar: new [] { "settings&color=FF0000,00FF00"})
+  </li>
+  <li>
+      Change color on server-Settings: @Edit.Toolbar(Content, settings: new { color = "#FF0000,#00FF00"})
+  </li>
+</ol>

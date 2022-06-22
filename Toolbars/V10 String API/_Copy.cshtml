@@ -1,0 +1,20 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Copy an Entity</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+
+  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+}
+<ol>
+  <li>
+    copy test: @Edit.Toolbar(itemToCopy, toolbar: new [] { "toolbar=empty", "+copy?contentTypeName=" + itemToCopy.EntityType })
+  </li>
+  <li>
+    Copy using Toolbar Service @Edit.Toolbar(Kit.Toolbar.Copy(itemToCopy))
+  </li>
+  <li>
+    TEST toolbar service multiple @Edit.Toolbar(itemToCopy, toolbar: Kit.Toolbar.Empty().Add("+edit").Copy(itemToCopy))
+  </li>
+</ol>

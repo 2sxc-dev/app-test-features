@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Special case where each button has a name - not sure what this is for</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<ol>
+    @gen.LiJsMenuTest("Empty template with special layout button", 
+    "[`toolbar=empty`, `ly=layout&color=red&icon=icon-sxc-sliders&class=test-cls`, `td&name=template-develop&color=green`, `td2&name=template-develop&color=blue`, `td3=template-develop&pos=1&color=brown`, `td4=template-develop&pos=-0&color=FF000055`]")
+</ol>

@@ -1,0 +1,18 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>JS Call</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<br>
+<div class="demobox" @Edit.TagToolbar(Content, toolbar: "custom&title=Message?call=myMessage&id=17")>
+  This demonstrates a custom button with the call-name in the parameters. 
+</div>
+<script>
+  function myMessage(context, event) {
+    console.log(context, event);
+    alert('hello from my Message - got this id:' + context.button.command.params.id);
+  }
+</script>

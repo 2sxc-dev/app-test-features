@@ -1,0 +1,27 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using System.Linq
+
+<h1>Many Tests to Split</h1>
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+}
+
+<hr>
+<h2>Groups and Positioning</h2>
+  <ol>
+    @gen.LiJsMenuTest("Add 1 button at start using default", "[`app`]")
+    @gen.LiJsMenuTest("Add 1 button at start using pos", "[`app&pos=0`]")
+    @gen.LiJsMenuTest("Add 1 button after start using high number (because other buttons in front are removed)", "[`app&pos=5`]")
+    <hr>
+    @gen.LiJsMenuTest("Add 1 button at end", "[`app&pos=-0`]")
+    @gen.LiJsMenuTest("Add 1 button at end -1", "[`app&pos=-1`]")
+    <hr>
+    @gen.LiJsMenuTest("add 2 buttons: layout, and template-develop", "[`layout`,`template-develop&pos=1`]")
+    @gen.LiJsMenuTest("Add group at start with 1 button: template-develop", "[`group&name=gp1`,`template-develop&group=gp1&pos=1`]")
+    @gen.LiJsMenuTest("Add group with shorthand and 1 button: template-develop", "[`group=gp1`,`template-develop&group=gp1&pos=1`]")
+    @gen.LiJsMenuTest("add 1 button: template-develop in group which is new (at end)", "[`template-develop&group=gp1&pos=1`]")
+
+    @gen.LiJsMenuTest("add two groups with one button each", "[`group=gp1`,`group=gp2`,`edit&group=gp1`,`edit&group=gp1`,`template-develop&group=gp2`,`app&group=gp2`]")
+        
+    @gen.LiJsMenuTest("remove the list-group", "[`-group=list`]")
+  </ol>
