@@ -22,7 +22,7 @@
     var testCustom = true;
     var testToolbarSvc = false;
     var testCopy = false;
-    var testMultipleNew = false;
+    var testMultipleNew = true;
     var testOtherTemplate = false;
     var testButtonId = false;
     var testDelete = false;
@@ -70,7 +70,7 @@
     
 @if(testBasics) { <hr> <h2>Basics - Empty or just Remove</h2>
   <ol>
-    @gen.LiJsMenuTest("Empty string without anything", "[``]")
+    @gen.LiJsMenuTest("Empty string without anything", new [] { "" } )
     @gen.LiJsMenuTest("Remove edit, layout, template-code", "[`-edit`, `-layout?`, `-template-develop?something=other`]")
   </ol>
 }
@@ -114,7 +114,7 @@
     <ol>
         @gen.LiJsMenuTest("Single New button", "[`new?contentType=Quotes`]")
         
-        @razorTagToolbar("same but using razor and current Content", "new?contentType=Quotes", true)
+        @gen.LiTagToolbar("same but using razor and current Content", "new?contentType=Quotes", true)
 
         @gen.LiJsMenuTest("Two New buttons", "[`new-dummy=new?contentType=Dummy`, `new-quote=new?contentType=Quotes`]")
 
@@ -156,26 +156,23 @@
 
 @if(testGroups) { 
 <hr><h2>Groups and Positioning</h2>
-<div>
-This already uses the <code>showTest1103</code> syntax which is a comma separated string
-</div>
-    <ol>
-        @showTest1103("Add 1 button at start using default", "app")
-        @showTest1103("Add 1 button at start using pos", "app&pos=0")
-        @showTest1103("Add 1 button after start using high number (because other buttons in front are removed)", "app&pos=5")
-        <hr>
-        @showTest1103("Add 1 button at end", "app&pos=-0")
-        @showTest1103("Add 1 button at end -1", "app&pos=-1")
-        <hr>
-        @showTest1103("add 2 buttons: layout, and template-develop", "layout,template-develop&pos=1")
-        @showTest1103("Add group at start with 1 button: template-develop", "group&name=gp1,template-develop&group=gp1&pos=1")
-        @showTest1103("Add group with shorthand and 1 button: template-develop", "group=gp1,template-develop&group=gp1&pos=1")
-        @showTest1103("add 1 button: template-develop in group which is new (at end)", "template-develop&group=gp1&pos=1")
+  <ol>
+    @gen.LiJsMenuTest("Add 1 button at start using default", "[`app`]")
+    @gen.LiJsMenuTest("Add 1 button at start using pos", "[`app&pos=0`]")
+    @gen.LiJsMenuTest("Add 1 button after start using high number (because other buttons in front are removed)", "[`app&pos=5`]")
+    <hr>
+    @gen.LiJsMenuTest("Add 1 button at end", "[`app&pos=-0`]")
+    @gen.LiJsMenuTest("Add 1 button at end -1", "[`app&pos=-1`]")
+    <hr>
+    @gen.LiJsMenuTest("add 2 buttons: layout, and template-develop", "[`layout`,`template-develop&pos=1`]")
+    @gen.LiJsMenuTest("Add group at start with 1 button: template-develop", "[`group&name=gp1`,`template-develop&group=gp1&pos=1`]")
+    @gen.LiJsMenuTest("Add group with shorthand and 1 button: template-develop", "[`group=gp1`,`template-develop&group=gp1&pos=1`]")
+    @gen.LiJsMenuTest("add 1 button: template-develop in group which is new (at end)", "[`template-develop&group=gp1&pos=1`]")
 
-        @showTest1103("add two groups with one button each", "group=gp1,group=gp2,edit&group=gp1,edit&group=gp1,template-develop&group=gp2,app&group=gp2")
-            
-        @showTest1103("remove the list-group", "-group=list")
-    </ol>
+    @gen.LiJsMenuTest("add two groups with one button each", "[`group=gp1`,`group=gp2`,`edit&group=gp1`,`edit&group=gp1`,`template-develop&group=gp2`,`app&group=gp2`]")
+        
+    @gen.LiJsMenuTest("remove the list-group", "[`-group=list`]")
+  </ol>
 }
 
 @if(testDelete) { <hr><h2>Server Side Toolbars</h2>
@@ -372,29 +369,3 @@ This already uses the <code>showTest1103</code> syntax which is a comma separate
     <h1>Default toolbar for backup and checks</h1>
     <div>just some toolbar to use in case others break</div>
 </div>
-
-
-@* @helper showTest(string label, string toolbar) {
-    toolbar = toolbar.Replace("`", "\"");
-    <li>
-        @label - @toolbar
-        <ul class="sc-menu" toolbar='@toolbar'></ul>
-    </li>
-} *@
-
-@helper razorTagToolbar(string label, string toolbar, bool useContent = false) {
-    <li @Edit.TagToolbar(useContent ? Content : null, toolbar: toolbar)>
-        @label - @toolbar
-        
-    </li>
-}
-
-
-@helper showTest1103(string label, string toolbar, bool useContent = false) {
-    // toolbar = toolbar.Replace("`", "\"");
-    <li>
-        @label - @toolbar
-        @Edit.Toolbar(toolbar: toolbar)
-    </li>
-}
-

@@ -18,11 +18,11 @@
 <hr>
 <h3>Test Groups / Folders</h3>
 @if (pathParts.Length > 1) {
-  <a href="?testPath=">Root</a>
+  <a href="?testPath=">↖️ Root</a>
 }
 @if (pathParts.Length > 2) {
   <text> | </text>
-  <a href="?testPath=@upPath">Up</a>
+  <a href="?testPath=@upPath">⬆️ Up</a>
 }
 <ol>
   @foreach (var subFolder in helpers.SubFolderNames(DynamicModel.Path)) {

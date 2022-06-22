@@ -24,4 +24,25 @@ public class TestGenerators : Custom.Hybrid.Code12 {
       Tag.Ul().Class("sc-menu").Attr("toolbar", toolbar)
     );
   }
+
+  public dynamic LiTagToolbar(string label, string toolbar, bool useContent = false) {
+    return Tag.Li(
+      label, 
+      " - ",
+      toolbar
+    ).Attr(Edit.TagToolbar(useContent ? Content : null, toolbar: toolbar));
+      // <li @Edit.TagToolbar(useContent ? Content : null, toolbar: toolbar)>
+      //     @label - @toolbar
+          
+      // </li>
+  }
+
+
+  public dynamic LiJsMenuTest(string label, string[] toolbar) {
+    return Tag.Li(
+      label,
+      string.Join(",", toolbar),
+      Tag.Ul().Class("sc-menu").Attr("toolbar", toolbar)
+    );
+  }
 }
