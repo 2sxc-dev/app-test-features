@@ -1,0 +1,29 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>CmsContext</h1>
+
+@{
+  var view = CmsContext.View;
+}
+
+<h2>View</h2>
+<ol>
+  <li>
+    Id: @view.Id
+  </li>
+  <li>
+    Name: @view.Name
+  </li>
+  <li>
+    Identifier: @view.Identifier
+  </li>
+  <li>
+    Edition: @view.Edition
+  </li>
+  <li>
+    Metadata: @view.Metadata
+  </li>
+  <li>
+    Path: @view.Path
+  </li>
+</ol>

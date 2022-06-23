@@ -1,0 +1,29 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+@using ToSic.Sxc.Services;
+
+<h1>Adam Service</h1>
+@{
+  var adamSvc = GetService<IAdamService>();
+  var file = adamSvc.File(Content.Field("Image"));
+}
+
+<ol>
+  <li>
+    File name: @file.Name
+  </li>
+  <li>
+    File Size: @file.Size
+  </li>
+  <li>
+    Size in Bytes: @file.SizeInfo.Bytes
+  </li>
+  <li>
+    Size in KBytes: @file.SizeInfo.Kb
+  </li>
+  <li>
+    Size in MBytes: @file.SizeInfo.Mb
+  </li>
+  <li>
+    Best Size: @file.SizeInfo.BestSize @file.SizeInfo.BestUnit
+  </li>
+</ol>
