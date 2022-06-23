@@ -1,0 +1,40 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Object to Url and Back</h1>
+@Kit.Page.Activate("2sxc.JsCore")
+
+<p>
+  See console
+</p>
+
+<script>
+  var basicObject = {
+    name: "basic_name",
+    bio: "my name is \n daniel \n and lönie",
+    age: 27,
+    null: null,
+    trueString: "true",
+    numString: "42",
+    metadata: {
+      isMale: true,
+      canCook: false
+    },
+    children: [
+      {
+        name: "~ma~rk~us", 
+        age: 12
+      },
+      {
+        name: "daniel",
+        age: 4
+      }
+    ]
+  };
+
+  var encoded = $2sxc.urlParams.toUrl(basicObject);
+  var restored = $2sxc.urlParams.toObj(encoded);
+  console.log("original", basicObject);
+  console.log("basic", encoded);
+  console.log("restore", restored);
+</script>
+
