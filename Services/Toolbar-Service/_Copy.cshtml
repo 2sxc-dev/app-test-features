@@ -1,0 +1,26 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Toolbar Service - HTML</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+
+  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+
+  var tlb1 = Kit.Toolbar.Empty().Copy(itemToCopy);
+  var tlb2 = Kit.Toolbar.Empty(itemToCopy).ButtonAdd("+edit").Copy(itemToCopy);
+}
+
+<ol>
+  <li>
+    Copy using Toolbar Service @Edit.Toolbar(tlb1) - @tlb1.With(mode: "html")
+    <br>
+    @tlb1.With(mode: "json")
+  </li>
+  <li>
+    TEST toolbar service multiple @Edit.Toolbar(itemToCopy, toolbar: tlb2) - @tlb2.With(mode: "html")
+    <br>
+    @tlb2.With(mode: "json")
+  </li>
+</ol>
