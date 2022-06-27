@@ -1,0 +1,37 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Toolbar Service - Conditions</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+  var tlb = Kit.Toolbar.Default()
+    .Settings(classes: "test-from-test");
+
+  var tlbBoolTrue = tlb.Condition(true);
+  var tlbBoolFalse = tlb.Condition(false);
+
+  var tlbFnTrue = tlb.Condition(() => true);
+  var tlbFnFalse = tlb.Condition(() => false);
+
+}
+
+<ol>
+  <li>
+    <strong @tlbBoolTrue>on this tag (mouse over) - True</strong>
+    @tlbBoolTrue
+  </li>
+  <li>
+    <strong @tlbBoolFalse>on this tag (mouse over) - false</strong>
+    @tlbBoolFalse
+  </li>
+  <hr>
+  <li>
+    <strong @tlbFnTrue>on this tag (mouse over) - FN True</strong>
+    @tlbFnTrue
+  </li>
+  <li>
+    <strong @tlbFnFalse>on this tag (mouse over) - FN false</strong>
+    @tlbFnFalse
+  </li>
+</ol>

@@ -5,20 +5,22 @@
   Show various cases where a toolbar service is just to-HTMLed
 </p>
 @{
-  var tlb = Kit.Toolbar.Default().Metadata(CmsContext.Page).Settings(classes: "test-from-test");
+  var tlb = Kit.Toolbar.Default()
+    .Metadata(CmsContext.Page, parameters: new { prefill = new { title = "daniel"} })
+    .Settings(classes: "test-from-test", ui: new { v1 = 27 })
+    .Target(Content);
+
   var tlbHtml = tlb.With(mode: "html");
   var tlbJson = tlb.With(mode: "json");
 }
 
 <ol>
   <li>
-    <strong @tlb>on this tag (mouse over)</strong>
-    @tlb 
-  </li>
+    @tlb <strong @tlb>on this tag</strong> </li>
   <li>
     mode tag: @tlbHtml
   </li>
   <li>
-    mode json: @tlbJson
+    mode json / debug: @tlbJson
   </li>
 </ol>
