@@ -9,8 +9,8 @@
     .ButtonModify("delete", ui: "show=true")
     .ButtonRemove("layout", "app");
 
-  var tlbHtml = tlb.With(mode: "html");
-  var tlbJson = tlb.With(mode: "json");
+  var tlbHtml = tlb.AsTag();
+  var tlbJson = tlb.AsJson();
 }
 
 <ol>

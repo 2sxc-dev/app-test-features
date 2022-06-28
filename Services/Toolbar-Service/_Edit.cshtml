@@ -1,0 +1,46 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Toolbar Service - Edit, Publish, etc.</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+
+  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+
+  var edit1 = Kit.Toolbar.Empty().Edit(itemToCopy);
+  var edit2 = Kit.Toolbar.Empty(itemToCopy).Edit();
+
+  var pub1 = Kit.Toolbar.Empty().Publish(itemToCopy);
+  var pub1f = Kit.Toolbar.Empty().Publish(itemToCopy, show: true);
+  var pub2 = Kit.Toolbar.Empty(itemToCopy).Publish();
+}
+
+<ol>
+  <li>
+    Edit Item on Command @Edit.Toolbar(edit1) - @edit1.AsTag()
+    <br>
+    @edit1.AsJson()
+  </li>
+  <li>
+    Item Item on Toolbar @Edit.Toolbar(itemToCopy, toolbar: edit2) - @edit2.AsTag()
+    <br>
+    @edit2.AsJson()
+  </li>
+
+  <li>
+    Publish Item on Command @Edit.Toolbar(pub1) - @pub1.AsTag()
+    <br>
+    @pub1.AsJson()
+  </li>
+  <li>
+    Pub Item on Toolbar @Edit.Toolbar(itemToCopy, toolbar: pub2) - @pub2.AsTag()
+    <br>
+    @pub2.AsJson()
+  </li>  
+  <li>
+    Publish Force show @Edit.Toolbar(pub1f) - @pub1f.AsTag()
+    <br>
+    @pub1.AsJson()
+  </li>
+</ol>

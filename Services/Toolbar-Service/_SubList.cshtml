@@ -6,8 +6,8 @@
 </p>
 @{
   var tlb = Kit.Toolbar.Default().Metadata(CmsContext.Page).Settings(classes: "test-from-test");
-  var tlbHtml = tlb.With(mode: "html");
-  var tlbJson = tlb.With(mode: "json");
+  var tlbHtml = tlb.AsTag();
+  var tlbJson = tlb.AsJson();
 }
 
 <ol>

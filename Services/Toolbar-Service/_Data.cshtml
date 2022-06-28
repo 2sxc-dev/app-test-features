@@ -1,0 +1,45 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Data Buttons</h1>
+<p>
+  Show various cases where a toolbar service creates admin-buttons
+</p>
+@{
+  var dataBasic = Kit.Toolbar.Empty()
+    .Data(Content);
+
+  // todo: try with contet-type name
+
+  // todo: try with filters
+
+  var dataName1 = Kit.Toolbar.Empty().Data("Dummy");
+  var dataName2 = Kit.Toolbar.Empty().Data(/*contentType: */ "Dummy");
+  var dataFiltered = Kit.Toolbar.Empty().Data("Dummy", filter: new { FavoriteNumber = 11 });
+}
+
+<ol>
+  <li>
+    Basic: @dataBasic.AsTag()
+    <br>
+    @dataBasic.AsJson()
+  </li>
+
+  <li>
+    Type name in target: @dataName1.AsTag()
+    <br>
+    @dataName1.AsJson()
+  </li>
+
+  <li>
+    Type name in param: @dataName2.AsTag()
+    <br>
+    @dataName2.AsJson()
+  </li>
+
+  <li>
+    Filters: @dataFiltered.AsTag()
+    <br>
+    @dataFiltered.AsJson()
+  </li>
+
+</ol>

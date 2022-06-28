@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.Razor14<dynamic, ToSic.Sxc.Services.ServiceKit14>
+
+<h1>Toolbar Service - Admin Buttons</h1>
+<p>
+  Show various cases where a toolbar service creates admin-buttons
+</p>
+@{
+  var tlb1 = Kit.Toolbar.Empty()
+    .App()
+    .Apps()
+    .AppImport()
+    .AppResources()
+    .AppSettings()
+    .System()
+    .Insights();
+
+}
+
+<ol>
+  <li>
+    Show as tag: @tlb1.AsTag()
+    <br>
+    @tlb1.AsJson()
+  </li>
+</ol>

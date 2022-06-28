@@ -10,8 +10,8 @@
     .Settings(classes: "test-from-test", ui: new { v1 = 27 })
     .Target(Content);
 
-  var tlbHtml = tlb.With(mode: "html");
-  var tlbJson = tlb.With(mode: "json");
+  var tlbHtml = tlb.AsTag();
+  var tlbJson = tlb.AsJson();
 }
 
 <ol>

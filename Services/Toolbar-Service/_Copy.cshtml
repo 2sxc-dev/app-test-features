@@ -10,17 +10,23 @@
 
   var tlb1 = Kit.Toolbar.Empty().Copy(itemToCopy);
   var tlb2 = Kit.Toolbar.Empty(itemToCopy).ButtonAdd("+edit").Copy(itemToCopy);
+  var copy3 = Kit.Toolbar.Empty(itemToCopy).Copy();
 }
 
 <ol>
   <li>
-    Copy using Toolbar Service @Edit.Toolbar(tlb1) - @tlb1.With(mode: "html")
+    Copy using Toolbar Service @Edit.Toolbar(tlb1) - @tlb1.AsTag()
     <br>
-    @tlb1.With(mode: "json")
+    @tlb1.AsJson()
   </li>
   <li>
-    TEST toolbar service multiple @Edit.Toolbar(itemToCopy, toolbar: tlb2) - @tlb2.With(mode: "html")
+    TEST toolbar service multiple @Edit.Toolbar(itemToCopy, toolbar: tlb2) - @tlb2.AsTag()
     <br>
-    @tlb2.With(mode: "json")
+    @tlb2.AsJson()
+  </li>
+  <li>
+    Copy3 @copy3.AsTag()
+    <br>
+    @copy3.AsJson()
   </li>
 </ol>
