@@ -1,0 +1,31 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Call Code etc.</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+
+  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+
+  var code1 = Kit.Toolbar.Empty()
+    // .Code()
+    .Code("callMe");
+  //var edit2 = Kit.Toolbar.Empty().Code();
+}
+
+<ol>
+  <li>
+    Edit Item on Command @code1.AsTag()
+    <br>
+    @code1.AsJson()
+  </li>
+
+</ol>
+
+
+<script>
+  function callMe(p, q) {
+    console.log('call me', p, q);
+  }
+</script>

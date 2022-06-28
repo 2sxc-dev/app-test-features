@@ -1,6 +1,6 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Toolbar Service - Edit, Publish, etc.</h1>
+<h1>Toolbar Service - Edit, New, Publish, etc.</h1>
 <p>
   Show various cases where a toolbar service is just to-HTMLed
 </p>
@@ -8,12 +8,14 @@
 
   var itemToCopy = AsDynamic(App.Data["Dummy"].First());
 
-  var edit1 = Kit.Toolbar.Empty().Edit(itemToCopy);
-  var edit2 = Kit.Toolbar.Empty(itemToCopy).Edit();
+  var edit1 = Kit.Toolbar.Empty().Edit(itemToCopy).New().New(itemToCopy);
+  var edit2 = Kit.Toolbar.Empty(itemToCopy).Edit().New().New("Dummy");
 
   var pub1 = Kit.Toolbar.Empty().Publish(itemToCopy);
-  var pub1f = Kit.Toolbar.Empty().Publish(itemToCopy, show: true);
+  var pub1f = Kit.Toolbar.Empty().Publish(itemToCopy, operation: "add");
   var pub2 = Kit.Toolbar.Empty(itemToCopy).Publish();
+
+  var new1 = Kit.Toolbar.Empty().New("Dummy", prefill: new { Title = "hello" });
 }
 
 <ol>
@@ -42,5 +44,11 @@
     Publish Force show @Edit.Toolbar(pub1f) - @pub1f.AsTag()
     <br>
     @pub1.AsJson()
+  </li>
+
+  <li>
+    New with prefill @new1.AsTag()
+    <br>
+    @new1.AsJson()
   </li>
 </ol>

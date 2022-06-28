@@ -1,25 +1,25 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Toolbar Service - HTML</h1>
+<h1>Toolbar Service - Buttons</h1>
 <p>
   Show various cases where a toolbar service is just to-HTMLed
 </p>
 @{
   var tlb = Kit.Toolbar.Default(Content)
-    .ButtonModify("delete", ui: "show=true")
-    .ButtonRemove("layout", "app");
+    .Button("delete", ui: "show=true")
+    .Button("-layout")
+    .Button("+code")
+    .Button("code", operation: "auto");
 
-  var tlbHtml = tlb.AsTag();
-  var tlbJson = tlb.AsJson();
 }
 
 <ol>
   <li>
     @tlb <strong @tlb>on this tag</strong> </li>
   <li>
-    mode tag: @tlbHtml
+    mode tag: @tlb.AsTag()
   </li>
   <li>
-    mode json / debug: @tlbJson
+    mode json / debug: @tlb.AsJson()
   </li>
 </ol>

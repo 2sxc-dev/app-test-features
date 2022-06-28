@@ -1,0 +1,38 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Delete</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+
+  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+
+  var tlbDelEmpty = Kit.Toolbar.Empty().Layout().Delete(itemToCopy);
+  var tlbDelEmptyInContext = Kit.Toolbar.Empty(itemToCopy).Delete();
+  var tlbDelDef = Kit.Toolbar.Default(itemToCopy).Delete();
+  var tlbDelDefOverride = Kit.Toolbar.Default(itemToCopy).Delete(operation: "add");
+}
+
+<ol>
+  <li>
+    Empty - delete should show @tlbDelEmpty.AsTag()
+    <br>
+    @tlbDelEmpty.AsJson()
+  </li>
+  <li>
+    Empty - delete should show @tlbDelEmptyInContext.AsTag()
+    <br>
+    @tlbDelEmptyInContext.AsJson()
+  </li>
+  <li>
+    Default - delete should be in third menu @tlbDelDef.AsTag()
+    <br>
+    @tlbDelDef.AsJson()
+  </li>
+  <li>
+    Default with flag "add" - delete should show @tlbDelDefOverride.AsTag()
+    <br>
+    @tlbDelDefOverride.AsJson()
+  </li>
+</ol>
