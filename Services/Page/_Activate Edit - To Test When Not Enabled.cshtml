@@ -1,0 +1,14 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Page Service - Activate Edit</h1>
+<p>
+  This should be used to test if the activate catches problems when a feature is not enabled. 
+
+  To fully test, disable the public-edit and see that it errors <strong>when accessed anonyomusly!</strong>.
+</p>
+
+@Kit.Page.Activate("2sxc.JsCms")
+
+@{
+  // Edit.Enable(forms: true);
+}
