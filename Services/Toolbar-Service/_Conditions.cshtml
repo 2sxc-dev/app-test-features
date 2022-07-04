@@ -6,7 +6,11 @@
 </p>
 @{
   var tlb = Kit.Toolbar.Default()
-    .Settings(classes: "test-from-test");
+    .Settings(
+      classes: "test-from-test", 
+      ui: "classes=test-class-in-ui"
+    )
+    .Layout(ui: "class=color-green");
 
   var tlbBoolTrue = tlb.Condition(true);
   var tlbBoolFalse = tlb.Condition(false);

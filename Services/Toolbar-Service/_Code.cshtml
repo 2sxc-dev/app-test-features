@@ -10,22 +10,39 @@
 
   var code1 = Kit.Toolbar.Empty()
     // .Code()
-    .Code("callMe");
+    .Code("callMe", parameters: new { id = 27 })
+    .Button("custom", parameters: "call=callMe&id=27")
+    ;
   //var edit2 = Kit.Toolbar.Empty().Code();
+
+  var codeSpace = Kit.Toolbar.Empty().Code("call me");
+  var codeBracket = Kit.Toolbar.Empty().Code("callMe(27)");
 }
 
 <ol>
   <li>
-    Edit Item on Command @code1.AsTag()
+    Code new and old @code1.AsTag()
     <br>
     @code1.AsJson()
+  </li>
+
+  <li>
+    Space - invalid @codeSpace.AsTag()
+    <br>
+    @codeSpace.AsJson()
+  </li>
+
+  <li>
+    Bracket - invalid @codeBracket.AsTag()
+    <br>
+    @codeBracket.AsJson()
   </li>
 
 </ol>
 
 
 <script>
-  function callMe(p, q) {
-    console.log('call me', p, q);
+  function callMe(p, q, r) {
+    console.log('call me', p, q, r);
   }
 </script>

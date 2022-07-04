@@ -8,7 +8,7 @@
   var tlb = Kit.Toolbar.Default()
     .Metadata(CmsContext.Page, parameters: new { prefill = new { title = "daniel"} })
     .Settings(classes: "test-from-test", ui: new { v1 = 27 })
-    .Target(Content);
+    .For(Content);
 
   var tlbHtml = tlb.AsTag();
   var tlbJson = tlb.AsJson();
