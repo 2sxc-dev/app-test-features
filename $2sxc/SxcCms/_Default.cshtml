@@ -1,0 +1,30 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Services
+
+<div @Edit.TagToolbar(Content)>
+  <h1>$2sxc(...).cms.run(...)</h1>
+</div>
+
+<ol>
+  <li>
+    <a href="#" onclick="createNew(this)">Create New with CMS Run API</a>
+  </li>
+</ol>
+
+<script>
+  function createNew(target) {
+    var sxc = $2sxc(target);
+
+    sxc.cms.run({
+      action: 'new',
+      params: {
+        parent: '423',
+        fields: 'Main',
+        prefill: {
+          x: 27,
+          y: 42
+        }
+      }
+    });
+  }
+</script>
