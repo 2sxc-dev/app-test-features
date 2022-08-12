@@ -9,7 +9,7 @@
   var itemToCopy = AsDynamic(App.Data["Dummy"].First());
 
   var tlb1 = Kit.Toolbar.Empty().Copy(itemToCopy);
-  var tlb2 = Kit.Toolbar.Empty(itemToCopy).ButtonAdd("+edit").Copy(itemToCopy);
+  var tlb2 = Kit.Toolbar.Empty(itemToCopy).Button("+edit").Copy(itemToCopy);
   var copy3 = Kit.Toolbar.Empty(itemToCopy).Copy();
 }
 
