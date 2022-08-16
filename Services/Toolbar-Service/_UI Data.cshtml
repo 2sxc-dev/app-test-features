@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - HTML</h1>
+<p>
+  Show various cases where a toolbar service has UI Data
+</p>
+@{
+
+  var tlb = Kit.Toolbar.Default()
+    .Metadata(CmsContext.Page, parameters: new { prefill = new { title = "daniel"} })
+    .Settings(classes: "test-from-test", ui: new { V1 = 27, test = "should-be-changed" })
+    .Edit(ui: new { data = "test text "} )
+    .For(Content);
+}
+
+<ol>
+  <li>
+    @tlb <strong @tlb>on this tag</strong> </li>
+  <li>
+    mode tag: @tlb.AsTag()
+  </li>
+  <li>
+    mode json / debug: @tlb.AsJson()
+  </li>
+</ol>
