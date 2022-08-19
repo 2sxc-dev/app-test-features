@@ -1,0 +1,51 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Toolbar Settings</h1>
+<p>
+  All kinds of cases for toolbar settings
+</p>
+@{
+  var show = CreateInstance("ToolbarServiceTests.cs");
+  var itemToUse = AsDynamic(App.Data["Dummy"].First());
+}
+
+<h2>Position of MORE button</h2>
+<ol>
+  @show.TbTestOnLi("Default = No Settings",
+    Kit.Toolbar.Default(itemToUse)
+  )
+  @show.TbTestOnLi("Settings: AUTO-ADD start (left)",
+    Kit.Toolbar.Default(itemToUse)
+      .Settings(autoAddMore: "start")
+  )
+  @show.TbTestOnLi("Settings: AUTO-ADD start (never)",
+    Kit.Toolbar.Default(itemToUse)
+      .Settings(autoAddMore: "never")
+  )
+</ol>
+
+<h2>Hovers affecting more-position</h2>
+<ol>
+  @show.TbTestOnLi("Settings: Hover left",
+    Kit.Toolbar.Default(itemToUse)
+      .Settings(hover: "left")
+  )
+  @show.TbTestOnLi("Settings: Hover left but force ellipsis to right",
+    Kit.Toolbar.Default(itemToUse)
+      .Settings(hover: "left", autoAddMore: "end")
+  )
+</ol>
+
+
+<h2>Show always</h2>
+<ol>
+  @show.TbTestOnLi("Settings: Show Always",
+    Kit.Toolbar.Default(itemToUse)
+      .Settings(show: "always")
+  )
+  @show.TbTestOnLi("Settings: Show Always, left",
+    Kit.Toolbar.Default(itemToUse)
+      .Settings(show: "always", hover: "left")
+  )
+
+</ol>

@@ -1,0 +1,53 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Groups</h1>
+<p>
+  Various cases where groups are used, added, reconfigured.
+</p>
+<p>
+  Note that some cases where we use groups, but some buttons don't specify the group, things get a bit strange. 
+  We don't plan to fix/change that ATM. 
+</p>
+@{
+  var show = CreateInstance("ToolbarServiceTests.cs");
+  var itemToUse = AsDynamic(App.Data["Dummy"].First());
+}
+
+<ol>
+  @show.TbTestAsTag("Empty w/2 Groups and leading group",
+    Kit.Toolbar.Empty()
+    .Group()
+    .Edit(itemToUse)
+    .Group()
+    .New().New(itemToUse)
+    .Group())
+  
+  @show.TbTestAsTag("Empty w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>",
+    Kit.Toolbar.Empty()
+    .Edit(itemToUse)
+    .Group()
+    .New().New(itemToUse))
+
+  @show.TbTestAsTag("Default w/2 Groups",
+    Kit.Toolbar.Default()
+    .Group()
+    .Edit(itemToUse)
+    .Group()
+    .New().New(itemToUse))
+
+  @show.TbTestAsTag("Default w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>", 
+    Kit.Toolbar.Default()
+      .Edit(itemToUse)
+      .Group()
+      .New().New(itemToUse))
+
+  @show.TbTestAsTag("Default but remove group 'default'", 
+    Kit.Toolbar.Default()
+      .Group("-default"))
+
+  @show.TbTestAsTag("Default but remove group 'default' and 'view'", 
+    Kit.Toolbar.Default()
+      .Group("-default")
+      .Group("-view"))
+
+</ol>
