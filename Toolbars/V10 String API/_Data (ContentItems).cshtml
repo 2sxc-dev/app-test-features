@@ -1,0 +1,42 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq
+
+@{
+  var gen = CreateInstance("TestGenerators.cs");
+  var parentName = "DataWithRelationshipParent";
+  var childName = "DataWithRelationshipChild";
+
+  var aParent = AsDynamic(App.Data[parentName].First());
+  var aChild = AsDynamic(App.Data[childName].First());
+  var childIds = string.Join(",", AsList(App.Data[childName]).Take(2).Select(d => d.EntityId));
+}
+
+<h1>Content Items Toolbar</h1>
+<em>These tests need to be updated to values / types that really exist here</em>
+<ol>
+    <li>
+        Data (new) of current content-type (@parentName): @Edit.Toolbar(aParent, toolbar: new [] { "data?contentType=" + parentName })
+    </li>
+    <li>
+        ContentItems (old) of current content-type (@parentName): @Edit.Toolbar(aParent, toolbar: new [] { "contentitems?contentType=" + parentName })
+    </li>
+    <li>
+        Data Filter Child (one only): @Edit.Toolbar(toolbar: new [] { "data?contentType=" + parentName + "&filter:Child=[" + aChild.EntityId + "]"})
+    </li>
+    <li>
+        Data Filter Children (containing multiple): @Edit.Toolbar(toolbar: new [] { "data?contentType=" + parentName + "&filter:Children=[" + aChild.EntityId + "]"})
+    </li>
+
+    <li>
+        Data Filter Children (containing multiple) for "@childIds": @Edit.Toolbar(toolbar: new [] { "data?contentType=" + parentName + "&filter:Children=[" + childIds + "]"})
+    </li>
+
+    
+
+    <li>
+        Data Filter: @Edit.Toolbar(toolbar: new [] { "data?contentType=Something&filter:parent=[534]"})
+    </li>
+    <li>
+        Change color on server-Settings: @Edit.Toolbar(Content, settings: new { color = "#FF0000,#00FF00"})
+    </li>
+</ol>

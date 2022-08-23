@@ -5,41 +5,71 @@
   Show various cases where a toolbar service creates admin-buttons
 </p>
 @{
-  var dataBasic = Kit.Toolbar.Empty()
-    .Data(Content);
+  var tlbTest = CreateInstance("ToolbarServiceTests.cs");
 
+  var parentName = "DataWithRelationshipParent";
+  var childName = "DataWithRelationshipChild";
+
+  var aParent = AsDynamic(App.Data[parentName].First());
+  var aChild = AsDynamic(App.Data[childName].First());
+
+  var children2 = AsList(App.Data[childName]).Take(2);
+  var childIds2 = children2.Select(d => d.EntityId);
+  var childIdsString2 = string.Join(",", childIds2);
   // todo: try with contet-type name
 
   // todo: try with filters
-
-  var dataName1 = Kit.Toolbar.Empty().Data("Dummy");
-  var dataName2 = Kit.Toolbar.Empty().Data(/*contentType: */ "Dummy");
   var dataFiltered = Kit.Toolbar.Empty().Data("Dummy", filter: new { FavoriteNumber = 11 });
 }
 
 <ol>
-  <li>
-    Basic: @dataBasic.AsTag()
-    <br>
-    @dataBasic.AsJson()
-  </li>
+  @tlbTest.TbTestAsTag("Basic, no params", 
+    Kit.Toolbar.Empty()
+      .Data())
 
-  <li>
-    Type name in target: @dataName1.AsTag()
-    <br>
-    @dataName1.AsJson()
-  </li>
+  @tlbTest.TbTestAsTag("Basic, params current content-item", 
+    Kit.Toolbar.Empty()
+      .Data(Content))
 
-  <li>
-    Type name in param: @dataName2.AsTag()
-    <br>
-    @dataName2.AsJson()
-  </li>
+  @tlbTest.TbTestAsTag("Basic, params another item (should take it's content-type)", 
+    Kit.Toolbar.Empty()
+      .Data(aParent))
 
-  <li>
-    Filters: @dataFiltered.AsTag()
-    <br>
-    @dataFiltered.AsJson()
-  </li>
+  @tlbTest.TbTestAsTag("Basic, just content-type name as string", 
+    Kit.Toolbar.Empty()
+      .Data(parentName))
+
+  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as string", 
+    Kit.Toolbar.Empty()
+      .Data(parentName, filter: "Child=" + aChild.EntityId))
+
+  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as [string]", 
+    Kit.Toolbar.Empty()
+      .Data(parentName, filter: "Child=[" + aChild.EntityId + "]"))
+
+  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as [int,int]", 
+    Kit.Toolbar.Empty()
+      .Data(parentName, filter: "Children=[" + childIdsString2 + "]"))
+
+  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as object", 
+    Kit.Toolbar.Empty()
+      .Data(parentName, filter: new { Child = aChild.EntityId }))
+
+  @tlbTest.TbTestAsTag("Filter as object, giving it a child", 
+    Kit.Toolbar.Empty()
+      .Data(parentName, filter: new { Child = aChild }))
+
+  @tlbTest.TbTestAsTag("Filter as an int[] array of numbers", 
+    Kit.Toolbar.Empty()
+      .Data(parentName, filter: new { Child = childIds2 }))
+
+  @tlbTest.TbTestAsTag("Filter by giving it an IEnumerable of children", 
+    Kit.Toolbar.Empty()
+      .Data(parentName, filter: new { Child = children2 }))
+
+  @tlbTest.TbTestAsTag("Another property, not relevant but just for demo", 
+    Kit.Toolbar.Empty()
+      .Data("Dummy", filter: new { FavoriteNumber = 11 }))
+
 
 </ol>

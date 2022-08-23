@@ -9,12 +9,12 @@
   We don't plan to fix/change that ATM. 
 </p>
 @{
-  var show = CreateInstance("ToolbarServiceTests.cs");
+  var tlbTest = CreateInstance("ToolbarServiceTests.cs");
   var itemToUse = AsDynamic(App.Data["Dummy"].First());
 }
 
 <ol>
-  @show.TbTestAsTag("Empty w/2 Groups and leading group",
+  @tlbTest.TbTestAsTag("Empty w/2 Groups and leading group",
     Kit.Toolbar.Empty()
     .Group()
     .Edit(itemToUse)
@@ -22,30 +22,30 @@
     .New().New(itemToUse)
     .Group())
   
-  @show.TbTestAsTag("Empty w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>",
+  @tlbTest.TbTestAsTag("Empty w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>",
     Kit.Toolbar.Empty()
     .Edit(itemToUse)
     .Group()
     .New().New(itemToUse))
 
-  @show.TbTestAsTag("Default w/2 Groups",
+  @tlbTest.TbTestAsTag("Default w/2 Groups",
     Kit.Toolbar.Default()
     .Group()
     .Edit(itemToUse)
     .Group()
     .New().New(itemToUse))
 
-  @show.TbTestAsTag("Default w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>", 
+  @tlbTest.TbTestAsTag("Default w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>", 
     Kit.Toolbar.Default()
       .Edit(itemToUse)
       .Group()
       .New().New(itemToUse))
 
-  @show.TbTestAsTag("Default but remove group 'default'", 
+  @tlbTest.TbTestAsTag("Default but remove group 'default'", 
     Kit.Toolbar.Default()
       .Group("-default"))
 
-  @show.TbTestAsTag("Default but remove group 'default' and 'view'", 
+  @tlbTest.TbTestAsTag("Default but remove group 'default' and 'view'", 
     Kit.Toolbar.Default()
       .Group("-default")
       .Group("-view"))

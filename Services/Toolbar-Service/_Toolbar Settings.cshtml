@@ -9,6 +9,8 @@
   var itemToUse = AsDynamic(App.Data["Dummy"].First());
 }
 
+<hr>
+
 <h2>Position of MORE button</h2>
 <ol>
   @show.TbTestOnLi("Default = No Settings",
@@ -47,5 +49,23 @@
     Kit.Toolbar.Default(itemToUse)
       .Settings(show: "always", hover: "left")
   )
-
 </ol>
+
+<h2>Merge multiple settings - show always to better debug</h2>
+<ol>
+  @show.TbTestOnLi("Settings: Merge colors",
+    Kit.Toolbar.Default(itemToUse, ui: "autoAddMore=never")
+      .Settings(show: "always")
+      .Settings(hover: "left")
+      .Settings(hover: "right")
+  )
+</ol>
+
+<div @Kit.Toolbar.Default()>
+  <h2>test toolbars in toolbars</h2>
+  <br>
+  <br>
+  <br>
+  @Kit.Toolbar.Default().AsTag()
+  @Edit.Toolbar()
+</div>
