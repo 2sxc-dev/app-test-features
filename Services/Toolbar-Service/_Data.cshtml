@@ -16,9 +16,7 @@
   var children2 = AsList(App.Data[childName]).Take(2);
   var childIds2 = children2.Select(d => d.EntityId);
   var childIdsString2 = string.Join(",", childIds2);
-  // todo: try with contet-type name
 
-  // todo: try with filters
   var dataFiltered = Kit.Toolbar.Empty().Data("Dummy", filter: new { FavoriteNumber = 11 });
 }
 
