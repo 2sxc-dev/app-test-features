@@ -1,0 +1,21 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Demo;
+
+<h1>Toolbar Service - Demo Mode</h1>
+@{
+
+}
+
+<div @Kit.Toolbar.Default()>
+  <h2>Demo mode - by default requires hover</h2>
+</div>
+
+<hr>
+
+@{
+  Kit.Toolbar.ActivateDemoMode(ui: "show=always");
+}
+
+<div @Kit.Toolbar.Default()>
+  <h2>Demo mode - This should appear automatically because it was set to demo mode. </h2>
+</div>
