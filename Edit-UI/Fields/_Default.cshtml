@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Edit-UI Fields</h1>
+@{
+  Func<string, dynamic> MakeToolbar = name => {
+    return Kit.Toolbar.Empty().New(name).Fields(name).AsTag();
+  };
+}
+<ol>
+  <li>
+    Boolean - All combinations @MakeToolbar("FieldsBoolean")
+  </li>
+  <li>
+    Empty / Groups @MakeToolbar("FieldsEmpty")
+  </li>
+  <li>
+    Number (todo)
+  </li>
+  <li>
+    String (todo)
+  </li>
+  <li>
+    Hyperlink (todo)
+  </li>
+</ol>
