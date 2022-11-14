@@ -1,5 +1,9 @@
 @inherits Custom.Hybrid.Razor14
-
+@{
+  // IMPORTANT: This must be at the top of the file, so it executes first
+  var tlbShared = CreateInstance("../../_Shared/ShowToolbars.cs");
+  // tlbShared.EnableEditForAnonymous(Edit);
+}
 <h1>Edit-UI Fields</h1>
 @{
   Func<string, dynamic> MakeToolbar = name => {
@@ -28,6 +32,9 @@
       InlinePrefill = "Prefill InlinePrefill",
       DialogPrefill = "Prefill DialogPrefill"
     })
+  </li>
+  <li>
+    String - WYSIWYG - Inner Content @MakeToolbar("FieldsStringWysiwygInnerContent")
   </li>
   <li>
     String (todo)
