@@ -5,6 +5,10 @@
   Func<string, dynamic> MakeToolbar = name => {
     return Kit.Toolbar.Empty().New(name).Fields(name).AsTag();
   };
+
+  Func<string, object, dynamic> MakeToolbarPrefill = (name, prefill) => {
+    return Kit.Toolbar.Empty().New(name, prefill: prefill).Fields(name).AsTag();
+  };
 }
 <ol>
   <li>
@@ -15,6 +19,15 @@
   </li>
   <li>
     Number (todo)
+  </li>
+  <li>
+    String - WYSIWYG - Various Tests @MakeToolbar("FieldsStringWysiwyg")
+  </li>
+  <li>
+    String - WYSIWYG - @@All Settings @MakeToolbarPrefill("FieldsStringWysiwygAll", new {
+      InlinePrefill = "Prefill InlinePrefill",
+      DialogPrefill = "Prefill DialogPrefill"
+    })
   </li>
   <li>
     String (todo)
