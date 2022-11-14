@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="14.12.02" ExportDate="2022-11-14T18:50:54.5145065+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="14.12.02" ExportDate="2022-11-14T19:43:32.0362225+01:00">
   <Header>
     <App Guid="ab297ff7-224c-4158-a8ad-3f384997103f" />
     <Language Default="en-us" />
-    <Dimensions />
+    <Dimensions>
+      <Dimension DimensionID="228" Name="German (Germany)" SystemKey="" ExternalKey="de-DE" Active="true" />
+      <Dimension DimensionID="229" Name="English (United States)" SystemKey="" ExternalKey="en-US" Active="true" />
+    </Dimensions>
   </Header>
   <AttributeSets>
     <AttributeSet StaticName="App-Resources" Name="App-Resources" Description="Stores resources like translations for an app" Scope="System.App" AlwaysShareConfiguration="false">
@@ -1669,22 +1672,6 @@
       <Value Key="ListInstructions" Value="" Type="String" />
       <Value Key="Notes" Value="" Type="String" />
     </Entity>
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="2SexyContent-App" AttributeSetName="2SexyContent-App" EntityGUID="44d309a9-e3d6-45f1-9168-47a3cb60e570" Json="True" KeyNumber="1807">
-      <Value Key="DisplayName" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="Folder" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="OriginalId" Value="" Type="String" />
-      <Value Key="Version" Value="00.00.13" Type="String" />
-    </Entity>
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Settings" AttributeSetName="App-Settings" EntityGUID="69a38370-2630-45f7-8d36-d798f2a433a1" KeyNumber="1807" />
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Resources" AttributeSetName="App-Resources" EntityGUID="873d759b-b338-4622-9c27-577cf9ce0bcd" KeyNumber="1807" />
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="2SexyContent-App" AttributeSetName="2SexyContent-App" EntityGUID="3ddc3a52-7f80-4c04-9125-619c1f64a0e9" Json="True" KeyNumber="1807">
-      <Value Key="DisplayName" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="Folder" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="OriginalId" Value="" Type="String" />
-      <Value Key="Version" Value="00.00.13" Type="String" />
-    </Entity>
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Settings" AttributeSetName="App-Settings" EntityGUID="cf4b4785-a80a-4dd8-a37e-f84d7fe1694c" KeyNumber="1807" />
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Resources" AttributeSetName="App-Resources" EntityGUID="d73204bd-1782-409f-9481-1bca5e89f5be" KeyNumber="1807" />
     <Entity TargetType="5" AssignmentObjectType="ContentType" AttributeSetStaticName="ContentType" AttributeSetName="ContentType" EntityGUID="bd21a7f4-d16d-4c16-bec7-150b52efde3d" Json="True" KeyString="6eb339ad-895d-4bbb-932d-c0a546b952ea">
       <Value Key="Description" Value="" Type="String" />
       <Value Key="DynamicChildrenField" Value="" Type="String" />
