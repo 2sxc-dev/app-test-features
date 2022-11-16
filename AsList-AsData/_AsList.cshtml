@@ -1,0 +1,21 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>AsList</h1>
+
+@{
+  var asListFromAppData = AsList(App.Data["Dummy"]).Where(x => true);
+
+  // This must become dynamic for the following tests
+  var dynListRoot = asListFromAppData as dynamic;
+  var dynChildListAsObject = AsList(dynListRoot as object);
+
+}
+
+<ol>
+  <li>
+    asListFromAppData.Count(): @asListFromAppData.Count()
+  </li>
+  <li>
+    dynChild: @dynChildListAsObject.Count()
+  </li>
+</ol>
