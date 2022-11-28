@@ -1,19 +1,67 @@
 @inherits Custom.Hybrid.Razor14
-@using ToSic.Sxc.Services;
-
+@using ToSic.Sxc.Services
+@{
+  var test = CreateInstance("TestLog.cs");
+  var code = CreateInstance("Code14.cs");
+}
 <h1>Custom.Hybrid.Razor14&lt;dynamic, ServiceKit14&gt;</h1>
 <p>
-  This is a Razor14 page. 
+  This is a Razor14 page.
   Some example code:
 </p>
 <ol>
   <li>System.Convert ToInt: @Convert.ToInt32("523")</li>
   <li>Kit.Convert ToInt: @Kit.Convert.ToInt("523")</li>
   <li>Kit: @Kit.Page</li>
+  <li>SayHello: @code.SayHello()</li>
 </ol>
 
-@{
-  var code = CreateInstance("Code14.cs");
-}
 
-@code.SayHello()
+<hr>
+<h1>@this.GetType()</h1>
+<h2>@this.GetType().BaseType</h2>
+<h3 style="color:red;">@Log.GetType()</h3>
+<h3 style="color:red;">@test.SimpleTest(Log)</h3>
+<pre>@test.DumpLog(Log)</pre>
+
+
+<hr>
+<h1>@code.CodeType()</h1>
+<h2>@code.BaseType()</h2>
+<h3 style="color:red;">@code.LogType()</h3>
+<h3 style="color:red;">@code.SimpleTest()</h3>
+<pre>@code.DumpLog()</pre>
+
+
+<hr>
+<h1 id="codeType">...loading...</h1>
+<h2 id="baseType">...loading...</h2>
+<h3 id="logType" style="color:red;">...loading...</h3>
+<h3 id="simpleTest" style="color:red;">...loading...</h3>
+<pre id="dumpLog" turn-on='{ "run": "window.downloadJSAtOnload()" }'>...loading...</pre>
+@{
+  Kit.Page.Activate("jQuery");
+  Kit.Page.Activate("2sxc.JsCore");
+  Kit.Page.Activate("turnOn");
+}
+<script type="text/javascript">
+  // Use an IFFE to ensure the variables are not exposed globaly
+  // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+  (() => {
+    // The init function which should be called
+    function downloadJSAtOnload() {
+      $2sxc(@CmsContext.Module.Id).webApi
+        .get('app/auto/BaseClasses/api/Api14/ApiTypeInfo')
+        .then(data => {
+          console.log(data);
+          document.getElementById("codeType").innerHTML = data.codeType;
+          document.getElementById("baseType").innerHTML = data.baseType;
+          document.getElementById("logType").innerHTML = data.logType;
+          document.getElementById("simpleTest").innerHTML = data.simpleTest;
+          document.getElementById("dumpLog").innerHTML = data.dumpLog;
+        });
+    }
+    // Generate a new object if none exists yet (best practice)
+    window.downloadJSAtOnload = window.downloadJSAtOnload || downloadJSAtOnload;
+  })();
+</script>

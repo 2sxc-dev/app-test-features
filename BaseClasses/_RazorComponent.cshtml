@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.Razor12
+@inherits ToSic.Sxc.Dnn.RazorComponent
 @{
   var test = CreateInstance("TestLog.cs");
 }
@@ -10,7 +10,7 @@
 
 
 @{
-  var code = CreateInstance("Code12.cs");
+  var code = CreateInstance("DynamicCode12.cs");
 }
 <hr>
 <h1>@code.CodeType()</h1>
@@ -39,7 +39,7 @@
     // The init function which should be called
     function downloadJSAtOnload() {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/BaseClasses/api/Api12/ApiTypeInfo')
+        .get('app/auto/BaseClasses/api/DnnApi/ApiTypeInfo')
         .then(data => {
           console.log(data);
           document.getElementById("codeType").innerHTML = data.codeType;

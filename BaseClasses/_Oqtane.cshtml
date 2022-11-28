@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.Razor12
+@inherits Custom.Oqtane.Razor12
 @{
   var test = CreateInstance("TestLog.cs");
 }
@@ -10,7 +10,7 @@
 
 
 @{
-  var code = CreateInstance("Code12.cs");
+  var code = CreateInstance("Oqtane.cs");
 }
 <hr>
 <h1>@code.CodeType()</h1>
@@ -39,7 +39,7 @@
     // The init function which should be called
     function downloadJSAtOnload() {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/BaseClasses/api/Api12/ApiTypeInfo')
+        .get('app/auto/BaseClasses/api/OqtaneApi/ApiTypeInfo')
         .then(data => {
           console.log(data);
           document.getElementById("codeType").innerHTML = data.codeType;
@@ -51,5 +51,8 @@
     }
     // Generate a new object if none exists yet (best practice)
     window.downloadJSAtOnload = window.downloadJSAtOnload || downloadJSAtOnload;
+
+    // For demo purpose, wait 3 seconds before we add the object and Init
+    // This should simulate slow loading of a JavaScript
   })();
 </script>
