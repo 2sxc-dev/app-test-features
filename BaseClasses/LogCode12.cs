@@ -1,4 +1,4 @@
-public class Oqtane : Custom.Oqtane.Code12
+public class LogCode12 : Custom.Hybrid.Code12
 {
   public string LogType()
   {

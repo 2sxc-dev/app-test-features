@@ -1,4 +1,4 @@
-public class DynamicCode12 : ToSic.Sxc.Code.DynamicCode12
+public class LogDynamicCode : ToSic.Sxc.Dnn.DynamicCode
 {
   public string LogType()
   {

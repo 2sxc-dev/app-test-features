@@ -1,4 +1,4 @@
-public class Code12 : Custom.Hybrid.Code12
+public class LogDnn : Custom.Dnn.Code12
 {
   public string LogType()
   {
