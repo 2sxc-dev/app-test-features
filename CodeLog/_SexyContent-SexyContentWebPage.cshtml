@@ -1,23 +1,7 @@
-@inherits Custom.Hybrid.Razor14
-@using ToSic.Sxc.Services
+@inherits ToSic.SexyContent.Razor.SexyContentWebPage
 @{
   var test = CreateInstance("TestLog.cs");
-  var code = CreateInstance("LogCode14.cs");
 }
-<h1>Custom.Hybrid.Razor14&lt;dynamic, ServiceKit14&gt;</h1>
-<p>
-  This is a Razor14 page.
-  Some example code:
-</p>
-<ol>
-  <li>System.Convert ToInt: @Convert.ToInt32("523")</li>
-  <li>Kit.Convert ToInt: @Kit.Convert.ToInt("523")</li>
-  <li>Kit: @Kit.Page</li>
-  <li>SayHello: @code.SayHello()</li>
-</ol>
-
-
-<hr>
 <h1>@this.GetType()</h1>
 <h2>@this.GetType().BaseType</h2>
 <h3 style="color:red;">@Log.GetType()</h3>
@@ -25,6 +9,9 @@
 <pre>@test.DumpLog(Log)</pre>
 
 
+@{
+  var code = CreateInstance("LogDynamicCode.cs");
+}
 <hr>
 <h1>@code.CodeType()</h1>
 <h2>@code.BaseType()</h2>
@@ -40,9 +27,10 @@
 <h3 id="simpleTest" style="color:red;">...loading...</h3>
 <pre id="dumpLog" turn-on='{ "run": "window.downloadJSAtOnload()" }'>...loading...</pre>
 @{
-  Kit.Page.Activate("jQuery");
-  Kit.Page.Activate("2sxc.JsCore");
-  Kit.Page.Activate("turnOn");
+  var page = GetService<ToSic.Sxc.Services.IPageService>();
+  page.Activate("jQuery");
+  page.Activate("2sxc.JsCore");
+  page.Activate("turnOn");
 }
 <script type="text/javascript">
   // Use an IFFE to ensure the variables are not exposed globaly
@@ -51,7 +39,7 @@
     // The init function which should be called
     function downloadJSAtOnload() {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/BaseClasses/api/Api14/ApiTypeInfo')
+        .get('app/auto/CodeLog/api/SxcApi/ApiTypeInfo')
         .then(data => {
           console.log(data);
           document.getElementById("codeType").innerHTML = data.codeType;

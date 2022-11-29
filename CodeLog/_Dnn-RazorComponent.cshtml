@@ -39,7 +39,7 @@
     // The init function which should be called
     function downloadJSAtOnload() {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/BaseClasses/api/DnnApi/ApiTypeInfo')
+        .get('app/auto/CodeLog/api/DnnApi/ApiTypeInfo')
         .then(data => {
           console.log(data);
           document.getElementById("codeType").innerHTML = data.codeType;

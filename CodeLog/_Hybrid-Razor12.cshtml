@@ -1,4 +1,4 @@
-@inherits ToSic.SexyContent.Razor.SexyContentWebPage
+@inherits Custom.Hybrid.Razor12
 @{
   var test = CreateInstance("TestLog.cs");
 }
@@ -10,7 +10,7 @@
 
 
 @{
-  var code = CreateInstance("LogDynamicCode.cs");
+  var code = CreateInstance("LogCode12.cs");
 }
 <hr>
 <h1>@code.CodeType()</h1>
@@ -39,7 +39,7 @@
     // The init function which should be called
     function downloadJSAtOnload() {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/BaseClasses/api/SxcApi/ApiTypeInfo')
+        .get('app/auto/CodeLog/api/Api12/ApiTypeInfo')
         .then(data => {
           console.log(data);
           document.getElementById("codeType").innerHTML = data.codeType;
