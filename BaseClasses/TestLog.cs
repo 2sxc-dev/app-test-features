@@ -1,4 +1,5 @@
 using System;
+
 public class TestLog
 {
   public bool SimpleTest(ToSic.Eav.Logging.ILog log)
