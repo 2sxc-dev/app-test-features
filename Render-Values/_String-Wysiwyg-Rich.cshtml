@@ -1,0 +1,83 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Rich WYSIWYG Separator Tests</h1>
+@{
+  var testHelpers = CreateInstance("../_Shared/TestHelpers.cs");
+
+  var pageParams = CmsContext.Page.Parameters;
+
+}
+
+@if (pageParams[idParam] != null) {
+  var testId = pageParams[idParam] as string;
+  var test = GetWysiwygValue(testId);
+  <h2 @Kit.Toolbar.Default(test)>The Data / Result for @testId</h2>
+  <div class="clearfix wysiwyg">
+    @Html.Raw(test.Contents)
+  </div>
+}
+
+<div class="clearfix">
+  <h2>The Tests</h2>
+  <ol>
+    @foreach (var test in AsList(App.Data[TypeName]))
+    {
+      <li>
+        <strong>
+          @testHelpers.SubLinkWithIndicator(idParam, test.TestId, test.TestId)
+        </strong>
+        <br>
+        @Html.Raw(test.TestDescription)
+      </li>
+    }
+  </ol>
+  <h2>Test Modes</h2>
+  <ol>
+    <li>@testHelpers.SubLinkWithIndicator(modeParam, withCss, "With CSS")</li>
+    <li>@testHelpers.SubLinkWithIndicator(modeParam, null, "Without CSS")</li>
+  </ol>
+</div>
+
+
+@functions {
+  const string TypeName = "FieldValueWysiwyg";
+  const string idParam = "testid";
+  const string modeParam = "mode";
+  const string withCss = "withcss";
+
+  dynamic GetWysiwygValue(string key) {
+    var list = AsList(App.Data[TypeName]);
+    var found = list.FirstOrDefault(e => e.TestId == key);
+    return found;
+  }
+
+  bool IsWithCss() {
+    return CmsContext.Page.Parameters[modeParam] == withCss;
+  }
+}
+
+@if (IsWithCss()) {
+  <style>
+    /* Make sure the special HR clear-fixes the layout */
+    .wysiwyg hr.wysiwyg-division {
+      display: block;
+      width: 100%;
+      height: 0;
+    }
+
+    .wysiwyg img.wysiwyg-right {
+      float: right;
+      margin-left: 20px;
+    }
+
+    .wysiwyg img.wysiwyg-left {
+      float: left;
+      margin-right: 20px;
+    }
+
+    .wysiwyg img.wysiwyg-center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+}
