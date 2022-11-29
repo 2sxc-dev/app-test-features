@@ -1,6 +1,8 @@
 @inherits ToSic.Sxc.Dnn.RazorComponent
 @{
+  var codeFile = "LogDynamicCode12.cs";
   var test = CreateInstance("TestLog.cs");
+  var code = CreateInstance(codeFile);
 }
 <h1>@this.GetType()</h1>
 <h2>@this.GetType().BaseType</h2>
@@ -10,7 +12,6 @@
 
 
 @{
-  var code = CreateInstance("LogDynamicCode12.cs");
 }
 <hr>
 <h1>@code.CodeType()</h1>

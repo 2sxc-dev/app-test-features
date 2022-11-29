@@ -1,6 +1,8 @@
 @inherits Custom.Hybrid.Razor12
 @{
+  var codeFile = "LogCode12.cs";
   var test = CreateInstance("TestLog.cs");
+  var code = CreateInstance(codeFile);
 }
 <h1>@this.GetType()</h1>
 <h2>@this.GetType().BaseType</h2>
@@ -10,7 +12,6 @@
 
 
 @{
-  var code = CreateInstance("LogCode12.cs");
 }
 <hr>
 <h1>@code.CodeType()</h1>

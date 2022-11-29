@@ -1,16 +1,35 @@
 @inherits Custom.Dnn.Razor12
 @{
+  var codeFile = "LogDnn.cs";
   var test = CreateInstance("TestLog.cs");
+  var code = CreateInstance(codeFile);
 }
-<h1>@this.GetType()</h1>
-<h2>@this.GetType().BaseType</h2>
-<h3 style="color:red;">@Log.GetType()</h3>
-<h3 style="color:red;">@test.SimpleTest(Log)</h3>
+@functions {
+  void TestCall() {
+    var call = Log.Call("no parameters");
+    Log.Add("Message in the middle!");
+    call("done");
+  }
+  bool TestCallBool(string param) {
+    var call = Log.Call<bool>("param:" + param);
+    Log.Add("Message in the middle!");
+    var result = true;
+    return call(result, result.ToString());
+  }
+}
+
+<h1>Tests on this Page and the Helper</h1>
+<ol>
+  <li>Page Class Type: @this.GetType()</li>
+  <li>Page Class Base Type: @this.GetType().BaseType</li>
+  <li style="color:red;">Log Type: @Log.GetType()</li>
+  <li>Class of TestLog.cs: @test.GetType()</li>
+  <li style="color:red;">Log Type SimpleTest: @test.SimpleTest(Log)</li>
+  <li>Test Call with nothing returned (check insights) @{ TestCall(); }</li>
+  <li>TestCall Bool (verify it's in insights): @TestCallBool("some parameter")</li>
+</ol>
 <pre>@test.DumpLog(Log)</pre>
 
-@{
-  var code = CreateInstance("LogDnn.cs");
-}
 <hr>
 <h1>@code.CodeType()</h1>
 <h2>@code.BaseType()</h2>

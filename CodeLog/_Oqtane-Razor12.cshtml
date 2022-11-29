@@ -1,6 +1,8 @@
 @inherits Custom.Oqtane.Razor12
 @{
+  var codeFile = "LogOqtane.cs";
   var test = CreateInstance("TestLog.cs");
+  var code = CreateInstance(codeFile);
 }
 <h1>@this.GetType()</h1>
 <h2>@this.GetType().BaseType</h2>
@@ -8,10 +10,6 @@
 <h3 style="color:red;">@test.SimpleTest(Log)</h3>
 <pre>@test.DumpLog(Log)</pre>
 
-
-@{
-  var code = CreateInstance("LogOqtane.cs");
-}
 <hr>
 <h1>@code.CodeType()</h1>
 <h2>@code.BaseType()</h2>

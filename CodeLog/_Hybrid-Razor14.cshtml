@@ -1,8 +1,9 @@
 @inherits Custom.Hybrid.Razor14
 @using ToSic.Sxc.Services
 @{
+  var codeFile = "LogCode14.cs";
   var test = CreateInstance("TestLog.cs");
-  var code = CreateInstance("LogCode14.cs");
+  var code = CreateInstance(codeFile);
 }
 <h1>Custom.Hybrid.Razor14&lt;dynamic, ServiceKit14&gt;</h1>
 <p>
