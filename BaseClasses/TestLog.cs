@@ -6,7 +6,7 @@ public class TestLog
   {
     log.Add("test1");
     log.Add("test2");
-    return ((log as ToSic.Eav.Logging.LogAdapter).GetContents() as ToSic.Lib.Logging.Log).Entries.Count == 2;
+    return ((log as ToSic.Sxc.Code.ICodeLog).GetContents() as ToSic.Lib.Logging.Log).Entries.Count == 2;
   }
   public string DumpLog(ToSic.Eav.Logging.ILog log)
   {
@@ -25,7 +25,7 @@ public class TestLog
   )
   {
     var lg = new System.Text.StringBuilder(start);
-    ((log as ToSic.Eav.Logging.LogAdapter).GetContents() as ToSic.Lib.Logging.Log).Entries.ForEach(e => lg.AppendLine(e.Source
+    ((log as ToSic.Sxc.Code.ICodeLog).GetContents() as ToSic.Lib.Logging.Log).Entries.ForEach(e => lg.AppendLine(e.Source
         + separator
         + new string('~', e.Depth * 2)
         + e.Message
