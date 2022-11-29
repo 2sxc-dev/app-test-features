@@ -4,7 +4,7 @@ using System.Web;
 using System.Linq;
 using System.IO;
 
-public class Helpers: Custom.Hybrid.Code12
+public class TestTreeHelpers: Custom.Hybrid.Code12
 {
   public string GetFullPath(string filePath) {
     #if NETCOREAPP

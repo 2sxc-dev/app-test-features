@@ -4,7 +4,7 @@ using ToSic.Razor.Markup;
 
 // Important notes: 
 // - This class should have the same name as the file it's in
-public class TestHelpers : Custom.Hybrid.Code14 
+public class TestLinker : Custom.Hybrid.Code14 
 {
   public ITag SubLinkWithIndicator(string paramName, string value, string title) {
     var pParams = CmsContext.Page.Parameters;

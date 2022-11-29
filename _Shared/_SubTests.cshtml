@@ -3,12 +3,13 @@
 @using System.IO;
 @using System.Linq;
 @{
-  var helpers = CreateInstance("Helpers.cs");
+  var testTree = CreateInstance("TestTreeHelpers.cs");
   var skipFiles = (DynamicModel.SkipFiles as bool?) ?? false;
   var testPath = CmsContext.Page.Parameters["TestPath"] ?? "";
   var pathParts = testPath.Replace("\\", "/").Split('/');
   var upPath = String.Join("/", pathParts.Take(pathParts.Length - 2).ToArray()) + "/";
 
+  var linker = CreateInstance("TestLinker.cs");
 }
 @functions {
   public string FixSlash(string original) {
@@ -25,7 +26,7 @@
   <a href="?testPath=@upPath">⬆️ Up</a>
 }
 <ol>
-  @foreach (var subFolder in helpers.SubFolderNames(DynamicModel.Path)) {
+  @foreach (var subFolder in testTree.SubFolderNames(DynamicModel.Path)) {
     <li>
       <a href="?testPath=@FixSlash(subFolder)/">@subFolder</a>
     </li>
@@ -35,9 +36,10 @@
   <hr>
   <h3>Tests</h3>
   <ol>
-    @foreach (var subTest in helpers.FileNames(DynamicModel.Path)) {
+    @foreach (var subTest in testTree.FileNames(DynamicModel.Path)) {
+      var niceName = System.IO.Path.GetFileName(subTest).Trim('_').Replace(".cshtml", "");
       <li>
-        <a href="?testPath=@FixSlash(subTest)">@System.IO.Path.GetFileName(subTest).Trim('_')</a>
+        @linker.SubLinkWithIndicator("testPath", FixSlash(subTest), niceName)
       </li>
     }
   </ol>
@@ -46,7 +48,7 @@
   // try to auto-include __Assets-Auto.cshtml
   var assetsPath = DynamicModel.Path + "__Assets.cshtml";
   var checkPath = "";
-  if (helpers.HasAutoAssets(DynamicModel.Path)) {
+  if (testTree.HasAutoAssets(DynamicModel.Path)) {
     var relPath = "../" + System.IO.Path.GetDirectoryName(testPath).Replace("\\", "/") + "/__Assets.cshtml";
     @Html.Partial(relPath);
     <br>

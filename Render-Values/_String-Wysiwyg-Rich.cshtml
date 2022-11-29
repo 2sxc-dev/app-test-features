@@ -2,7 +2,7 @@
 
 <h1>Rich WYSIWYG Separator Tests</h1>
 @{
-  var testHelpers = CreateInstance("../_Shared/TestHelpers.cs");
+  var linker = CreateInstance("../_Shared/TestLinker.cs");
 
   var pageParams = CmsContext.Page.Parameters;
 
@@ -24,7 +24,7 @@
     {
       <li>
         <strong>
-          @testHelpers.SubLinkWithIndicator(idParam, test.TestId, test.TestId)
+          @linker.SubLinkWithIndicator(idParam, test.TestId, test.TestId)
         </strong>
         <br>
         @Html.Raw(test.TestDescription)
@@ -33,8 +33,8 @@
   </ol>
   <h2>Test Modes</h2>
   <ol>
-    <li>@testHelpers.SubLinkWithIndicator(modeParam, withCss, "With CSS")</li>
-    <li>@testHelpers.SubLinkWithIndicator(modeParam, null, "Without CSS")</li>
+    <li>@linker.SubLinkWithIndicator(modeParam, withCss, "With CSS")</li>
+    <li>@linker.SubLinkWithIndicator(modeParam, null, "Without CSS")</li>
   </ol>
 </div>
 
