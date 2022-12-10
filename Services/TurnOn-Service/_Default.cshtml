@@ -1,0 +1,50 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Services;
+
+<h1>TurnOn Service</h1>
+@{
+  var turnOn = GetService<ITurnOnService>();
+}
+
+<p>
+  We should see 2 alerts and 2 sets of entries in the log. 
+  Before...
+</p>
+
+<turnOn id="test" @turnOn.Attribute("window.someJsAttr()") ></turnOn>
+
+@Kit.Page.TurnOn("window.someJs()", data: new { someData = "thanks", success = true })
+
+@Kit.Page.TurnOn("window.someJsWithData()", data: new { someData = "thanks", success = true })
+
+@Kit.Page.TurnOn("window.someJsWithRequire5S()", require: "window.seconds5", data: "a nice string");
+
+<script>
+  function someJsAttr() {
+    alert('turn-on with attribute worked');
+  }
+
+  function someJs() {
+    alert('turn-on with Page.TurnOn(...) worked');
+  }
+
+  function someJsWithData(data) {
+    console.log("someJsWithData");
+    console.log("data", data);
+  }
+  function someJsWithRequire5S(data) {
+    console.log("someJsWithRequire5S");
+    console.log("data", data);
+  }
+
+  // trigger dependency window.seconds5 after 5000ms
+  var ms = 5000;
+  console.log("will start timef for " + ms + "ms");
+  setTimeout(() => { window.seconds5 = true; console.log("timeout reached"); }, ms);
+
+</script>
+
+<p>
+  ...after
+</p>

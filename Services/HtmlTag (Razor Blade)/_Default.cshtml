@@ -1,0 +1,30 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Razor.Blade
+
+<h1>Razor Blade HtmlTag Service</h1>
+@{
+  var div1 = Kit.HtmlTag.Div().Class("alert alert-info");
+  var div2 = div1.Add("This is div 2 created using the Service");
+
+  var tagDiv1 = Tag.Div().Class("alert alert-warning");
+  var tagDiv2 = tagDiv1.Add("This is div2 created using the old Tag helper");
+}
+
+@div2
+
+@div1.Add("Div 1 with add in @ statement created with Service")
+
+@div2
+
+
+Are the divs same (==)?: @(div1 == div2) (False expected)
+
+<hr>
+
+@tagDiv2
+
+@tagDiv1.Add("Div 1 with add in @ statement created with Tag helper")
+
+@tagDiv2
+
+Are the divs same (==)?: @(tagDiv1 == tagDiv2) (True expected)

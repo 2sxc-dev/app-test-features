@@ -1,0 +1,20 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Services;
+
+<h1>IModuleService Service</h1>
+@{
+  var modSvc = GetService<IModuleService>();
+
+  modSvc.AddToMore(Kit.HtmlTag.Div().Class("alert alert-info").Wrap("This div should be at the end of the module"));
+}
+
+<p>
+  Background: The ModuleService should collect tags to add to the module / page outside of the module body.
+  We plan to use it for the new TurnOnService
+</p>
+
+<p>
+  You should see this content inside the module wrapper.
+  Below you should see a div containing some text, which is outside of the module wrapper.
+</p>
