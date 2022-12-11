@@ -2,18 +2,18 @@ using System;
 
 public class TestLog
 {
-  public bool SimpleTest(ToSic.Eav.Logging.ILog log)
+  public bool SimpleTest(ToSic.Sxc.Code.ICodeLog log)
   {
     log.Add("test1");
     log.Add("test2");
     return ((log as ToSic.Sxc.Code.ICodeLog).GetContents() as ToSic.Lib.Logging.Log).Entries.Count == 2;
   }
-  public string DumpLog(ToSic.Eav.Logging.ILog log)
+  public string DumpLog(object log)
   {
     return Dump(log);
   }
   public string Dump(
-    ToSic.Eav.Logging.ILog log,
+    object log,
     string separator = " - ",
     string start = "",
     string end = "",

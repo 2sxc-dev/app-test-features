@@ -1,0 +1,18 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Data Link Protection</h1>
+
+<p>
+  Test if direct access to the razor files is protected.
+  <br>
+  In DNN there seems to be a simple 404 error because the file is not configured to be processed...
+</p>
+
+<ol>
+  <li>
+    <a href="@App.Path/BaseClasses/TextFileWhichAllowsExternalAccess.txt">Test case - text file</a>
+  </li>
+  <li>
+    <a href="@App.Path/BaseClasses/_Default.cshtml">Test case - Default Razor</a>
+  </li>
+</ol>

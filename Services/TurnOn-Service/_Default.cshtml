@@ -8,7 +8,7 @@
 }
 
 <p>
-  We should see 2 alerts and 2 sets of entries in the log. 
+  We should see 4 sets of entries in the log. 
   Before...
 </p>
 
@@ -18,15 +18,15 @@
 
 @Kit.Page.TurnOn("window.someJsWithData()", data: new { someData = "thanks", success = true })
 
-@Kit.Page.TurnOn("window.someJsWithRequire5S()", require: "window.seconds5", data: "a nice string");
+@Kit.Page.TurnOn("window.someJsWithRequire5S()", require: "window.seconds5", data: "a nice string")
 
 <script>
   function someJsAttr() {
-    alert('turn-on with attribute worked');
+    console.log('turn-on with attribute worked');
   }
 
   function someJs() {
-    alert('turn-on with Page.TurnOn(...) worked');
+    console.log('turn-on with Page.TurnOn(...) worked');
   }
 
   function someJsWithData(data) {
