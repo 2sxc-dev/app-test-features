@@ -5,11 +5,13 @@
 @{
   var testTree = CreateInstance("TestTreeHelpers.cs");
   var skipFiles = (DynamicModel.SkipFiles as bool?) ?? false;
-  var testPath = CmsContext.Page.Parameters["TestPath"] ?? "";
+  var pathParam = "testpath";
+  var testPath = CmsContext.Page.Parameters[pathParam] ?? "";
   var pathParts = testPath.Replace("\\", "/").Split('/');
   var upPath = String.Join("/", pathParts.Take(pathParts.Length - 2).ToArray()) + "/";
 
   var linker = CreateInstance("TestLinker.cs");
+  var pParams = CmsContext.Page.Parameters;
 }
 @functions {
   public string FixSlash(string original) {
@@ -19,7 +21,7 @@
 <hr>
 <h3>Test Groups / Folders</h3>
 @if (pathParts.Length > 1) {
-  <a href="?testPath=">↖️ Root</a>
+  <a href='@Link.To(parameters: pParams.Remove(pathParam))'>↖️ Root</a>
 }
 @if (pathParts.Length > 2) {
   <text> | </text>
@@ -28,7 +30,7 @@
 <ol>
   @foreach (var subFolder in testTree.SubFolderNames(DynamicModel.Path)) {
     <li>
-      <a href="?testPath=@FixSlash(subFolder)/">@subFolder</a>
+      <a href='@Link.To(parameters: pParams.Set(pathParam, FixSlash(subFolder) + "/"))'>@subFolder</a>
     </li>
   }
 </ol>
