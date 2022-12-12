@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="14.12.02" ExportDate="2022-11-14T20:20:40.3771728+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="15.00.00" ExportDate="2022-12-12T13:09:31.3929272+01:00">
   <Header>
     <App Guid="ab297ff7-224c-4158-a8ad-3f384997103f" />
     <Language Default="en-us" />
@@ -1976,6 +1976,92 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
+    <AttributeSet StaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" Name="FieldValueWysiwyg" Description="" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="TestId" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="bb345374-b914-4872-b93a-2060c5e3ec7a" Json="True" KeyNumber="31991">
+            <Value Key="InputType" Value="string-url-path" Type="String" />
+            <Value Key="Name" Value="TestId" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="TestDescription" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="9dc10e92-8346-438b-b2b7-668026fe8259" Json="True" KeyNumber="31993">
+            <Value Key="InputType" Value="string-wysiwyg" Type="String" />
+            <Value Key="Name" Value="TestDescription" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Contents" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="1e9d1e65-b27b-4a3e-9b93-72b78b521bea" Json="True" KeyNumber="31992">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="string-wysiwyg" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Contents" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@String" AttributeSetName="@String" EntityGUID="5d4d9131-1b5c-44df-ba2b-d2657c0ec022" Json="True" KeyNumber="31992">
+            <Value Key="DropdownValues" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-wysiwyg" AttributeSetName="@string-wysiwyg" EntityGUID="fee2c39b-e5df-4dda-8172-b044e42590cd" Json="True" KeyNumber="31992">
+            <Value Key="ButtonAdvanced" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ButtonSource" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ContentCss" Value="" Type="Hyperlink">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ContentDivisions" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Dialog" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InlineInitialHeight" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="WysiwygMode" Value="enhanced" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
     <AttributeSet StaticName="1c5f757f-2234-421e-936b-fd79c4de9ae7" Name="ForPrefillTests" Description="" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Title" Type="String" IsTitle="true">
@@ -2389,6 +2475,87 @@
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
     </Entity>
+    <Entity TargetType="5" AssignmentObjectType="ContentType" AttributeSetStaticName="ContentType" AttributeSetName="ContentType" EntityGUID="0f42cb04-49da-4e1e-86b7-e1109cbac266" Json="True" KeyString="dec87c42-2e37-4f1f-99bd-0c5905f9c021">
+      <Value Key="Description" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="DynamicChildrenField" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="EditInstructions" Value="&lt;p&gt;These are tests for wysiwyg values. So we prepare various entities with common values to test in the editor and the output.&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;Note that the TestId should be unique for each test.&amp;nbsp;&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="FieldValueWysiwyg" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Link" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListInstructions" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Notes" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="0d531e5a-1bc6-4630-b3f5-532736c103e7">
+      <Value Key="Contents" Value="&lt;p&gt;&lt;img style=&quot;width: 25%; float: right;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;Some text with 25% images stacked right&lt;/p&gt;&#xA;&lt;p&gt;The next one on the following line&lt;/p&gt;&#xA;&lt;p&gt;&lt;img style=&quot;width: 25%; float: right;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestDescription" Value="&lt;p&gt;Shows some images right-aligned with reduced with - and they should stack which isn't nice.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestId" Value="rich-without-separator" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="55581eb3-3317-42c4-8681-00e7d8e2262c">
+      <Value Key="Contents" Value="&lt;p&gt;&lt;img class=&quot;wysiwyg-2of3 wysiwyg-right&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;Some text with 25% images stacked right&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-division&quot;&gt;&#xA;&lt;p&gt;&lt;img style=&quot;width: 25%; float: right;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;The next one on the following line&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestDescription" Value="&lt;p&gt;Shows some images right-aligned with reduced with - and they should NOT stack which is great!&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestId" Value="rich-with-separator" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="c2ac5b78-4e50-4f7c-93c3-d3feeedb20da">
+      <Value Key="Contents" Value="&lt;p&gt;&lt;img style=&quot;width: 25%; float: right;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot;&gt;Some text with 25% images stacked right&lt;/p&gt;&#xA;&lt;p&gt;&lt;img style=&quot;width: 25%; float: left;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot;&gt;The next one on the following line&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestDescription" Value="&lt;p&gt;Shows some images right-aligned with reduced with - and they should stack which isn't nice.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestId" Value="rich-without-separator-right-left" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="7e7fa3e1-092e-4b6a-8952-0ddd0e12df93">
+      <Value Key="Contents" Value="&lt;p&gt;&lt;img style=&quot;width: 25%; float: right;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot;&gt;Some text with 25% images stacked right&lt;/p&gt;&#xA;&lt;hr class=&quot;content-division&quot;&gt;&#xA;&lt;p&gt;&lt;img style=&quot;width: 25%; float: left;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot;&gt;The next one on the following line&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestDescription" Value="&lt;p&gt;Shows some images right-aligned with reduced with - and they should NOT stack which is great!&lt;/p&gt;&#xA;&lt;p&gt;Has CMSID!&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestId" Value="rich-with-separator-right-left" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="7df5203e-d397-41b7-85e1-931b5b0957ed">
+      <Value Key="Contents" Value="&lt;p&gt;&lt;img src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot;&gt;Some text with 25% images stacked right&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-division&quot;&gt;&#xA;&lt;p&gt;&lt;img class=&quot;wysiwyg-left&quot; style=&quot;width: 25%;&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot;&gt;&lt;/p&gt;&#xA;&lt;p&gt;The next one on the &lt;sup&gt;following &lt;/sup&gt;line&lt;/p&gt;&#xA;&lt;h4&gt;Heading 4&lt;/h4&gt;&#xA;&lt;p&gt;aouoeu stuff&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;and afterwards&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr class=&quot;wysiwyg-division&quot;&gt;&#xA;&lt;p&gt;More wonderful text&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestDescription" Value="&lt;p&gt;Shows some images right-aligned with reduced with - and they should stack which isn't nice.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestId" Value="rich-without-separator-right-left-separate-p" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
   </Entities>
   <PortalFiles>
     <File Id="10406" RelativePath="adam\app-test-features\WHHjShpoGUmKZ6ybBPXHPw\ContentCss\string-wysiwyg-custom-css-basic.css" />
@@ -2396,17 +2563,20 @@
     <File Id="9201" RelativePath="adam\app-test-features\DADn_RKeMkCRlX7xskhonA\Image\2sxcV10.20.png" />
     <File Id="10414" RelativePath="adam\app-test-features\dyWRuGIsukStmLNzuCL1Uw\InnerContent\app-icon.jpg" />
     <File Id="10413" RelativePath="adam\app-test-features\EuwgJzOgjkW_tv4cPMKMoA\Notes\image.png" />
+    <File Id="10456" RelativePath="adam\app-test-features\Wh5TDcYbMEaz9VMnNsED5w\Contents\2sxcV10.20.png" />
   </PortalFiles>
   <PortalFolders>
     <Folder Id="14159" RelativePath="adam/app-test-features/WHHjShpoGUmKZ6ybBPXHPw/ContentCss/" />
     <Folder Id="12602" RelativePath="adam/app-test-features/DADn_RKeMkCRlX7xskhonA/Image/" />
     <Folder Id="14207" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/InnerContent/" />
     <Folder Id="14205" RelativePath="adam/app-test-features/EuwgJzOgjkW_tv4cPMKMoA/Notes/" />
+    <Folder Id="14291" RelativePath="adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/" />
     <Folder Id="12294" RelativePath="adam/app-test-features/" />
     <Folder Id="12601" RelativePath="adam/app-test-features/DADn_RKeMkCRlX7xskhonA/" />
     <Folder Id="14206" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/" />
     <Folder Id="14208" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/PublicUpload/" />
     <Folder Id="14204" RelativePath="adam/app-test-features/EuwgJzOgjkW_tv4cPMKMoA/" />
+    <Folder Id="14290" RelativePath="adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/" />
     <Folder Id="14158" RelativePath="adam/app-test-features/WHHjShpoGUmKZ6ybBPXHPw/" />
   </PortalFolders>
 </SexyContent>
