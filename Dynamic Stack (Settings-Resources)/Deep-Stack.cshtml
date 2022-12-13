@@ -1,0 +1,84 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Dynamic Stack (Settings &amp; Resources)</h1>
+
+@{
+  Settings.Debug = true;
+}
+
+<h3>Settings.Images</h3>
+
+<ol>
+  <li>
+    dynamic: @Settings.Images
+  </li>
+  <li>
+    get: @Settings.Get("Images")
+  </li>
+</ol>
+
+<h3>Settings.Images.Content</h3>
+
+<ol>
+  <li>
+    dynamic: @Settings.Images.Content
+  </li>
+  <li>
+    get: @Settings.Get("Images.Content")
+  </li>
+</ol>
+
+<h3>Settings.Images.Content.Width</h3>
+
+<ol>
+  <li>
+    dynamic: @Settings.Images.Content.Width
+  </li>
+  <li>
+    get: @Settings.Get("Images.Content.Width")
+  </li>
+  <li>
+    get&lt;int&gt;: @(Settings.Get<int>("Images.Content.Width"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(Settings.Get<int>("Images.Content.Width", fallback: -1))
+  </li>
+  <li>
+    get with fallback and no type: @(Settings.Get("Images.Content.Width", fallback: -1))
+  </li>
+</ol>
+
+<h3>Settings.Images.Content.UnknownProperty</h3>
+
+<ol>
+  <li>
+    dynamic: @Settings.Images.Content.UnknownProperty
+  </li>
+  <li>
+    get: @Settings.Get("Images.Content.UnknownProperty")
+  </li>
+  <li>
+    get&lt;int&gt;: @(Settings.Get<int>("Images.Content.UnknownProperty"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(Settings.Get<int>("Images.Content.UnknownProperty", fallback: -1))
+  </li>
+</ol>
+
+
+<h3>Settings.Images.Content.Width.Impossible</h3>
+
+<ol>
+  <li>
+    dynamic: <em>not tested - would throw error</em>
+  </li>
+  <li>
+    get: @Settings.Get("Images.Content.Width.Impossible")
+  </li>
+  <li>
+    get&lt;int&gt;: @(Settings.Get<int>("Images.Content.Width.Impossible"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(Settings.Get<int>("Images.Content.Width.Impossible", fallback: -1))
+  </li>
+</ol>
