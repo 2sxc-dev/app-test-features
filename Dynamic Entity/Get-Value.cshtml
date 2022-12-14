@@ -1,0 +1,117 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Dynamic Entity - Ways to get a value</h1>
+
+@{
+  var dynItem = AsDynamic(App.Data["DataWithRelationshipParent"].First());
+}
+
+<h3>Title</h3>
+
+<ol>
+  <li>
+    dynamic: @dynItem.Title
+  </li>
+  <li>
+    get: @dynItem.Get("Title")
+  </li>
+  <li>
+    get&lt;string&gt;: @(dynItem.Get<string>("Title"))
+  </li>
+  <li>
+    get&lt;string&gt; with fallback: @(dynItem.Get<string>("Title", fallback: "no title"))
+  </li>
+</ol>
+
+<h3>Child.Title</h3>
+
+<ol>
+  <li>
+    dynamic: @dynItem.Child.Title
+  </li>
+  <li>
+    get: @dynItem.Get("Child.Title")
+  </li>
+  <li>
+    get&lt;string&gt;: @(dynItem.Get<string>("Child.Title"))
+  </li>
+  <li>
+    get&lt;string&gt; with fallback: @(dynItem.Get<string>("Child.Title", fallback: "no title"))
+  </li>
+</ol>
+
+<h3>Child.Children.Title</h3>
+
+<ol>
+  <li>
+    dynamic: @dynItem.Child.Children.Title
+  </li>
+  <li>
+    get: @dynItem.Get("Child.Children.Title")
+  </li>
+  <li>
+    get&lt;string&gt;: @(dynItem.Get<string>("Child.Children.Title"))
+  </li>
+  <li>
+    get&lt;string&gt; with fallback: @(dynItem.Get<string>("Child.Children.Title", fallback: "no title"))
+  </li>
+</ol>
+
+<h3>UnknownProperty</h3>
+
+<ol>
+  <li>
+    dynamic: @dynItem.UnknownProperty
+  </li>
+  <li>
+    get: @dynItem.Get("UnknownProperty")
+  </li>
+  <li>
+    get&lt;string&gt;: @(dynItem.Get<string>("UnknownProperty"))
+  </li>
+  <li>
+    get&lt;string&gt; with fallback: @(dynItem.Get("UnknownProperty", fallback: "no UnknownProperty"))
+  </li>
+</ol>
+
+
+<h3>Child.UnknownProperty</h3>
+
+<ol>
+  <li>
+    dynamic: @dynItem.Child.UnknownProperty
+  </li>
+  <li>
+    get: @dynItem.Get("Child.UnknownProperty")
+  </li>
+  <li>
+    get&lt;string&gt;: @(dynItem.Get<string>("Child.UnknownProperty"))
+  </li>
+  <li>
+    get&lt;string&gt; with fallback: @(dynItem.Get("Child.UnknownProperty", fallback: "no UnknownProperty"))
+  </li>
+</ol>
+
+
+<h3>dynItem.NoField.Impossible</h3>
+
+<ol>
+  <li>
+    dynamic: <em>not tested - would throw error</em>
+  </li>
+  <li>
+    get: @dynItem.Get("NoField.Impossible")
+  </li>
+  <li>
+    get&lt;int&gt;: @(dynItem.Get<int>("NoField.Impossible"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(dynItem.Get("NoField.Impossible", fallback: -1))
+  </li>
+  <li>
+    get&lt;string&gt;: @(dynItem.Get<string>("NoField.Impossible"))
+  </li>
+  <li>
+    get&lt;string&gt; with fallback: @(dynItem.Get("NoField.Impossible", fallback: "no UnknownProperty"))
+  </li>
+</ol>
