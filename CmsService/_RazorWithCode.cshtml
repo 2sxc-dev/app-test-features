@@ -1,0 +1,28 @@
+@inherits Custom.Hybrid.Razor14
+@{
+  var code = CreateInstance("CmsServiceTest.cs");
+}
+<h1>CmsService in razor code from external CS file</h1>
+
+<h2>Manual test</h2>
+<ol>
+  <li><xmp>@code.CmsServiceShow("<p>some html</p>")</xmp></li>
+</ol>
+
+<h2>Entities wysiwyg tests</h2>
+<ol>
+@foreach(var item in AsList(App.Data["CmsServiceTest"])) {
+    <li>
+      <dl>
+        <dt>Test</dt>
+        <dd>
+          <xmp>@Html.Raw(item.Body)</xmp>
+        </dd>
+        <dt>Result</dt>
+        <dd>
+          <xmp>@code.CmsServiceShow(item.Body)</xmp>
+        </dd>
+      </dl>
+    </li>
+}
+</ol>
