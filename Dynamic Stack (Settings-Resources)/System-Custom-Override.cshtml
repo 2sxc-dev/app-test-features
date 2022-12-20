@@ -1,0 +1,33 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>System Custom Override</h1>
+
+<p>
+  This test should verify that entities we place in the <code>App_Data/system-custom/entities</code>
+  which have the <em>same</em> GUID as one in the original config
+  replace the original configuration.
+</p>
+
+@{
+  Settings.Debug = true;
+}
+
+<h3>Settings.WebResources.Fancybox4</h3>
+
+<ol>
+  <li>
+    Fancybox4 (unmodified)
+    <br>
+    <pre>@Settings.Get("WebResources.Fancybox4.Html")</pre>
+  </li>
+  <li>
+    Fancybox3 (modified)
+    <br>
+    <pre>@Settings.Get("WebResources.Fancybox3.Html")</pre>
+    <br>
+    @{
+      var containsTest = (Settings.Get("WebResources.Fancybox3.Html") as string).Contains("test-is-override");
+    }
+    Contains <code>test-is-override</code>: @containsTest
+  </li>
+</ol>
