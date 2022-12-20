@@ -8,29 +8,30 @@
   var pathParam = "testpath";
   var testPath = CmsContext.Page.Parameters[pathParam] ?? "";
   var pathParts = testPath.Replace("\\", "/").Split('/');
-  var upPath = String.Join("/", pathParts.Take(pathParts.Length - 2).ToArray()) + "/";
+  var upPath = FixSlash(String.Join("/", pathParts.Take(pathParts.Length - 2).ToArray()) + "/");
 
   var linker = CreateInstance("TestLinker.cs");
   var pParams = CmsContext.Page.Parameters;
 }
 @functions {
   public string FixSlash(string original) {
-    return original.Replace("\\", "/");
+    // The second replace is a workaround because Oqtane messes up links containing slashes, they we url-encode them for now
+    return original.Replace("\\", "/").Replace("/", "%2f");
   }
 }
 <hr>
 <h3>Test Groups / Folders</h3>
 @if (pathParts.Length > 1) {
-  <a href='@Link.To(parameters: pParams.Remove(pathParam))'>↖️ Root</a>
+  <a href='@Link.To(parameters: "")'>↖️ Root</a>
 }
 @if (pathParts.Length > 2) {
   <text> | </text>
-  <a href="?testPath=@upPath">⬆️ Up</a>
+  <a href='@Link.To(parameters: pathParam + "=" + upPath)'>⬆️ Up</a>
 }
 <ol>
   @foreach (var subFolder in testTree.SubFolderNames(DynamicModel.Path)) {
     <li>
-      <a href='@Link.To(parameters: pParams.Set(pathParam, FixSlash(subFolder) + "/"))'>@subFolder</a>
+      <a href='@Link.To(parameters: pathParam + "=" + FixSlash(subFolder + "/"))'>Folder: @subFolder</a>
     </li>
   }
 </ol>
@@ -41,7 +42,7 @@
     @foreach (var subTest in testTree.FileNames(DynamicModel.Path)) {
       var niceName = System.IO.Path.GetFileName(subTest).Trim('_').Replace(".cshtml", "");
       <li>
-        @linker.SubLinkWithIndicator("testPath", FixSlash(subTest), niceName)
+        @linker.SubLinkWithIndicator(pathParam, FixSlash(subTest), niceName)
       </li>
     }
   </ol>
