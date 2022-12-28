@@ -1,0 +1,29 @@
+@* @inherits Custom.Hybrid.Razor14 *@
+@inherits Custom.Dnn.Razor12
+
+<h1>AsAdam - Field API</h1>
+<p>
+  important: tests are not really done yet, is currently just a stub, must be completed
+</p>
+
+@{
+  var dynEntity = AsDynamic(App.Data["DataAdam"].FirstOrDefault());
+
+  var adamSingle = AsAdam(dynEntity, "Single");
+
+  @* var adamSingleFromField = AsAdam(dynEntity.Field("Single")); *@
+
+  // todo: allow "object" to make list typing easier?
+  // var libFiles = AsAdam(dynEntity as object, "Library")
+  var libFiles = (AsAdam(dynEntity /* as object */, "Library").Files  as IEnumerable<ToSic.Sxc.Adam.IFile>)
+    // .Files
+    .OrderBy(s => s.FullName);
+  @* var libField = AsAdam(dynEntity.Field("Library")); *@
+}
+
+todo
+
+<ol>
+  <li>
+  </li>
+</ol>

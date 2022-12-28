@@ -31,7 +31,7 @@
 <ol>
   @foreach (var subFolder in testTree.SubFolderNames(DynamicModel.Path)) {
     <li>
-      <a href='@Link.To(parameters: pathParam + "=" + FixSlash(subFolder + "/"))'>Folder: @subFolder</a>
+      <a href='@Link.To(parameters: pathParam + "=" + FixSlash(subFolder + "/"))'>📁 @subFolder</a>
     </li>
   }
 </ol>
