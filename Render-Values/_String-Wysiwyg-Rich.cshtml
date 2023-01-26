@@ -1,4 +1,5 @@
 @inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Services;
 
 <h1>Rich WYSIWYG Separator Tests</h1>
 @{
@@ -6,6 +7,7 @@
 
   var pageParams = CmsContext.Page.Parameters;
 
+  var cmsService = GetService<ICmsService>();
 }
 
 @if (pageParams[idParam] != null) {
@@ -13,7 +15,8 @@
   var test = GetWysiwygValue(testId);
   <h2 @Kit.Toolbar.Default(test)>The Data / Result for @testId</h2>
   <div class="clearfix wysiwyg">
-    @Html.Raw(test.Contents)
+    @* @Html.Raw(test.Contents) *@
+    @cmsService.Show(test.Field("Contents"))
   </div>
 }
 
