@@ -1,0 +1,40 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Dynamic Entity - Owner, Created, Modified</h1>
+
+@{
+  var dynItem = AsDynamic(App.Data["DataWithRelationshipParent"].First());
+}
+
+<h3>Dynamic Get</h3>
+
+<ol>
+  <li>
+    dynamic <code>.Owner</code>: '@dynItem.Owner'
+  </li>
+  <li>
+    dynamic <code>.OwnerId</code>: '@dynItem.OwnerId'
+  </li>
+  <li>
+    dynamic <code>.Modified</code>: '@dynItem.Modified'
+  </li>
+  <li>
+    dynamic <code>.Created</code>: '@dynItem.Created'
+  </li>
+</ol>
+
+<h3>Get Method</h3>
+<ol>
+    <li>
+    get <code>.Owner</code>: '@dynItem.Get("Owner")'
+  </li>
+  <li>
+    get <code>.OwnerId</code>: '@dynItem.Get("OwnerId")'
+  </li>
+  <li>
+    get <code>.Modified</code>: '@dynItem.Get("Modified")'
+  </li>
+  <li>
+    get <code>.Created</code>: '@dynItem.Get("Created")'
+  </li>
+</ol>
