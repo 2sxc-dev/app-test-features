@@ -1,0 +1,36 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Services
+
+<h1 @Edit.TagToolbar(Content)>
+  $2sxc - Access Sxc.Cms without Js.Cms loaded (only js-core)
+</h1>
+@{
+  var itemToEdit = AsDynamic(App.Data["Dummy"].First());
+}
+@* @Kit.Page.Activate("2sxc.JsCore") *@
+@Kit.Page.Activate("DummyToTest")
+@{
+  Edit.Enable(api: true, forms: true, context: true, autoToolbar: false);
+}
+@* @Kit.Page.Activate("2sxc.JsCms") *@
+
+<ol>
+  <li>
+    <a href="#" onclick="doSomething(this)">Do Something which uses the CMS Run API</a>
+  </li>
+</ol>
+
+
+<script>
+  function doSomething(target) {
+    var sxc = $2sxc(target);
+
+    sxc.cms.run({
+      action: 'edit',
+      params: {
+        entityId: @itemToEdit.EntityId,
+      }
+    });
+    alert("just ran something");
+  }
+</script>
