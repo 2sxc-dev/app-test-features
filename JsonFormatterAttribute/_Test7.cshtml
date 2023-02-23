@@ -1,0 +1,64 @@
+@using System;
+@using System.Collections.Generic;
+@using Microsoft.Extensions.DependencyInjection;
+@using Microsoft.Extensions.DependencyInjection.Extensions;
+@using ToSic.Eav.Apps;
+@using ToSic.Eav.Configuration;
+@using ToSic.Eav.Data;
+@using ToSic.Eav.Persistence.File;
+@using ToSic.Eav.Run;
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+@inherits Custom.Hybrid.Razor14
+@{
+  var page = GetService<ToSic.Sxc.Services.IPageService>();
+  page.Activate("jQuery");
+  page.Activate("2sxc.JsCore");
+  page.Activate("turnOn");
+}
+<h1>JsonFormatterAttribute Test7</h1>
+<p>Attribute with many parameters on method only.</p>
+
+<h2>1, get single IEntity</h2>
+<p>class:</p>
+<pre>-</pre>
+<p>method:</p>
+<pre>[JsonFormatter(AutoConvertEntity = true, Casing = Casing.PascalCase)]</pre>
+
+<h3>expected JSON result: single EavLightEntity, pascal case.</h3>
+<pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
+
+<h2>2, get IEntity list</h2>
+<p>class:</p>
+<pre>-</pre>
+<p>method:</p>
+<pre>[JsonFormatter(AutoConvertEntity = false, Casing = Casing.CamelCase)]</pre>
+
+<h3>expected JSON result: IEntity array, camel case.</h3>
+<pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
+
+<script type="text/javascript">
+  // Use an IFFE to ensure the variables are not exposed globaly
+  // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+  (() => {
+    function downloadJson(method, id) {
+      $2sxc(@CmsContext.Module.Id).webApi
+        .get('app/auto/JsonFormatterAttribute/api/Test7/' + method)
+        .then(data => {
+          console.log(data);
+          document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
+        });
+    }
+    // The init function which should be called
+    function getEntityOnLoad() {
+      downloadJson('GetEntity', 'jsonResult1')
+    }
+    function getEntitiesOnLoad() {
+      downloadJson('GetEntities', 'jsonResult2')
+    }
+    // Generate a new object if none exists yet (best practice)
+    window.getEntityOnLoad = window.getEntityOnLoad || getEntityOnLoad;
+    window.getEntitiesOnLoad = window.getEntitiesOnLoad || getEntitiesOnLoad;
+  })();
+</script>
