@@ -23,7 +23,7 @@
   </li>
   <li>
     <strong>Message</strong>
-    @{ tlbInfo = Kit.Toolbar.Empty().Info(note: "this is a test!"); }
+    @{ tlbInfo = Kit.Toolbar.Empty().Info(note: "this is a test!", link: "//2sxc.org"); }
     Show as tag: @tlbInfo.AsTag()
     <br>
     @tlbInfo.AsJson()
@@ -35,10 +35,10 @@
 @{
 
   var tlbHelp = Kit.Toolbar.Empty()
-    .Info(noteType: "help", note: "check out the help", link: "//google.com");
+    .Info(note: new { note = "check out the help", type = "help" }, link: "//google.com");
 
   var tlbLink = Kit.Toolbar.Empty()
-    .Info(noteType: "warning", note: "check out the help", link: "//google.com");
+    .Info(note: new { note = "check out the help", type = "warning" }, link: "//google.com");
 
 }
 <ol>
