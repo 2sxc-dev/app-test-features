@@ -1,0 +1,60 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Info Buttons - new/wip 15.04</h1>
+<p>
+  todo
+</p>
+
+<h2>infos</h2>
+<ol>
+  <li>
+    <strong>Default</strong>
+    @{ var tlbInfo = Kit.Toolbar.Empty().Info(message: "this is a test!"/*, tooltip: "this is a tooltip"*/);  }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>Empty</strong>
+    @{ tlbInfo = Kit.Toolbar.Empty().Info(); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>Message</strong>
+    @{ tlbInfo = Kit.Toolbar.Empty().Info(message: "this is a test!"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+</ol>
+
+<hr>
+<h2>Links</h2>
+@{
+
+  var tlbHelp = Kit.Toolbar.Empty()
+    .Info(mode: "help", message: "check out the help", link: "//google.com");
+
+  var tlbLink = Kit.Toolbar.Empty()
+    .Info(mode: "warning", message: "check out the help", link: "//google.com");
+
+}
+<ol>
+  <li>
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    Show as tag: @tlbHelp.AsTag()
+    <br>
+    @tlbHelp.AsJson()
+  </li>
+  <li>
+    Show as tag: @tlbLink.AsTag()
+    <br>
+    @tlbLink.AsJson()
+  </li>
+</ol>
