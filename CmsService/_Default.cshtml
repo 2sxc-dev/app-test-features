@@ -19,7 +19,7 @@
     var dynamicField = dynamicEntity.Field("Body");
     var imgService = GetService<Lazy<IImageService>>();
     var valueConverter = GetService<Lazy<IValueConverter>>();
-    var cmsService = new ToSic.Sxc.Services.CmsService.CmsService(imgService, valueConverter);
+    var cmsService = GetService<ICmsService>(); // new ToSic.Sxc.Services.CmsService.CmsService(imgService, valueConverter);
     return cmsService.Show(dynamicField);
   }
 
