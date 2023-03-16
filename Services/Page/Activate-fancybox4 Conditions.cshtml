@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Page Service - Activate Fancybox4 - with condition FALSE</h1>
+<p>
+  See F12 if stuff is loaded as expected
+</p>
+@{
+  var linker = CreateInstance("../../_Shared/TestLinker.cs");
+  var pageParams = CmsContext.Page.Parameters;
+  var condition = pageParams.Get<bool?>("condition");
+}
+
+<ol>
+  <li>@linker.SubLinkWithIndicator("condition", "true", "condition: true")</li>
+  <li>@linker.SubLinkWithIndicator("condition", "false", "condition: false")</li>
+  <li>@linker.SubLinkWithIndicator("condition", "null", "condition: null")</li>
+</ol>
+
+@if (condition == null) {
+  <strong>condition is null - will do without condition</strong>
+  @Kit.Page.Activate(features: "fancybox4")
+} else {
+  <strong>condition is '@condition' - will do with condition</strong>
+  @Kit.Page.Activate(condition: condition.Value, features: "fancybox4")
+}
