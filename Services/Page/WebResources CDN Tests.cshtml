@@ -1,0 +1,40 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Page Service - CDN Tests for all built-in resources</h1>
+<p>
+  This page will load all the prepared WebResources.
+  Because of this, the page might get a bit strange.
+  <br>
+  Test various combinations of CDNs to see what happens.
+</p>
+@{
+  var linker = CreateInstance("../../_Shared/TestLinker.cs");
+  var pageParams = CmsContext.Page.Parameters;
+  var cdnMode = pageParams.Get("cdnmode");
+  Kit.Page.TestCdn(cdnMode);
+
+  var allResources = new [] {
+    "bootstrap4",
+    "bootstrap5",
+    "fancybox3",
+    "fancybox4",
+    "fontawesome5",
+    "fontawesome6",
+  };
+}
+<ol>
+  @foreach (var name in allResources) {
+    <li>@name</li>
+  }
+</ol>
+
+<hr>
+<h2>Tests</h2>
+<ol>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "cdn", "cdnMode: cdn")</li>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "cdn.2sxc.org", "cdnMode: cdn.2sxc.org/packages")</li>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "local", "cdnMode: local (/cdn/packages)")</li>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "/cdn/abcde", "cdnMode: /cdn/abcde")</li>
+</ol>
+
+@Kit.Page.Activate(allResources)
