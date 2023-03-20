@@ -31,10 +31,10 @@
 <hr>
 <h2>Tests</h2>
 <ol>
-  <li>@linker.SubLinkWithIndicator("cdnmode", "cdn", "cdnMode: cdn")</li>
-  <li>@linker.SubLinkWithIndicator("cdnmode", "cdn.2sxc.org", "cdnMode: cdn.2sxc.org/packages")</li>
-  <li>@linker.SubLinkWithIndicator("cdnmode", "local", "cdnMode: local (/cdn/packages)")</li>
-  <li>@linker.SubLinkWithIndicator("cdnmode", "/cdn/abcde", "cdnMode: /cdn/abcde")</li>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "cdn", "CDN Mode: cdn")</li>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "https://cdn.2sxc.org/packages", "CDN Mode: cdn.2sxc.org/packages")</li>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "/cdn/packages", "CDN Mode: local (/cdn/packages)")</li>
+  <li>@linker.SubLinkWithIndicator("cdnmode", "/cdn/abcde", "CDN Mode: /cdn/abcde")</li>
 </ol>
 
 @Kit.Page.Activate(allResources)
