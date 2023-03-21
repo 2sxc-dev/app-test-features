@@ -27,10 +27,10 @@ namespace MyCompany.DataSources {
           {"Title", "Hello from MagicDataSource"},
         }
       };
-      ProvideOut(() => Enumerable.Repeat(newItem, AmountOfItems).ToList());
+      ProvideOut(() => Enumerable.Repeat(newItem, AmountOfItems * 1).ToList());
     }
 
-    [Configuration]
+    [Configuration(Fallback = 3)]
     public int AmountOfItems {
       get { return Configuration.GetThis(3); }
     }
