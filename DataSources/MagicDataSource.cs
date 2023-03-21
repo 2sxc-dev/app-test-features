@@ -1,5 +1,5 @@
 using ToSic.Eav.DataSources;
-using ToSic.Eav.Data.Process;
+using ToSic.Eav.Data.Raw;
 using System.Collections.Generic;
 using System.Linq;
 using ToSic.Eav.DataSources.Queries;
@@ -8,14 +8,14 @@ namespace MyCompany.DataSources {
 
 	[VisualQuery(
         NiceName = "My Magic",
-        UiHint = "MagicDataSource",
+        UiHint = "MagicDataSource in this app",
         Icon = "token",
         Type = DataSourceType.Source, 
         GlobalName = "42efa241-a404-4c69-a3ed-5860575319c4",
 	      // HelpLink = "https://github.com/2sic/2sxc/wiki/DotNet-DataSource-DnnSqlDataSource",
 	      ExpectsDataOfType = "ff8e2c84-9f38-4eb7-8ea4-d34de6a1446a"
       )]
-  public class MagicDataSource : Custom.Hybrid.DataSource15 {
+  public class MagicDataSource : Custom.DataSources.DataSource15 {
 
     public MagicDataSource(MyServices services) : base(services, "My.Magic")
     {

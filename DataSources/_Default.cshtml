@@ -14,7 +14,7 @@
   var appId = App.AppId;
 
   var catalog = GetService<DataSourceCatalog>();
-  catalog.UpdateAppCache(appId, new List<Type> { type });
+  @* catalog.UpdateAppCache(appId, new List<Type> { type }); *@
 
   var find = catalog.FindType("MagicDataSource", appId);
 
