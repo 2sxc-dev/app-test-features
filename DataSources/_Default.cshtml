@@ -5,37 +5,37 @@
 <h1>App DataSources</h1>
 
 @{
-  var path = NormalizePath("MagicDataSource.cs");
+  @* var path = NormalizePath("MagicDataSource.cs");
 
   var compiler = GetService<CodeCompiler>();
 
-  var type = compiler.GetTypeOrErrorMessages(path, null, true).Item1;
+  var type = compiler.GetTypeOrErrorMessages(path, null, true).Item1; *@
 
   var appId = App.AppId;
 
   var catalog = GetService<DataSourceCatalog>();
   @* catalog.UpdateAppCache(appId, new List<Type> { type }); *@
 
-  var find = catalog.FindType("MagicDataSource", appId);
+  @* var find = catalog.FindType("MagicDataSource", appId); *@
 
-  var ds = CreateSourceWip("MagicDataSource");
-  var amountOfItems = ds.Get("AmountOfItems");
-  ds.Set("AmountOfItems", "7");
+  var ds = CreateSourceWip("MagicDataSource", configuration: new Dictionary<string, string>() { { "AmountOfItems", "9" } });
+  @* var amountOfItems = ds.Get("AmountOfItems"); *@
+  @* ds.Set("AmountOfItems", "7"); *@
 }
 
-Path: @path
+@* Path: @path
 <br>
-Type: @type
+Type: @type *@
 <br>
 AppId: @appId
 
 <br>
-Found Type: @find
+@* Found Type: @find *@
 
 <hr>
 <h2>Data in source</h2>
 
-List: @ds.List (@ds.List.Count()) - (Amount of Items: @amountOfItems)
+List: @ds.List (@ds.List.Count()) 
 <br>
 <ol>
   @foreach (var item in AsList(ds.List))
