@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="15.04.00" ExportDate="2023-03-20T23:05:38.8829307+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="15.04.00" ExportDate="2023-03-21T21:47:07.6039007+01:00">
   <Header>
     <App Guid="ab297ff7-224c-4158-a8ad-3f384997103f" />
     <Language Default="en-us" />
@@ -2984,8 +2984,8 @@
       <Value Key="HiddenInQueryPicker" Value="False" Type="Boolean" />
       <Value Key="Name" Value="AppDataSource-Magic" Type="String" />
       <Value Key="Params" Value="ReplaceThis=27&#xA;ReplaceThisAsWell=[QueryString:Id]" Type="String" />
-      <Value Key="StreamsOut" Value="Default,Header" Type="String" />
-      <Value Key="StreamWiring" Value="e0375126-c33a-4a40-9763-5b7a0d803835:Default&gt;Out:Default" Type="String" />
+      <Value Key="StreamsOut" Value="Default,Header,PleaseRename6466" Type="String" />
+      <Value Key="StreamWiring" Value="e0375126-c33a-4a40-9763-5b7a0d803835:Default&gt;Out:Header&#xD;&#xA;42c77f19-fbe7-4182-ba8c-90f00968fd6d:Default&gt;Out:Default&#xD;&#xA;d9dd11cf-484b-41f6-9101-7836c70eafcc:Default&gt;42c77f19-fbe7-4182-ba8c-90f00968fd6d:Default&#xD;&#xA;e3d88443-e1f0-476d-bc7f-703d04a6022f:Default&gt;Out:PleaseRename6466&#xD;&#xA;d9dd11cf-484b-41f6-9101-7836c70eafcc:Default&gt;e3d88443-e1f0-476d-bc7f-703d04a6022f:Default" Type="String" />
       <Value Key="TestParameters" Value="[Demo:Demo]=true" Type="String" />
       <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String" />
     </Entity>
@@ -2993,12 +2993,47 @@
       <Value Key="Description" Value="" Type="String" />
       <Value Key="Name" Value="My Magic" Type="String" />
       <Value Key="PartAssemblyAndType" Value="42efa241-a404-4c69-a3ed-5860575319c4" Type="String" />
-      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 340,&#xD;&#xA;  &quot;Left&quot;: 300&#xD;&#xA;}" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 360,&#xD;&#xA;  &quot;Left&quot;: 100&#xD;&#xA;}" Type="String" />
     </Entity>
     <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="ff8e2c84-9f38-4eb7-8ea4-d34de6a1446a" AttributeSetName="MagicDataSourceConfiguration" EntityGUID="92c85422-643d-4510-a4ef-0bea625936cd" KeyGuid="e0375126-c33a-4a40-9763-5b7a0d803835">
       <Value Key="AmountOfItems" Value="4" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
+    </Entity>
+    <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="42c77f19-fbe7-4182-ba8c-90f00968fd6d" Json="True" KeyGuid="913dbced-20bd-4123-b444-d1b91682b507">
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="MagicFilter" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="48c82e56-2db6-46f2-bc54-eeea17a8b164" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 400,&#xD;&#xA;  &quot;Left&quot;: 620&#xD;&#xA;}" Type="String" />
+    </Entity>
+    <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="d9dd11cf-484b-41f6-9101-7836c70eafcc" Json="True" KeyGuid="913dbced-20bd-4123-b444-d1b91682b507">
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="App" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.App, ToSic.Eav.DataSources" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 640,&#xD;&#xA;  &quot;Left&quot;: 560&#xD;&#xA;}" Type="String" />
+    </Entity>
+    <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="e3d88443-e1f0-476d-bc7f-703d04a6022f" Json="True" KeyGuid="913dbced-20bd-4123-b444-d1b91682b507">
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="MagicFilter2" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="MagicFilter2" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 480,&#xD;&#xA;  &quot;Left&quot;: 360&#xD;&#xA;}" Type="String" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="DataPipeline" AttributeSetName="DataPipeline" EntityGUID="f8dd16a9-447d-4499-a2d0-7b90913a8da1" Json="True">
+      <Value Key="AllowEdit" Value="True" Type="Boolean" />
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="HiddenInQueryPicker" Value="False" Type="Boolean" />
+      <Value Key="Name" Value="CompileErrorTest" Type="String" />
+      <Value Key="Params" Value="ReplaceThis=27&#xA;ReplaceThisAsWell=[QueryString:Id]" Type="String" />
+      <Value Key="StreamsOut" Value="Default,Header" Type="String" />
+      <Value Key="StreamWiring" Value="e329ad4b-1028-4028-a406-9af9e92b7f19:Default&gt;Out:Default" Type="String" />
+      <Value Key="TestParameters" Value="[Demo:Demo]=true" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String" />
+    </Entity>
+    <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="e329ad4b-1028-4028-a406-9af9e92b7f19" Json="True" KeyGuid="f8dd16a9-447d-4499-a2d0-7b90913a8da1">
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="MagicFilter2" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="MagicFilter2" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 320,&#xD;&#xA;  &quot;Left&quot;: 140&#xD;&#xA;}" Type="String" />
     </Entity>
   </Entities>
   <PortalFiles>
