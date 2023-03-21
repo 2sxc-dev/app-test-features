@@ -1,4 +1,4 @@
-public class Code14 : Custom.Hybrid.Code14<dynamic, ToSic.Sxc.Services.ServiceKit14> {
+public class Code14 : Custom.Hybrid.Code14 {
   public string SayHello() {
     // Try to access the Kit
     var x = Kit.Convert.ToInt("27.4") + 2;
