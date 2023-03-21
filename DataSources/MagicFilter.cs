@@ -15,6 +15,7 @@ namespace MyCompany.DataSources {
         // Type = DataSourceType.App,
         // GlobalName = "MagicFilter" 
         ,
+        
         NameId = "48c82e56-2db6-46f2-bc54-eeea17a8b164"
 	      // ConfigurationType = "MagicDataSourceConfiguration"
       )]

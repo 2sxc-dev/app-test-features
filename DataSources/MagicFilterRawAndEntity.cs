@@ -7,10 +7,10 @@ using ToSic.Eav.DataSources.Queries;
 
 namespace MyCompany.DataSources {
 
-  public class MagicFilter2 : Custom.DataSources.DataSource15
+  public class MagicFilterRawAndEntity : Custom.DataSources.DataSource15
   {
 
-    public MagicFilter2(MyServices services) : base(services, "My.Magic")
+    public MagicFilterRawAndEntity(MyServices services) : base(services, "My.Magic")
     {    
       // x = 27;
       ProvideOut(() => {
