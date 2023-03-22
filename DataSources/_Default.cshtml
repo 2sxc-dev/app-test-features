@@ -1,17 +1,18 @@
 @inherits Custom.Hybrid.Razor14
 @using ToSic.Sxc.Code;
-@using ToSic.Eav.DataSources.Catalog;
+@using ToSic.Eav.DataSources;
 
 <h1>App DataSources</h1>
 
 @{
-  var ds = CreateSourceWip("MagicDataSource", configuration: new Dictionary<string, string>() { { "AmountOfItems", "6" } });
+  var expected = 6;
+  var ds = CreateSourceWip("MagicDataSource", configuration: new DataSourceConfiguration("AmountOfItems=" + expected));
 }
 
 <hr>
 <h2>Data in source</h2>
 
-List: @ds.List (@ds.List.Count()) 
+List: @ds.List (@ds.List.Count()) - we expect @expected items
 <br>
 <ol>
   @foreach (var item in AsList(ds.List))
