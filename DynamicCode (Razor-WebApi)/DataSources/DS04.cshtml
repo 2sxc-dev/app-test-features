@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+@using ToSic.Eav.DataSources.Sys;
+
+<h1>Dynamic Code - DataSources - TODO CreateSource with an upstream source - eg a first source gets a type filter, the next gets an id filter</h1>
+
+@{
+  var expected = 4;
+  var ds = CreateSource<Apps>(options: new { OfZoneId=6 });
+}
+
+<hr>
+<h2>Data in source</h2>
+
+List: @ds.List (@ds.List.Count()) - we expect @expected items
+<br>
+<ol>
+  @foreach (var item in AsList(ds.List))
+  {
+    <li>@item.EntityTitle (@item.EntityId)</li>
+  }
+</ol>
