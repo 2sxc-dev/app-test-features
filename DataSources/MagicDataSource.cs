@@ -12,18 +12,23 @@ namespace MyCompany.DataSources {
 
     public MagicDataSource(MyServices services) : base(services, "My.Magic")
     {
-      var newItem = new RawEntity() {
-        Id = 27,
-        Values = new Dictionary<string, object> {
-          {"Title", "Hello from MagicDataSource"},
-        }
-      };
-      ProvideOut(() => Enumerable.Repeat(newItem, AmountOfItems * 1).ToList());
+      ProvideOut(() => {
+        var newItem = new RawEntity() {
+          Id = 27,
+          Values = new Dictionary<string, object> {
+            {"Title", "Hello from MagicDataSource"},
+            // TODO: NOT working yet
+            {"FavoriteNumber", FavoriteNumber},
+          }
+        };
+        return Enumerable.Repeat(newItem, AmountOfItems * 1).ToList();
+      });
     }
 
     [Configuration(Fallback = 3)]
-    public int AmountOfItems {
-      get { return Configuration.GetThis(3); }
-    }
+    public int AmountOfItems { get { return Configuration.GetThis(3); } }
+
+    [Configuration(Fallback = 42)]
+    public int FavoriteNumber { get { return Configuration.GetThis(42); } }
   }
 }

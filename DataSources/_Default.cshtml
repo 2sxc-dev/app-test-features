@@ -6,7 +6,8 @@
 
 @{
   var expected = 6;
-  var ds = CreateSourceWip("MagicDataSource", configuration: new DataSourceConfiguration("AmountOfItems=" + expected));
+  var ds = CreateSourceWip("MagicDataSource", options: new [] { "AmountOfItems=" + expected, "FavoriteNumber=69" });
+  ds = CreateSourceWip("MagicDataSource", options: new { AmountOfItems = expected, FavoriteNumber = -42 });
 }
 
 <hr>
@@ -17,6 +18,6 @@ List: @ds.List (@ds.List.Count()) - we expect @expected items
 <ol>
   @foreach (var item in AsList(ds.List))
   {
-    <li>@item.EntityTitle (@item.EntityId)</li>
+    <li>@item.EntityTitle (@item.EntityId) - fav Number: @item.FavoriteNumber</li>
   }
 </ol>
