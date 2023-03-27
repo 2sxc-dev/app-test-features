@@ -6,8 +6,8 @@
 
 @{
   var expected = 6;
-  var ds = CreateSourceWip("MagicDataSource", options: new [] { "AmountOfItems=" + expected, "FavoriteNumber=69" });
-  ds = CreateSourceWip("MagicDataSource", options: new { AmountOfItems = expected, FavoriteNumber = -42 });
+  var ds = CreateDataSource(name: "MagicDataSource", options: new [] { "AmountOfItems=" + expected, "FavoriteNumber=69" });
+  ds = CreateDataSource(name: "MagicDataSource", options: new { AmountOfItems = expected, FavoriteNumber = -42 });
 }
 
 <hr>
