@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+
+<h1>App DataSources</h1>
+
+@{
+  var expected = 6;
+  var ds = CreateDataSource(name: "MagicDataSource", options: new [] { "AmountOfItems=" + expected, "FavoriteNumber=69" });
+  ds = CreateDataSource(name: "MagicDataSource", options: new { AmountOfItems = expected, FavoriteNumber = -42 });
+}
+
+<hr>
+<h2>Data in source</h2>
+
+List: @ds.List (@ds.List.Count()) - we expect @expected items
+<br>
+<ol>
+  @foreach (var item in AsList(ds.List))
+  {
+    <li>@item.EntityTitle (@item.EntityId) - fav Number: @item.FavoriteNumber</li>
+  }
+</ol>

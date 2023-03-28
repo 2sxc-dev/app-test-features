@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class MagicFilterRawAndEntity : Custom.DataSources.DataSource15
+public class MagicFilterRawAndEntity : Custom.DataSource.DataSource15
 {
 
   public MagicFilterRawAndEntity(MyServices services) : base(services, "My.Magic")

@@ -1,0 +1,55 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+
+<h1>App DataSources - Try to Attach after Creation</h1>
+<p>
+  The following should show that attach still works on old APIs, but fails on new.
+</p>
+@{
+  var dsToAttach = CreateDataSource(name: "MagicDataSource");
+
+  var attachToOld = false;
+  var typeFilterOld = CreateSource<EntityTypeFilter>();
+  try {
+    typeFilterOld.Attach(dsToAttach);
+    attachToOld = true;
+  }
+  catch {
+    attachToOld = false;
+  }
+
+  var attachToNew = false;
+  var typeFilterImmutable = CreateDataSource<EntityTypeFilter>();
+  try {
+    // should fail
+    typeFilterImmutable.Attach(dsToAttach);
+    attachToNew = true;
+  }
+  catch {
+    attachToNew = false;
+  }
+
+
+  var attachToCode = false;
+  var ds = CreateDataSource(name: "MagicDataSource");
+  try {
+    // should fail
+    ds.Attach(dsToAttach);
+    attachToCode = true;
+  }
+  catch {
+    attachToCode = false;
+  }
+
+
+}
+
+<hr>
+<h2>Data in source</h2>
+
+<ol>
+  <li>@(attachToOld == true ? "✅" : "⛔")   Attach to old: @attachToOld (expected: true)</li>
+  <li>@(attachToNew == false ? "✅" : "⛔")  Attach to new: @attachToNew (expected: false)  </li>
+  <li>@(attachToCode == false ? "✅" : "⛔") Attach to immutable: @attachToCode (expected: false)  </li>
+</ol>
