@@ -8,7 +8,7 @@ public class MagicFilterAppData : Custom.DataSource.DataSource15
   {    
     ProvideOut(() => {
       // Make sure we have an in
-      var inStream = TryGetIn() ?? CreateDataSource<IAppRoot>().List;
+      var inStream = TryGetIn() ?? Kit.Data.GetSource<IAppRoot>().List;
       return inStream.Where(e => e.EntityId % 2 == 1);
     });
   }

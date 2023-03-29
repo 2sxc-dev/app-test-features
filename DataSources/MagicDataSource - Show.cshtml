@@ -6,8 +6,8 @@
 
 @{
   var expected = 6;
-  var ds = CreateDataSource(name: "MagicDataSource", options: new [] { "AmountOfItems=" + expected, "FavoriteNumber=69" });
-  ds = CreateDataSource(name: "MagicDataSource", options: new { AmountOfItems = expected, FavoriteNumber = -42 });
+  var ds = Kit.Data.GetSource(name: "MagicDataSource", options: new [] { "AmountOfItems=" + expected, "FavoriteNumber=69" });
+  ds = Kit.Data.GetSource(name: "MagicDataSource", options: new { AmountOfItems = expected, FavoriteNumber = -42 });
 }
 
 @Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })

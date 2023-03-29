@@ -5,8 +5,8 @@ using ToSic.Eav.DataSource;
 using ToSic.Eav.DataSource.VisualQuery;
 
 // Test for scenarios with an Error DataSource
-public class MagicError : Custom.DataSource.DataSource15 {
-
+public class MagicError : Custom.DataSource.DataSource15
+{
   public MagicError(MyServices services) : base(services, "My.Magic")
   {
     ProvideOut(() => {

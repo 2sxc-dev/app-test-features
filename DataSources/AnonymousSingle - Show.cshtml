@@ -6,7 +6,7 @@
 
 @{
   var expected = 6;
-  var ds = CreateDataSource(name: "AnonymousSingle", options: new { AmountOfItems = expected, FavoriteNumber = 99 });
+  var ds = Kit.Data.GetSource(name: "AnonymousSingle", options: new { AmountOfItems = expected, FavoriteNumber = 99 });
 }
 
 @Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })

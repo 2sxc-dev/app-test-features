@@ -7,7 +7,7 @@
   The following should show that attach still works on old APIs, but fails on new.
 </p>
 @{
-  var dsToAttach = CreateDataSource(name: "MagicDataSource");
+  var dsToAttach = Kit.Data.GetSource(name: "MagicDataSource");
 
   var attachToOld = false;
   var typeFilterOld = CreateSource<EntityTypeFilter>();
@@ -20,7 +20,7 @@
   }
 
   var attachToNew = false;
-  var typeFilterImmutable = CreateDataSource<EntityTypeFilter>();
+  var typeFilterImmutable = Kit.Data.GetSource<EntityTypeFilter>();
   try {
     // should fail
     typeFilterImmutable.Attach(dsToAttach);
@@ -32,7 +32,7 @@
 
 
   var attachToCode = false;
-  var ds = CreateDataSource(name: "MagicDataSource");
+  var ds = Kit.Data.GetSource(name: "MagicDataSource");
   try {
     // should fail
     ds.Attach(dsToAttach);
