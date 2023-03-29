@@ -1,0 +1,18 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+
+<h1>App DataSources</h1>
+
+
+<h2>RawListWithNameId - with string-array of params</h2>
+@{
+  var ds = CreateDataSource(name: "RawListWithNameId", options: new [] { "AmountOfItems=" + 5, "FavoriteNumber=69" });
+}
+@Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = 5 })
+
+<h2>RawListWithNameId - with anonymous object of params</h2>
+@{
+  ds = CreateDataSource(name: "RawListWithNameId", options: new { AmountOfItems = 2, FavoriteNumber = -42 });
+}
+@Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = 2 })

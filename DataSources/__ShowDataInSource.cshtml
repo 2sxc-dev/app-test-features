@@ -1,0 +1,22 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+@{
+  var list = DynamicModel.List;
+  var expected = DynamicModel.Expected;
+}
+<hr>
+<h3>Data in source</h3>
+
+List: @list (@list.Count) - we expect @expected items
+<br>
+<ol>
+  @foreach (var item in AsList(list))
+  {
+    <li>
+      @item.EntityTitle (@item.EntityId / @item.EntityGuid)
+      <br>
+      Fav Number: @item.FavoriteNumber
+    </li>
+  }
+</ol>
