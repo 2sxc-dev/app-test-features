@@ -23,7 +23,7 @@
 }
 
 <ol>
-  @tlbTest.TbTestAsTag("Various Icons",
+  @tlbTest.TbTestAsTag("Various Icons - using ui parameter",
     Kit.Toolbar.Default()
     .Metadata(CmsContext.Page)
     .Edit(ui: new { Icon = iconNote })
@@ -32,7 +32,15 @@
     .Edit(ui: new object[] { "test=27&v1=12", new { icon = icon } })
     .Edit(ui: new { Icon = icon24 })
     .For(Content))
-
+  @tlbTest.TbTestAsTag("Various Icons - using Tweak",
+    Kit.Toolbar.Default()
+    .Metadata(CmsContext.Page)
+    .Edit(tweak: b => b.Icon(iconNote).Note("this is interesting!"))
+    .Edit(tweak: b => b.Icon(iconOg))
+    .Edit(tweak: b => b.Icon(iconShare))
+    .Edit(tweak: b => b.Icon(icon).Color("red").Note("This is now red!"), ui: new object[] { "test=27&v1=12" })
+    .Edit(tweak: b => b.Icon(icon24))
+    .For(Content))
   @tlbTest.TbTestAsTag("Test Image Icons",
     Kit.Toolbar.Empty()
       .Edit(ui: new { Icon = imageFont})

@@ -4,26 +4,30 @@
 <p>
   todo
 </p>
-
+@{
+  var empty = Kit.Toolbar.Empty() as ToSic.Sxc.Edit.Toolbar.ToolbarBuilder;
+}
 <h2>infos</h2>
 <ol>
   <li>
-    <strong>Default</strong>
-    @{ var tlbInfo = Kit.Toolbar.Empty().Info(note: Resources.Toolbar.IsDemoSubItem /* "this is a test!"/*, tooltip: "this is a tooltip"*/);  }
+    <strong>Default - using tweak</strong>
+    @{
+      var tlbInfo = empty.Info(tweak: b => b.Note(Resources.Toolbar.IsDemoSubItem));
+    }
     Show as tag: @tlbInfo.AsTag()
     <br>
     @tlbInfo.AsJson()
   </li>
   <li>
     <strong>Empty</strong>
-    @{ tlbInfo = Kit.Toolbar.Empty().Info(); }
+    @{ tlbInfo = empty.Info(); }
     Show as tag: @tlbInfo.AsTag()
     <br>
     @tlbInfo.AsJson()
   </li>
   <li>
     <strong>Message</strong>
-    @{ tlbInfo = Kit.Toolbar.Empty().Info(note: "this is a test!", link: "//2sxc.org"); }
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this is a test!"), link: "//2sxc.org"); }
     Show as tag: @tlbInfo.AsTag()
     <br>
     @tlbInfo.AsJson()
@@ -34,11 +38,9 @@
 <h2>Links</h2>
 @{
 
-  var tlbHelp = Kit.Toolbar.Empty()
-    .Info(note: new { note = "check out the help", type = "help" }, link: "//google.com");
+  var tlbHelp = empty.Info(tweak: b => b.Note("check out the help", type: "help"), link: "//google.com");
 
-  var tlbLink = Kit.Toolbar.Empty()
-    .Info(note: new { note = "check out the help", type = "warning" }, link: "//google.com");
+  var tlbLink = empty.Info(tweak: b => b.Note("check out the help", type: "warning"), link: "//google.com");
 
 }
 <ol>
