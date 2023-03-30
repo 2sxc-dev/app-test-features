@@ -16,6 +16,7 @@
   var pub2 = Kit.Toolbar.Empty(itemToCopy).Publish();
 
   var new1 = Kit.Toolbar.Empty().New("Dummy", prefill: new { Title = "hello" });
+  var newPerfillTweak = Kit.Toolbar.Empty().New("Dummy", tweak: b => b.prefill(new { Title = "hello" }));
 }
 
 <ol>
@@ -47,8 +48,13 @@
   </li>
 
   <li>
-    New with prefill @new1.AsTag()
+    New with prefill classic @new1.AsTag()
     <br>
     @new1.AsJson()
+  </li>
+  <li>
+    New with prefill tweak @newPerfillTweak.AsTag()
+    <br>
+    @newPerfillTweak.AsJson()
   </li>
 </ol>

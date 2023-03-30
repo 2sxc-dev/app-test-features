@@ -1,0 +1,92 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Call Code etc.</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+
+  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+
+  var code1 = Kit.Toolbar.Empty()
+    // .Code()
+    .Code("callMe", parameters: new { id = 27 })
+    .Button("custom", parameters: "call=callMe&id=27")
+    ;
+  //var edit2 = Kit.Toolbar.Empty().Code();
+
+  var codeSpace = Kit.Toolbar.Empty().Code("call me");
+  var codeBracket = Kit.Toolbar.Empty().Code("callMe(27)");
+
+  var codeWithParams = Kit.Toolbar.Empty().Code("withParams", parameters: new { testParam = 27 });
+  var codeWithTweakParams = Kit.Toolbar.Empty().Code("withParams", tweak: b => b.Parameters(new { testParam = 27 }).Parameters("key", "value"));
+
+  
+}
+<h2>Tweak and Parameters together should error</h2>
+@{
+  var isError = false;
+  var errMessage = "";
+  try {
+    var codeWithBothParamsShouldError = Kit.Toolbar.Empty().Code("withParams", parameters: "key=value", tweak: b => b.Parameters(new { testParam = 27 }));
+  }
+  catch (Exception ex) {
+    isError = true;
+    errMessage = ex.Message;
+  }
+}
+<p>
+  Ran Tweak and parameters together, should error: Error: @isError @(isError ? "✅" : "⛔")
+  <br>
+  Error message: @errMessage
+</p>
+
+<hr>
+
+<h2>Code with Parameters - working on Tweak</h2>
+<ol>
+  <li>
+    Code with Params classic @codeWithParams.AsTag()
+    <br>
+    @codeWithParams.AsJson()
+  </li>
+  <li>
+    Code with params Tweak @codeWithTweakParams.AsTag()
+    <br>
+    @codeWithTweakParams.AsJson()
+  </li>
+</ol>
+<hr>
+<h2>Basic code</h2>
+<ol>
+  <li>
+    Code new and old @code1.AsTag()
+    <br>
+    @code1.AsJson()
+  </li>
+
+  <li>
+    Space - invalid, should throw JS error @codeSpace.AsTag()
+    <br>
+    @codeSpace.AsJson()
+  </li>
+
+  <li>
+    Bracket - invalid @codeBracket.AsTag()
+    <br>
+    @codeBracket.AsJson()
+  </li>
+
+</ol>
+
+
+<script>
+  function callMe(p, q, r) {
+    console.log('call me', p, q, r);
+  }
+
+  function withParams(methodParams, q, r) {
+    console.log("Go parameters:", methodParams);
+    console.log('with params', methodParams, q, r);
+  }
+</script>

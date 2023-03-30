@@ -14,11 +14,6 @@
 
   var itemToCopy = AsDynamic(App.Data["Dummy"].First());
 
-  var code1 = Kit.Toolbar.Empty()
-    .Code("callMe", parameters: new { id = 27 })
-    .Button("custom", parameters: "call=callMe&id=27")
-    ;
-
   var codeSpace = Kit.Toolbar.Empty().Code("call me");
   var codeBracket = Kit.Toolbar.Empty().Code("callMe(27)");
 }
