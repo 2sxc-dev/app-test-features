@@ -18,56 +18,84 @@
   var childIdsString2 = string.Join(",", childIds2);
 
   var dataFiltered = Kit.Toolbar.Empty().Data("Dummy", filter: new { FavoriteNumber = 11 });
+  var empty = Kit.Toolbar.Empty();
 }
 
 <ol>
-  @tlbTest.TbTestAsTag("Basic, no params", 
-    Kit.Toolbar.Empty()
-      .Data())
+  @tlbTest.TbTestAsVisibleTag("Basic, no params", "classic",
+    empty.Data())
 
-  @tlbTest.TbTestAsTag("Basic, params current content-item", 
-    Kit.Toolbar.Empty()
-      .Data(Content))
+  @tlbTest.TbTestAsVisibleTag("Basic, params current content-item", "classic",
+    empty.Data(Content))
 
-  @tlbTest.TbTestAsTag("Basic, params another item (should take it's content-type)", 
-    Kit.Toolbar.Empty()
-      .Data(aParent))
+  @tlbTest.TbTestAsVisibleTag("Basic, params another item (should take it's content-type)", "classic",
+    empty.Data(aParent))
 
-  @tlbTest.TbTestAsTag("Basic, just content-type name as string", 
-    Kit.Toolbar.Empty()
-      .Data(parentName))
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string", "classic",
+    empty.Data(parentName))
+</ol>
 
-  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as string", 
-    Kit.Toolbar.Empty()
-      .Data(parentName, filter: "Child=" + aChild.EntityId))
+<h3>Basic, just content-type name as string</h3>
+<ol>
 
-  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as [string]", 
-    Kit.Toolbar.Empty()
-      .Data(parentName, filter: "Child=[" + aChild.EntityId + "]"))
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "classic",
+    empty.Data(parentName, filter: "Child=" + aChild.EntityId))
 
-  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as [int,int]", 
-    Kit.Toolbar.Empty()
-      .Data(parentName, filter: "Children=[" + childIdsString2 + "]"))
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "tweak",
+    empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.EntityId)))
 
-  @tlbTest.TbTestAsTag("Basic, just content-type name as string, filter as object", 
-    Kit.Toolbar.Empty()
-      .Data(parentName, filter: new { Child = aChild.EntityId }))
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "tweak-kvp",
+    empty.Data(parentName, tweak: b => b.Filter("Child", aChild.EntityId)))
 
-  @tlbTest.TbTestAsTag("Filter as object, giving it a child", 
-    Kit.Toolbar.Empty()
-      .Data(parentName, filter: new { Child = aChild }))
+</ol>
 
-  @tlbTest.TbTestAsTag("Filter as an int[] array of numbers", 
-    Kit.Toolbar.Empty()
-      .Data(parentName, filter: new { Child = childIds2 }))
+<h3>Multi-filter tweak</h3>
+<ol>
+  @tlbTest.TbTestAsVisibleTag("two values each KVP", "tweak-kvp",
+    empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.EntityId + "]").Filter("Field2", "value2")))
 
-  @tlbTest.TbTestAsTag("Filter by giving it an IEnumerable of children", 
-    Kit.Toolbar.Empty()
-      .Data(parentName, filter: new { Child = children2 }))
+  @tlbTest.TbTestAsVisibleTag("two values each string-pair", "tweak-kvp",
+    empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.EntityId).Filter("Field2=value2")))
 
-  @tlbTest.TbTestAsTag("Another property, not relevant but just for demo", 
-    Kit.Toolbar.Empty()
-      .Data("Dummy", filter: new { FavoriteNumber = 11 }))
+  @tlbTest.TbTestAsVisibleTag("two values object and string-pair", "tweak-kvp",
+    empty.Data(parentName, tweak: b => b.Filter(new { Child = aChild.EntityId}).Filter("Field2=value2")))
+
+</ol>
+
+<h3>Basic, just content-type name as string, filter as [string]</h3>
+<ol>
+
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "classic",
+    empty.Data(parentName, filter: "Child=[" + aChild.EntityId + "]"))
+
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "tweak",
+    empty.Data(parentName, tweak: b => b.Filter("Child=[" + aChild.EntityId + "]")))
+
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "tweak-kvp",
+    empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.EntityId + "]")))
+
+</ol>
+
+<h3>More</h3>
+<ol>
+
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [int,int]", "classic",
+    empty.Data(parentName, filter: "Children=[" + childIdsString2 + "]"))
+
+  @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as object", "classic",
+    empty.Data(parentName, filter: new { Child = aChild.EntityId }))
+
+  @tlbTest.TbTestAsVisibleTag("Filter as object, giving it a child", "classic",
+    empty.Data(parentName, filter: new { Child = aChild }))
+
+  @tlbTest.TbTestAsVisibleTag("Filter as an int[] array of numbers", "classic",
+    empty.Data(parentName, filter: new { Child = childIds2 }))
+
+  @tlbTest.TbTestAsVisibleTag("Filter by giving it an IEnumerable of children", "classic",
+    empty.Data(parentName, filter: new { Child = children2 }))
+
+  @tlbTest.TbTestAsVisibleTag("Another property, not relevant but just for demo", "classic",
+    empty.Data("Dummy", filter: new { FavoriteNumber = 11 }))
 
 
 </ol>
