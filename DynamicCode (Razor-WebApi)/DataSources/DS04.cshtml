@@ -7,17 +7,21 @@
 
 @{
   var expected = 4;
-  var ds = CreateSource<Apps>(options: new { OfZoneId=6 });
+  var apps = CreateSource<Apps>();
+  apps.OfZoneId = 6;
+  var vf = CreateSource<ValueFilter>(apps);
+  vf.Attribute = "ZoneId";
+  vf.Value = "6";
 }
 
 <hr>
 <h2>Data in source</h2>
 
-List: @ds.List (@ds.List.Count()) - we expect @expected items
+List: @vf.List (@vf.List.Count()) - we expect @expected items
 <br>
 <ol>
-  @foreach (var item in AsList(ds.List))
+  @foreach (var item in AsList(vf.List))
   {
-    <li>@item.EntityTitle (@item.EntityId)</li>
+    <li>@item.EntityTitle (@item)</li>
   }
 </ol>
