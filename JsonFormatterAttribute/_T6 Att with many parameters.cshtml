@@ -5,19 +5,19 @@
   page.Activate("2sxc.JsCore");
   page.Activate("turnOn");
 }
-<h1>JsonFormatterAttribute Test5</h1>
-<p>Attribute with Casing parameter on class only.</p>
+<h1>JsonFormatterAttribute with many parameters on class only</h1>
+
 <p>class:</p>
-<pre>[JsonFormatter(Casing = Casing.PascalCase)]</pre>
+<pre>[JsonFormatter(AutoConvertEntity = false, Casing = Casing.PascalCase)]</pre>
 <p>method:</p>
 <pre>-</pre>
 
 <h2>1, get single IEntity</h2>
-<h3>expected JSON result: single EavLightEntity, pascal case.</h3>
+<h3>expected JSON result: single IEntity, pascal case.</h3>
 <pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
 
 <h2>2, get IEntity list</h2>
-<h3>expected JSON result: EavLightEntity array, pascal case.</h3>
+<h3>expected JSON result: IEntity array, pascal case.</h3>
 <pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
 
 <script type="text/javascript">
@@ -26,7 +26,7 @@
   (() => {
     function downloadJson(method, id) {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/JsonFormatterAttribute/api/Test5/' + method)
+        .get('app/auto/JsonFormatterAttribute/api/Test6/' + method)
         .then(data => {
           console.log(data);
           document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);

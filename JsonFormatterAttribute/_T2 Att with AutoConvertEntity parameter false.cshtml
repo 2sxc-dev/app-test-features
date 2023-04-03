@@ -5,24 +5,17 @@
   page.Activate("2sxc.JsCore");
   page.Activate("turnOn");
 }
-<h1>JsonFormatterAttribute Test8</h1>
-<p>Attribute with many parameters on class and method.</p>
+<h1>JsonFormatterAttribute with AutoConvertEntity parameter on class only</h1>
+<p>class:</p>
+<pre>[JsonFormatter(AutoConvertEntity = false)]</pre>
+<p>method:</p>
+<pre>-</pre>
 
 <h2>1, get single IEntity</h2>
-<p>class:</p>
-<pre>[JsonFormatter(AutoConvertEntity = false, Casing = Casing.PascalCase)]</pre>
-<p>method:</p>
-<pre>[JsonFormatter(AutoConvertEntity = true, Casing = Casing.PascalCase)]</pre>
-
-<h3>expected JSON result: single EavLightEntity, pascal case.</h3>
+<h3>expected JSON result: single IEntity, camel case.</h3>
 <pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
 
 <h2>2, get IEntity list</h2>
-<p>class:</p>
-<pre>[JsonFormatter(AutoConvertEntity = false, Casing = Casing.PascalCase)]</pre>
-<p>method:</p>
-<pre>[JsonFormatter(AutoConvertEntity = false, Casing = Casing.CamelCase)]</pre>
-
 <h3>expected JSON result: IEntity array, camel case.</h3>
 <pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
 
@@ -32,7 +25,7 @@
   (() => {
     function downloadJson(method, id) {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/JsonFormatterAttribute/api/Test8/' + method)
+        .get('app/auto/JsonFormatterAttribute/api/Test2/' + method)
         .then(data => {
           console.log(data);
           document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
