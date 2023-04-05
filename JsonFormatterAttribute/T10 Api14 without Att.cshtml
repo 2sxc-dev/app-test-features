@@ -1,0 +1,17 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>JsonFormatterAttribute without parameters on class only</h1>
+<p>class:</p>
+<pre>-</pre>
+<p>method:</p>
+<pre>-</pre>
+
+<h2>1, get single IEntity</h2>
+<h3>expected JSON result: HTTP 500 - An error has occurred.</h3>
+<pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
+
+<h2>2, get IEntity list</h2>
+<h3>expected JSON result: HTTP 500 - An error has occurred.</h3>
+<pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
+
+@Html.Partial("__Shared.cshtml", new { Method = "Test10" })
