@@ -29,17 +29,4 @@ public class Test4Controller : Custom.Hybrid.Api15
     {
         return App.Data.List;
     }
-
-    [HttpGet]
-    public object Test3()
-    {
-        var entity = App.Data.List.First();
-        return new EntityWrapper(entity, null);
-    }
-
-    [HttpGet]
-    public object Test4()
-    {
-        return AsList(App.Data).Select(d => new EntityWrapper(AsEntity(d), null));
-    }
 }
