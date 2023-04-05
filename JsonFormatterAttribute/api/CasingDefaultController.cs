@@ -15,17 +15,16 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 
 [AllowAnonymous]
-public class Test7Controller : Custom.Hybrid.Api15
+[JsonFormatter(Casing = Casing.Default)]
+public class CasingDefaultController : Custom.Hybrid.Api15
 {
     [HttpGet]
-    [JsonFormatter(AutoConvertEntity = true, Casing = Casing.PascalCase)]
     public object GetEntity()
     {
         return (App.Data.List.First());
     }
 
     [HttpGet]
-    [JsonFormatter(AutoConvertEntity = false, Casing = Casing.CamelCase)]
     public object GetEntities()
     {
         return App.Data.List;

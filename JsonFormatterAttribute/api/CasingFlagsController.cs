@@ -15,8 +15,8 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 
 [AllowAnonymous]
-[JsonFormatter(Casing = Casing.CamelCase)]
-public class Test4Controller : Custom.Hybrid.Api15
+[JsonFormatter(Casing = Casing.ObjectCamel | Casing.DictionaryPascal)]
+public class CasingFlagsController : Custom.Hybrid.Api15
 {
     [HttpGet]
     public object GetEntity()

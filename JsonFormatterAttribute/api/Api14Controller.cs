@@ -15,8 +15,7 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 
 [AllowAnonymous]
-[JsonFormatter]
-public class Test1Controller : Custom.Hybrid.Api15
+public class Api14Controller : Custom.Hybrid.Api14
 {
     [HttpGet]
     public object GetEntity()

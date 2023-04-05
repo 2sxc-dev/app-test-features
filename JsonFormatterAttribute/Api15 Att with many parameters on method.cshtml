@@ -5,18 +5,18 @@
 <p>class:</p>
 <pre>-</pre>
 <p>method:</p>
-<pre>[JsonFormatter(AutoConvertEntity = true, Casing = Casing.PascalCase)]</pre>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.Light, Casing = Casing.Pascal)]</pre>
 
-<h3>expected JSON result: single EavLightEntity, pascal case.</h3>
+<h3>expected JSON result: single EavLightEntity, Pascal case.</h3>
 <pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
 
 <h2>2, get IEntity list</h2>
 <p>class:</p>
 <pre>-</pre>
 <p>method:</p>
-<pre>[JsonFormatter(AutoConvertEntity = false, Casing = Casing.CamelCase)]</pre>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Cascal)]</pre>
 
 <h3>expected JSON result: IEntity array, camel case.</h3>
 <pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
 
-@Html.Partial("__Shared.cshtml", new { Method = "Test7" })
+@Html.Partial("__Shared.cshtml", new { Method = "Method" })

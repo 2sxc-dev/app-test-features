@@ -1,0 +1,22 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>JsonFormatterAttribute with many default and specified parameters on class and method</h1>
+<h2>1, get single IEntity</h2>
+<p>class:</p>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Pascal)]</pre>
+<p>method:</p>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.Light)]</pre>
+
+<h3>expected JSON result: single EavLightEntity, camel case.</h3>
+<pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
+
+<h2>2, get IEntity list</h2>
+<p>class:</p>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Pascal)]</pre>
+<p>method:</p>
+<pre>[JsonFormatter(Casing = Casing.Camel)]</pre>
+
+<h3>expected JSON result: EavLightEntity array, camel case.</h3>
+<pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
+
+@Html.Partial("__Shared.cshtml", new { Method = "ClassAndMethodB" })

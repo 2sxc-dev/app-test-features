@@ -1,8 +1,8 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>JsonFormatterAttribute with AutoConvertEntity parameter on class only</h1>
+<h1>JsonFormatterAttribute with Casing.Camel on class only</h1>
 <p>class:</p>
-<pre>[JsonFormatter(AutoConvertEntity = true)]</pre>
+<pre>[JsonFormatter(Casing = Casing.Camel)]</pre>
 <p>method:</p>
 <pre>-</pre>
 
@@ -14,4 +14,4 @@
 <h3>expected JSON result: EavLightEntity array, camel case.</h3>
 <pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
 
-@Html.Partial("__Shared.cshtml", new { Method = "Test3" })
+@Html.Partial("__Shared.cshtml", new { Method = "CasingCamel" })
