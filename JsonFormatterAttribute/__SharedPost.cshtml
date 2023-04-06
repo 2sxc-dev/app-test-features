@@ -4,9 +4,14 @@
   page.Activate("jQuery");
   page.Activate("2sxc.JsCore");
   page.Activate("turnOn");
-
-  var test = DynamicModel.Method;
 }
+<h1>@DynamicModel.Title</h1>
+<p>class:</p>
+<pre>-</pre>
+<h2>1, post</h2>
+<pre id="input1"></pre>
+<h3>expected JSON result: @DynamicModel.Result</h3>
+<pre id="output1" turn-on='{ "run": "window.postTest()" }'>...loading...</pre>
 <script type="text/javascript">
   // Use an IFFE to ensure the variables are not exposed globaly
   // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
@@ -14,14 +19,14 @@
     function postJson(inputId, outputId, postData) {
       document.getElementById(inputId).innerHTML = JSON.stringify(postData, null, 2);
       $2sxc(@CmsContext.Module.Id).webApi
-        .fetchJson('app/auto/JsonFormatterAttribute/api/@test/UpdatePostTest', postData)
+        .fetchJson('app/auto/JsonFormatterAttribute/api/@DynamicModel.Method/UpdatePostTest', postData)
         .then(data => {
           console.log(data);
           document.getElementById(outputId).innerHTML = JSON.stringify(data, null, 2);
         });
     }
     function postTest() {
-      postJson('input1', 'output1', { /*"NAME": "First Last", "AgE": 77, "Address": "address",*/ "IAmNull": null })
+      postJson('input1', 'output1', { "IAmNull": null })
     }
     // Generate on window so it can be called from the html
     window.postTest = postTest;

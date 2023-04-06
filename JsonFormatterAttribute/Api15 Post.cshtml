@@ -1,12 +1,3 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Api15 POST test (System.Text.Json deserialization is not possible)</h1>
-<p>class:</p>
-<pre>[JsonFormatter(Casing = Casing.Camel)]</pre>
-<p>Post case insensitive JSON, because JsonFormatterAttribute do not affect inbound JSON deserialization.</p>
-<h2>1, post</h2>
-<pre id="input1"></pre>
-<h3>expected JSON result: System.Text.Json.JsonException.</h3>
-<pre id="output1" turn-on='{ "run": "window.postTest()" }'>...loading...</pre>
-
-@Html.Partial("__SharedPost.cshtml", new { Method = "Api15Post" })
+@Html.Partial("__SharedPost.cshtml", new { Method = "Api15Post", Title = "Api15 POST test (System.Text.Json deserialization is not possible)", Result = "System.Text.Json.JsonException" })
