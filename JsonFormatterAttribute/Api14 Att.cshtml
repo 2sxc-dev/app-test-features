@@ -8,7 +8,10 @@
 <pre>-</pre>
 
 <h3>expected JSON result: single EavLightEntity, camel case.</h3>
-<pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
+
+@Kit.Page.TurnOn("window.getEntityOnLoad()", data: new { Controller =  "Api14Att", Placeholder = "jsonResult1" })
+
+<pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()", data: "Api14Att" }'>...loading...</pre>
 
 <h2>2, get IEntity list</h2>
 <p>class:</p>
