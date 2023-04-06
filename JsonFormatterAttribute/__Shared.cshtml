@@ -19,10 +19,10 @@
           document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
         });
     }
-    function postJson(method, inputId, outputId, postData) {
+    function postJson(inputId, outputId, postData) {
       document.getElementById(inputId).innerHTML = JSON.stringify(postData, null, 2);
       $2sxc(@CmsContext.Module.Id).webApi
-        .fetchJson('app/auto/JsonFormatterAttribute/api/@test/' + method, postData)
+        .fetchJson('app/auto/JsonFormatterAttribute/api/Post/UpdatePostTest', postData)
         .then(data => {
           console.log(data);
           document.getElementById(outputId).innerHTML = JSON.stringify(data, null, 2);
@@ -36,11 +36,11 @@
       downloadJson('GetEntities', 'jsonResult2')
     }
     function postTest() {
-      postJson('UpdatePostTest', 'input1', 'output1', { "NAME": "First Last", "age": 77 })
+      postJson('input1', 'output1', { "NAME": "First lAST", "age": 77 })
     }
-    // Generate a new object if none exists yet (best practice)
-    window.getEntityOnLoad = window.getEntityOnLoad || getEntityOnLoad;
-    window.getEntitiesOnLoad = window.getEntitiesOnLoad || getEntitiesOnLoad;
-    window.postTest = window.postTest || postTest;
+    // Generate on window so it can be called from the html
+    window.getEntityOnLoad = getEntityOnLoad;
+    window.getEntitiesOnLoad = getEntitiesOnLoad;
+    window.postTest = postTest;
   })();
 </script>
