@@ -13,7 +13,15 @@
   (() => {
     function downloadJson(method, id) {
       $2sxc(@CmsContext.Module.Id).webApi
-        .get('app/auto/JsonFormatterAttribute/api/@test/' + method)
+        .fetchJson('app/auto/JsonFormatterAttribute/api/@test/' + method)
+        .then(data => {
+          console.log(data);
+          document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
+        });
+    }
+    function postJson(method, id, postData) {
+      $2sxc(@CmsContext.Module.Id).webApi
+        .fetchJson('app/auto/JsonFormatterAttribute/api/@test/' + method, postData)
         .then(data => {
           console.log(data);
           document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
@@ -26,8 +34,12 @@
     function getEntitiesOnLoad() {
       downloadJson('GetEntities', 'jsonResult2')
     }
+    function postTest() {
+      postJson('UpdatePostTest', 'jsonResult3', { "name": "First Last", "age": 77 })
+    }
     // Generate a new object if none exists yet (best practice)
     window.getEntityOnLoad = window.getEntityOnLoad || getEntityOnLoad;
     window.getEntitiesOnLoad = window.getEntitiesOnLoad || getEntitiesOnLoad;
+    window.postTest = window.postTest || postTest;
   })();
 </script>

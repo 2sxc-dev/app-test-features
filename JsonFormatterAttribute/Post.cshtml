@@ -1,0 +1,10 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>JsonFormatterAttribute with POST test</h1>
+<p>to ensure that JSON is case insensitive for inbound JSON deserialization</p>
+<h2>1, post</h2>
+<pre>{ "name": "First Last", "age": 77 }</pre>
+<h3>expected JSON result: properties are Pascal case</h3>
+<pre id="jsonResult3" turn-on='{ "run": "window.postTest()" }'>...loading...</pre>
+
+@Html.Partial("__Shared.cshtml", new { Method = "Post" })
