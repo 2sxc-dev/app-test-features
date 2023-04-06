@@ -19,12 +19,13 @@
           document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
         });
     }
-    function postJson(method, id, postData) {
+    function postJson(method, inputId, outputId, postData) {
+      document.getElementById(inputId).innerHTML = JSON.stringify(postData, null, 2);
       $2sxc(@CmsContext.Module.Id).webApi
         .fetchJson('app/auto/JsonFormatterAttribute/api/@test/' + method, postData)
         .then(data => {
           console.log(data);
-          document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
+          document.getElementById(outputId).innerHTML = JSON.stringify(data, null, 2);
         });
     }
     // The init function which should be called
@@ -35,7 +36,7 @@
       downloadJson('GetEntities', 'jsonResult2')
     }
     function postTest() {
-      postJson('UpdatePostTest', 'jsonResult3', { "name": "First Last", "age": 77 })
+      postJson('UpdatePostTest', 'input1', 'output1', { "NAME": "First Last", "age": 77 })
     }
     // Generate a new object if none exists yet (best practice)
     window.getEntityOnLoad = window.getEntityOnLoad || getEntityOnLoad;
