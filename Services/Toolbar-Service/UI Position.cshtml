@@ -1,0 +1,36 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Position</h1>
+<p>
+  Show various cases where a toolbar service has UI Data
+</p>
+
+<ol>
+  <li>
+    @{
+      var tlb = Kit.Toolbar.Default().New(ui: "pos=-1").Layout(ui: "pos=-1").For(Content);
+    }
+    New should be at end followed by another layout - using old API @tlb.AsTag()
+    <br>
+    @tlb.AsJson()
+  </li>
+
+  <li>
+    @{
+      tlb = Kit.Toolbar.Default().New(tweak: b => b.Position(-1)).Layout(tweak: b => b.Position(-1)).For(Content);
+    }
+    New should be at end followed by another layout - using TWEAK API @tlb.AsTag()
+    <br>
+    @tlb.AsJson()
+  </li>
+
+  <li>
+    @{
+      tlb = Kit.Toolbar.Default().New(tweak: b => b.Position(-1)).Layout(tweak: b => b.Position(-2)).For(Content);
+    }
+    New should be at end followed by another layout - using TWEAK API @tlb.AsTag()
+    <br>
+    @tlb.AsJson()
+  </li>
+
+</ol>
