@@ -1,6 +1,7 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>JsonFormatterAttribute with Casing.DictionaryCamel on class only</h1>
+<h1>JsonFormatterAttribute with Casing.DictionaryCamel</h1>
+
 <p>class:</p>
 <pre>[JsonFormatter(Casing = Casing.DictionaryCamel)]</pre>
 <p>method:</p>
@@ -8,10 +9,12 @@
 
 <h2>1, get single IEntity</h2>
 <h3>expected JSON result: single EavLightEntity, camel case.</h3>
-<pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
+<pre id="jsonResult1">...loading...</pre>
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "CasingDictionaryCamel", Method = "GetEntity", Placeholder = "jsonResult1" })
 
 <h2>2, get IEntity list</h2>
 <h3>expected JSON result: EavLightEntity array, camel case.</h3>
-<pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
+<pre id="jsonResult2">...loading...</pre>
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "CasingDictionaryCamel", Method = "GetEntities", Placeholder = "jsonResult2" })
 
-@Html.Partial("__Shared.cshtml", new { Method = "CasingDictionaryCamel" })
+@Html.Partial("__Shared.cshtml")

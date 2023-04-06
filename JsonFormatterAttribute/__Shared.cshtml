@@ -1,33 +1,20 @@
 @inherits Custom.Hybrid.Razor14
 @{
   var page = GetService<ToSic.Sxc.Services.IPageService>();
-  page.Activate("jQuery");
   page.Activate("2sxc.JsCore");
-  page.Activate("turnOn");
-
-  var test = DynamicModel.Method;
 }
 <script type="text/javascript">
   // Use an IFFE to ensure the variables are not exposed globaly
   // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
   (() => {
-    function downloadJson(method, id) {
+    function downloadJson(data) {
       $2sxc(@CmsContext.Module.Id).webApi
-        .fetchJson('app/auto/JsonFormatterAttribute/api/@test/' + method)
-        .then(data => {
-          console.log(data);
-          document.getElementById(id).innerHTML = JSON.stringify(data, null, 2);
+        .fetchJson('app/auto/JsonFormatterAttribute/api/' + data.Controller + '/' + data.Method)
+        .then(response => {
+          console.log(response);
+          document.getElementById(data.Placeholder).innerHTML = JSON.stringify(response, null, 2);
         });
     }
-    // The init function which should be called
-    function getEntityOnLoad() {
-      downloadJson('GetEntity', 'jsonResult1')
-    }
-    function getEntitiesOnLoad() {
-      downloadJson('GetEntities', 'jsonResult2')
-    }
-    // Generate on window so it can be called from the html
-    window.getEntityOnLoad = getEntityOnLoad;
-    window.getEntitiesOnLoad = getEntitiesOnLoad;
+    window.downloadJson = downloadJson;
   })();
 </script>

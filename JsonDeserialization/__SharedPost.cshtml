@@ -1,34 +1,36 @@
 @inherits Custom.Hybrid.Razor14
 @{
   var page = GetService<ToSic.Sxc.Services.IPageService>();
-  page.Activate("jQuery");
   page.Activate("2sxc.JsCore");
-  page.Activate("turnOn");
 }
 <h1>@DynamicModel.Title</h1>
+
 <p>class:</p>
 <pre>-</pre>
+
 <h2>1, post</h2>
 <pre id="input1"></pre>
 <h3>expected JSON result: @DynamicModel.Result</h3>
-<pre id="output1" turn-on='{ "run": "window.postTest()" }'>...loading...</pre>
+<pre id="output1">...loading...</pre>
+@Kit.Page.TurnOn("window.postJson()", data: new { Controller = DynamicModel.Controller })
+
 <script type="text/javascript">
   // Use an IFFE to ensure the variables are not exposed globaly
   // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
   (() => {
-    function postJson(inputId, outputId, postData) {
-      document.getElementById(inputId).innerHTML = JSON.stringify(postData, null, 2);
+    function postJson(data) {
+      var postData = {
+        "IAmNull": null
+      };
+      document.getElementById("input1").innerHTML = JSON.stringify(postData, null, 2);
       $2sxc(@CmsContext.Module.Id).webApi
-        .fetchJson('app/auto/JsonDeserialization/api/@DynamicModel.Method/UpdatePostTest', postData)
-        .then(data => {
-          console.log(data);
-          document.getElementById(outputId).innerHTML = JSON.stringify(data, null, 2);
+        .fetchJson('app/auto/JsonDeserialization/api/' + data.Controller + '/UpdatePostTest', postData)
+        .then(response => {
+          console.log(response);
+          document.getElementById("output1").innerHTML = JSON.stringify(response, null, 2);
         });
     }
-    function postTest() {
-      postJson('input1', 'output1', { "IAmNull": null })
-    }
     // Generate on window so it can be called from the html
-    window.postTest = postTest;
+    window.postJson = postJson;
   })();
 </script>

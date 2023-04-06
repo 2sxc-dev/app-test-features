@@ -1,6 +1,7 @@
 @inherits Custom.Hybrid.Razor14
 
 <h1>JsonFormatterAttribute with many parameters on class and method</h1>
+
 <h2>1, get single IEntity</h2>
 <p>class:</p>
 <pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Preserve)]</pre>
@@ -8,7 +9,8 @@
 <pre>[JsonFormatter(EntityFormat = EntityFormat.Light, Casing = Casing.Preserve)]</pre>
 
 <h3>expected JSON result: single EavLightEntity, Pascal case.</h3>
-<pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
+<pre id="jsonResult1">...loading...</pre>
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "ClassAndMethod", Method = "GetEntity", Placeholder = "jsonResult1" })
 
 <h2>2, get IEntity list</h2>
 <p>class:</p>
@@ -17,6 +19,7 @@
 <pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Camel)]</pre>
 
 <h3>expected JSON result: IEntity array, camel case.</h3>
-<pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
+<pre id="jsonResult2">...loading...</pre>
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "ClassAndMethod", Method = "GetEntities", Placeholder = "jsonResult2" })
 
-@Html.Partial("__Shared.cshtml", new { Method = "ClassAndMethod" })
+@Html.Partial("__Shared.cshtml")
