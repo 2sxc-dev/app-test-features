@@ -15,12 +15,14 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 
 [AllowAnonymous]
-public class Api14PostController : Custom.Hybrid.Api14
+public class Api12PostController : Custom.Dnn.Api12
 {
   public class PostTest
   {
-    public string Name { get; set; }
-    public int Age { get; set; }
+    // public string Name { get; set; }
+    // public int Age { get; set; }
+    // public string Address { get; set; }
+    public int IAmNull { get; set; }
   }
 
   [HttpPost]

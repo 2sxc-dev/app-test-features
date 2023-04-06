@@ -20,8 +20,10 @@ public class Api15PostController : Custom.Hybrid.Api15
 {
   public class PostTest
   {
-    public string Name { get; set; }
-    public int Age { get; set; }
+    // public string Name { get; set; }
+    // public int Age { get; set; }
+    // public string Address { get; set; }
+    public int IAmNull { get; set; }
   }
 
   [HttpPost]
