@@ -24,7 +24,7 @@ public class PostController : Custom.Hybrid.Api15
     public int Age { get; set; }
   }
 
-  [HttpPost("UpdatePostTest")]
+  [HttpPost]
   public object UpdatePostTest([FromBody] PostTest postTest)
   {
     //return Kit.Json.ToJson(postTest, 2);
