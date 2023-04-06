@@ -1,8 +1,8 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>JsonFormatterAttribute with Casing.Pascal on class only</h1>
+<h1>JsonFormatterAttribute with Casing = Casing.DictionaryPreserve on class only</h1>
 <p>class:</p>
-<pre>[JsonFormatter(Casing = Casing.Pascal)]</pre>
+<pre>[JsonFormatter(Casing = Casing.DictionaryPreserve)]</pre>
 <p>method:</p>
 <pre>-</pre>
 
@@ -14,4 +14,4 @@
 <h3>expected JSON result: EavLightEntity array, Pascal case.</h3>
 <pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
 
-@Html.Partial("__Shared.cshtml", new { Method = "CasingPascal" })
+@Html.Partial("__Shared.cshtml", new { Method = "CasingDictionaryPreserve" })

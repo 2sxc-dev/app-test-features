@@ -5,7 +5,7 @@
 <p>class:</p>
 <pre>-</pre>
 <p>method:</p>
-<pre>[JsonFormatter(EntityFormat = EntityFormat.Light, Casing = Casing.Pascal)]</pre>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.Light, Casing = Casing.Preserve)]</pre>
 
 <h3>expected JSON result: single EavLightEntity, Pascal case.</h3>
 <pre id="jsonResult1" turn-on='{ "run": "window.getEntityOnLoad()" }'>...loading...</pre>
@@ -14,7 +14,7 @@
 <p>class:</p>
 <pre>-</pre>
 <p>method:</p>
-<pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Cascal)]</pre>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Camel)]</pre>
 
 <h3>expected JSON result: IEntity array, camel case.</h3>
 <pre id="jsonResult2" turn-on='{ "run": "window.getEntitiesOnLoad()" }'>...loading...</pre>
