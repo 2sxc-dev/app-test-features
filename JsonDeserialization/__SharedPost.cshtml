@@ -19,7 +19,7 @@
     function postJson(inputId, outputId, postData) {
       document.getElementById(inputId).innerHTML = JSON.stringify(postData, null, 2);
       $2sxc(@CmsContext.Module.Id).webApi
-        .fetchJson('app/auto/JsonFormatterAttribute/api/@DynamicModel.Method/UpdatePostTest', postData)
+        .fetchJson('app/auto/JsonDeserialization/api/@DynamicModel.Method/UpdatePostTest', postData)
         .then(data => {
           console.log(data);
           document.getElementById(outputId).innerHTML = JSON.stringify(data, null, 2);
