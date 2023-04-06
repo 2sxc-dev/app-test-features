@@ -1,11 +1,12 @@
 @inherits Custom.Hybrid.Razor14
 
 <h1>JsonFormatterAttribute with POST test</h1>
-<p>JsonFormatterAttribute do not affect inbound JSON deserialization</p>
-<p>we can post case insensitive JSON</p>
+<p>class:</p>
+<pre>[JsonFormatter(Casing = Casing.Camel)]</pre>
+<p>Post case insensitive JSON, because JsonFormatterAttribute do not affect inbound JSON deserialization.</p>
 <h2>1, post</h2>
 <pre id="input1"></pre>
-<h3>expected JSON result: properties are Pascal case</h3>
+<h3>expected JSON result: properties are camel case</h3>
 <pre id="output1" turn-on='{ "run": "window.postTest()" }'>...loading...</pre>
 
 @Html.Partial("__Shared.cshtml", new { Method = "Post" })
