@@ -2,7 +2,7 @@ using System.Linq;
 using ToSic.Eav.DataSource.VisualQuery;
 using ToSic.Eav.DataSources;
 
-public class MagicFilterAppData : Custom.DataSource.DataSource15
+public class MagicFilterAppData : Custom.DataSource.DataSource16
 {
   public MagicFilterAppData(MyServices services) : base(services, "My.Magic")
   {    

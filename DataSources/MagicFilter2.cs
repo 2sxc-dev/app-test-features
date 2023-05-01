@@ -1,6 +1,6 @@
 using System.Linq;
 
-public class MagicFilter2 : Custom.DataSource.DataSource15
+public class MagicFilter2 : Custom.DataSource.DataSource16
 {
   public MagicFilter2(MyServices services) : base(services, "My.Magic")
   {    

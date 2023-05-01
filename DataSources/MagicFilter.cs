@@ -2,7 +2,7 @@ using System.Linq;
 using ToSic.Eav.DataSource.VisualQuery;
 
 [VisualQuery(NameId = "48c82e56-2db6-46f2-bc54-eeea17a8b164")]
-public class MagicFilter : Custom.DataSource.DataSource15
+public class MagicFilter : Custom.DataSource.DataSource16
 {
 
   public MagicFilter(MyServices services) : base(services, "My.Magic")

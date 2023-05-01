@@ -5,7 +5,7 @@ using ToSic.Eav.DataSource;
 using ToSic.Eav.DataSource.VisualQuery;
 
 [VisualQuery(NameId = "8957f3ac-dc17-47da-90d3-e861be801878")]
-public class RawListWithNameId : Custom.DataSource.DataSource15 {
+public class RawListWithNameId : Custom.DataSource.DataSource16 {
 
   public RawListWithNameId(MyServices services) : base(services, "My.Magic")
   {

@@ -5,7 +5,7 @@ using System.Linq;
 using ToSic.Eav.DataSource;
 using ToSic.Eav.DataSource.VisualQuery;
 
-public class AnonymousList : Custom.DataSource.DataSource15
+public class AnonymousList : Custom.DataSource.DataSource16
 {
   public AnonymousList(MyServices services) : base(services, "My.Magic")
   {
