@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+
+<h1>App DataSources - Template Class List</h1>
+
+@{
+  var expected = 6;
+  var ds = Kit.Data.GetSource(name: "Template", options: new { AmountOfItems = expected, FavoriteNumber = -42 });
+}
+
+@Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })
