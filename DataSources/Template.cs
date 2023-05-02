@@ -5,7 +5,7 @@ using System.Linq;
 using ToSic.Eav.DataSource;
 
 // Class name must match file name, and must extend Custom.DataSource.DataSource16
-public class Template : Custom.DataSource.DataSource16
+public class Template: Custom.DataSource.DataSource16
 {
   // Constructor: must forward MyServices to the base class
   public Template(MyServices services) : base(services)
