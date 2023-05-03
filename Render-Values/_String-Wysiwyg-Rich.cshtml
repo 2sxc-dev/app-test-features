@@ -14,7 +14,9 @@
   var testId = pageParams[idParam] as string;
   var test = GetWysiwygValue(testId);
   <h2 @Kit.Toolbar.Default(test)>The Data / Result for @testId</h2>
-  @cmsService.Show(test.Field("Contents"), debug: false)
+  @test.ToHtml("Contents", debug: true)
+
+  @* @cmsService.Show(test.Field("Contents"), debug: true) *@
 }
 
 <div class="clearfix">
