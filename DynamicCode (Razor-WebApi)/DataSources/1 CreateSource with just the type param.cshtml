@@ -3,11 +3,11 @@
 @using ToSic.Eav.DataSources;
 @using ToSic.Eav.DataSources.Sys;
 
-<h1>Dynamic Code - DataSources - CreateSource with options using anonymous object  notation to set configuration</h1>
+<h1>Dynamic Code - DataSources - CreateSource with just the type param</h1>
 
 @{
   var expected = 4;
-  var ds = CreateSource<Apps>(options: new { OfZoneId=6 });
+  var ds = CreateSource<Apps>();
 }
 
 <hr>
