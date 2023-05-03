@@ -1,0 +1,111 @@
+@inherits ToSic.Sxc.Dnn.RazorComponent
+
+<div @Edit.TagToolbar(Content)>
+
+  <h2>Demo App showing Custom DataSource</h2>
+  <p>
+    This app has queries using the <a href="https://docs.2sxc.org/net-code/data-sources/custom/tutorial-basic/index.html" target="_blank">
+      DataSource Tutorial Basic
+    </a>.
+    <br>
+
+    Note that this will only work if you have installed the
+    <a href="https://github.com/2sic/datasource-tutorial-basic/releases" target="_blank">
+      DNN Package with the DLLs
+    </a>.
+  </p>
+
+    @{
+      // This will first check if we get an error - in which case the DataSource is not installed yet
+      //
+      var dataFromQuery = AsDynamic(App.Query["DemoBasic"].List.FirstOrDefault());
+      var dataSourcError = Content.Error != null;
+    }
+    @if (dataSourcError) {
+      <div class="alert alert-danger">
+        <h2>Error: DataSource Probably not Installed</h2>
+        <div>
+          The backend reports "<code>@dataFromQuery.Error</code>". <br>
+          You have probably not yet installed the <a href="https://github.com/2sic/datasource-tutorial-basic/releases" target="_blank">Dnn Package containing the DLLs with the custom DataSource</a>
+        </div>
+      </div>
+    } else {
+
+      <div>
+        <h2>Data from the <em>Configurable DataSource</em> </h2>
+        <p>The <em>ConfigurableDateTime</em> DataSource is configured <em>without custom settings</em> in the Query "<code>DemoConfigurableBlank</code>"</p>
+        @{
+          var configurable = AsList(App.Query["DemoConfigurableBlank"]).FirstOrDefault();
+        }
+
+        <ol>
+          <li>Title: @configurable.Title</li>
+          <li>Date: @configurable.Date</li>
+          <li>DayOfWeek: @configurable.DayOfWeek</li>
+          <li>DayOfWeekNumber: @((int)configurable.DayOfWeekNumber)</li>
+        </ol>
+      </div>
+
+      <div>
+        <h2>Data from the <em>Configurable DataSource</em> with Configuration </h2>
+        <p>
+          The <em>ConfigurableDateTime</em> DataSource is configured <em>with custom settings</em> in the Query "<code>DemoConfigurable</code>".
+          It will always show 10 PM.
+        </p>
+        @{
+          configurable = AsList(App.Query["DemoConfigurable"]).FirstOrDefault();
+        }
+
+        <ol>
+          <li>Title: @configurable.Title</li>
+          <li>Date: @configurable.Date</li>
+          <li>DayOfWeek: @configurable.DayOfWeek</li>
+          <li>DayOfWeekNumber: @((int)configurable.DayOfWeekNumber)</li>
+        </ol>
+      </div>
+
+      <div>
+        <h2>Data from the <em>Configurable DataSource</em> with Error </h2>
+        <p>
+          The <em>ConfigurableDateTime</em> DataSource is configured <em>with invalid settings</em> in the Query "<code>DemoConfigurableError</code>".
+          The normal values will be empty, but it will have properties such as <strong>Error</strong> and <strong>Message</strong>
+        </p>
+        @{
+          configurable = AsList(App.Query["DemoConfigurableError"]).FirstOrDefault();
+        }
+
+        <ol>
+          <li>Title: @configurable.Title</li>
+          <li>Date: @configurable.Date</li>
+          <li>DayOfWeek: @configurable.DayOfWeek</li>
+          <li>Error: @configurable.Error</li>
+          <li>Message: @configurable.Message</li>
+          <li>Debug Notes: @configurable.DebugNotes</li>
+        </ol>
+      </div>
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

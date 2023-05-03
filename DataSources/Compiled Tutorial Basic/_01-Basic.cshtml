@@ -1,0 +1,58 @@
+@inherits ToSic.Sxc.Dnn.RazorComponent
+
+<div @Edit.TagToolbar(Content)>
+
+  <h2>Demo App showing Custom DataSource</h2>
+  <p>
+    This app has queries using the <a href="https://docs.2sxc.org/net-code/data-sources/custom/tutorial-basic/index.html" target="_blank">
+      DataSource Tutorial Basic
+    </a>.
+    <br>
+
+    Note that this will only work if you have installed the
+    <a href="https://github.com/2sic/datasource-tutorial-basic/releases" target="_blank">
+      DNN Package with the DLLs
+    </a>.
+  </p>
+
+
+
+
+    @{
+      // This will first check if we get an error - in which case the DataSource is not installed yet
+      //
+      var dataFromQuery = AsDynamic(App.Query["DemoBasic"].List.FirstOrDefault());
+      var dataSourcError = Content.Error != null;
+    }
+    @if (dataSourcError) {
+      <div class="alert alert-danger">
+        <h2>Error: DataSource Probably not Installed</h2>
+        <div>
+          The backend reports "<code>@dataFromQuery.Error</code>". <br>
+          You have probably not yet installed the <a href="https://github.com/2sic/datasource-tutorial-basic/releases" target="_blank">Dnn Package containing the DLLs with the custom DataSource</a>
+        </div>
+      </div>
+    } else {
+
+      <h2>Data from the <em>DemoBasic</em> DataSource </h2>
+      <p>The <em>Basic</em> DataSource is configured in the Query "<code>DemoBasic</code>", we get the first (and only item) in the <code>dataFromQuery</code> object.</p>
+      <ol>
+        <li>Title: @dataFromQuery.EntityTitle</li>
+        <li>Date: @dataFromQuery.Date</li>
+        <li>Weekday: @dataFromQuery.Weekday</li>
+        <li>DayOfWeek: @dataFromQuery.DayOfWeek</li>
+        <li>ID: @dataFromQuery.EntityId
+      </ol>
+
+      <h2>Data from the <em>DateTime List</em> DataSource </h2>
+      <p>The <em>DateTime</em> DataSource is configured in the Query "<code>DemoBasicList</code>" Stream</p>
+
+      <ol>
+          @foreach(var date in AsList(App.Query["DemoBasicList"])) {
+              <li>
+                  @date.EntityTitle
+              </li>
+          }
+      </ol>
+    }
+</div>
