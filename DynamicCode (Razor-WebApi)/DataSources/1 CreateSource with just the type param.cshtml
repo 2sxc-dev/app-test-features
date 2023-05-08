@@ -6,14 +6,14 @@
 <h1>Dynamic Code - DataSources - CreateSource with just the type param</h1>
 
 @{
-  var expected = 4;
-  var ds = CreateSource<Apps>();
+  var expected = 8;
+  var ds = CreateSource<Scopes>();
 }
 
 <hr>
-<h2>Data in source</h2>
+<h2>Data in source Scopes</h2>
 
-List: @ds.List (@ds.List.Count()) - we expect @expected items
+List: @ds.List (@ds.List.Count()) - we expect ca. @expected items
 <br>
 <ol>
   @foreach (var item in AsList(ds.List))
