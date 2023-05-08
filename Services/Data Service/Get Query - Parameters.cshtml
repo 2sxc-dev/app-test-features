@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Kit.Data.GetQuery(...) Tests Parameters</h1>
+
+@{
+  var query = Kit.Data.GetQuery("DemoConfigurableWithParams", parameters: new { Hours = 17 });
+  
+  var fields = "DayOfWeekNumber,DayOfWeek,Date";
+}
+
+@Html.Partial("../../_Shared/Dump Table.cshtml", new { Title = "DemoConfigurableWithParams Query", Data = query, Fields = fields })

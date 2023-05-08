@@ -1,0 +1,11 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Kit.Data.GetQuery(...) Tests Basic</h1>
+
+@{
+  var query = Kit.Data.GetQuery("DemoBasic");
+  var queryData = AsList(query);
+}
+
+@Html.Partial("../../_Shared/Dump Table.cshtml", new { Title = "DemoBasic Query", data = query })

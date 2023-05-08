@@ -1,0 +1,34 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+@{
+  var title = DynamicModel.Title as string;
+  var data = AsList(DynamicModel.Data as object);
+
+  var fields = (DynamicModel.Fields as string ?? "").Split(',');
+}
+<h2>Dump Table @title (@data.Count())</h2>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Guid</th>
+    <th>Title</th>
+    @foreach (var field in fields)
+    {
+      <th>@field</th>
+    }
+  </tr>
+  @foreach (var item in data)
+  {
+    <tr>
+      <td>@item.EntityId</td>
+      <td>@item.EntityGuid</td>
+      <td>@item.EntityTitle</td>
+      @foreach (var field in fields)
+      {
+        <td>@item.Get(field)</td>
+      }
+    </tr>
+  }
+</table>
