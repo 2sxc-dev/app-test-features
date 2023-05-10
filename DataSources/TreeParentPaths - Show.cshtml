@@ -1,0 +1,18 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+
+<h1>App DataSources - Tree With Refs using Parent Paths</h1>
+
+@{
+  var expected = 6;
+  var ds = Kit.Data.GetSource(name: "TreeParentPaths");
+
+  var items = AsList(ds);
+  var root = items.FirstOrDefault(i => i.EntityId == 1);
+}
+
+Count: @items.Count()
+<br>
+
+@Html.Partial("./_Helpers/Show Tree.cshtml", new { Root = root, SubNodeName = "SubItems" })

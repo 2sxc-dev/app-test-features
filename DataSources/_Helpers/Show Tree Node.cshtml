@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+@using ToSic.Razor.Blade;
+
+@{
+  var node = AsDynamic(DynamicModel.Node);
+  var subNodeName = DynamicModel.SubNodeName as string;
+}
+
+<li>
+  Node: @node.EntityTitle (#@node.EntityId)
+  @if (Text.Has(subNodeName)) {
+    var subNodes = node.Children(subNodeName);
+    <em>sub-nodes: @subNodes.Count</em>
+    <ul>
+      @foreach (var subNode in AsList(subNodes as object)) {
+        @Html.Partial("./Show Tree Node.cshtml", new { Node = subNode, SubNodeName = subNodeName })
+      }
+    </ul>
+  } else {
+    <em>no sub node name</em>
+  }
+</li>
