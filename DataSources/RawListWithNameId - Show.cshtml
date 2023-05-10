@@ -9,10 +9,10 @@
 @{
   var ds = Kit.Data.GetSource(name: "RawListWithNameId", parameters: new [] { "AmountOfItems=" + 5, "FavoriteNumber=69" });
 }
-@Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = 5 })
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = 5 })
 
 <h2>RawListWithNameId - with anonymous object of params</h2>
 @{
   ds = Kit.Data.GetSource(name: "RawListWithNameId", parameters: new { AmountOfItems = 2, FavoriteNumber = -42 });
 }
-@Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = 2 })
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = 2 })

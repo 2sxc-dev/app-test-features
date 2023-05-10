@@ -7,7 +7,7 @@
 @{
   var ds = Kit.Data.GetSource(name: "TreeFoldersAndFiles");
 
-  var items = AsList(ds);//["Folders"]);
+  var items = AsList(ds);
   var root = items.FirstOrDefault(i => i.EntityId == 1);
 }
 
@@ -15,3 +15,7 @@ Count: @items.Count()
 <br>
 
 @Html.Partial("./_Helpers/Show Tree.cshtml", new { Root = root, SubNodeNames = "Folders,Files", ParentField = "Parent" })
+
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { Title = "Folders", List = ds["Folders"].List, Expected = 5 })
+
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { Title = "Files", List = ds["Files"].List, Expected = 3 })

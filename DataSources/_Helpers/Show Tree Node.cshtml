@@ -15,7 +15,8 @@
 }
 
 <li>
-  Node: @node.EntityTitle (#@node.EntityId)
+  Item: 
+  <strong>@node.EntityTitle</strong> (id: @node.EntityId)
   @if (Text.Has(parentField)) {
     var parentItem = AsList(node.Children(parentField) as object).FirstOrDefault();
     if (parentItem != null) {
@@ -32,7 +33,7 @@
       if (subNodes.Any()) {
         <ul>
           <li>
-            Sub Nodes on <strong>@subNodeName - found @subNodes.Count()</strong>
+            Sub-Items on field <strong><em>@subNodeName</em></strong> - found @subNodes.Count()
             <ul>
               @foreach (var subNode in AsList(subNodes as object)) {
                 @Html.Partial("./Show Tree Node.cshtml", new { Node = subNode, SubNodeNames = DynamicModel.SubNodeNames, ParentField = DynamicModel.ParentField, Depth = depth - 1 })

@@ -10,4 +10,4 @@
   ds = Kit.Data.GetSource(name: "MagicDataSource", parameters: new { AmountOfItems = expected, FavoriteNumber = -42 });
 }
 
-@Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })

@@ -12,8 +12,8 @@
   var ds = Kit.Data.GetSource(name: "SplitOddEven", attach: authors);
 }
 
-@Html.Partial("__ShowDataInSource.cshtml", new { Title = "All/Default", List = ds.List, Expected = expected })
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { Title = "All/Default", List = ds.List, Expected = expected })
 
-@Html.Partial("__ShowDataInSource.cshtml", new { Title = "Odd", List = ds["Odd"].List, Expected = expected })
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { Title = "Odd", List = ds["Odd"].List, Expected = expected })
 
-@Html.Partial("__ShowDataInSource.cshtml", new { Title = "Even", List = ds["Even"].List, Expected = expected })
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { Title = "Even", List = ds["Even"].List, Expected = expected })

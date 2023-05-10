@@ -9,4 +9,4 @@
   var ds = Kit.Data.GetSource(name: "AnonymousSingle", parameters: new { AmountOfItems = expected, FavoriteNumber = 99 });
 }
 
-@Html.Partial("__ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })
+@Html.Partial("./_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })
