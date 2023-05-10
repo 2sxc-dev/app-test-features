@@ -25,9 +25,8 @@ public class TreeParentPaths : Custom.DataSource.DataSource16
       // This says that the sub-items all use the key
       // of the current item because they point to the parent
       // so the child points to the parent, not the parent to the child
-      SubItems = new { Relationships = new [] { path } },
+      SubItems = new { Relationships = path },
       RelationshipKeys = new [] { parent },
     };
   }
-
 }

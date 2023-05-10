@@ -28,5 +28,4 @@ public class TreeChildPaths : Custom.DataSource.DataSource16
       RelationshipKeys = new [] { path },
     };
   }
-
 }
