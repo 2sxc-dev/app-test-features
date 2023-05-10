@@ -2,11 +2,12 @@
 @using System.Linq;
 
 @{
+  var title = DynamicModel.Title;
   var list = DynamicModel.List;
   var expected = DynamicModel.Expected;
 }
 <hr>
-<h3>Data in source</h3>
+<h3>Data in source @title</h3>
 
 List: @list (@list.Count) - we expect @expected items
 <br>

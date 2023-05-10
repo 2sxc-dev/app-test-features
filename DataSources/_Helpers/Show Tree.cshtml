@@ -4,9 +4,10 @@
 
 @{
   var node = AsDynamic(DynamicModel.Root as object);
-  var subNodeName = DynamicModel.SubNodeName as string;
+  var subNodeName = DynamicModel.SubNodeNames as string;
+  var parentField = DynamicModel.ParentField as string;
 }
 <h3>Show Tree starting at root "@node.EntityTitle" (#@node.EntityId)</h3>
 <ul>
-  @Html.Partial("./Show Tree Node.cshtml", new { Node = node, SubNodeName = subNodeName })
+  @Html.Partial("./Show Tree Node.cshtml", new { Node = node, SubNodeNames = subNodeName, ParentField = parentField, Depth = 10 })
 </ul>

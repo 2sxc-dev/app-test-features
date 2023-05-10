@@ -1,0 +1,19 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+
+<h1>App DataSources</h1>
+
+@{
+  var expected = 6;
+
+  // Get the stream of all authors
+  var authors = App.Data["FieldValueWysiwyg"];
+  var ds = Kit.Data.GetSource(name: "SplitOddEven", attach: authors);
+}
+
+@Html.Partial("__ShowDataInSource.cshtml", new { Title = "All/Default", List = ds.List, Expected = expected })
+
+@Html.Partial("__ShowDataInSource.cshtml", new { Title = "Odd", List = ds["Odd"].List, Expected = expected })
+
+@Html.Partial("__ShowDataInSource.cshtml", new { Title = "Even", List = ds["Even"].List, Expected = expected })

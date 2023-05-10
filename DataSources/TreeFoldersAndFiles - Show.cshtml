@@ -1,0 +1,17 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Code;
+@using ToSic.Eav.DataSources;
+
+<h1>App DataSources - TreeFoldersAndFiles</h1>
+
+@{
+  var ds = Kit.Data.GetSource(name: "TreeFoldersAndFiles");
+
+  var items = AsList(ds);//["Folders"]);
+  var root = items.FirstOrDefault(i => i.EntityId == 1);
+}
+
+Count: @items.Count()
+<br>
+
+@Html.Partial("./_Helpers/Show Tree.cshtml", new { Root = root, SubNodeNames = "Folders,Files", ParentField = "Parent" })
