@@ -1,0 +1,10 @@
+@inherits Custom.Hybrid.Razor14
+@{
+  var title = DynamicModel.Title;
+  var tlb = DynamicModel.Toolbar;
+}
+<li>
+  @title @tlb.AsTag()
+  <br>
+  @tlb.AsJson()
+</li>

@@ -8,8 +8,6 @@
 
   var itemToCopy = AsDynamic(App.Data["Dummy"].First());
 
-  var edit1 = Kit.Toolbar.Empty().Edit(itemToCopy).New().New(itemToCopy);
-  var edit2 = Kit.Toolbar.Empty(itemToCopy).Edit().New().New("Dummy");
 
   var pub1 = Kit.Toolbar.Empty().Publish(itemToCopy);
   var pub1f = Kit.Toolbar.Empty().Publish(itemToCopy, operation: "add");
@@ -20,16 +18,26 @@
 }
 
 <ol>
-  <li>
-    Edit Item on Command @Edit.Toolbar(edit1) - @edit1.AsTag()
-    <br>
-    @edit1.AsJson()
-  </li>
-  <li>
-    Item Item on Toolbar @Edit.Toolbar(itemToCopy, toolbar: edit2) - @edit2.AsTag()
-    <br>
-    @edit2.AsJson()
-  </li>
+
+  @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
+    Title = "Try to work with Fields - show",
+    Toolbar = Kit.Toolbar.Empty().Edit(itemToCopy, fields: "Title,Body")
+  })
+  @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
+    Title = "Try to work with Fields - hide Body",
+    Toolbar = Kit.Toolbar.Empty().Edit(itemToCopy, fields: "-Body")
+  })
+
+  @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
+    Title = "Edit Item on Command",
+    Toolbar = Kit.Toolbar.Empty().Edit(itemToCopy).New().New(itemToCopy)
+  })
+
+
+  @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
+    Title = "Edit Item on Toolbar",
+    Toolbar = Kit.Toolbar.Empty(itemToCopy).Edit().New().New("Dummy")
+  })
 
   <li>
     Publish Item on Command @Edit.Toolbar(pub1) - @pub1.AsTag()
