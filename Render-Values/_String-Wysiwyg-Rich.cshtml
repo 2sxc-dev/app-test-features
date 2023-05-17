@@ -13,8 +13,10 @@
 @if (pageParams[idParam] != null) {
   var testId = pageParams[idParam] as string;
   var test = GetWysiwygValue(testId);
+  var testCms = AsCms(test);
   <h2 @Kit.Toolbar.Default(test)>The Data / Result for @testId</h2>
-  @test.ToHtml("Contents", debug: true)
+  @testCms.Html("TestId", debug: true, toolbar: true)
+  @testCms.Html("Contents", debug: true)
 
   @* @cmsService.Show(test.Field("Contents"), debug: true) *@
 }
@@ -47,9 +49,9 @@
   const string modeParam = "mode";
   const string withCss = "withcss";
 
-  dynamic GetWysiwygValue(string key) {
-    var list = AsList(App.Data[TypeName]);
-    var found = list.FirstOrDefault(e => e.TestId == key);
+  object GetWysiwygValue(string key) {
+    var list = App.Data[TypeName];
+    var found = list.FirstOrDefault(e => e.Get<string>("TestId") == key);
     return found;
   }
 
