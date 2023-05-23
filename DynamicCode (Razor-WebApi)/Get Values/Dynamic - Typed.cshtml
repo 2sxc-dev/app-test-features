@@ -1,0 +1,18 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Dynamic Code - Get Values - Dynamic object with Typed Accessors (16.01)</h1>
+@{
+  var item = AsDynamic(App.Data["TestGetValues"].First());
+
+  var show = CreateInstance("../../_Shared/ShowValues.cs");
+}
+<ol>
+  <li>Title: @item.String("Title")</li>
+  <li>Text: @item.String("Text")</li>
+  <li>String: @item.String("String")</li>
+  <li>Number (int): @show.NumberWithTypeInfo(item.Int("Number"))</li>
+  <li>Number (float): @show.NumberWithTypeInfo(item.Float("Number"))</li>
+  <li>Number (double): @show.NumberWithTypeInfo(item.Double("Number"))</li>
+  <li>Number (decimal): @show.NumberWithTypeInfo(item.Decimal("Number"))</li>
+</ol>

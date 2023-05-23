@@ -13,12 +13,10 @@
 @if (pageParams[idParam] != null) {
   var testId = pageParams[idParam] as string;
   var test = GetWysiwygValue(testId);
-  var testCms = AsCms(test);
+  var testCms = AsTyped(test);
   <h2 @Kit.Toolbar.Default(test)>The Data / Result for @testId</h2>
   @testCms.Html("TestId", debug: true, toolbar: true)
   @testCms.Html("Contents", debug: true)
-
-  @* @cmsService.Show(test.Field("Contents"), debug: true) *@
 }
 
 <div class="clearfix">
@@ -54,34 +52,4 @@
     var found = list.FirstOrDefault(e => e.Get<string>("TestId") == key);
     return found;
   }
-
-  bool IsWithCss() {
-    return CmsContext.Page.Parameters[modeParam] == withCss;
-  }
 }
-@* 
-@if (IsWithCss()) {
-  <style>
-    /* Make sure the special HR clear-fixes the layout */
-    .wysiwyg hr.wysiwyg-division {
-      display: block;
-      width: 100%;
-      height: 0;
-    }
-
-    .wysiwyg img.wysiwyg-right {
-      float: right;
-      margin-left: 20px;
-    }
-
-    .wysiwyg img.wysiwyg-left {
-      float: left;
-      margin-right: 20px;
-    }
-
-    .wysiwyg img.wysiwyg-center {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  </style>
-} *@

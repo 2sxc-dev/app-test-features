@@ -1,0 +1,19 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Dynamic Code - Get Values - Dynamic / Classic</h1>
+@{
+  var item = AsDynamic(App.Data["TestGetValues"].First());
+  var show = CreateInstance("../../_Shared/ShowValues.cs");
+}
+<ol>
+  <li>Title: @item.Title</li>
+  <li>Text: @item.Text</li>
+  <li>String: @item.String</li>
+  <li>Number: @show.NumberWithTypeInfo(item.Number)</li>
+</ol>
+
+@{
+  // Temp
+  Kit.Page.Activate("2sxc.JsCore");
+}
