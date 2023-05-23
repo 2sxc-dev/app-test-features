@@ -1,0 +1,118 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Views Configuration Test - Access Data Objects</h1>
+<p>
+  This view is setup to have content with a demo-item, presentation and a header.
+  The tests should successfully access them in the classic <code>Content</code>, <code>Header</code> as well as the new <code>Data.Content</code> etc.
+</p>
+
+<div>
+  This is the view with the identifier: <strong>@CmsContext.View.Identifier</strong>
+</div>
+
+<h2>Old accessors</h2>
+<ol>
+  <li @Kit.Toolbar.Empty(Content as object).Info(tweak: b => b.Tooltip("Edit Default"))>
+    Content: @Content.Title (@Content.EntityId - @Content)
+    ...toolbar requires <code>as object</code>
+  </li>
+  @if (Content.Presentation != null) {
+    <li>
+      Content.Presentation: Emphasize:
+        <text>
+          @Content.Presentation.Emphasize (@Content.Presentation.EntityId)
+        </text>
+    </li>
+  } else {
+    <li>Content.Presentation: NULL</li>
+  }
+  @if (Header != null) {
+    <li>
+      Header: @Header.Title (@Header.EntityId)
+    </li>
+  } else {
+    <li>Header: NULL</li>
+  }
+</ol>
+
+<h2>Data.Content (as Entity)</h2>
+@{
+  var ent = Data.Content;
+  var main = Data.Content;
+}
+<ol>
+  <li @Kit.Toolbar.Empty(ent).Info(tweak: b => b.Tooltip("Edit Default"))>
+    Data.Content:
+    @ent.Get("Title") (@ent.EntityId)
+    ...with toolbar on hover
+  </li>
+  <li @Kit.Toolbar.Empty(ent).Info(tweak: b => b.Tooltip("Edit Default"))>
+    AsTyped Data.Content:
+    @ent.Get("Title") (@ent.EntityId)
+    ...with toolbar on hover
+  </li>
+  <li>ent.Presentation: can't work</li>
+</ol>
+
+<h2>Data.Content / Data.Header</h2>
+@{
+  var content = AsTyped(Data.Content);
+  var presentation = content.Presentation;
+  var header = AsTyped(Data.Header);
+}
+<ol>
+  <li>
+    AsTyped Data.BlockDefault:
+    @content.String("Title") (@content.EntityId / @content.EntityId)
+  </li>
+  @if (presentation != null) {
+    <li @Kit.Toolbar.Empty(presentation).Info(tweak: b => b.Tooltip("Edit Default"))>
+      AsTyped Data.Content.Presentation:
+      Emphazise string: @presentation.String("Emphasize")
+      Emphazise bool: @presentation.Bool("Emphasize")
+      (@presentation.EntityId / @presentation.EntityId)
+      ...with toolbar on hover
+    </li>
+  } else {
+    <li>defItem.Presentation: NULL</li>
+  }  
+  @if (header != null) {
+    <li>
+      AsTyped Data.BlockHeader:
+      @header.String("Title") (@header.EntityId / @header.EntityId)
+    </li>
+  } else {
+    <li>blockHeader: NULL</li>
+  }
+</ol>
+
+<h2>Children of TypedEntity - no field name</h2>
+@{
+  var children = content.Children();
+  var childrenSubItems = content.Children("SubItems");
+  var childrenOther = content.Children("Other");
+  var remaining = children.Where(c => c.EntityId > 11).ToList();
+}
+<p>
+  Items: @children.Count(); 
+  Length SubItems matches: @(children.Count() == childrenSubItems.Count());
+  Length Others: @childrenOther.Count()
+</p>
+<ul>
+  @foreach (var item in children)
+  {
+    <li>@item.String("Title")</li>
+  }
+</ul>
+
+<h2>AsTyped of the Data</h2>
+@{
+  var typedData = AsTyped(Data);
+}
+<ol>
+  <li>
+    AsTyped Data:
+    @typedData.String("EntityTitle") (@typedData.EntityId / @typedData.EntityId)
+  </li>
+</ol>
