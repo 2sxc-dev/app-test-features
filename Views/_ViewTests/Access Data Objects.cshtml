@@ -4,7 +4,7 @@
 <h1>Views Configuration Test - Access Data Objects</h1>
 <p>
   This view is setup to have content with a demo-item, presentation and a header.
-  The tests should successfully access them in the classic <code>Content</code>, <code>Header</code> as well as the new <code>Data.Content</code> etc.
+  The tests should successfully access them in the classic <code>Content</code>, <code>Header</code> as well as the new <code>Data.MyContent</code> etc.
 </p>
 
 <div>
@@ -36,30 +36,30 @@
   }
 </ol>
 
-<h2>Data.Content (as Entity)</h2>
+<h2>Data.MyContent (as Entity)</h2>
 @{
-  var ent = Data.Content;
-  var main = Data.Content;
+  var ent = Data.MyContent.FirstOrDefault();
+  var main = Data.MyContent;
 }
 <ol>
   <li @Kit.Toolbar.Empty(ent).Info(tweak: b => b.Tooltip("Edit Default"))>
-    Data.Content:
+    Data.MyContent:
     @ent.Get("Title") (@ent.EntityId)
     ...with toolbar on hover
   </li>
   <li @Kit.Toolbar.Empty(ent).Info(tweak: b => b.Tooltip("Edit Default"))>
-    AsTyped Data.Content:
+    AsTyped Data.MyContent:
     @ent.Get("Title") (@ent.EntityId)
     ...with toolbar on hover
   </li>
   <li>ent.Presentation: can't work</li>
 </ol>
 
-<h2>Data.Content / Data.Header</h2>
+<h2>Data.MyContent / Data.MyHeader</h2>
 @{
-  var content = AsTyped(Data.Content);
+  var content = AsTyped(Data.MyContent);
   var presentation = content.Presentation;
-  var header = AsTyped(Data.Header);
+  var header = AsTyped(Data.MyHeader);
 }
 <ol>
   <li>
@@ -68,7 +68,7 @@
   </li>
   @if (presentation != null) {
     <li @Kit.Toolbar.Empty(presentation).Info(tweak: b => b.Tooltip("Edit Default"))>
-      AsTyped Data.Content.Presentation:
+      AsTyped Data.MyContent.Presentation:
       Emphazise string: @presentation.String("Emphasize")
       Emphazise bool: @presentation.Bool("Emphasize")
       (@presentation.EntityId / @presentation.EntityId)
