@@ -9,7 +9,7 @@
   var empty = Kit.Toolbar.Empty();  
 }
 
-<h2>Tweak and Parameters together should error</h2>
+<h2>Exception: Tweak and Parameters together should error</h2>
 @{
   var isError = false;
   var errMessage = "";
@@ -27,27 +27,58 @@
   Error message: @errMessage
 </p>
 
-<hr>
 
-<h2>Code with Parameters - working on Tweak</h2>
+<hr>
+<h2>Code with Parameters - Different hand-overs</h2>
 <ol>
   @tlbTest.TbTestAsVisibleTag("Code with Params", "classic", 
-    empty.Code("withParams", parameters: new { testParam = 27 }))
-  @tlbTest.TbTestAsVisibleTag("Code with Params", "tweak", 
-    empty.Code("withParams", tweak: b => b.Parameters(new { testParam = 27 }).Parameters("key", "value")))
+    empty.Code("withParams", parameters: new { testParam = 27, key = "value" })
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "tweak - object", 
+    empty.Code("withParams", tweak: b => b.Parameters(new { testParam = 27, key = "value" }))
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "tweak object and string", 
+    empty.Code("withParams", tweak: b => b.Parameters(new { testParam = 27 }).Parameters("key", "value"))
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "tweak string and string", 
+    empty.Code("withParams", tweak: b => b.Parameters("testParam", 27).Parameters("key", "value"))
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "toolbar.Parameters", 
+    empty.Code("withParams").Parameters(parameters: new { testParam = 27, key = "value" })
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "toolbar.Parameters + tweak", 
+    empty.Parameters(parameters: new { key = "value" }).Code("withParams", tweak: b => b.Parameters("testParam", 27))
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "teak + toolbar.Parameters", 
+    empty.Code("withParams", tweak: b => b.Parameters("testParam", 27)).Parameters(parameters: new { key = "value" })
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "Toolbar.Empty(parameters: ...)", 
+    Kit.Toolbar.Empty(parameters: new { testParam = 27, key = "value" }).Code("withParams")
+  )
+  @tlbTest.TbTestAsVisibleTag("Code with Params", "Toolbar.Empty(tweak: ...)", 
+    Kit.Toolbar.Empty(tweak: c => c.Parameters("testParam", 27).Parameters("key", "value")).Code("withParams")
+  )
 </ol>
 <hr>
 <h2>Basic code</h2>
 <ol>
-  @tlbTest.TbTestAsVisibleTag("Code new and old", "classic", 
-    empty.Code("callMe", parameters: new { id = 27 }).Button("custom", parameters: "call=callMe&id=27"))
+  @tlbTest.TbTestAsVisibleTag("Code (#1) and custom button with call=... (#2) - TODO: custom doesn't have params", "classic", 
+    empty.Code("callMe", parameters: new { id = 27 }).Button("custom", parameters: "call=callMe&id=27")
+  )
+  @tlbTest.TbTestAsVisibleTag("Code new and old - parameters on toolbar.Parameters", "classic", 
+    empty.Code("callMe").Button("custom", parameters: "call=callMe").Parameters(parameters: new { id = 27 })
+  )
+  @tlbTest.TbTestAsVisibleTag("Code new and old - parameters on Empty(parameters: ...)", "classic", 
+    Kit.Toolbar.Empty(parameters: new { id = 27 }).Code("callMe").Button("custom", parameters: "call=callMe")
+  )
 
-  @tlbTest.TbTestAsVisibleTag("Space - invalid, should throw JS error", "classic", 
-    empty.Code("call me"))
+  @tlbTest.TbTestAsVisibleTag("Space - invalid (JS will explain)", "classic", 
+    empty.Code("call me")
+  )
 
-  @tlbTest.TbTestAsVisibleTag("Bracket - invalid", "classic", 
-    empty.Code("callMe(27)"))
-
+  @tlbTest.TbTestAsVisibleTag("Bracket - invalid (JS will explain)", "classic", 
+    empty.Code("callMe(27)")
+  )
 </ol>
 
 
