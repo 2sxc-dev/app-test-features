@@ -1,0 +1,48 @@
+@inherits Custom.Hybrid.Razor14
+
+<h2>Dynamic Code - Parameters to Razor using Parameters</h2>
+<ol>
+  <li>Found (obj): @Parameters.Get("Found")</li>
+  <li>Found (string): @Parameters.String("Found")</li>
+  <li>Found (bool): @Parameters.Bool("Found")</li>
+  <li>Non-Existing (bool): @Parameters.Bool("NonExisting")</li>
+  <li>Non-Existing (bool, true): @Parameters.Bool("NonExisting", fallback: true)</li>
+  <li>
+    Non-Existing (bool, required = false):
+    @Parameters.Bool("NonExisting", required: false)
+  </li>
+</ol>
+
+<h3>Item</h3>
+<ol>
+  <li>Item: @Parameters.Item("Item", required: true)</li>
+  <li>Dyn to Item: @Parameters.Item("Dyn", required: true)</li>
+  <li>Entity to Item: @Parameters.Item("Entity", required: true)</li>
+  <li>Non-Existing (Item): @Parameters.Item("NonExisting")</li>
+</ol>
+<h3>Items</h3>
+<ol>
+  <li>Items: @Parameters.Items("Items")</li>
+  <li>Items from Item: @Parameters.Items("Item")</li>
+  <li>Items from Entity: @Parameters.Items("Entity")</li>
+  <li>Items from Dyn: @Parameters.Items("Dyn")</li>
+  <li>Items from Non-Existing: @Parameters.Items("NonExisting")</li>
+</ol>
+<h3>Entity</h3>
+<ol>
+  <li>Entity from Entity: @Parameters.Entity("Entity", required: true)</li>
+  <li>Entity from Dyn: @Parameters.Entity("Dyn", required: true)</li>
+  <li>Entity from Item: @Parameters.Entity("Item", required: true)</li>
+  <li>Entity from Non-Existing: @Parameters.Entity("NonExisting")</li>
+</ol>
+
+<h3>File / Files</h3>
+<ol>
+  <li>Folder: @Parameters.Folder("Folder", required: true)</li>
+  <li>Folders from folder: @Parameters.Folders("Folder", required: true)</li>
+  <li>Folders TODO</li>
+  <li>File: TODO</li>
+  <li>File from files: @Parameters.File("Files", required: true)</li>
+  <li>Files: @Parameters.Files("Files", required: true)</li>
+  <li>Files from File: TODO</li>
+</ol>

@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Dynamic Code - Parameters to Razor</h1>
+<p>
+  Passing parameters to sub-razor.
+</p>
+@{
+  var itemWithImages = App.Data["ImageServiceTests"].First();
+  var folder = AsTyped(itemWithImages).Folder("Image");
+  var parameters = new {
+    Found = true,
+    Message = "Hello",
+    Item = AsTyped(Data.MyContent),
+    Items = AsTypedList(Data.MyContent),
+    Dyn = Content,
+    Entity = Data.MyContent.First(),
+    Folder = folder,
+    Files = folder.Files,
+  };
+}
+@Html.Partial("./Parameters to Razor.Part DynamicModel.cshtml", parameters)
+
+
+@Html.Partial("./Parameters to Razor.Part Parameters.cshtml", parameters)
