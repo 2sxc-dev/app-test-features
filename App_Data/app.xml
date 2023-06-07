@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.00.01" ExportDate="2023-05-05T15:44:48.6749439+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.02.00" ExportDate="2023-06-07T14:49:06.0823453+02:00">
   <Header>
     <App Guid="ab297ff7-224c-4158-a8ad-3f384997103f" />
     <Language Default="en-us" />
@@ -2128,6 +2128,12 @@
             <Value Key="DisableTranslation" Value="False" Type="Boolean">
               <Dimension DimensionID="229" ReadOnly="false" />
             </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
             <Value Key="InputType" Value="string-wysiwyg" Type="String">
               <Dimension DimensionID="229" ReadOnly="false" />
             </Value>
@@ -2141,6 +2147,9 @@
               <Dimension DimensionID="229" ReadOnly="false" />
             </Value>
             <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
               <Dimension DimensionID="229" ReadOnly="false" />
             </Value>
             <Value Key="ValidationRegExJavaScript" Value="" Type="String">
@@ -2177,6 +2186,25 @@
             <Value Key="WysiwygConfiguration" Value="52d79da0-b10d-4f62-9838-2e17b2254a3e" Type="String">
               <Dimension DimensionID="229" ReadOnly="false" />
             </Value>
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
+    <AttributeSet StaticName="f3189a9c-1791-44a3-a442-09aa53efc1ce" Name="FormulaFormParameters" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Title" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="84dec77e-428c-479a-ade5-2dc28306d4de" Json="True" KeyNumber="33397">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Title" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Message" Type="Empty" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="01e62c86-13eb-4c50-b821-3b8138afc2c6" Json="True" KeyNumber="33398">
+            <Value Key="Formulas" Value="e0bb4f2e-0ed0-4c3c-b338-31bf1dd11603" Type="Entity" />
+            <Value Key="InputType" Value="empty-default" Type="String" />
+            <Value Key="Name" Value="Message" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
           </Entity>
         </Attribute>
       </Attributes>
@@ -2362,6 +2390,174 @@
             <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
           </Entity>
         </Attribute>
+        <Attribute StaticName="Album" Type="Hyperlink" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="efcb37da-5fd5-4023-a5c8-013d2fccf5ef" Json="True" KeyNumber="33410">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="hyperlink-library" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Album" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Hyperlink" AttributeSetName="@Hyperlink" EntityGUID="0e836238-398d-468e-b3b3-c33f5c47d9ba" Json="True" KeyNumber="33410">
+            <Value Key="Buttons" Value="adam,more" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultDialog" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="FileFilter" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Paths" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ServerResourceMapping" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowAdam" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowFileManager" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowImageManager" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowPagePicker" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@hyperlink-library" AttributeSetName="@hyperlink-library" EntityGUID="1c6a3cee-3f96-4e1e-b2aa-6d3a7f3113d4" Json="True" KeyNumber="33410">
+            <Value Key="AllowAssetsInRoot" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="FolderDepth" Value="2" Type="Number">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="MetadataContentTypes" Value="ImageServiceTestsImageMetadata" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
+    <AttributeSet StaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" Name="ImageServiceTestsImageMetadata" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Label" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="793ea184-0ed0-41f9-96a1-018cd646749c" Json="True" KeyNumber="33411">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Label" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Category" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="424aebef-bf4f-42f9-8df5-b6d9abfaadc5" Json="True" KeyNumber="33412">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="string-dropdown" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Category" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@String" AttributeSetName="@String" EntityGUID="9779bf9f-b759-444b-bb07-ed2731b3afe8" Json="True" KeyNumber="33412">
+            <Value Key="DropdownValues" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-dropdown" AttributeSetName="@string-dropdown" EntityGUID="f255f014-9645-4a66-81bb-6570f815468e" Json="True" KeyNumber="33412">
+            <Value Key="AllowMultiValue" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DropdownValues" Value="Good&#xA;Bad&#xA;Cooking" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DropdownValuesFormat" Value="value-label" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableTextEntry" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Separator" Value="," Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
       </Attributes>
     </AttributeSet>
     <AttributeSet StaticName="ff8e2c84-9f38-4eb7-8ea4-d34de6a1446a" Name="MagicDataSourceConfiguration" Scope="Default" AlwaysShareConfiguration="false">
@@ -2452,6 +2648,38 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
+    <AttributeSet StaticName="a4b4d143-5829-466d-ad6a-9c8a2bb64676" Name="TestGetValues" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Title" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="96766d7c-c566-4a32-8f68-ad4aa13fae57" Json="True" KeyNumber="33252">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Title" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Number" Type="Number" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="5d254c24-0286-44b2-baa4-bbfe3fd84308" Json="True" KeyNumber="33253">
+            <Value Key="InputType" Value="number-default" Type="String" />
+            <Value Key="Name" Value="Number" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Text" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="7f674ab9-eae1-49e4-b658-f62ddf1ff867" Json="True" KeyNumber="33254">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Text" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="String" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="808649ef-8d44-4600-adc9-ec95074b7ddb" Json="True" KeyNumber="33255">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="String" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
     <AttributeSet StaticName="e14676e9-cf3c-487e-bbc9-2a4a1720c0bc" Name="ToolbarTest" Scope="Default" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Title" Type="String" IsTitle="true">
@@ -2494,6 +2722,117 @@
           <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="170d0856-38a9-4415-8c31-59260a8473d4" Json="True" KeyNumber="29316">
             <Value Key="InputType" Value="string-default" Type="String" />
             <Value Key="Name" Value="Title" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
+    <AttributeSet StaticName="d41db7d4-945f-4272-aa38-226dbf0e261a" Name="ViewTestDefault" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Title" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="c7c40b0e-dddb-48ae-ad45-391dddcbf1f7" Json="True" KeyNumber="33322">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Title" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="SubItems" Type="Entity" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="eae765dc-728d-44eb-8947-c33b2f939fe9" Json="True" KeyNumber="33325">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="entity-default" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="SubItems" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Entity" AttributeSetName="@Entity" EntityGUID="5b7e9661-c678-46d3-9bd9-f75022b96313" Json="True" KeyNumber="33325">
+            <Value Key="AllowMultiValue" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableAddExisting" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableCreate" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableDelete" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableEdit" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableRemove" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EntityType" Value="DataWithRelationshipChild" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Label" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="MoreFields" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Prefill" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
+    <AttributeSet StaticName="1e20ae74-89c0-4e90-a160-df82dc2da249" Name="ViewTestHeader" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Title" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="85c3d0a5-2c6c-48b4-9456-9a6b8c1be7d8" Json="True" KeyNumber="33324">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Title" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
+    <AttributeSet StaticName="8ab6ced3-c061-42f4-85d7-2d23ab31d7c9" Name="ViewTestPresentation" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Emphasize" Type="Boolean" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="3cb945b5-89df-43ed-bf4d-c6950d17aeda" Json="True" KeyNumber="33323">
+            <Value Key="InputType" Value="boolean-default" Type="String" />
+            <Value Key="Name" Value="Emphasize" Type="String" />
             <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
           </Entity>
         </Attribute>
@@ -2872,6 +3211,7 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="31421412-479b-4d91-a01b-513340866412" AttributeSetName="ImageServiceTests" EntityGUID="1d38d843-3755-4fee-a8c3-e6d95f4a6361">
+      <Value Key="Album" Value="" Type="Hyperlink" />
       <Value Key="Image" Value="file:10553" Type="Hyperlink">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
@@ -2946,7 +3286,7 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="d919fbab-8fcd-4121-83ae-bd47d668f985">
-      <Value Key="Contents" Value="&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;Text beside the image to the left&lt;/p&gt;&#xA;&lt;p&gt;This should work as expected :)&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% 50% 25% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-l&quot;&gt;&#xA;&lt;p&gt;50 / 25% / 25 all left aligned&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% 25% /50% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;width 75&amp;nbsp; / 25 left / right&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-right wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width todo 75&amp;nbsp; / 25 left / left&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width 25/75 left / right&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-right wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width 25/75 left / left WIP&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-75 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-50 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;" Type="String">
+      <Value Key="Contents" Value="&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/q_sZ2c2PIUGDrr1H1mj5hQ/Contents/app-icon.png&quot; alt=&quot;app-icon&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/q_sZ2c2PIUGDrr1H1mj5hQ/Contents/jungle heads.jpg&quot; data-cmsid=&quot;file:jungle heads.jpg&quot;&gt;&#xA;&lt;p&gt;Text beside the image to the left&lt;/p&gt;&#xA;&lt;p&gt;This should work as expected :)&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% 50% 25% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-l&quot;&gt;&#xA;&lt;p&gt;50 / 25% / 25 all left aligned&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% 25% /50% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;width 75&amp;nbsp; / 25 left / right&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-right wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width todo 75&amp;nbsp; / 25 left / left&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width 25/75 left / right&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-right wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width 25/75 left / left WIP&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-75 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;&lt;img class=&quot;wysiwyg-50 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:app-icon.png&quot;&gt;" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
       <Value Key="TestDescription" Value="&lt;p&gt;Rows of images in all combinations of 25/50/75%&lt;/p&gt;" Type="String">
@@ -2964,17 +3304,6 @@
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
       <Value Key="TestId" Value="images-rows-33-66" Type="String">
-        <Dimension DimensionID="229" ReadOnly="false" />
-      </Value>
-    </Entity>
-    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="9c20e7b5-ad73-48ea-b9cc-08fb75296723">
-      <Value Key="Contents" Value="&lt;p&gt;25% all left aligned.&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% 50% 25% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;50 / 25% / 25 all left aligned&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;25% 25% /50% all left aligned&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;p&gt;width 75&amp;nbsp; / 25 left / right&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-right wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width todo 75&amp;nbsp; / 25 left / left&lt;/p&gt;&#xA;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-25 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width 25/75 left / right&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-right wysiwyg-75&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&#xA;&lt;p&gt;width 25/75 left / left WIP&lt;/p&gt;&#xA;&lt;img class=&quot;wysiwyg-left wysiwyg-25&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-75 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&lt;img class=&quot;wysiwyg-50 wysiwyg-left&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;" Type="String">
-        <Dimension DimensionID="229" ReadOnly="false" />
-      </Value>
-      <Value Key="TestDescription" Value="&lt;p&gt;Rows of images in all combinations of 25/50/75%&lt;/p&gt;" Type="String">
-        <Dimension DimensionID="229" ReadOnly="false" />
-      </Value>
-      <Value Key="TestId" Value="temp-images-rows-25-50-75" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
     </Entity>
@@ -3168,6 +3497,252 @@
       <Value Key="StreamWiring" Value="829b2caa-2696-42af-9f3e-d005006eceff:Default&gt;Out:Default" Type="String" />
       <Value Key="TestParameters" Value="" Type="String" />
     </Entity>
+    <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="5dbd6e7b-cab6-4092-a1e9-f5e3589ca3eb" Json="True" KeyGuid="bd3e7290-5032-4583-9452-437becb7e73d">
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="Tutorial DateTime Configurable" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="81dd49a7-fa70-4e98-b73d-8299bb3231f0" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 300,&#xD;&#xA;  &quot;Left&quot;: 420&#xD;&#xA;}" Type="String" />
+    </Entity>
+    <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="677210a2-cf08-46e5-a6b2-86e56e27be99" AttributeSetName="DateTimeConfigurable" EntityGUID="4a9aa1f6-7b76-4ec7-b2ce-99093bff8c9a" Json="True" KeyGuid="5dbd6e7b-cab6-4092-a1e9-f5e3589ca3eb">
+      <Value Key="DesiredDate" Value="Today" Type="String" />
+      <Value Key="Hours" Value="[Params:Hours]" Type="String" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="DataPipeline" AttributeSetName="DataPipeline" EntityGUID="bd3e7290-5032-4583-9452-437becb7e73d" Json="True">
+      <Value Key="AllowEdit" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Description" Value="For testing Kit.Data.GetQuery setting params" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="HiddenInQueryPicker" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="DemoConfigurableWithParams" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Params" Value="Hours=22" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsOut" Value="ListContent,Default" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamWiring" Value="5dbd6e7b-cab6-4092-a1e9-f5e3589ca3eb:Default&gt;Out:Default" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestParameters" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="dec87c42-2e37-4f1f-99bd-0c5905f9c021" AttributeSetName="FieldValueWysiwyg" EntityGUID="56c5c9d3-005c-4f74-81c7-e4f3266b0e4c">
+      <Value Key="Contents" Value="&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;This image describes something cool.&lt;/p&gt;&#xA;&lt;hr class=&quot;wysiwyg-splitter wysiwyg-spacer-0&quot;&gt;&lt;img class=&quot;wysiwyg-left wysiwyg-50&quot; src=&quot;/Portals/Features/adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/2sxcV10.20.png&quot; alt=&quot;2sxcV10.20&quot; data-cmsid=&quot;file:10456&quot;&gt;&#xA;&lt;p&gt;This is another image with another description about what happened here.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestDescription" Value="&lt;p&gt;Arrangement of images and text as you may see them in a blog&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="TestId" Value="image-text-as-in-blog" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="a4b4d143-5829-466d-ad6a-9c8a2bb64676" AttributeSetName="TestGetValues" EntityGUID="675876dd-c5cb-4121-a5a3-c145c7698b04">
+      <Value Key="Number" Value="42" Type="Number">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="String" Value="Some text in field String" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Text" Value="Some text in field Text" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="This is a title" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="f75a80b6-3b9b-41b8-b81c-8704cb8f8a4f" Json="True">
+      <Value Key="ContentDemoEntity" Value="7f0a9989-6013-4940-a6b7-8161796d148a" Type="Entity" />
+      <Value Key="ContentTypeStaticName" Value="d41db7d4-945f-4272-aa38-226dbf0e261a" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="View with Data, Presentation and Header" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="IsHidden" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListContentDemoEntity" Value="39b0ed53-98a2-41c3-8da5-66a5fe19ac2e" Type="Entity" />
+      <Value Key="ListContentTypeStaticName" Value="1e20ae74-89c0-4e90-a160-df82dc2da249" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListPresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="Site" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="ViewTest - Access Data Objects" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Path" Value="Views/_ViewTests/Access Data Objects.cshtml" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PresentationDemoEntity" Value="582646a5-69e2-4d81-89c1-7b6982351fa1" Type="Entity" />
+      <Value Key="PresentationTypeStaticName" Value="8ab6ced3-c061-42f4-85d7-2d23ab31d7c9" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PublishData" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsToPublish" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Type" Value="C# Razor" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="UseForList" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewNameInUrl" Value="viewtest-data-objects/.*" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="d41db7d4-945f-4272-aa38-226dbf0e261a" AttributeSetName="ViewTestDefault" EntityGUID="7f0a9989-6013-4940-a6b7-8161796d148a">
+      <Value Key="SubItems" Value="1666eba0-122f-4c90-afac-e4c067c63bae,3260390e-45ec-4868-9ad2-d234aff03a0c,863f070f-048c-4d98-a3f2-c043374d886b" Type="Entity" />
+      <Value Key="Title" Value="Demo Data" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="8ab6ced3-c061-42f4-85d7-2d23ab31d7c9" AttributeSetName="ViewTestPresentation" EntityGUID="582646a5-69e2-4d81-89c1-7b6982351fa1">
+      <Value Key="Emphasize" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="1e20ae74-89c0-4e90-a160-df82dc2da249" AttributeSetName="ViewTestHeader" EntityGUID="39b0ed53-98a2-41c3-8da5-66a5fe19ac2e">
+      <Value Key="Title" Value="Title of the Header" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="DataPipeline" AttributeSetName="DataPipeline" EntityGUID="844c8f9c-4582-40b0-9d16-5cfbe0b4ba72" Json="True">
+      <Value Key="AllowEdit" Value="True" Type="Boolean" />
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="HiddenInQueryPicker" Value="False" Type="Boolean" />
+      <Value Key="Name" Value="ViewTest-ContentTypes" Type="String" />
+      <Value Key="Params" Value="" Type="String" />
+      <Value Key="StreamsOut" Value="Default,Header" Type="String" />
+      <Value Key="StreamWiring" Value="3dd42563-1d5a-48e2-8b63-cf94a6e45051:Default&gt;Out:Default" Type="String" />
+      <Value Key="TestParameters" Value="" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&quot;ShowDataSourceDetails&quot;:true}" Type="String" />
+    </Entity>
+    <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="3dd42563-1d5a-48e2-8b63-cf94a6e45051" Json="True" KeyGuid="844c8f9c-4582-40b0-9d16-5cfbe0b4ba72">
+      <Value Key="Description" Value="" Type="String" />
+      <Value Key="Name" Value="Content Types" Type="String" />
+      <Value Key="PartAssemblyAndType" Value="ToSic.Eav.DataSources.System.ContentTypes, ToSic.Eav.Apps" Type="String" />
+      <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 280,&#xD;&#xA;  &quot;Left&quot;: 480&#xD;&#xA;}" Type="String" />
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="997ab605-aa60-4005-9138-11685ecab8e1" Json="True">
+      <Value Key="ContentDemoEntity" Value="7f0a9989-6013-4940-a6b7-8161796d148a" Type="Entity" />
+      <Value Key="ContentTypeStaticName" Value="d41db7d4-945f-4272-aa38-226dbf0e261a" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="View with Data and Query" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="IsHidden" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListContentDemoEntity" Value="39b0ed53-98a2-41c3-8da5-66a5fe19ac2e" Type="Entity" />
+      <Value Key="ListContentTypeStaticName" Value="1e20ae74-89c0-4e90-a160-df82dc2da249" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListPresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="Site" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="ViewTest - Access Data With Query" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Path" Value="Views/_ViewTests/Access Data Objects.cshtml" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Pipeline" Value="844c8f9c-4582-40b0-9d16-5cfbe0b4ba72" Type="Entity" />
+      <Value Key="PresentationDemoEntity" Value="582646a5-69e2-4d81-89c1-7b6982351fa1" Type="Entity" />
+      <Value Key="PresentationTypeStaticName" Value="8ab6ced3-c061-42f4-85d7-2d23ab31d7c9" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PublishData" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsToPublish" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Type" Value="C# Razor" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="UseForList" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewNameInUrl" Value="viewtest-data-query/.*" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="772dfff1-b236-4aa9-8359-5f53c08ff7bf" AttributeSetName="UiFormula" EntityGUID="e0bb4f2e-0ed0-4c3c-b338-31bf1dd11603" Json="True">
+      <Value Key="Enabled" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Formula" Value="// new formula syntax - see https://r.2sxc.org/formulas&#xA;v2((data, context) =&gt; {&#xA;  console.log('parameters', data.parameters);&#xA;  return data.value;&#xA;});" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Target" Value="Field.Settings.Notes" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Field.Settings.Notes" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="10" AssignmentObjectType="CmsObject" AttributeSetStaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" AttributeSetName="ImageServiceTestsImageMetadata" EntityGUID="eb1a6082-7adb-406b-a8e2-b8069648148e" KeyString="file:10639">
+      <Value Key="Category" Value="Good" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="This is some gear" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="10" AssignmentObjectType="CmsObject" AttributeSetStaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" AttributeSetName="ImageServiceTestsImageMetadata" EntityGUID="342bc2be-c8f1-4bb4-881d-4e4f8ccc9c58" KeyString="file:10640">
+      <Value Key="Category" Value="Bad" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="Another gear" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
   </Entities>
   <PortalFiles>
     <File Id="10406" RelativePath="adam\app-test-features\WHHjShpoGUmKZ6ybBPXHPw\ContentCss\string-wysiwyg-custom-css-basic.css" />
@@ -3181,6 +3756,14 @@
     <File Id="9201" RelativePath="adam\app-test-features\DADn_RKeMkCRlX7xskhonA\Image\2sxcV10.20.png" />
     <File Id="10414" RelativePath="adam\app-test-features\dyWRuGIsukStmLNzuCL1Uw\InnerContent\app-icon.jpg" />
     <File Id="10413" RelativePath="adam\app-test-features\EuwgJzOgjkW_tv4cPMKMoA\Notes\image.png" />
+    <File Id="10624" RelativePath="adam\app-test-features\q_sZ2c2PIUGDrr1H1mj5hQ\Contents\app-icon.png" />
+    <File Id="10623" RelativePath="adam\app-test-features\q_sZ2c2PIUGDrr1H1mj5hQ\Contents\jungle heads.jpg" />
+    <File Id="10639" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Album\0057640_kugellager_350.jpeg" />
+    <File Id="10640" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Album\0057645_gleitlager_350.jpeg" />
+    <File Id="10641" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Album\Folder 1\0057651_gehauselager_350.jpeg" />
+    <File Id="10642" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Album\Folder 1\2sic Logo blue square.png" />
+    <File Id="10643" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Album\Folder 2\daniel ca. 4.jpg" />
+    <File Id="10644" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Album\Folder 2\daniel ca. 4-1.jpg" />
     <File Id="10456" RelativePath="adam\app-test-features\Wh5TDcYbMEaz9VMnNsED5w\Contents\2sxcV10.20.png" />
   </PortalFiles>
   <PortalFolders>
@@ -3191,6 +3774,10 @@
     <Folder Id="14319" RelativePath="adam/app-test-features/8YuGw2GUQ0exHb-i2qs0Wg/Library/" />
     <Folder Id="14207" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/InnerContent/" />
     <Folder Id="14205" RelativePath="adam/app-test-features/EuwgJzOgjkW_tv4cPMKMoA/Notes/" />
+    <Folder Id="14689" RelativePath="adam/app-test-features/q_sZ2c2PIUGDrr1H1mj5hQ/Contents/" />
+    <Folder Id="14753" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/Album/" />
+    <Folder Id="14754" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/Album/Folder 1/" />
+    <Folder Id="14755" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/Album/Folder 2/" />
     <Folder Id="14291" RelativePath="adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/Contents/" />
     <Folder Id="12294" RelativePath="adam/app-test-features/" />
     <Folder Id="14317" RelativePath="adam/app-test-features/8YuGw2GUQ0exHb-i2qs0Wg/" />
@@ -3198,6 +3785,7 @@
     <Folder Id="14206" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/" />
     <Folder Id="14208" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/PublicUpload/" />
     <Folder Id="14204" RelativePath="adam/app-test-features/EuwgJzOgjkW_tv4cPMKMoA/" />
+    <Folder Id="14688" RelativePath="adam/app-test-features/q_sZ2c2PIUGDrr1H1mj5hQ/" />
     <Folder Id="14372" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/" />
     <Folder Id="14290" RelativePath="adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/" />
     <Folder Id="14158" RelativePath="adam/app-test-features/WHHjShpoGUmKZ6ybBPXHPw/" />
