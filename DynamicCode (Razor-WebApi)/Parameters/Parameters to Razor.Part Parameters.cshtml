@@ -15,7 +15,7 @@
 
 <h3>Item</h3>
 <ol>
-  <li>Item: @Parameters.Item("Item", required: true)</li>
+  <li>Item: @Model.Item("Item", required: true)</li>
   <li>Dyn to Item: @Parameters.Item("Dyn", required: true)</li>
   <li>Entity to Item: @Parameters.Item("Entity", required: true)</li>
   <li>Non-Existing (Item): @Parameters.Item("NonExisting")</li>
@@ -45,4 +45,24 @@
   <li>File from files: @Parameters.File("Files", required: true)</li>
   <li>Files: @Parameters.Files("Files", required: true)</li>
   <li>Files from File: TODO</li>
+</ol>
+
+
+<h3>Album</h3>
+@{
+  var albumFolders = Parameters.Folders("AlbumFolders");
+  var albumFiles = Parameters.Files("AlbumFiles");
+  var firstPic = albumFiles.First();
+  var firstMd = firstPic.Metadata;
+}
+<ol>
+  <li>Album: '@Parameters.Folder("Album").Name' (@Parameters.Folder("Album"))</li>
+  <li>AlbumFolders: Count: @albumFolders.Count(); First: '@albumFolders.First().Name', (@albumFolders)</li>
+  <li>AlbumFiles:
+    Count: @albumFiles.Count(); <br>
+    First: '@firstPic.Name'; <br>
+    MdLabelDyn: '@(((dynamic)firstMd).Label)'; <br>
+    MdLabelTyped: '@firstMd.String("Label")'; <br>
+    (Type: @albumFiles)
+  </li>
 </ol>

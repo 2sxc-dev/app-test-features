@@ -6,8 +6,9 @@
   Passing parameters to sub-razor.
 </p>
 @{
-  var itemWithImages = App.Data["ImageServiceTests"].First();
-  var folder = AsTyped(itemWithImages).Folder("Image");
+  var itemWithImages = AsTyped(App.Data["ImageServiceTests"]);
+  
+  var folder = itemWithImages.Folder("Image");
   var parameters = new {
     Found = true,
     Message = "Hello",
@@ -15,8 +16,12 @@
     Items = AsTypedList(Data.MyContent),
     Dyn = Content,
     Entity = Data.MyContent.First(),
-    Folder = folder,
-    Files = folder.Files,
+    Folder = itemWithImages.Folder("Image"),
+    Files = itemWithImages.Folder("Image").Files,
+    Album = itemWithImages.Folder("Image"),
+    AlbumFolders = itemWithImages.Folder("Album").Folders,
+    AlbumFiles = itemWithImages.Folder("Album").Files,
+    AlbumSub1Files = itemWithImages.Folder("Album").Folders.First().Files,
   };
 }
 @Html.Partial("./Parameters to Razor.Part DynamicModel.cshtml", parameters)
