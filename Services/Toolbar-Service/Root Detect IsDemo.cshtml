@@ -1,0 +1,45 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Toolbar Service - Detect if Root IsDemo</h1>
+<p>
+  Show how to use the toolbar with Root-IsDemo detection.
+</p>
+@{
+  var main = AsTyped(Data.MyContent);
+
+
+  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+
+  // var typedItem = AsTyped(App.Data["Dummy"].First());
+  var cmsItem = AsTyped(App.Data["Dummy"].First());
+
+}
+
+
+
+<hr>
+<h2>Root is Demo: @main.IsDemoItem</h2>
+<ol>
+  @{
+    var toolbar = Kit.Toolbar.Empty().DetectDemo(main).Edit(cmsItem).New().New(cmsItem);
+  }
+  <li>
+    Toolbar Type: @toolbar.GetType() (should be <code>Frozen</code> if root is demo)
+  </li>
+  @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
+    Title = "Root for something else",
+    Toolbar = Kit.Toolbar.Empty().DetectDemo(main).Edit(cmsItem).New().New(cmsItem)
+  })
+
+  @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
+    Title = "Root for itself",
+    Toolbar = Kit.Toolbar.Empty(main).DetectDemo(main).Edit(cmsItem).New().New(cmsItem)
+  })
+
+
+  @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
+    Title = "Edit Item on Toolbar",
+    Toolbar = Kit.Toolbar.Empty(cmsItem).Edit().New().New("Dummy")
+  })
+
+</ol>

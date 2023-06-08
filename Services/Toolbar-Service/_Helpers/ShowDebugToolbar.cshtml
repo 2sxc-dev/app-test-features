@@ -1,7 +1,8 @@
 @inherits Custom.Hybrid.Razor14
 @{
   var title = DynamicModel.Title;
-  var tlb = DynamicModel.Toolbar;
+  // var tlb = DynamicModel.Toolbar;
+  var tlb = TypedModel.Toolbar("Toolbar");
 }
 <li>
   @title @tlb.AsTag()
