@@ -1,0 +1,11 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Lamdbda Error</h1>
+<p>
+  For scenarios that trigger the lambda problem.
+</p>
+@{
+  dynamic x = "";
+  x.Select(y => y);
+}

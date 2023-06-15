@@ -1,0 +1,9 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Basic Error</h1>
+<p>
+  This will throw an error, and we expect the Razor to add some header infos.
+</p>
+@{
+  throw new Exception("This is a test exception - You should see the insights in the toolbar in red");
+}
