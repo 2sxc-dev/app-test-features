@@ -1,0 +1,21 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>WebAPI Errors</h1>
+<p>
+  Call some WebAPIs to access obsolete code and see that warnings are added to insights.
+</p>
+<ol>
+  <li>
+    <a href="#" onclick="callUseObsoleteILogService(this)">Call Obsolete WebAPI (see console)</a>
+  </li>
+</ol>
+
+<script>
+  function callUseObsoleteILogService(target) {
+    var sxc = $2sxc(target);
+    sxc.webApi.fetchRaw('app/auto/DynamicCode (Razor-WebApi)/api/UseObsoleteCode/UseILogService')
+      .then(function (data) {
+        console.log(data);
+    });
+  }
+</script>
