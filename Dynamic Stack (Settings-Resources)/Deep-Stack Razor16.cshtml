@@ -1,0 +1,110 @@
+@inherits Custom.Hybrid.Razor16
+
+<h1>Dynamic Stack (SettingsStack &amp; ResourcesStack)</h1>
+
+@{
+  SettingsStack.Debug = true;
+
+  var test = ((dynamic) Settings).Images;
+}
+
+<h3>SettingsStack</h3>
+
+<ol>
+  <li>.Dyn. @SettingsStack.Dyn</li>
+  <li>.Dyn.GetType: @SettingsStack.Dyn.GetType()</li>
+</ol>
+
+<h3>SettingsStack.Images</h3>
+
+<ol>
+  <li>
+    .Dyn. @SettingsStack.Dyn.Images
+  </li>
+  <li>
+    get: @SettingsStack.Get("Images")
+  </li>
+</ol>
+
+<h3>SettingsStack.Images.Content</h3>
+<ol>
+  <li>
+    .Dyn. @SettingsStack.Dyn.Images.Content
+  </li>
+  <li>
+    get: @SettingsStack.Get("Images.Content")
+  </li>
+</ol>
+
+<h3>SettingsStack.Images.Content.Width</h3>
+
+<ol>
+  <li>
+    .Dyn. @SettingsStack.Dyn.Images.Content.Width
+  </li>
+  <li>
+    get: @SettingsStack.Get("Images.Content.Width")
+  </li>
+  <li>
+    int: @SettingsStack.Int("Images.Content.Width")
+  </li>
+  <li>
+    int w/Fallback: @SettingsStack.Int("Images.Content.Width", fallback: -1)
+  </li>
+  <li>
+    get&lt;int&gt;: @(SettingsStack.Get<int>("Images.Content.Width"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(SettingsStack.Get<int>("Images.Content.Width", fallback: -1))
+  </li>
+  <li>
+    get with fallback and no type: @(SettingsStack.Get("Images.Content.Width", fallback: -1))
+  </li>
+</ol>
+
+<h3>SettingsStack.Images.Content.UnknownProperty</h3>
+
+<ol>
+  <li>
+    .Dyn. @SettingsStack.Dyn.Images.Content.UnknownProperty
+  </li>
+  <li>
+    get: @SettingsStack.Get("Images.Content.UnknownProperty")
+  </li>
+  <li>
+    Int(): @SettingsStack.Int("Images.Content.UnknownProperty")
+  </li>
+  <li>
+    Int(fallback): @SettingsStack.Int("Images.Content.UnknownProperty", fallback: -7242)
+  </li>
+  <li>
+    get&lt;int&gt;: @(SettingsStack.Get<int>("Images.Content.UnknownProperty"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(SettingsStack.Get<int>("Images.Content.UnknownProperty", fallback: -1))
+  </li>
+</ol>
+
+
+<h3>SettingsStack.Images.Content.Width.Impossible</h3>
+
+<ol>
+  <li>
+    .Dyn. <em>not tested - would throw error</em>
+  </li>
+  <li>
+    get: @SettingsStack.Get("Images.Content.Width.Impossible")
+  </li>
+  <li>
+    Int(): @SettingsStack.Int("Images.Content.Width.Impossible")
+  </li>
+  <li>
+    Int(fallback): @SettingsStack.Int("Images.Content.Width.Impossible", fallback: -4)
+  </li>
+  <li>
+    get&lt;int&gt;: @(SettingsStack.Get<int>("Images.Content.Width.Impossible"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(SettingsStack.Get<int>("Images.Content.Width.Impossible", fallback: -1))
+  </li>
+</ol>
