@@ -1,0 +1,24 @@
+@inherits Custom.Hybrid.Razor12
+@using ToSic.Sxc.Services;
+@using ToSic.Razor.Blade;
+
+@{
+  const string Home = "_Home.cshtml";
+  var testPath = CmsContext.Page.Parameters["TestPath"];
+  var root = Text.Has(testPath) ? App.PhysicalPath + "/" + testPath : Path;
+  // Show Home if no path was given
+  var cshtml = Text.First(testPath, Home);
+
+  cshtml = cshtml.Contains(".cshtml") ? cshtml : cshtml + "_default.cshtml";
+}
+
+@if(Text.Has(testPath)) {
+  <h5>
+    Test: 
+    @testPath
+    @CreateInstance("./_Shared/RazorVersion.cs").RazorWithVersionPicker(this)
+  </h5>
+}
+@Html.Partial(cshtml)
+
+@Html.Partial("_Shared/_SubTests.cshtml", new { Path = root, SkipFiles = cshtml == Home })

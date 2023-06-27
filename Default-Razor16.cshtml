@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.Razor16
 @using ToSic.Sxc.Services;
 @using ToSic.Razor.Blade;
 
@@ -14,7 +14,9 @@
 
 @if(Text.Has(testPath)) {
   <h5>
-    Test: @testPath
+    Test: 
+    @testPath
+    @CreateInstance("./_Shared/RazorVersion.cs").RazorWithVersionPicker(this)
   </h5>
 }
 @Html.Partial(cshtml)

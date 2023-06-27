@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.02.00" ExportDate="2023-06-07T14:49:06.0823453+02:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="16.02.00" ExportDate="2023-06-27T16:10:28.7514433+02:00">
   <Header>
     <App Guid="ab297ff7-224c-4158-a8ad-3f384997103f" />
     <Language Default="en-us" />
@@ -9,6 +9,206 @@
     </Dimensions>
   </Header>
   <AttributeSets>
+    <AttributeSet StaticName="e81a0850-cded-4287-ae74-191f8957d1c2" Name="AdamFields" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Title" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="2eeb0ac7-d8e5-4667-8b04-7d6f5ba955de" Json="True" KeyNumber="33413">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Title" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Image" Type="Hyperlink" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="20fe0232-93f7-4110-8cb5-2bd5fb31dff7" Json="True" KeyNumber="33414">
+            <Value Key="InputType" Value="hyperlink-default" Type="String" />
+            <Value Key="Name" Value="Image" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Url" Type="Hyperlink" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="c72836ed-36bb-409a-bf8a-a5f8e174753d" Json="True" KeyNumber="33415">
+            <Value Key="InputType" Value="hyperlink-default" Type="String" />
+            <Value Key="Name" Value="Url" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Document" Type="Hyperlink" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="f3dc9b3b-48d1-41d9-a5f7-9084444f61b1" Json="True" KeyNumber="33416">
+            <Value Key="InputType" Value="hyperlink-default" Type="String" />
+            <Value Key="Name" Value="Document" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Album" Type="Hyperlink" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="179a1164-6ca9-4e50-9ffb-143493573e55" Json="True" KeyNumber="33417">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="hyperlink-library" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Album" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Hyperlink" AttributeSetName="@Hyperlink" EntityGUID="204a8953-5a6b-4559-811b-c919b1f1b4fd" Json="True" KeyNumber="33417">
+            <Value Key="Buttons" Value="adam,more" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultDialog" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="FileFilter" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Paths" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ServerResourceMapping" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowAdam" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowFileManager" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowImageManager" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ShowPagePicker" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@hyperlink-library" AttributeSetName="@hyperlink-library" EntityGUID="cd6bc82b-6d08-4d26-b99b-989886978291" Json="True" KeyNumber="33417">
+            <Value Key="AllowAssetsInRoot" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="FolderDepth" Value="2" Type="Number">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="MetadataContentTypes" Value="AdamFieldsMetadata" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
+    <AttributeSet StaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" Name="AdamFieldsMetadata" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Label" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="793ea184-0ed0-41f9-96a1-018cd646749c" Json="True" KeyNumber="33411">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Label" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Category" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="424aebef-bf4f-42f9-8df5-b6d9abfaadc5" Json="True" KeyNumber="33412">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="HelpLink" Value="" Type="Hyperlink">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Information" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="string-dropdown" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Category" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Tooltip" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@String" AttributeSetName="@String" EntityGUID="9779bf9f-b759-444b-bb07-ed2731b3afe8" Json="True" KeyNumber="33412">
+            <Value Key="DropdownValues" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-dropdown" AttributeSetName="@string-dropdown" EntityGUID="f255f014-9645-4a66-81bb-6570f815468e" Json="True" KeyNumber="33412">
+            <Value Key="AllowMultiValue" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DropdownValues" Value="Good&#xA;Bad&#xA;Cooking" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DropdownValuesFormat" Value="value-label" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableTextEntry" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Separator" Value="," Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
     <AttributeSet StaticName="App-Resources" Name="App-Resources" Scope="System.App" AlwaysShareConfiguration="false">
       <Attributes />
     </AttributeSet>
@@ -2390,174 +2590,6 @@
             <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
           </Entity>
         </Attribute>
-        <Attribute StaticName="Album" Type="Hyperlink" IsTitle="false">
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="efcb37da-5fd5-4023-a5c8-013d2fccf5ef" Json="True" KeyNumber="33410">
-            <Value Key="CustomJavaScript" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="DefaultValue" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Disabled" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="DisableTranslation" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="InputType" Value="hyperlink-library" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Name" Value="Album" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Notes" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Placeholder" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-          </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Hyperlink" AttributeSetName="@Hyperlink" EntityGUID="0e836238-398d-468e-b3b3-c33f5c47d9ba" Json="True" KeyNumber="33410">
-            <Value Key="Buttons" Value="adam,more" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="DefaultDialog" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="FileFilter" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Paths" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="ServerResourceMapping" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="ShowAdam" Value="True" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="ShowFileManager" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="ShowImageManager" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="ShowPagePicker" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-          </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@hyperlink-library" AttributeSetName="@hyperlink-library" EntityGUID="1c6a3cee-3f96-4e1e-b2aa-6d3a7f3113d4" Json="True" KeyNumber="33410">
-            <Value Key="AllowAssetsInRoot" Value="True" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="FolderDepth" Value="2" Type="Number">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="MetadataContentTypes" Value="ImageServiceTestsImageMetadata" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-          </Entity>
-        </Attribute>
-      </Attributes>
-    </AttributeSet>
-    <AttributeSet StaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" Name="ImageServiceTestsImageMetadata" Scope="Default" AlwaysShareConfiguration="false">
-      <Attributes>
-        <Attribute StaticName="Label" Type="String" IsTitle="true">
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="793ea184-0ed0-41f9-96a1-018cd646749c" Json="True" KeyNumber="33411">
-            <Value Key="InputType" Value="string-default" Type="String" />
-            <Value Key="Name" Value="Label" Type="String" />
-            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
-          </Entity>
-        </Attribute>
-        <Attribute StaticName="Category" Type="String" IsTitle="false">
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="424aebef-bf4f-42f9-8df5-b6d9abfaadc5" Json="True" KeyNumber="33412">
-            <Value Key="CustomJavaScript" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="DefaultValue" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Disabled" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="DisableTranslation" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="HelpLink" Value="" Type="Hyperlink">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Information" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="InputType" Value="string-dropdown" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Name" Value="Category" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Notes" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Placeholder" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Required" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Tooltip" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-          </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@String" AttributeSetName="@String" EntityGUID="9779bf9f-b759-444b-bb07-ed2731b3afe8" Json="True" KeyNumber="33412">
-            <Value Key="DropdownValues" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="InputType" Value="" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-          </Entity>
-          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@string-dropdown" AttributeSetName="@string-dropdown" EntityGUID="f255f014-9645-4a66-81bb-6570f815468e" Json="True" KeyNumber="33412">
-            <Value Key="AllowMultiValue" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="DropdownValues" Value="Good&#xA;Bad&#xA;Cooking" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="DropdownValuesFormat" Value="value-label" Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="EnableTextEntry" Value="False" Type="Boolean">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-            <Value Key="Separator" Value="," Type="String">
-              <Dimension DimensionID="229" ReadOnly="false" />
-            </Value>
-          </Entity>
-        </Attribute>
       </Attributes>
     </AttributeSet>
     <AttributeSet StaticName="ff8e2c84-9f38-4eb7-8ea4-d34de6a1446a" Name="MagicDataSourceConfiguration" Scope="Default" AlwaysShareConfiguration="false">
@@ -2868,24 +2900,60 @@
     <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Resources" AttributeSetName="App-Resources" EntityGUID="760333ac-f845-4b11-b266-f16ccb5f61dd" KeyNumber="1807" />
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="1448f18d-aa63-4f43-8209-29b97a04d77b" Json="True">
       <Value Key="ContentDemoEntity" Value="7a0bffdb-444e-4fae-9792-08e0adb5da6c" Type="Entity" />
-      <Value Key="ContentTypeStaticName" Value="e6a31b75-5310-4579-a1d8-ec580e1c2931" Type="String" />
-      <Value Key="Icon" Value="" Type="Hyperlink" />
-      <Value Key="Identifier" Value="" Type="String" />
-      <Value Key="IsHidden" Value="False" Type="Boolean" />
-      <Value Key="ListContentTypeStaticName" Value="" Type="String" />
-      <Value Key="ListPresentationTypeStaticName" Value="" Type="String" />
-      <Value Key="Location" Value="Site" Type="String" />
-      <Value Key="Name" Value="Default" Type="String" />
-      <Value Key="Path" Value="_Default.cshtml" Type="String" />
-      <Value Key="PresentationTypeStaticName" Value="" Type="String" />
-      <Value Key="PublishData" Value="False" Type="Boolean" />
-      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean" />
-      <Value Key="SearchIndexingStreams" Value="" Type="String" />
-      <Value Key="StreamsToPublish" Value="" Type="String" />
-      <Value Key="Type" Value="C# Razor" Type="String" />
-      <Value Key="UseForList" Value="False" Type="Boolean" />
-      <Value Key="ViewController" Value="" Type="String" />
-      <Value Key="ViewNameInUrl" Value="" Type="String" />
+      <Value Key="ContentTypeStaticName" Value="e6a31b75-5310-4579-a1d8-ec580e1c2931" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="IsHidden" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListContentTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListPresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="Site" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Default Base Razor14" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Path" Value="Default-Razor14.cshtml" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PublishData" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsToPublish" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Type" Value="C# Razor" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="UseForList" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewNameInUrl" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
     </Entity>
     <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="529ba3a2-d7d4-4f40-a81b-ff819de03a9e" AttributeSetName="IsDefaultDecorator" EntityGUID="2186a7f5-003b-41f3-a87b-c86b3406dbf5" Json="True" KeyGuid="1448f18d-aa63-4f43-8209-29b97a04d77b" />
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="92f2eb3c-c3b7-4378-82df-b2393da6687e" AttributeSetName="⚙️ContentSecurityPolicy" EntityGUID="61dbef06-a956-42cc-b671-ada8c2ab8678" Json="True">
@@ -3211,7 +3279,6 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="31421412-479b-4d91-a01b-513340866412" AttributeSetName="ImageServiceTests" EntityGUID="1d38d843-3755-4fee-a8c3-e6d95f4a6361">
-      <Value Key="Album" Value="" Type="Hyperlink" />
       <Value Key="Image" Value="file:10553" Type="Hyperlink">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
@@ -3398,20 +3465,8 @@
       <Value Key="PartAssemblyAndType" Value="8957f3ac-dc17-47da-90d3-e861be801878" Type="String" />
       <Value Key="VisualDesignerData" Value="{&#xD;&#xA;  &quot;Top&quot;: 320,&#xD;&#xA;  &quot;Left&quot;: 320&#xD;&#xA;}" Type="String" />
     </Entity>
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="2SexyContent-App" AttributeSetName="2SexyContent-App" EntityGUID="70049354-3860-4bb2-a231-fac7db2ac7d8" Json="True" KeyNumber="1807">
-      <Value Key="DisplayName" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="Folder" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="OriginalId" Value="" Type="String" />
-      <Value Key="Version" Value="00.00.15" Type="String" />
-    </Entity>
     <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Settings" AttributeSetName="App-Settings" EntityGUID="3086e374-bee7-4389-9a1f-5759be496760" KeyNumber="1807" />
     <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Resources" AttributeSetName="App-Resources" EntityGUID="e0e40fef-a524-4766-b898-deda542a4c1e" KeyNumber="1807" />
-    <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="2SexyContent-App" AttributeSetName="2SexyContent-App" EntityGUID="cf9d4af1-761d-4586-93f2-2b82f3097729" Json="True" KeyNumber="1807">
-      <Value Key="DisplayName" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="Folder" Value="ab297ff7-224c-4158-a8ad-3f384997103f" Type="String" />
-      <Value Key="OriginalId" Value="" Type="String" />
-      <Value Key="Version" Value="00.00.15" Type="String" />
-    </Entity>
     <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Settings" AttributeSetName="App-Settings" EntityGUID="660721a3-ba92-4f1a-85fb-5f59452be8ac" KeyNumber="1807" />
     <Entity TargetType="3" AssignmentObjectType="App" AttributeSetStaticName="App-Resources" AttributeSetName="App-Resources" EntityGUID="e9774fb8-68fc-42b3-b9c7-901e54a7a6ce" KeyNumber="1807" />
     <Entity TargetType="4" AssignmentObjectType="Entity" AttributeSetStaticName="DataPipelinePart" AttributeSetName="DataPipelinePart" EntityGUID="43beadbc-2f58-42f5-9c40-d5fce86db910" Json="True" KeyGuid="8dfd8914-2cf7-43b4-87f2-8287c47ed9e5">
@@ -3727,19 +3782,177 @@
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
     </Entity>
-    <Entity TargetType="10" AssignmentObjectType="CmsObject" AttributeSetStaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" AttributeSetName="ImageServiceTestsImageMetadata" EntityGUID="eb1a6082-7adb-406b-a8e2-b8069648148e" KeyString="file:10639">
-      <Value Key="Category" Value="Good" Type="String">
+    <Entity TargetType="5" AssignmentObjectType="ContentType" AttributeSetStaticName="ContentType" AttributeSetName="ContentType" EntityGUID="4439a76a-9a8b-48e9-aa70-e3c011f542de" Json="True" KeyString="e81a0850-cded-4287-ae74-191f8957d1c2">
+      <Value Key="AdditionalSettings" Value="" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
-      <Value Key="Label" Value="This is some gear" Type="String">
+      <Value Key="Description" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="DynamicChildrenField" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="EditInstructions" Value="&lt;p&gt;Used in tests for AsAdam and ITypedEntity.Folder / .File scenarios.&lt;/p&gt;" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="AdamFields" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Link" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListInstructions" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Notes" Value="" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
     </Entity>
-    <Entity TargetType="10" AssignmentObjectType="CmsObject" AttributeSetStaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" AttributeSetName="ImageServiceTestsImageMetadata" EntityGUID="342bc2be-c8f1-4bb4-881d-4e4f8ccc9c58" KeyString="file:10640">
-      <Value Key="Category" Value="Bad" Type="String">
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e81a0850-cded-4287-ae74-191f8957d1c2" AttributeSetName="AdamFields" EntityGUID="8abd0730-050a-4916-966e-11a2849d932a">
+      <Value Key="Album" Value="" Type="Hyperlink" />
+      <Value Key="Document" Value="file:10646" Type="Hyperlink">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
-      <Value Key="Label" Value="Another gear" Type="String">
+      <Value Key="Image" Value="file:10645" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Simple test" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Url" Value="http://www.2sxc.org" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="10" AssignmentObjectType="CmsObject" AttributeSetStaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" AttributeSetName="AdamFieldsMetadata" EntityGUID="c28fb174-3092-4b83-95e6-a8a3ca38c03e" KeyString="file:10648">
+      <Value Key="Category" Value="Good" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="Some widget" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="10" AssignmentObjectType="CmsObject" AttributeSetStaticName="9c898bf2-e1ad-4aa1-841e-ef370c9ddaf4" AttributeSetName="AdamFieldsMetadata" EntityGUID="94096c4f-5a48-4375-aa0f-deeb42803de7" KeyString="file:10647">
+      <Value Key="Category" Value="Cooking" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Label" Value="Another widget" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="1071a23b-10e6-4758-99d7-4f2f256878fd" Json="True">
+      <Value Key="ContentDemoEntity" Value="7a0bffdb-444e-4fae-9792-08e0adb5da6c" Type="Entity" />
+      <Value Key="ContentTypeStaticName" Value="e6a31b75-5310-4579-a1d8-ec580e1c2931" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="IsHidden" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListContentTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListPresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="Site" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Default Base Razor16" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Path" Value="Default-Razor16.cshtml" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PublishData" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsToPublish" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Type" Value="C# Razor" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="UseForList" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewNameInUrl" Value="razor16/.*" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="2SexyContent-Template" AttributeSetName="2SexyContent-Template" EntityGUID="fd4a9bc3-1031-4485-8eb4-e2220dbe61ae" Json="True">
+      <Value Key="ContentDemoEntity" Value="7a0bffdb-444e-4fae-9792-08e0adb5da6c" Type="Entity" />
+      <Value Key="ContentTypeStaticName" Value="e6a31b75-5310-4579-a1d8-ec580e1c2931" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Icon" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Identifier" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="IsHidden" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListContentTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ListPresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Location" Value="Site" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Default Base Razor12" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Path" Value="Default-Razor12.cshtml" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PresentationTypeStaticName" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="PublishData" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingDisabled" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="SearchIndexingStreams" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="StreamsToPublish" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Type" Value="C# Razor" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="UseForList" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewController" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="ViewNameInUrl" Value="razor12/.*" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
     </Entity>
@@ -3749,6 +3962,8 @@
     <File Id="9202" RelativePath="adam\app-test-features\DADn_RKeMkCRlX7xskhonA\Image\austin-ramsey-nmXi-HCD_F8-unsplash.jpg" />
     <File Id="10500" RelativePath="adam\app-test-features\8YuGw2GUQ0exHb-i2qs0Wg\Single\Hofkellerei Wappen.jpg" />
     <File Id="10553" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Image\2018-05-2sxc9-33.JPG" />
+    <File Id="10646" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Document\20220622.pdf" />
+    <File Id="10645" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Image\2sxcV10.20.png" />
     <File Id="10502" RelativePath="adam\app-test-features\8YuGw2GUQ0exHb-i2qs0Wg\Library\2sic Logo magenta.jpg" />
     <File Id="10503" RelativePath="adam\app-test-features\8YuGw2GUQ0exHb-i2qs0Wg\Library\2sxcV10.20.png" />
     <File Id="10501" RelativePath="adam\app-test-features\8YuGw2GUQ0exHb-i2qs0Wg\Library\bootstrap4-instant-logo-1000.png" />
@@ -3756,6 +3971,12 @@
     <File Id="9201" RelativePath="adam\app-test-features\DADn_RKeMkCRlX7xskhonA\Image\2sxcV10.20.png" />
     <File Id="10414" RelativePath="adam\app-test-features\dyWRuGIsukStmLNzuCL1Uw\InnerContent\app-icon.jpg" />
     <File Id="10413" RelativePath="adam\app-test-features\EuwgJzOgjkW_tv4cPMKMoA\Notes\image.png" />
+    <File Id="10648" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Album\0057640_kugellager_350.jpeg" />
+    <File Id="10647" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Album\0057645_gleitlager_350.jpeg" />
+    <File Id="10649" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Album\Folder 1\2sic Logo blue.png" />
+    <File Id="10650" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Album\Folder 1\2sic Logo magenta.jpg" />
+    <File Id="10651" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Album\Folder 2\daniel ca. 4.jpg" />
+    <File Id="10652" RelativePath="adam\app-test-features\MAe9igoFFkmWbhGihJ2TKg\Album\Folder 2\daniel ca. 4-1.jpg" />
     <File Id="10624" RelativePath="adam\app-test-features\q_sZ2c2PIUGDrr1H1mj5hQ\Contents\app-icon.png" />
     <File Id="10623" RelativePath="adam\app-test-features\q_sZ2c2PIUGDrr1H1mj5hQ\Contents\jungle heads.jpg" />
     <File Id="10639" RelativePath="adam\app-test-features\Q9g4HVU37k-ow-bZX0pjYQ\Album\0057640_kugellager_350.jpeg" />
@@ -3771,9 +3992,14 @@
     <Folder Id="12602" RelativePath="adam/app-test-features/DADn_RKeMkCRlX7xskhonA/Image/" />
     <Folder Id="14318" RelativePath="adam/app-test-features/8YuGw2GUQ0exHb-i2qs0Wg/Single/" />
     <Folder Id="14373" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/Image/" />
+    <Folder Id="14758" RelativePath="adam/app-test-features/MAe9igoFFkmWbhGihJ2TKg/Document/" />
+    <Folder Id="14757" RelativePath="adam/app-test-features/MAe9igoFFkmWbhGihJ2TKg/Image/" />
     <Folder Id="14319" RelativePath="adam/app-test-features/8YuGw2GUQ0exHb-i2qs0Wg/Library/" />
     <Folder Id="14207" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/InnerContent/" />
     <Folder Id="14205" RelativePath="adam/app-test-features/EuwgJzOgjkW_tv4cPMKMoA/Notes/" />
+    <Folder Id="14759" RelativePath="adam/app-test-features/MAe9igoFFkmWbhGihJ2TKg/Album/" />
+    <Folder Id="14761" RelativePath="adam/app-test-features/MAe9igoFFkmWbhGihJ2TKg/Album/Folder 1/" />
+    <Folder Id="14762" RelativePath="adam/app-test-features/MAe9igoFFkmWbhGihJ2TKg/Album/Folder 2/" />
     <Folder Id="14689" RelativePath="adam/app-test-features/q_sZ2c2PIUGDrr1H1mj5hQ/Contents/" />
     <Folder Id="14753" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/Album/" />
     <Folder Id="14754" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/Album/Folder 1/" />
@@ -3785,6 +4011,7 @@
     <Folder Id="14206" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/" />
     <Folder Id="14208" RelativePath="adam/app-test-features/dyWRuGIsukStmLNzuCL1Uw/PublicUpload/" />
     <Folder Id="14204" RelativePath="adam/app-test-features/EuwgJzOgjkW_tv4cPMKMoA/" />
+    <Folder Id="14756" RelativePath="adam/app-test-features/MAe9igoFFkmWbhGihJ2TKg/" />
     <Folder Id="14688" RelativePath="adam/app-test-features/q_sZ2c2PIUGDrr1H1mj5hQ/" />
     <Folder Id="14372" RelativePath="adam/app-test-features/Q9g4HVU37k-ow-bZX0pjYQ/" />
     <Folder Id="14290" RelativePath="adam/app-test-features/Wh5TDcYbMEaz9VMnNsED5w/" />
