@@ -1,0 +1,7 @@
+@inherits Custom.Dnn.Razor12
+@{
+  // This should throw an error and provide guidance in the html and toolbar
+
+  // Reason is that the `List` object was removed and should be replaced with AsDynamic(Data).
+  var x = this.List;
+}

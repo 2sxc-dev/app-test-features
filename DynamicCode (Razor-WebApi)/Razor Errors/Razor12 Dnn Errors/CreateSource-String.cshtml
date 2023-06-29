@@ -1,0 +1,7 @@
+@inherits Custom.Dnn.Razor12
+@{
+  // This should throw an error and provide guidance in the html and toolbar
+
+  // Reason is that the `CreateSource` with a string name was removed in v12 or so
+  var x = CreateSource("SqlDataSource");
+}
