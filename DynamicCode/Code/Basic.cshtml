@@ -1,0 +1,21 @@
+@inherits Custom.Hybrid.Razor16
+
+<h1>Code Use Basic</h1>
+<p>
+  Create code files and review that everything works.
+</p>
+@{
+  var basicDynamicCode = CreateInstance("BasicDynamicCode.cs");
+  var basicDynamicCode12 = CreateInstance("BasicDynamicCode12.cs");
+  var basicHybrid12 = CreateInstance("BasicHybridCode12.cs");
+  var basicHybrid14 = CreateInstance("BasicHybridCode14.cs");
+  var basicHybrid16 = CreateInstance("BasicHybridCode16.cs");
+}
+
+<ol>
+  <li>Hello from Basic DynamicCode: @basicDynamicCode.SayHello()</li>
+  <li>Hello from Basic DynamicCode12: @basicDynamicCode12.SayHello()</li>
+  <li>Hello from Basic Hybrid12: @basicHybrid12.SayHello()</li>
+  <li>Hello from Basic Hybrid14: @basicHybrid14.SayHello()</li>
+  <li>Hello from Basic Hybrid16: @basicHybrid14.SayHello()</li>
+</ol>
