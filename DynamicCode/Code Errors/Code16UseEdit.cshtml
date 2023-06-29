@@ -1,0 +1,13 @@
+@inherits Custom.Hybrid.Razor16
+
+<h1>Code Use Basic</h1>
+<p>
+  Create code files and review that everything works.
+</p>
+@{
+  var errorCode = CreateInstance("Code16UseEdit.cs");
+}
+
+<ol>
+  <li>Hello from Basic Hybrid16: @errorCode.SayHello()</li>
+</ol>
