@@ -16,7 +16,7 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 [AllowAnonymous]
 [JsonFormatter(EntityFormat = EntityFormat.None)]
-public class EntityFormatNoneController : Custom.Hybrid.Api15
+public class EntityFormatNoneController : Custom.Hybrid.Api14
 {
     [HttpGet]
     public object GetEntity()

@@ -1,0 +1,13 @@
+@inherits Custom.Hybrid.RazorPro
+
+<h1>Code Use Basic</h1>
+<p>
+  Create code files and review that everything works.
+</p>
+@{
+  var codePro = Code("CodePro.cs");
+}
+
+<ol>
+  <li>Hello from Basic DynamicCode: @CodePro.Object("SayHello")</li>
+</ol>
