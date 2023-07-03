@@ -1,71 +1,71 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorPro
 
-<h2>Dynamic Code - TypedModel to Razor using TypedModel</h2>
+<h2>Dynamic Code - TypedModel to Razor using MyModel</h2>
 <ol>
-  <li>Found (obj): @TypedModel.Get("Found")</li>
+  <li>Found (obj): @MyModel.Get("Found")</li>
 
-  <li>Found (string): @TypedModel.String("Found")</li>
-  <li>Found (bool): @TypedModel.Bool("Found")</li>
-  <li>Non-Existing (bool): @TypedModel.Bool("NonExisting", required: false)</li>
-  <li>Non-Existing (bool, true): @TypedModel.Bool("NonExisting", fallback: true)</li>
+  <li>Found (string): @MyModel.String("Found")</li>
+  <li>Found (bool): @MyModel.Bool("Found")</li>
+  <li>Non-Existing (bool): @MyModel.Bool("NonExisting", required: false)</li>
+  <li>Non-Existing (bool, true): @MyModel.Bool("NonExisting", fallback: true)</li>
   <li>
     Non-Existing (bool, required = false):
-    @TypedModel.Bool("NonExisting", required: false)
+    @MyModel.Bool("NonExisting", required: false)
   </li>
 </ol>
 
 <h3>Item</h3>
 <ol>
-  <li>Item: @TypedModel.Item("Item", required: true)</li>
-  <li>Dyn to Item: @TypedModel.Item("Dyn", required: true)</li>
-  <li>Entity to Item: @TypedModel.Item("Entity", required: true)</li>
-  <li>Non-Existing (Item): @TypedModel.Item("NonExisting", required: false)</li>
+  <li>Item: @MyModel.Item("Item", required: true)</li>
+  <li>Dyn to Item: @MyModel.Item("Dyn", required: true)</li>
+  <li>Entity to Item: @MyModel.Item("Entity", required: true)</li>
+  <li>Non-Existing (Item): @MyModel.Item("NonExisting", required: false)</li>
 </ol>
 <h3>Items</h3>
 <ol>
-  <li>Items: @TypedModel.Items("Items")</li>
-  <li>Items from Item: @TypedModel.Items("Item")</li>
-  <li>Items from Entity: @TypedModel.Items("Entity")</li>
-  <li>Items from Dyn: @TypedModel.Items("Dyn")</li>
-  <li>Items from Non-Existing: @TypedModel.Items("NonExisting", required: false)</li>
+  <li>Items: @MyModel.Items("Items")</li>
+  <li>Items from Item: @MyModel.Items("Item")</li>
+  <li>Items from Entity: @MyModel.Items("Entity")</li>
+  <li>Items from Dyn: @MyModel.Items("Dyn")</li>
+  <li>Items from Non-Existing: @MyModel.Items("NonExisting", required: false)</li>
 </ol>
 <h3>Entity</h3>
 <ol>
-  <li>Entity from Entity: @TypedModel.Entity("Entity", required: true)</li>
-  <li>Entity from Dyn: @TypedModel.Entity("Dyn", required: true)</li>
-  <li>Entity from Item: @TypedModel.Entity("Item", required: true)</li>
-  <li>Entity from Non-Existing: @TypedModel.Entity("NonExisting", required: false)</li>
+  <li>Entity from Entity: @MyModel.Entity("Entity", required: true)</li>
+  <li>Entity from Dyn: @MyModel.Entity("Dyn", required: true)</li>
+  <li>Entity from Item: @MyModel.Entity("Item", required: true)</li>
+  <li>Entity from Non-Existing: @MyModel.Entity("NonExisting", required: false)</li>
 </ol>
 
 <h3>Item Image (.File)</h3>
 <ol>
-  <li>AlbumItem.File("Image").Url: @TypedModel.Item("AlbumItem").File("Image").Url</li>
+  <li>AlbumItem.File("Image").Url: @MyModel.Item("AlbumItem").File("Image").Url</li>
 
 </ol>
 
 <h3>File / Files</h3>
 <ol>
-  <li>Folder: @TypedModel.Folder("Folder", required: true)</li>
-  <li>Folders from folder: @TypedModel.Folders("Folder", required: true)</li>
+  <li>Folder: @MyModel.Folder("Folder", required: true)</li>
+  <li>Folders from folder: @MyModel.Folders("Folder", required: true)</li>
   <li>Folders TODO</li>
   <li>File: TODO</li>
-  <li>File from files: @TypedModel.File("Files", required: true)</li>
-  <li>Files: @TypedModel.Files("Files", required: true)</li>
+  <li>File from files: @MyModel.File("Files", required: true)</li>
+  <li>Files: @MyModel.Files("Files", required: true)</li>
   <li>Files from File: TODO</li>
 </ol>
 
 
 <h3>Album</h3>
 @{
-  var albumFolders = TypedModel.Folders("AlbumFolders");
-  var albumFiles = TypedModel.Files("AlbumFiles");
+  var albumFolders = MyModel.Folders("AlbumFolders");
+  var albumFiles = MyModel.Files("AlbumFiles");
   var firstPic = albumFiles.First();
   var firstMd = firstPic.Metadata;
-  var document = TypedModel.Item("AlbumItem").File("Document");
-  var urlFile = TypedModel.Item("AlbumItem").File("Url");
+  var document = MyModel.Item("AlbumItem").File("Document");
+  var urlFile = MyModel.Item("AlbumItem").File("Url");
 }
 <ol>
-  <li>Album: '@TypedModel.Folder("Album").Name' (@TypedModel.Folder("Album"))</li>
+  <li>Album: '@MyModel.Folder("Album").Name' (@MyModel.Folder("Album"))</li>
   <li>AlbumFolders: Count: @albumFolders.Count(); First: '@albumFolders.First().Name', (@albumFolders)</li>
   <li>AlbumFiles:
     Count: @albumFiles.Count(); <br>

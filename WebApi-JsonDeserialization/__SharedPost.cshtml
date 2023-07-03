@@ -24,7 +24,7 @@
       };
       document.getElementById("input1").innerHTML = JSON.stringify(postData, null, 2);
       $2sxc(@CmsContext.Module.Id).webApi
-        .fetchJson('app/auto/JsonDeserialization/api/' + data.Controller + '/UpdatePostTest', postData)
+        .fetchJson('app/auto/WebApi-JsonDeserialization/api/' + data.Controller + '/UpdatePostTest', postData)
         .then(response => {
           console.log(response);
           document.getElementById("output1").innerHTML = JSON.stringify(response, null, 2);

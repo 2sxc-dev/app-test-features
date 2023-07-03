@@ -1,0 +1,14 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Services;
+
+<h1>Rich WYSIWYG From App.Resources</h1>
+@{
+  var cmsService = GetService<ICmsService>();
+
+  var testCms = App.Resources;
+  
+}
+<h2>The App.Resources</h2>
+<div>
+  @testCms.Html("WysiwygDescription", debug: true, toolbar: true)
+</div>

@@ -9,7 +9,7 @@
   (() => {
     function downloadJson(data) {
       $2sxc(@CmsContext.Module.Id).webApi
-        .fetchJson('app/auto/JsonFormatterAttribute/api/' + data.Controller + '/' + data.Method)
+        .fetchJson('app/auto/WebApi-JsonFormatterAttribute/api/' + data.Controller + '/' + data.Method)
         .then(response => {
           console.log(response);
           document.getElementById(data.Placeholder).innerHTML = JSON.stringify(response, null, 2);

@@ -16,7 +16,7 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 [AllowAnonymous]
 [JsonFormatter(Casing = Casing.Camel)]
-public class Api15PostController : Custom.Hybrid.Api14
+public class Api15PostController : Custom.Hybrid.ApiPro
 {
   public class PostTest
   {

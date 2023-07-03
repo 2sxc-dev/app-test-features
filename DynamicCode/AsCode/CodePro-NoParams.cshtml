@@ -1,0 +1,71 @@
+@inherits Custom.Hybrid.RazorPro
+
+<h1>Code Use Basic</h1>
+<p>
+  Create code files and review that everything works.
+</p>
+@{
+  var codePro = AsCode("CodeTests.cs");
+}
+
+<h2>Say Hello</h2>
+<ol>
+  <li>Hello using Dyn.SayHello(): @codePro.Dyn.SayHello()</li>
+  <li>Hello using Get(...): @codePro.Get("SayHello")</li>
+  <li>Hello using Get&lt;string&gt;(): @(codePro.Get<string>("SayHello"))</li>
+</ol>
+
+<h2>Message (Property)</h2>
+<ol>
+  <li>Message using Dyn.Message: @codePro.Dyn.Message</li>
+  <li>Message using Get("Message"): @codePro.Get("Message")</li>
+</ol>
+
+<h2>MessageGetSet (Property)</h2>
+<ol>
+  <li>Dyn: @codePro.Dyn.MessageGetSet</li>
+  <li>String(...): @codePro.String("MessageGetSet")</li>
+  @{
+    codePro.Set("MessageGetSet", "Hello World");
+  }
+  <li>After Set: String(...): @codePro.String("MessageGetSet")</li>
+</ol>
+
+<h2>SomeField (Field)</h2>
+<ol>
+  <li>Dyn: @codePro.Dyn.SomeField</li>
+  <li>Get(...): @codePro.Get("SomeField")</li>
+  <li>String(...): @codePro.String("SomeField")</li>
+</ol>
+
+
+<h2>Bounce with parameters</h2>
+<ol>
+  <li>Dyn.Bounce(): @codePro.Dyn.Bounce("Hello World")</li>
+  <li>Get("Bounce"): @(codePro.Get<string>("Bounce", "Hello World"))</li>
+  <li>Get("BounceOptional"): @(codePro.Get<string>("BounceOptional", "Hello World"))</li>
+  <li>String("BounceOptional"): @codePro.String("BounceOptional", "Hello World", "Hello Moon")</li>
+</ol>
+
+<h2>Overloads</h2>
+<ol>
+  <li>Dyn.Overload(): @codePro.Dyn.Overload("Hello World")</li>
+  <li>Dyn.Overload(): @codePro.Dyn.Overload(true)</li>
+  <li>Dyn.Overload(): @codePro.Dyn.Overload(codePro)</li>
+  <li>Get(): @(codePro.Get<string>("Overload", "Hello World"))</li>
+  <li>Get(): @(codePro.Get<string>("Overload", true))</li>
+  <li>Get(): @(codePro.Get<string>("Overload", codePro))</li>
+  
+</ol>
+
+<h2>Item</h2>
+<ol>
+  <li>Item("GetItem"): @codePro.Item("GetItem")</li>
+  <li>Items("GetItem"): @codePro.Items("GetItem").GetType() - </li>
+  <li>Entity("GetItem"): @codePro.Entity("GetItem")</li>
+</ol>
+
+<h2>HtmlTag</h2>
+<ol>
+  <li>HtmlTag("Strong"): @codePro.HtmlTag("Strong", "Some Message in the Div")</li>
+</ol>

@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorPro
 @using System.Linq;
 
 <h1>Dynamic Code - Parameters to Razor</h1>
@@ -6,16 +6,16 @@
   Passing parameters to sub-razor.
 </p>
 @{
-  var itemWithImages = AsTyped(App.Data["AdamFields"]);
+  var itemWithImages = AsItem(App.Data["AdamFields"]);
   
   var folder = itemWithImages.Folder("Image");
   var parameters = new {
     Found = true,
     Message = "Hello",
-    Item = AsTyped(Data.MyContent),
-    Items = AsTypedList(Data.MyContent),
-    Dyn = Content,
-    Entity = Data.MyContent.First(),
+    Item = MyItem,
+    Items = MyItems,
+    Dyn = MyItem.Dyn,
+    Entity = AsEntity(MyItem),
     AlbumItem = itemWithImages,
     Folder = folder,
     Files = folder.Files,
