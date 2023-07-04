@@ -15,17 +15,20 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 
 [AllowAnonymous]
-[JsonFormatter(Casing = Casing.Camel)]
-public class Api15PostController : Custom.Hybrid.ApiPro
+[JsonFormatter(Casing = Casing.DictionaryCamel)]
+public class CompileErrorController : Custom.Hybrid.ApiPro
 {
-  public class PostTest
+  [HttpGet]
+  public object GetEntity()
   {
-    public int? IAmNull { get; set; }
+    // return "hello";
+    return x;
+      return (App.Data.List.First());
   }
 
-  [HttpPost]
-  public object UpdatePostTest([FromBody] PostTest postTest)
-  {
-    return postTest;
-  }
+  // [HttpGet]
+  // public object GetEntities()
+  // {
+  //     return App.Data.List;
+  // }
 }

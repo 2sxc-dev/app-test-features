@@ -1,0 +1,20 @@
+@inherits Custom.Hybrid.Razor14
+@{
+  var page = GetService<ToSic.Sxc.Services.IPageService>();
+  page.Activate("2sxc.JsCore");
+}
+<script type="text/javascript">
+  // Use an IFFE to ensure the variables are not exposed globaly
+  // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+  (() => {
+    function downloadJson(data) {
+      $2sxc(@CmsContext.Module.Id).webApi
+        .fetchJson('app/auto/WebApi/api/' + data.Controller + '/' + data.Method)
+        .then(response => {
+          console.log(response);
+          document.getElementById(data.Placeholder).innerHTML = JSON.stringify(response, null, 2);
+        });
+    }
+    window.downloadJson = downloadJson;
+  })();
+</script>

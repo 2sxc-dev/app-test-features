@@ -11,21 +11,21 @@ using ToSic.Sxc.Services; // Make it easier to use https://r.2sxc.org/services
 using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
-using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 
 
 [AllowAnonymous]
-[JsonFormatter(Casing = Casing.Camel)]
-public class Api15PostController : Custom.Hybrid.ApiPro
+// [JsonFormatter]
+public class Api16DefaultController : Custom.Hybrid.ApiPro
 {
-  public class PostTest
-  {
-    public int? IAmNull { get; set; }
-  }
+    [HttpGet]
+    public object GetEntity()
+    {
+        return (App.Data.List.First());
+    }
 
-  [HttpPost]
-  public object UpdatePostTest([FromBody] PostTest postTest)
-  {
-    return postTest;
-  }
+    [HttpGet]
+    public object GetEntities()
+    {
+        return App.Data.List;
+    }
 }
