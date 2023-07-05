@@ -38,7 +38,7 @@ public class GrandParentController : Custom.Hybrid.Api14
     }
 
     [HttpGet]
-    // [JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Camel)]
+    [JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Camel)]
     public object GetEntities()
     {
         return App.Data.List;

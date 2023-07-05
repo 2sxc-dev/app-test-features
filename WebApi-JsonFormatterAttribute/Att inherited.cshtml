@@ -9,6 +9,8 @@
 <pre>[JsonFormatter(EntityFormat = EntityFormat.Light, Casing = Casing.Camel)]</pre>
 <p>GrandParentController class:</p>
 <pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Preserve)]</pre>
+<p>method:</p>
+<pre>-</pre>
 <h3>expected JSON result: single EavLightEntity, Pascal case.</h3>
 <pre id="jsonResult1">...loading...</pre>
 @Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "Child", Method = "GetEntity", Placeholder = "jsonResult1" })
@@ -20,8 +22,10 @@
 <pre>[JsonFormatter(EntityFormat = EntityFormat.Light, Casing = Casing.Camel)]</pre>
 <p>GrandParentController class:</p>
 <pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Preserve)]</pre>
+<p>method:</p>
+<pre>[JsonFormatter(EntityFormat = EntityFormat.None, Casing = Casing.Camel)]</pre>
 
-<h3>expected JSON result: IEntity array, Pascal case.</h3>
+<h3>expected JSON result: IEntity array, camel case.</h3>
 <pre id="jsonResult2">...loading...</pre>
 @Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "Child", Method = "GetEntities", Placeholder = "jsonResult2" })
 
