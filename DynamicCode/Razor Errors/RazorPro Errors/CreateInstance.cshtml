@@ -1,0 +1,7 @@
+@inherits Custom.Hybrid.RazorPro
+@{
+  // This should throw an error and provide guidance in the html and toolbar
+
+  // Reason is that the `CreateInstance` is replaced with GetCode(...)
+  var x = CreateInstance("Helper.cs");
+}
