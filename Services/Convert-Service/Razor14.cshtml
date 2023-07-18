@@ -1,0 +1,42 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Sxc.Services;
+
+<h1>Convert Service</h1>
+@{
+  var cnv = Kit.Convert;
+}
+<ol>
+  <li>
+    Convert string to int 42: @cnv.ToInt("42")
+  </li>
+  <li>
+    Convert string to int 42.7: @cnv.ToInt("42.7")
+  </li>
+  <li>
+    Convert string to int "something" with fallback -7: @cnv.ToInt("something", fallback: -7)
+  </li>
+  <li>
+    Convert string to float 42: @cnv.ToFloat("42")
+  </li>
+  <li>
+    Convert string to float 42.7: @cnv.ToFloat("42.7")
+  </li>
+  <li>
+    Convert string to bool true: @cnv.ToBool("true")
+  </li>
+  <li>
+    Convert string to bool false: @cnv.ToBool("false")
+  </li>
+  <li>
+    Convert string to bool 1: @cnv.ToBool("1")
+  </li>
+  <li>
+    Convert string to bool 0: @cnv.ToBool("0")
+  </li>
+  <li>
+    Convert string to bool 42: @cnv.ToBool("42")
+  </li>
+  <li>
+    Convert DateTime to code "": @cnv.ForCode(DateTime.Now)
+  </li>
+</ol>

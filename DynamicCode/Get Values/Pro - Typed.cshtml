@@ -1,11 +1,11 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorPro
 @using System.Linq;
 
 <h1>Dynamic Code - Get Values - Dynamic object with Typed Accessors (16.01)</h1>
 @{
-  var item = AsDynamic(App.Data["TestGetValues"].First());
+  var item = AsItem(App.Data["TestGetValues"].First());
 
-  var show = CreateInstance("../../_Shared/ShowValues.cs");
+  var show = GetCode("../../_Shared/ShowValues.cs");
 }
 <ol>
   <li>Title: @item.String("Title")</li>

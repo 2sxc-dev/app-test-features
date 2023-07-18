@@ -4,7 +4,7 @@
 
 @{
   const string Home = "_Home.cshtml";
-  var testPath = CmsContext.Page.Parameters["TestPath"];
+  var testPath = MyPage.Parameters["TestPath"];
   var root = Text.Has(testPath) ? App.PhysicalPath + "/" + testPath : Path;
   // Show Home if no path was given
   var cshtml = Text.First(testPath, Home);
@@ -16,7 +16,7 @@
   <h5>
     Test: 
     @testPath
-    @CreateInstance("./_Shared/RazorVersion.cs").RazorWithVersionPicker(this)
+    @GetCode("./_Shared/RazorVersion.cs").RazorWithVersionPicker(this)
   </h5>
 }
 @Html.Partial(cshtml)
