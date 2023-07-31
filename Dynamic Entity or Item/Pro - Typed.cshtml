@@ -10,6 +10,7 @@
 
   var show = GetCode("../_Shared/ShowValues.cs");
 }
+<h2>Typed Values (string, various numbers)</h2>
 <ol>
   <li>Title: @item.String("Title")</li>
   <li>Text: @item.String("Text")</li>
@@ -18,4 +19,23 @@
   <li>Number (float): @show.NumberWithTypeInfo(item.Float("Number"))</li>
   <li>Number (double): @show.NumberWithTypeInfo(item.Double("Number"))</li>
   <li>Number (decimal): @show.NumberWithTypeInfo(item.Decimal("Number"))</li>
+  <li>NumberFloat (int): @show.NumberWithTypeInfo(item.Int("NumberFloat"))</li>
+  <li>NumberFloat (float - in DE it will use a comma in output): @show.NumberWithTypeInfo(item.Float("NumberFloat"))</li>
+
+</ol>
+
+<h2>Dates / Times</h2>
+<ol>
+  <li>Date as string: @item.String("Date")</li>
+  <li>Date as Date: @item.DateTime("Date")</li>
+  <li>DateAndTime as string: @item.String("DateAndTime")</li>
+  <li>DateAndTime as Date: @item.DateTime("DateAndTime")</li>
+</ol>
+
+<h2>Attribute Output</h2>
+<ol>
+  <li>Date as Attribute: @item.Attribute("Date")</li>
+  <li>DateAndTime as Attribute: @item.Attribute("DateAndTime")</li>
+  <li>NumberFloat (switch language to DE to verify here still with dot-notation): @item.Attribute("NumberFloat")</li>
+
 </ol>
