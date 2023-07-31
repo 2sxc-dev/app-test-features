@@ -1,0 +1,116 @@
+@inherits Custom.Hybrid.RazorPro
+@using System.Linq;
+
+<h1>Strict Field Names (16.03)</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+@{
+  var item = AsItem(App.Data["TestGetValues"].First(), strict: true);
+  var itemNonStrict = AsItem(item, strict: false); // this defaults to strict false ATM
+  var show = GetCode("../_Shared/ShowValues.cs");
+}
+
+<h2>Typed Values (string, various numbers)</h2>
+<ol>
+  <li>Title: @item.String("Title")</li>
+  <li>TitleNonExisting on strict:
+    @try {
+      @item.String("TitleNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+  <li>TitleNonExisting on NOT strict:
+    @try {
+      @itemNonStrict.String("TitleNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+</ol>
+
+<h2>WYSIWYG / HTML</h2>
+<ol>
+  <li>WYSIWYG: @item.Html("Wysiwyg")</li>
+  <li>WysiwygNonExisting on strict:
+    @try {
+      @item.Html("WysiwygNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+</ol>
+
+<h2>Child</h2>
+<ol>
+  <li>Child existing: @item.Child("Child")</li>
+  <li>ChildNonExisting on strict:
+    @try {
+      @item.Child("ChildNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+
+  <li>Child.Title: @item.String("Child.Title")</li>
+  <li>ChildNonExisting.Title on strict:
+    @try {
+      @item.String("ChildNonExisting.Title")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+  <li>ChildNonExisting.Title on NON strict:
+    @try {
+      @itemNonStrict.String("ChildNonExisting.Title")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+
+  <li>Child.TitleNonExisting on strict:
+    @try {
+      @item.String("Child.TitleNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+  <li>Child.TitleNonExisting on NON strict:
+    @try {
+      @itemNonStrict.String("Child.TitleNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+  
+</ol>
+
+<h2>Attribute Output</h2>
+<ol>
+  <li>Attribute Title: @item.Attribute("Title")</li>
+  <li>Attribute TitleNonExisting on strict:
+    @try {
+      @item.Attribute("TitleNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+  <li>Attribute TitleNonExisting on NON strict:
+    @try {
+      @itemNonStrict.Attribute("TitleNonExisting")
+    }
+    catch (Exception ex) {
+      @ex.Message
+    }
+  </li>
+</ol>
