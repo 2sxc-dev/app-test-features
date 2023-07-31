@@ -2,9 +2,13 @@
 @using System.Linq;
 
 <h1>Dynamic Code - Get Values - Dynamic / Classic</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+
 @{
   var item = AsDynamic(App.Data["TestGetValues"].First());
-  var show = CreateInstance("../../_Shared/ShowValues.cs");
+  var show = CreateInstance("../_Shared/ShowValues.cs");
 }
 <ol>
   <li>Title: @item.Title</li>
@@ -12,8 +16,3 @@
   <li>String: @item.String</li>
   <li>Number: @show.NumberWithTypeInfo(item.Number)</li>
 </ol>
-
-@{
-  // Temp
-  Kit.Page.Activate("2sxc.JsCore");
-}

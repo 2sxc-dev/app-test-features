@@ -2,10 +2,13 @@
 @using System.Linq;
 
 <h1>Dynamic Code - Get Values - Dynamic object with Typed Accessors (16.01)</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
 @{
   var item = AsItem(App.Data["TestGetValues"].First());
 
-  var show = GetCode("../../_Shared/ShowValues.cs");
+  var show = GetCode("../_Shared/ShowValues.cs");
 }
 <ol>
   <li>Title: @item.String("Title")</li>
