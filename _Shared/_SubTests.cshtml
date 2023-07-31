@@ -36,10 +36,18 @@
   }
 </ol>
 @if (!skipFiles) {
+  string[] fileList = testTree.FileNames(DynamicModel.Path);
+  var homeFile = fileList.FirstOrDefault(f => f.Contains("_Default.cshtml"));
+  var filesWithoutHome = fileList.Where(f => !f.Contains("_Default.cshtml")).ToArray();
+  var currentPath = CmsContext.Page.Parameters[pathParam];
+  var homeIsSetBecauseNoFile = currentPath != null && currentPath.Replace("%2f", "/").EndsWith("/");
   <hr>
   <h3>Tests</h3>
   <ol>
-    @foreach (var subTest in testTree.FileNames(DynamicModel.Path)) {
+    <li>
+      @linker.SubLinkWithIndicator(pathParam, FixSlash(homeFile), "Home", forceSet: homeIsSetBecauseNoFile)
+    </li>
+    @foreach (var subTest in filesWithoutHome) {
       var niceName = System.IO.Path.GetFileName(subTest).Trim('_').Replace(".cshtml", "");
       <li>
         @linker.SubLinkWithIndicator(pathParam, FixSlash(subTest), niceName)
@@ -48,7 +56,7 @@
   </ol>
 }
 @{
-  // try to auto-include __Assets-Auto.cshtml
+  // try to auto-include __Assets.cshtml
   var assetsPath = DynamicModel.Path + "__Assets.cshtml";
   var checkPath = "";
   if (testTree.HasAutoAssets(DynamicModel.Path)) {

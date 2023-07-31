@@ -37,7 +37,7 @@ public class TestTreeHelpers: Custom.Hybrid.Code12
     return files
       .Where(f => {
         var name = Path.GetFileName(f);
-        return /* name.StartsWith("_") */ name.EndsWith(".cshtml") && !name.StartsWith("__");
+        return name.EndsWith(".cshtml") && !name.StartsWith("__");
       })
       .Select(f => f.Substring(App.PhysicalPath.Length + 1))
       .ToArray();
