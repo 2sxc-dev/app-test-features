@@ -1,116 +1,118 @@
 @inherits Custom.Hybrid.RazorPro
 @using System.Linq;
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
 
 <h1>Strict Field Names (16.03)</h1>
 <p>
   Content-Type used: <code>TestGetValues</code>
 </p>
 @{
-  var item = AsItem(App.Data["TestGetValues"].First(), strict: true);
-  var itemNonStrict = AsItem(item, strict: false); // this defaults to strict false ATM
-  var show = GetCode("../_Shared/ShowValues.cs");
+  StrictItem = AsItem(App.Data["TestGetValues"].First());
+  LooseItem = AsItem(StrictItem, strict: false); // this defaults to strict false ATM
 }
+@functions {
+  private ITypedItem StrictItem {get; set;}
+  public IHtmlString Strict(string field, string titleAddOn, Func<ITypedItem, string, object> func, bool? expectError = null) {
+    return RunTest(StrictItem, "🔐 " + field + titleAddOn, field, func, expectError);
+  }
+
+  private ITypedItem LooseItem {get; set;}
+  public IHtmlString Loose(string field, string titleAddOn, Func<ITypedItem, string, object> func, bool? expectError = null) {
+    return RunTest(LooseItem, "☮️ " + field + titleAddOn, field, func, expectError ?? false);
+  }
+
+  public IHtmlString RunTest(ITypedItem item, string title, string field, Func<ITypedItem, string, object> func, bool? expectError = null) {
+    var exists = item.ContainsKey(field);
+    return InnermostTest(title, expectError ?? !exists, () => func(item, field));
+  }
+  public IHtmlString InnermostTest(string title, bool expectError, Func<object> action) {
+    var result = title + " (expect: " + (expectError ? "⚠️" : "👍🏽") + ")" + "\n";
+    try {
+      var actResult = action();
+      return Kit.HtmlTags.Li(expectError 
+        ? result + "⚠️❌ (no error!)" + actResult
+        : result + "👍🏽✅" + actResult
+      );
+    }
+    catch (Exception ex) {
+      var msg = DetailedErrorAlreadyShown ? Text.Ellipsis(ex.Message, 100) : ex.Message;
+      DetailedErrorAlreadyShown = true;
+      return Kit.HtmlTags.Li(expectError
+        ? result + "⚠️✅" + msg
+        : result + "❌ (not expected)" + msg
+      );
+    }
+  }
+  private bool DetailedErrorAlreadyShown = false;
+}
+
 
 <h2>Typed Values (string, various numbers)</h2>
 <ol>
-  <li>Title: @item.String("Title")</li>
-  <li>TitleNonExisting on strict:
-    @try {
-      @item.String("TitleNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
-  <li>TitleNonExisting on NOT strict:
-    @try {
-      @itemNonStrict.String("TitleNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
+  @Strict("Title", null, (i, n) => i.String(n))
+  @Strict("TitleNonExisting", null, (i, n) => i.String(n))
+  @Strict("TitleNonExisting", "w/true", (i, n) => i.String(n, required: true))
+  @Strict("TitleNonExisting", "w/false", (i, n) => i.String(n, required: false), false)
+  @Loose("TitleNonExisting", "", (i, n) => i.String(n))
+  @Loose("TitleNonExisting", "required=true", (i, n) => i.String(n, required: true), true)
+  @Loose("TitleNonExisting", "required=false", (i, n) => i.String(n, required: false), false)
+  @Strict("TitleNonExisting", "DYN", (i, n) => i.Dyn.TitleNonExisting)
+  @Loose("TitleNonExisting", "DYN", (i, n) => i.Dyn.TitleNonExisting)
+</ol>
+
+
+<h2>Strict using Get</h2>
+<ol>
+  @Strict("Title", null, (i, n) => i.Get(n))
+  @Strict("TitleNonExisting", null, (i, n) => i.Get(n))
+  @Strict("TitleNonExisting", "w/true", (i, n) => i.Get(n, required: true))
+  @Strict("TitleNonExisting", "w/false", (i, n) => i.Get(n, required: false), false)
+  @Loose("TitleNonExisting", "", (i, n) => i.Get(n))
+  @Loose("TitleNonExisting", "required=true", (i, n) => i.Get(n, required: true), true)
+  @Loose("TitleNonExisting", "required=false", (i, n) => i.Get(n, required: false), false)
+</ol>
+
+<h2>Strict using Get&lt;string&gt;</h2>
+<ol>
+  @Strict("Title", null, (i, n) => i.Get<string>(n))
+  @Strict("TitleNonExisting", null, (i, n) => i.Get<string>(n))
+  @Strict("TitleNonExisting", "w/true", (i, n) => i.Get<string>(n, required: true))
+  @Strict("TitleNonExisting", "w/false", (i, n) => i.Get<string>(n, required: false), false)
+  @Loose("TitleNonExisting", "", (i, n) => i.Get(n))
+  @Loose("TitleNonExisting", "required=true", (i, n) => i.Get<string>(n, required: true), true)
+  @Loose("TitleNonExisting", "required=false", (i, n) => i.Get<string>(n, required: false), false)
 </ol>
 
 <h2>WYSIWYG / HTML</h2>
 <ol>
-  <li>WYSIWYG: @item.Html("Wysiwyg")</li>
-  <li>WysiwygNonExisting on strict:
-    @try {
-      @item.Html("WysiwygNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
+  @Strict("Wysiwyg", null, (i, n) => i.Html(n))
+  @Strict("WysiwygNonExisting", null, (i, n) => i.Html(n))
+  @Loose("WYSIWYG", "", (i, n) => i.Html(n))
+  @Loose("WysiwygNonExisting", null, (i, n) => i.Html(n))
 </ol>
 
 <h2>Child</h2>
 <ol>
-  <li>Child existing: @item.Child("Child")</li>
-  <li>ChildNonExisting on strict:
-    @try {
-      @item.Child("ChildNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
+  @Strict("Child", null, (i, n) => i.Child(n))
+  @Strict("ChildNonExisting", null, (i, n) => i.Child(n))
 
-  <li>Child.Title: @item.String("Child.Title")</li>
-  <li>ChildNonExisting.Title on strict:
-    @try {
-      @item.String("ChildNonExisting.Title")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
-  <li>ChildNonExisting.Title on NON strict:
-    @try {
-      @itemNonStrict.String("ChildNonExisting.Title")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
+  @Strict("Child.Title", "(using .Child...)", (i, n) => i.Child("Child").String("Title"))
+  @Strict("Child.Title", null, (i, n) => i.String(n))
+  @Strict("Child.TitleNonExisting", null, (i, n) => i.String(n))
+  @Strict("ChildNonExisting.Title", null, (i, n) => i.String(n))
 
-  <li>Child.TitleNonExisting on strict:
-    @try {
-      @item.String("Child.TitleNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
-  <li>Child.TitleNonExisting on NON strict:
-    @try {
-      @itemNonStrict.String("Child.TitleNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
-  
+  @Loose("Child.TitleNonExisting", "", (i, n) => i.String(n))
+  @Loose("ChildNonExisting.Title", "", (i, n) => i.String(n))
 </ol>
 
 <h2>Attribute Output</h2>
 <ol>
-  <li>Attribute Title: @item.Attribute("Title")</li>
-  <li>Attribute TitleNonExisting on strict:
-    @try {
-      @item.Attribute("TitleNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
-  <li>Attribute TitleNonExisting on NON strict:
-    @try {
-      @itemNonStrict.Attribute("TitleNonExisting")
-    }
-    catch (Exception ex) {
-      @ex.Message
-    }
-  </li>
+  @Strict("Title", null, (i, n) => i.Attribute(n))
+  @Strict("TitleNonExisting", null, (i, n) => i.Attribute(n))
+  @Strict("TitleNonExisting", "w/true", (i, n) => i.Attribute(n, required: true))
+  @Strict("TitleNonExisting", "w/false", (i, n) => i.Attribute(n, required: false), false)
+  @Loose("TitleNonExisting", "", (i, n) => i.Attribute(n))
+  @Loose("TitleNonExisting", "required=true", (i, n) => i.Attribute(n, required: true), true)
+  @Loose("TitleNonExisting", "required=false", (i, n) => i.Attribute(n, required: false), false)
 </ol>
