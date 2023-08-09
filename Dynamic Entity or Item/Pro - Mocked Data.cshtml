@@ -1,0 +1,40 @@
+@inherits Custom.Hybrid.RazorPro
+@using System.Linq;
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+
+<h1>Mock Data Field Names (16.03)</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+@{
+  var item = AsItem(App.Data["TestGetValues"].First());
+
+  var mockData = new {
+    Id = 27,
+    Name = "Mock object",
+    File = item.String("File")
+  };
+
+  var mocked = AsItem(mockData, mock: true);
+  var file = mocked.File("File");
+  var folder = mocked.Folder("File");
+}
+<h2 @Kit.Toolbar.Default(item)>Mocked </h2>
+<ol>
+  @try{
+    var shouldntWork = AsItem(mockData);
+    <li>Mock was successfully converted, shouldn't work 🛑</li>
+  } catch (Exception ex) {
+    <li>
+      ✅ Mock data can't be converted to ITypedItem <br>
+      <em>@ex.Message</em>
+    </li>
+  }
+  <li>Id: @mocked.Id</li>
+  <li>Title: @mocked.Title</li>
+  <li>File: @file.Id - @file.Url</li>
+  <li>Folder object: @folder</li>
+  <li>Folder Files: @folder.Files (@folder.Files.Count())</li>
+  <li>Folder Folders: @folder.Files (@folder.Folders.Count())</li>
+</ol>

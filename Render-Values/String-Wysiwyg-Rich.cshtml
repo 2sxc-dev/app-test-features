@@ -1,19 +1,17 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorPro
 @using ToSic.Sxc.Services;
 
 <h1>Rich WYSIWYG Separator Tests</h1>
 @{
-  var linker = CreateInstance("../_Shared/TestLinker.cs");
+  var linker = GetCode("../_Shared/TestLinker.cs");
 
-  var pageParams = CmsContext.Page.Parameters;
-
-  var cmsService = GetService<ICmsService>();
+  var pageParams = MyPage.Parameters;
 }
 
 @if (pageParams[idParam] != null) {
   var testId = pageParams[idParam] as string;
   var test = GetWysiwygValue(testId);
-  var testCms = AsTyped(test);
+  var testCms = AsItem(test);
   <h2 @Kit.Toolbar.Default(test)>The Data / Result for @testId</h2>
   @testCms.Html("TestId", debug: true, toolbar: true)
   @testCms.Html("Contents", debug: true)
@@ -22,14 +20,14 @@
 <div class="clearfix">
   <h2>The Tests</h2>
   <ol>
-    @foreach (var test in AsList(App.Data[TypeName]))
+    @foreach (var test in AsItems(App.Data[TypeName]))
     {
       <li>
         <strong>
-          @linker.SubLinkWithIndicator(idParam, test.TestId, test.TestId)
+          @linker.SubLinkWithIndicator(idParam, test.String("TestId"), test.String("TestId"))
         </strong>
         <br>
-        @Html.Raw(test.TestDescription)
+        @Html.Raw(test.String("TestDescription"))
       </li>
     }
   </ol>

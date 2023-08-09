@@ -47,6 +47,21 @@
   private bool DetailedErrorAlreadyShown = false;
 }
 
+<h2>Statistics</h2>
+<ol>
+  <li>
+    @{ var keys = StrictItem.Keys(); }
+    Keys: @keys.Count()
+    <ol> @foreach(var k in keys) { <li>@k</li> } </ol>
+  </li>
+  <li>
+    @{ keys = StrictItem.Keys(only: new [] { "String", "Text", "NonExisting" }); }
+    Keys only String, Text, NonExisting: @keys.Count()
+    <ol> @foreach(var k in keys) { <li>@k</li> } </ol>
+  </li>
+  <li>Contains "String": @StrictItem.ContainsKey("String")</li>
+  <li>Contains "StringNonExisting": @StrictItem.ContainsKey("StringNonExisting")</li>
+</ol>
 
 <h2>Typed Values (string, various numbers)</h2>
 <ol>
