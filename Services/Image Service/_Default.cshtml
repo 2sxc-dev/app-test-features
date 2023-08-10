@@ -3,18 +3,6 @@
 @using ToSic.Sxc.Services;
 
 <h1>Image Service Service</h1>
-@{
-  var data = AsList(App.Data["ImageServiceTests"]).FirstOrDefault();
-  var pic = Kit.Image.Picture(data.Field("Image"), factor: "2/12", imgAltFallback: data.EntityTitle);
-}
-<h2>Data</h2>
-<ol>
-  <li>@data.Title</li>
-  <li>@data.Image</li>
-</ol>
-
-@pic
-
-<h2>Debug show Alt</h2>
-@pic.Alt
-<hr>
+<p>
+  See tests below
+</p>

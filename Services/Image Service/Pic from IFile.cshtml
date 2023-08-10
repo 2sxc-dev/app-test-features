@@ -1,0 +1,31 @@
+@inherits Custom.Hybrid.RazorPro
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+
+<h1>Image Service Service - Picture ConfigAlign</h1>
+<p>
+  Testing with data of <code>ImageServiceTests</code>
+</p>
+@functions {
+  public ITypedItem GetTestItem(string testId) {
+    return AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
+@{
+  var item = GetTestItem("align-left");
+  var file = item.File("Image");
+  var left = Kit.Image.Picture(file, factor: "2/12");
+}
+<h2>Data</h2>
+<ol>
+  <li>pic.Alt (default fallback): @left.Alt</li>
+  <li>file.Url: @file.Url</li>
+</ol>
+
+<hr>
+Show Left: 
+@left
+<hr>
+Show no config:
+@Kit.Image.Picture(GetTestItem("no-config").File("Image"), factor: "3/12")

@@ -47,7 +47,7 @@
   private bool DetailedErrorAlreadyShown = false;
 }
 
-<h2>Statistics</h2>
+<h2 @Kit.Toolbar.Default(StrictItem)>Statistics</h2>
 <ol>
   <li>
     @{ var keys = StrictItem.Keys(); }
@@ -60,7 +60,9 @@
     <ol> @foreach(var k in keys) { <li>@k</li> } </ol>
   </li>
   <li>Contains "String": @StrictItem.ContainsKey("String")</li>
-  <li>Contains "StringNonExisting": @StrictItem.ContainsKey("StringNonExisting")</li>
+  <li>!Contains "StringNonExisting": @StrictItem.ContainsKey("StringNonExisting")</li>
+  <li>Contains "Child.String": @StrictItem.ContainsKey("Child.String")</li>
+  <li>!Contains "Child.StringNonExisting": @StrictItem.ContainsKey("Child.StringNonExisting")</li>
 </ol>
 
 <h2>Typed Values (string, various numbers)</h2>
@@ -123,6 +125,7 @@
 
 <h2>Attribute Output</h2>
 <ol>
+  <li>Test attribute HTML (wihouth special code): @StrictItem.Attribute("Title")</li>
   @Strict("Title", null, (i, n) => i.Attribute(n))
   @Strict("TitleNonExisting", null, (i, n) => i.Attribute(n))
   @Strict("TitleNonExisting", "w/true", (i, n) => i.Attribute(n, required: true))

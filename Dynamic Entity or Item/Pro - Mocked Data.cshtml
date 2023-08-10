@@ -13,7 +13,8 @@
   var mockData = new {
     Id = 27,
     Name = "Mock object",
-    File = item.String("File")
+    File = item.String("File"),
+    Wysiwyg = "<strong>Mocked Wysiwyg</strong><em>should work</em>"
   };
 
   var mocked = AsItem(mockData, mock: true);
@@ -37,4 +38,10 @@
   <li>Folder object: @folder</li>
   <li>Folder Files: @folder.Files (@folder.Files.Count())</li>
   <li>Folder Folders: @folder.Files (@folder.Folders.Count())</li>
+  <li>
+    Wysiwyg: @mocked.Html("Wysiwyg")
+    <br>
+    <em>Should be rendered as HTML but without edit-functionality</em>
+  </li>
+  <li>Picture: @mocked.Picture("File", width: 200)</li>
 </ol>

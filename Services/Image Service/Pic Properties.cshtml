@@ -1,0 +1,28 @@
+@inherits Custom.Hybrid.Razor14
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Services;
+
+<h1>Image Service Service - Picture Properties</h1>
+<p>
+  Testing with data of <code>ImageServiceTests</code>
+</p>
+@{
+  var data = AsList(App.Data["ImageServiceTests"]).FirstOrDefault(x => true);
+  var picDefAlt = Kit.Image.Picture(data.Field("Image"), factor: "2/12" /*, imgAltFallback: data.EntityTitle */);
+  var picCustAlt = Kit.Image.Picture(data.Field("Image"), factor: "2/12", imgAltFallback: "Manual alt-fallback");
+  var picManualDataFallback = Kit.Image.Picture(data.Field("Image"), factor: "2/12", imgAltFallback: data.EntityTitle);
+}
+<h2>Data</h2>
+<ol>
+  <li>data.Title: @data.Title</li>
+  <li>pic.Alt (default fallback): @picDefAlt.Alt </li>
+  <li>pic.Alt (manual fallback): @picCustAlt.Alt </li>
+  <li>Alt with EntityTitle Fallback: @picManualDataFallback.Alt</li>
+  <li>data.Image (url): @data.Image</li>
+</ol>
+
+<hr>
+Show Pic: 
+@picManualDataFallback
+<hr>
+

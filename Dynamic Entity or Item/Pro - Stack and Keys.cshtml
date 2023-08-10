@@ -1,0 +1,15 @@
+@inherits Custom.Hybrid.RazorPro
+@using System.Linq;
+
+<h1>Pro - Stack and Keys</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+@{
+  var item = AsItem(App.Data["TestGetValues"].First());
+
+  @* var show = CreateInstance("../../_Shared/ShowValues.cs"); *@
+}
+<ol>
+  <li>Images: @AllSettings.ContainsKey("Images.Content.Width") - @AllSettings.Int("Images.Content.Width") </li>
+</ol>

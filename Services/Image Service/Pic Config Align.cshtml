@@ -1,0 +1,41 @@
+@inherits Custom.Hybrid.RazorPro
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+
+<h1>Image Service Service - Picture ConfigAlign</h1>
+<p>
+  Testing with data of <code>ImageServiceTests</code>
+</p>
+@functions {
+  public ITypedItem GetTestItem(string testId) {
+    return AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
+@{
+  var left = GetTestItem("align-left");
+  var leftDefAlt = left.Picture("Image", factor: "2/12");
+  var leftCustAlt = left.Picture("Image", factor: "2/12", imgAltFallback: "Manual alt-fallback");
+  var leftManualDataFallback = left.Picture("Image", factor: "2/12", imgAltFallback: left.Title);
+}
+<h2>Data</h2>
+<ol>
+  <li>data.Title: @left.Title</li>
+  <li>pic.Alt (default fallback): @leftDefAlt.Alt</li>
+  <li>pic.Alt (manual fallback): @leftCustAlt.Alt </li>
+  <li>Alt with EntityTitle Fallback: @leftManualDataFallback.Alt</li>
+  <li>data.Url("Image"): @left.Url("Image")</li>
+  <li>data.String("Image"): @left.String("Image")</li>
+</ol>
+
+<hr>
+Show Left: 
+@leftManualDataFallback
+<hr>
+Show Show-All:
+@GetTestItem("show-all").Picture("Image", factor: 2f/12)
+<hr>
+
+Show no-config:
+@GetTestItem("no-config").Picture("Image", factor: 2f/12)
+<hr>
