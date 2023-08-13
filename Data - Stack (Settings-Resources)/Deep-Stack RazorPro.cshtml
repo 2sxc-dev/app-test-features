@@ -1,0 +1,102 @@
+@inherits Custom.Hybrid.RazorPro
+
+<h1>Typed Stacks (AllSettings &amp; MyResources)</h1>
+
+@{
+  AllSettings.Debug = true;
+
+  // var test = ((dynamic) Settings).Images;
+}
+
+<h3>AllSettings</h3>
+
+<ol>
+  @* <li>.Dyn. @AllSettings.Dyn</li> *@
+  @* <li>.Dyn.GetType: @AllSettings.Dyn.GetType()</li> *@
+</ol>
+
+<h3>AllSettings.Images</h3>
+
+<ol>
+  @* <li>.Dyn. @AllSettings.Dyn.Images</li> *@
+  <li>
+    get: @AllSettings.Get("Images")
+  </li>
+</ol>
+
+<h3>AllSettings.Images.Content</h3>
+<ol>
+  @* <li>.Dyn. @AllSettings.Dyn.Images.Content</li> *@
+  <li>
+    get: @AllSettings.Get("Images.Content")
+  </li>
+</ol>
+
+<h3>AllSettings.Images.Content.Width</h3>
+
+<ol>
+  @* <li>.Dyn. @AllSettings.Dyn.Images.Content.Width</li> *@
+  <li>
+    get: @AllSettings.Get("Images.Content.Width")
+  </li>
+  <li>
+    int: @AllSettings.Int("Images.Content.Width")
+  </li>
+  <li>
+    int w/Fallback: @AllSettings.Int("Images.Content.Width", fallback: -1)
+  </li>
+  <li>
+    get&lt;int&gt;: @(AllSettings.Get<int>("Images.Content.Width"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(AllSettings.Get<int>("Images.Content.Width", fallback: -1))
+  </li>
+  <li>
+    get with fallback and no type: @(AllSettings.Get("Images.Content.Width", fallback: -1))
+  </li>
+</ol>
+
+<h3>AllSettings.Images.Content.UnknownProperty</h3>
+
+<ol>
+  @* <li>.Dyn. @AllSettings.Dyn.Images.Content.UnknownProperty  </li> *@
+  <li>
+    get: @AllSettings.Get("Images.Content.UnknownProperty")
+  </li>
+  <li>
+    Int(): @AllSettings.Int("Images.Content.UnknownProperty")
+  </li>
+  <li>
+    Int(fallback): @AllSettings.Int("Images.Content.UnknownProperty", fallback: -7242)
+  </li>
+  <li>
+    get&lt;int&gt;: @(AllSettings.Get<int>("Images.Content.UnknownProperty"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(AllSettings.Get<int>("Images.Content.UnknownProperty", fallback: -1))
+  </li>
+</ol>
+
+
+<h3>AllSettings.Images.Content.Width.Impossible</h3>
+
+<ol>
+  <li>
+    .Dyn. <em>not tested - would throw error</em>
+  </li>
+  <li>
+    get: @AllSettings.Get("Images.Content.Width.Impossible")
+  </li>
+  <li>
+    Int(): @AllSettings.Int("Images.Content.Width.Impossible")
+  </li>
+  <li>
+    Int(fallback): @AllSettings.Int("Images.Content.Width.Impossible", fallback: -4)
+  </li>
+  <li>
+    get&lt;int&gt;: @(AllSettings.Get<int>("Images.Content.Width.Impossible"))
+  </li>
+  <li>
+    get&lt;int&gt; with fallback: @(AllSettings.Get<int>("Images.Content.Width.Impossible", fallback: -1))
+  </li>
+</ol>

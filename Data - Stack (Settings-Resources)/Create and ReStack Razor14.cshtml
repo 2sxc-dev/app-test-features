@@ -1,0 +1,42 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Create and Re-Stack (Dyn: Settings &amp; Resources)</h1>
+
+@{
+  Settings.Debug = true;
+}
+
+<hr>
+<h2>Re-Stacking</h2>
+<p>
+  These tests should help verify that a stack can be combined with other objects.
+</p>
+@{
+  
+  var testPart1 = AsDynamic(new {
+    Color = "red",
+    Width = 100,
+    Title1 = "Test Title 1",
+  });
+  var testPart2 = AsDynamic(new {
+    Color = "blue",
+    Width = 200,
+    Title2 = "Test Title 2",
+  });
+  var singleItemStack = AsDynamic(null, testPart1); // add multiple params to be sure it runs through the stack code
+  var partsStack = AsDynamic(testPart1, testPart2);
+  var revPartsStack = AsDynamic(testPart2, testPart1);
+  var restack1 = AsDynamic(singleItemStack);
+  var mixSettings = AsDynamic(Settings.Get("Images.Content"), testPart1);
+}
+<ol>
+  <li>Type: @singleItemStack</li>
+  <li>SingleItem.Color: @singleItemStack.Color</li>
+  <li>SingleItem.Get("Color"): @singleItemStack.Get("Color")</li>
+  <li>partStack.Color: @partsStack.Color</li>
+  <li>revPartStack.Color: @revPartsStack.Color</li>
+  <li>restack1.Color: @restack1.Color</li>
+  <li>mixSettings.Color: @mixSettings.Color</li>
+  <li>mixSettings.Width: @mixSettings.Width</li>
+  <li>mixSettings.Title1: @mixSettings.Get("Title1")</li>
+</ol>
