@@ -1,0 +1,16 @@
+@inherits Custom.Hybrid.Razor14
+@using System.Linq;
+
+<h1>Pro - Stack and Keys</h1>
+<p>
+  Content-Type used: <code>WithMetadata</code>
+</p>
+@{
+  var item = AsDynamic(App.Data["WithMetadata"].First());
+  var md = item.Metadata;
+}
+<ol>
+  <li>Md.Title: @md.Title</li>
+  <li>Md.Get Age: @md.Age</li>
+  <li>Md.Get PropOnMainItem: @md.PropOnMainItem</li>
+</ol>

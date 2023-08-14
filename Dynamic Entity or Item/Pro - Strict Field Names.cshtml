@@ -112,6 +112,7 @@
 <h2>Child</h2>
 <ol>
   @Strict("Child", null, (i, n) => i.Child(n))
+  @Strict("Child", "Child using GET - must check type", (i, n) => i.Get(n))
   @Strict("ChildNonExisting", null, (i, n) => i.Child(n))
 
   @Strict("Child.Title", "(using .Child...)", (i, n) => i.Child("Child").String("Title"))
