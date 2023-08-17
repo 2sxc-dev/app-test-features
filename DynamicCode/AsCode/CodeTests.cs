@@ -1,7 +1,7 @@
 using ToSic.Sxc.Data;
 using ToSic.Razor.Blade;
 
-public class CodeTests : Custom.Hybrid.CodePro
+public class CodeTests : Custom.Hybrid.CodeTyped
 {
   public string SomeField = "This is a field";
 
