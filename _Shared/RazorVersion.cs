@@ -12,7 +12,7 @@ public class RazorVersion : Custom.Hybrid.Code14
       " ",
       page is Custom.Hybrid.Razor14 ? tags.U("14") as IHtmlTag: tags.A("14").Href(Link.To(parameters: par.Set("Razor14", "true"))),
       " ",
-      page is Custom.Hybrid.RazorPro ? tags.U("Pro") as IHtmlTag: tags.A("Pro").Href(Link.To(parameters: par.Set("Razor16", "true"))),
+      page is Custom.Hybrid.RazorTyped ? tags.U("Typed") as IHtmlTag: tags.A("Typed").Href(Link.To(parameters: par.Set("Razor16", "true"))),
      ")");
   }
 }
