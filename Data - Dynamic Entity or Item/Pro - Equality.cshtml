@@ -1,0 +1,42 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq;
+
+<h1>Typed Equality (16.04)</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+@{
+  var items = AsItems(App.Data["TestGetValues"]);
+  var item = AsItem(App.Data["TestGetValues"].First());
+  var firstInList = items.First();
+  @* var show = GetCode("../_Shared/ShowValues.cs");
+
+  DevTools.Debug(item);
+  DevTools.Debug(Kit.Link); *@
+}
+<h2>Data infos for further debugging</h2>
+<ol>
+  <li>Item ID: @item.Id</li>
+  <li>firstInList Id: @firstInList.Id</li>
+  <li>Item GetType: @item.GetType()</li>
+</ol>
+<h2>Equality Checks</h2>
+<ol>
+  <li>
+    Item = Item: @(item == item)
+  </li>
+  <li>
+    First Item in Item-List = item made of first Entity: @(firstInList == item)
+    <strong>FAILS - "==" can't work - must use Equals in case the object is different, since we can't overload ==</strong>
+  </li>
+  <li>
+    Using item.Equals(item): @item.Equals(item)
+  </li>
+  <li>
+    Using firstInList.Equals(item): @firstInList.Equals(item)
+  </li>
+  <li>
+    Using item.Equals(firstInList): @item.Equals(firstInList)
+  </li>
+
+</ol>
