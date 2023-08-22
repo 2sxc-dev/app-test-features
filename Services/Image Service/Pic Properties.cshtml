@@ -7,6 +7,11 @@
   Testing with data of <code>ImageServiceTests</code>
 </p>
 
+@Html.Partial("./Pic Properties.Part OneFile.cshtml", new { TestId = "borrowed-file", Title = "Image from another location 'borrowed'" })
+@{
+  // return;
+}
+
 @Html.Partial("./Pic Properties.Part OneFile.cshtml", new { TestId = "meta-no-title-fallback", Title = "Meta with empty title, should fallback" })
 
 @Html.Partial("./Pic Properties.Part OneFile.cshtml", new { TestId = "meta-title", Title = "Meta with title" })

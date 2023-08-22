@@ -9,11 +9,13 @@
   var data = AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(x => x.String("TestId") == testId);
   var picDefAlt = data.Picture("Image", factor: "2/12" /*, imgAltFallback: data.EntityTitle */);
   var picCustAlt = data.Picture("Image", factor: "2/12", imgAltFallback: "Manual alt-fallback");
-  var picManualDataFallback = data.Picture("Image", factor: "2/12", imgAltFallback: data.Title, imgClass: "float-right");
+  var picManualDataFallback = data.Picture("Image", factor: "2/12", imgAltFallback: data.Title);
 }
 <h2>Test: "@data.String("TestId")"</h2>
 <h3>@MyModel.String("Title")</h3>
-@picManualDataFallback
+<div class="float-right" style="width: 300px; text-align: right;">
+  @picManualDataFallback
+</div>
 <ol>
   <li>data.Title: "@data.Title" (entityId: @data.Id)</li>
   <li>pic.Alt (default fallback): @picDefAlt.Alt </li>
