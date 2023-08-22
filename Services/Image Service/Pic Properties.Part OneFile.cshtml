@@ -1,0 +1,39 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Services;
+
+@{
+  var testId = MyModel.String("TestId");
+}
+@{
+  var data = AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(x => x.String("TestId") == testId);
+  var picDefAlt = data.Picture("Image", factor: "2/12" /*, imgAltFallback: data.EntityTitle */);
+  var picCustAlt = data.Picture("Image", factor: "2/12", imgAltFallback: "Manual alt-fallback");
+  var picManualDataFallback = data.Picture("Image", factor: "2/12", imgAltFallback: data.Title, imgClass: "float-right");
+}
+<h2>Test: "@data.String("TestId")"</h2>
+<h3>@MyModel.String("Title")</h3>
+@picManualDataFallback
+<ol>
+  <li>data.Title: "@data.Title" (entityId: @data.Id)</li>
+  <li>pic.Alt (default fallback): @picDefAlt.Alt </li>
+  <li>pic.Alt (manual fallback): @picCustAlt.Alt </li>
+  <li>Alt with EntityTitle Fallback: @picManualDataFallback.Alt</li>
+  <li>data.Dyn.Image (url): @data.Dyn.Image</li>
+  <li>Description directly from Metadata: @picDefAlt.Description</li>
+  <li>DescriptionExtended directly from Metadata: @picDefAlt.DescriptionExtended</li>
+</ol>
+
+@if (!MyModel.Bool("HideSource", fallback: false, required: false)) {
+  <br>
+  <pre style="white-space: pre-wrap; border: 1px solid;">
+  @(picManualDataFallback.ToString())
+  </pre>
+}
+<hr>
+
+<style>
+  .float-right {
+    float: right;
+  }
+</style>
