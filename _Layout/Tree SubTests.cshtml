@@ -10,7 +10,7 @@
   var pathParts = testPath.Replace("\\", "/").Split('/');
   var upPath = FixSlash(String.Join("/", pathParts.Take(pathParts.Length - 2).ToArray()) + "/");
 
-  var linker = CreateInstance("TestLinker.cs");
+  var linker = CreateInstance("../_Shared/TestLinker.cs");
   var pParams = CmsContext.Page.Parameters;
 }
 @functions {

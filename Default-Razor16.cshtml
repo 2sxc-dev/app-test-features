@@ -16,9 +16,9 @@
   <h5>
     Test: 
     @testPath
-    @GetCode("./_Shared/RazorVersion.cs").RazorWithVersionPicker(this)
+    @GetCode("./_Layout/RazorVersion.cs").RazorWithVersionPicker(this)
   </h5>
 }
 @Html.Partial(cshtml)
 
-@Html.Partial("_Shared/_SubTests.cshtml", new { Path = root, SkipFiles = cshtml == Home })
+@Html.Partial("_Layout/Tree SubTests.cshtml", new { Path = root, SkipFiles = cshtml == Home })
