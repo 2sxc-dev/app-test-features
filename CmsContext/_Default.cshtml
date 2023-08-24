@@ -27,12 +27,33 @@
     Path: @view.Path
   </li>
   <li>
-    Path Shared: @view.PathShared
+    Path Shared: @@view.PathShared (disabled)
   </li>
   <li>
-    PhysicalPath: @view.PhysicalPath
+    PhysicalPath: @@view.PhysicalPath (disabled)
   </li>
   <li>
-    PhysicalPath: @view.PhysicalPathShared
+    PhysicalPath: @@view.PhysicalPathShared (disabled)
+  </li>
+  @{
+    var folder = view.Folder;
+  }
+  <li>
+    Folder: @folder
+  </li>
+  <li>
+    Folder Id: @folder.Id
+  </li>
+  <li>
+    Folder Name: @folder.Name
+  </li>
+  <li>
+    Folder Url: @folder.Url
+  </li>
+  <li>
+    Folder Path: @folder.Path
+  </li>
+  <li>
+    Folder PhysicalPath: @folder.PhysicalPath
   </li>
 </ol>

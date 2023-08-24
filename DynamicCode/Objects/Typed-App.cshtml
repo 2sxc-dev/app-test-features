@@ -1,0 +1,42 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>App Object</h1>
+<p>
+  This is all about App, etc.
+</p>
+
+<h2>App and Folder</h2>
+<ol>
+  <li>App: @App</li>
+  <li>Folder: @App.Folder</li>
+  <li>Folder.Name: @App.Folder.Name</li>
+  <li>Folder.Url: @App.Folder.Url</li>
+  <li>Folder.Path: @App.Folder.Path</li>
+  <li>Folder.PhysicalPath: @App.Folder.PhysicalPath</li>
+</ol>
+
+<h2>Thumbnail</h2>
+<ol>
+  <li>Thumbnail: @App.Thumbnail</li>
+  <li>Thumbnail().Url: @App.Thumbnail.Url</li>
+</ol>
+
+<h2>Configuration</h2>
+@{
+  var config = App.Configuration;
+}
+
+<ol>
+    <li>@@config.Version       @config.Version         </li>
+    <li>@@config.Name          @config.Name            </li>
+    <li>@@config.Description   @config.Description     </li>
+    <li>@@config.Folder        @config.Folder          </li>
+    <li>@@config.EnableRazor   @config.EnableRazor     </li>
+    <li>@@config.EnableToken   @config.EnableToken     </li>
+    <li>@@config.IsHidden      @config.IsHidden        </li>
+    <li>@@config.EnableAjax    @config.EnableAjax      </li>
+    <li>@@config.OriginalId    @config.OriginalId      </li>
+    <li>@@config.RequiredSxc   @config.RequiredSxc     </li>
+    <li>@@config.RequiredDnn   @config.RequiredDnn     </li>
+    <li>@@config.RequiredOqtane@config.RequiredOqtane  </li>
+</ol>
