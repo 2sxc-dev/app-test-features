@@ -3,7 +3,7 @@
 @using ToSic.Sxc.Data;
 @using ToSic.Sxc.Services;
 
-<h1>Image Service Service - Picture ConfigAlign</h1>
+<h1>Image Service Service - Picture with different Configs/Metadata for Alignment</h1>
 <p>
   Testing with data of <code>ImageServiceTests</code>
 </p>
@@ -24,8 +24,8 @@
   <li>pic.Alt (default fallback): @leftDefAlt.Alt</li>
   <li>pic.Alt (manual fallback): @leftCustAlt.Alt </li>
   <li>Alt with EntityTitle Fallback: @leftManualDataFallback.Alt</li>
-  <li>data.Url("Image"): @left.Url("Image")</li>
-  <li>data.String("Image"): @left.String("Image")</li>
+  <li>data: left.Url("Image"): @left.Url("Image")</li>
+  <li>data: left.String("Image"): @left.String("Image")</li>
 </ol>
 
 <hr>

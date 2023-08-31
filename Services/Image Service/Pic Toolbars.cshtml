@@ -1,0 +1,36 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+
+<h1>Image Service Service - Picture with different Configs/Metadata for Alignment</h1>
+<p>
+  Testing with data of <code>ImageServiceTests</code>
+</p>
+@functions {
+  public ITypedItem GetTestItem(string testId) {
+    return AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
+@{
+  var left = GetTestItem("align-left");
+  var picStdToolbar = left.Picture("Image", factor: "2/12");
+  var picModToolbar = left.Picture("Image", factor: "3/12");
+  picModToolbar.Toolbar(replace: Kit.Toolbar.Default(left));
+}
+<h2>Data</h2>
+<ol>
+  <li @picStdToolbar.Toolbar()>
+      Special test - this should have the toolbar of the first picture
+  </li>
+  <li>
+    Show standard toolbar:
+    <br>
+    @picStdToolbar
+  </li>
+  <li>
+    Show modified toolbar: 
+    <br>
+    @picModToolbar
+  </li>
+</ol>
