@@ -15,8 +15,9 @@
 @{
   var left = GetTestItem("align-left");
   var picStdToolbar = left.Picture("Image", factor: "2/12");
-  var picModToolbar = left.Picture("Image", factor: "3/12");
-  picModToolbar.Toolbar(replace: Kit.Toolbar.Default(left));
+  var picModToolbar = left.Picture("Image", factor: "3/12", toolbar: Kit.Toolbar.Default(left));
+  var picNoToolbar = left.Picture("Image", factor: "3/12", toolbar: false);
+  @* picModToolbar.Toolbar(replace: Kit.Toolbar.Default(left)); *@
 }
 <h2>Data</h2>
 <ol>
@@ -32,5 +33,10 @@
     Show modified toolbar: 
     <br>
     @picModToolbar
+  </li>
+  <li>
+    Show no toolbar: 
+    <br>
+    @picNoToolbar
   </li>
 </ol>
