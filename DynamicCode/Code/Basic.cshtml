@@ -5,11 +5,11 @@
   Create code files and review that everything works.
 </p>
 @{
-  var basicDynamicCode = CreateInstance("BasicDynamicCode.cs");
-  var basicDynamicCode12 = CreateInstance("BasicDynamicCode12.cs");
-  var basicHybrid12 = CreateInstance("BasicHybridCode12.cs");
-  var basicHybrid14 = CreateInstance("BasicHybridCode14.cs");
-  var basicHybrid16 = CreateInstance("BasicHybridCode16.cs");
+  var basicDynamicCode = GetCode("BasicDynamicCode.cs");
+  var basicDynamicCode12 = GetCode("./BasicDynamicCode12.cs");
+  var basicHybrid12 = GetCode("../Code/BasicHybridCode12.cs");
+  var basicHybrid14 = GetCode("/DynamicCode/Code/BasicHybridCode14.cs");
+  var basicHybrid16 = GetCode("BasicHybridCode16.cs");
 }
 
 <ol>
