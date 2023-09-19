@@ -1,0 +1,36 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq;
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+
+<h1>Strict Field Names (16.03)</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+@{
+  var item = AsItem(App.Data["TestGetValues"].First());
+  // LooseItem = AsItem(StrictItem, strict: false); // this defaults to strict false ATM
+}
+
+<h2 @Kit.Toolbar.Default(item)>Relationships</h2>
+<ol>
+  <li>
+    Item: @item.Id
+  </li>
+  <li>
+    Child: @item.Child("Child").Id
+  </li>
+  <li>
+    Children: @item.Children("Children").Count() <br>
+    Parents: <br>
+    @foreach (var child in item.Children("Children"))
+    {
+      <text>
+        Child: @child.Id - Parent: @child.Parent().Id <br>
+      </text>
+    }
+  </li>
+  <li>
+    Child-Parent: @item.Child("Child").Parent().Id
+  </li>
+</ol>
