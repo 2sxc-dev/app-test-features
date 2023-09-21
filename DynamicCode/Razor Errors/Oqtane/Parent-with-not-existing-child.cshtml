@@ -1,0 +1,26 @@
+@inherits Custom.Hybrid.Razor14
+
+<p>Parent with not existing child.</p>
+
+<pre>@@Html.Partial("Child.cshtml")</pre>
+<!-- Rendering Child partial view -->
+@try
+{
+    @Html.Partial("Child.cshtml")
+}
+catch
+{
+    <p>Error loading "Child.cshtml". Ensure it exists and is correctly placed.</p>
+}
+
+<pre>@@Html.Partial("NotExistingChild.cshtml")</pre>
+<!-- Rendering NotExistingChild partial view with error handling -->
+@try
+{
+    @Html.Partial("NotExistingChild.cshtml")
+}
+catch (Exception ex)
+{
+    <p>Error loading "NotExistingChild.cshtml" because it does not exists.</p>
+    <p>@ex.Message</p>
+}

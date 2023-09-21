@@ -1,0 +1,26 @@
+@inherits Custom.Hybrid.Razor14
+
+<p>Parent with broken child.</p>
+
+<pre>@@Html.Partial("Child.cshtml")</pre>
+<!-- Rendering Child partial view -->
+@try
+{
+    @Html.Partial("Child.cshtml")
+}
+catch
+{
+    <p>Error loading "Child.cshtml". Ensure it exists, is correctly placed, and does not contain errors.</p>
+}
+
+<pre>@@Html.Partial("BrokenChild.cshtml")</pre>
+<!-- Rendering BrokenChild partial view with error handling -->
+@try
+{
+    @Html.Partial("BrokenChild.cshtml")
+}
+catch (Exception ex)
+{
+    <p>Error loading "BrokenChild.cshtml" because it contains errors.</p>
+    <p>@ex.Message</p>
+}

@@ -1,0 +1,9 @@
+@inherits Custom.Hybrid.Razor14
+
+<p>Simple parent with not existing child.</p>
+
+<pre>@@Html.Partial("Child.cshtml")</pre>
+@Html.Partial("Child.cshtml")
+
+<pre>@@Html.Partial("NotExistingChild.cshtml")</pre>
+@Html.Partial("NotExistingChild.cshtml")
