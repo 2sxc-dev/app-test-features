@@ -8,7 +8,9 @@
   Content-Type used: <code>TestGetValues</code>
 </p>
 @{
-  var item = AsItem(App.Data["TestGetValues"].First());
+  var item = AsItem(App.Data["TestGetValues"].First(x => x.Get<string>("NameId") == "root"));
+  var child1 = item.Child("Child");
+  var children2 = item.Children("Children").Last();
   // LooseItem = AsItem(StrictItem, strict: false); // this defaults to strict false ATM
 }
 
@@ -26,11 +28,22 @@
     @foreach (var child in item.Children("Children"))
     {
       <text>
-        Child: @child.Id - Parent: @child.Parent().Id <br>
+        Child: @child.Id 
+        - Parent: @child.Parent().Id 
+        - Current Parent: @child.Parent(current: true).Id
+        <br>
       </text>
     }
   </li>
   <li>
     Child-Parent: @item.Child("Child").Parent().Id
+  </li>
+  <li>
+    @{
+      var sharedOnChild1 = child1.Child("Children");
+      var sharedOnChildren2 = children2.Child("Children");
+    }
+    Shared Child under child 1: @sharedOnChild1.Parent().Id / Current: @sharedOnChild1.Parent(current: true).Id <br>
+    Shared Child under children 2: @sharedOnChildren2.Parent().Id / Current: @sharedOnChildren2.Parent(current: true).Id <br>
   </li>
 </ol>
