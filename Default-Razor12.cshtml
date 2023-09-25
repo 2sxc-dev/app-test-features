@@ -3,13 +3,9 @@
 @using ToSic.Razor.Blade;
 
 @{
-  const string Home = "_Home.cshtml";
-  var testPath = CmsContext.Page.Parameters["TestPath"];
-  var root = Text.Has(testPath) ? App.PhysicalPath + "/" + testPath : Path;
-  // Show Home if no path was given
-  var cshtml = Text.First(testPath, Home);
-
-  cshtml = cshtml.Contains(".cshtml") ? cshtml : cshtml + "_default.cshtml";
+  // Get all Paths
+  string root, fullPath, cshtml, testPath;
+  CreateInstance("./_Layout/HomeHelpers.cs").GetAllPaths(out root, out cshtml, out fullPath, out testPath);
 }
 
 @if(Text.Has(testPath)) {
@@ -21,4 +17,4 @@
 }
 @Html.Partial(cshtml)
 
-@Html.Partial("_Layout/Tree SubTests.cshtml", new { Path = root, SkipFiles = cshtml == Home })
+@Html.Partial("_Layout/Tree SubTests.cshtml", new { Path = root, SkipFiles = !Text.Has(testPath) })

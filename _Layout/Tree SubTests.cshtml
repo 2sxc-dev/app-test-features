@@ -37,8 +37,9 @@
 </ol>
 @if (!skipFiles) {
   string[] fileList = testTree.FileNames(DynamicModel.Path);
-  var homeFile = fileList.FirstOrDefault(f => f.Contains("_Default.cshtml"));
-  var filesWithoutHome = fileList.Where(f => !f.Contains("_Default.cshtml")).ToArray();
+  // These will capture both "_default.cshtml" and "default.cshtml"
+  var homeFile = fileList.FirstOrDefault(f => f.Contains("Default.cshtml"));
+  var filesWithoutHome = fileList.Where(f => !f.Contains("Default.cshtml")).ToArray();
   var currentPath = CmsContext.Page.Parameters[pathParam];
   var homeIsSetBecauseNoFile = currentPath != null && currentPath.Replace("%2f", "/").EndsWith("/");
   <hr>
