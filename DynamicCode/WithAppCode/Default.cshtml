@@ -1,0 +1,16 @@
+@inherits Custom.Hybrid.RazorType
+
+<h1>With App Code</h1>
+@{
+  // would be nice if I could write
+  // var x = new WithAppCode();
+  var dynWithAppCode = GetCode("WithAppCode.cs");
+
+  // Plan B if we can't use new DemoService();
+  // but it's still dynamic so not perfect, but we don't want to get the single file...
+  // var fromAppCode = GetCode("/AppCode/DemoService");
+}
+
+<p>
+  
+</p>
