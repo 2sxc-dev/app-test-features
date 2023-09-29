@@ -1,0 +1,31 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq;
+
+<h1>Dynamic Code - Get Picture</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+@{
+  var item = AsItem(App.Data["TestGetValues"].First());
+
+  var show = GetCode("../_Shared/ShowValues.cs");
+
+  DevTools.Debug(item);
+  DevTools.Debug(Kit.Link);
+}
+<h2>Picture of parent</h2>
+
+@item.Picture("File", width: 200)
+
+
+<h2>Picture of child</h2>
+
+@item.Picture("Child.File", width: 200)
+
+<h2>Picture of Grandchild</h2>
+
+Grandchild: @item.Child("Child.Child")
+<br>
+Grandchild complex: @item.Child("Child").Child("Child")
+
+@item.Picture("Child.Child.File", width: 200)
