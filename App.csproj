@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net4.7.2</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>App</RootNamespace>
   </PropertyGroup>
 
