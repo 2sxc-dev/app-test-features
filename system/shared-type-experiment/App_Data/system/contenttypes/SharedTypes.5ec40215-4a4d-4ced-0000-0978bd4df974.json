@@ -1,0 +1,549 @@
+{
+  "_": {
+    "V": 1
+  },
+  "ContentType": {
+    "Id": "5ec40215-4a4d-4ced-0000-0978bd4df974",
+    "Name": "ShareTypeSourceJson",
+    "Scope": "SharedTypes",
+    "Description": null,
+    "Attributes": [
+      {
+        "Name": "Title",
+        "Type": "String",
+        "InputType": "string-default",
+        "IsTitle": true,
+        "Metadata": [
+          {
+            "Id": 182273,
+            "Version": 2,
+            "Guid": "4bf7b469-c7a5-4f5f-8406-ff1abd4a8804",
+            "Type": {
+              "Id": "@All",
+              "Name": "@All"
+            },
+            "Attributes": {
+              "String": {
+                "CustomJavaScript": {
+                  "en-us": ""
+                },
+                "DefaultValue": {
+                  "en-us": ""
+                },
+                "Information": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": "string-default"
+                },
+                "Name": {
+                  "en-us": "Title"
+                },
+                "Notes": {
+                  "en-us": "<p>Normal title, no specials</p>"
+                },
+                "Placeholder": {
+                  "en-us": ""
+                },
+                "Tooltip": {
+                  "en-us": ""
+                },
+                "ValidationRegExJavaScript": {
+                  "en-us": ""
+                }
+              },
+              "Hyperlink": {
+                "HelpLink": {
+                  "en-us": ""
+                }
+              },
+              "Entity": {
+                "Errors": {
+                  "*": []
+                },
+                "Formulas": {
+                  "*": []
+                },
+                "Warnings": {
+                  "*": []
+                }
+              },
+              "Boolean": {
+                "Disabled": {
+                  "en-us": false
+                },
+                "DisableTranslation": {
+                  "en-us": false
+                },
+                "Required": {
+                  "en-us": false
+                },
+                "VisibleInEditUI": {
+                  "en-us": true
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182283,
+            "Version": 1,
+            "Guid": "d981733d-0643-4e25-8047-5662a22f55e9",
+            "Type": {
+              "Id": "@String",
+              "Name": "@String"
+            },
+            "Attributes": {
+              "String": {
+                "DropdownValues": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": ""
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182284,
+            "Version": 1,
+            "Guid": "85ad3c79-ed79-4749-8193-5925dbc574c2",
+            "Type": {
+              "Id": "@string-default",
+              "Name": "@string-default"
+            },
+            "Attributes": {
+              "String": {
+                "InputFontFamily": {
+                  "en-us": ""
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          }
+        ]
+      },
+      {
+        "Guid": "ee13d775-c0f1-4950-0000-b8b30a2f5d5a",
+        "SysSettings": {
+          "ShareLevel": 1
+        },
+        "Name": "Dropdown",
+        "Type": "String",
+        "InputType": "string-dropdown",
+        "IsTitle": false,
+        "Metadata": [
+          {
+            "Id": 182274,
+            "Version": 2,
+            "Guid": "63b588bf-8dfb-4222-a4ea-7e738897460c",
+            "Type": {
+              "Id": "@All",
+              "Name": "@All"
+            },
+            "Attributes": {
+              "String": {
+                "CustomJavaScript": {
+                  "en-us": ""
+                },
+                "DefaultValue": {
+                  "en-us": ""
+                },
+                "Information": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": "string-dropdown"
+                },
+                "Name": {
+                  "en-us": "Dropdown"
+                },
+                "Notes": {
+                  "en-us": ""
+                },
+                "Placeholder": {
+                  "en-us": ""
+                },
+                "Tooltip": {
+                  "en-us": ""
+                },
+                "ValidationRegExJavaScript": {
+                  "en-us": ""
+                }
+              },
+              "Hyperlink": {
+                "HelpLink": {
+                  "en-us": ""
+                }
+              },
+              "Entity": {
+                "Errors": {
+                  "*": []
+                },
+                "Formulas": {
+                  "*": []
+                },
+                "Warnings": {
+                  "*": []
+                }
+              },
+              "Boolean": {
+                "Disabled": {
+                  "en-us": false
+                },
+                "DisableTranslation": {
+                  "en-us": false
+                },
+                "Required": {
+                  "en-us": false
+                },
+                "VisibleInEditUI": {
+                  "en-us": true
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182276,
+            "Version": 1,
+            "Guid": "d1165c49-edaf-4780-94f3-ca494ebc4599",
+            "Type": {
+              "Id": "@String",
+              "Name": "@String"
+            },
+            "Attributes": {
+              "String": {
+                "DropdownValues": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": ""
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182277,
+            "Version": 1,
+            "Guid": "87c56bdd-d7b7-484a-ac41-3d1778768f97",
+            "Type": {
+              "Id": "@string-dropdown",
+              "Name": "@string-dropdown"
+            },
+            "Attributes": {
+              "String": {
+                "DropdownValues": {
+                  "en-us": "Simple Value\nAnother Value\nl:Left (will store an l)\nr:Right (will store an r)\nc:Center (... c)\nm:Middle\nrandom:Random value\nMIT:MIT License"
+                },
+                "DropdownValuesFormat": {
+                  "en-us": "value-label"
+                },
+                "Separator": {
+                  "en-us": ","
+                }
+              },
+              "Boolean": {
+                "AllowMultiValue": {
+                  "en-us": false
+                },
+                "EnableTextEntry": {
+                  "en-us": false
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          }
+        ]
+      },
+      {
+        "Guid": "5b29e05a-d1d0-4c1b-0000-4e7820365aec",
+        "SysSettings": {
+          "ShareLevel": 1
+        },
+        "Name": "Message",
+        "Type": "String",
+        "InputType": "string-default",
+        "IsTitle": false,
+        "Metadata": [
+          {
+            "Id": 182275,
+            "Version": 5,
+            "Guid": "cdae0626-d593-4675-8b8a-f659a987ec37",
+            "Type": {
+              "Id": "@All",
+              "Name": "@All"
+            },
+            "Attributes": {
+              "String": {
+                "CustomJavaScript": {
+                  "en-us": ""
+                },
+                "DefaultValue": {
+                  "en-us": ""
+                },
+                "Information": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": "string-default"
+                },
+                "Name": {
+                  "en-us": "Message (Original)"
+                },
+                "Notes": {
+                  "en-us": "<p>Just a description to inherit - also by Clone. 11</p>"
+                },
+                "Placeholder": {
+                  "en-us": ""
+                },
+                "Tooltip": {
+                  "en-us": ""
+                },
+                "ValidationRegExJavaScript": {
+                  "en-us": ""
+                }
+              },
+              "Hyperlink": {
+                "HelpLink": {
+                  "en-us": ""
+                }
+              },
+              "Entity": {
+                "Errors": {
+                  "*": []
+                },
+                "Formulas": {
+                  "*": []
+                },
+                "Warnings": {
+                  "*": []
+                }
+              },
+              "Boolean": {
+                "Disabled": {
+                  "en-us": false
+                },
+                "DisableTranslation": {
+                  "en-us": false
+                },
+                "Required": {
+                  "en-us": false
+                },
+                "VisibleInEditUI": {
+                  "en-us": true
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182280,
+            "Version": 4,
+            "Guid": "86effc53-73d8-4e15-a25d-76ab0d406820",
+            "Type": {
+              "Id": "@String",
+              "Name": "@String"
+            },
+            "Attributes": {
+              "String": {
+                "DropdownValues": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": ""
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182281,
+            "Version": 4,
+            "Guid": "89b49952-54c5-4cf6-a534-fcb85ace597d",
+            "Type": {
+              "Id": "@string-default",
+              "Name": "@string-default"
+            },
+            "Attributes": {
+              "String": {
+                "InputFontFamily": {
+                  "en-us": ""
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          }
+        ]
+      },
+      {
+        "Name": "Simple",
+        "Type": "String",
+        "InputType": "string-default",
+        "IsTitle": false,
+        "Metadata": [
+          {
+            "Id": 182279,
+            "Version": 1,
+            "Guid": "330cad2a-11ad-4980-ac7b-723e3cd02fac",
+            "Type": {
+              "Id": "@All",
+              "Name": "@All"
+            },
+            "Attributes": {
+              "String": {
+                "InputType": {
+                  "*": "string-default"
+                },
+                "Name": {
+                  "*": "Simple"
+                }
+              },
+              "Entity": {
+                "Errors": {
+                  "*": []
+                },
+                "Formulas": {
+                  "*": []
+                },
+                "Warnings": {
+                  "*": []
+                }
+              },
+              "Boolean": {
+                "VisibleInEditUI": {
+                  "*": true
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          }
+        ]
+      },
+      {
+        "SysSettings": {
+          "SourceGuid": "5b29e05a-d1d0-4c1b-0000-4e7820365aec",
+          "InheritMetadata": true
+        },
+        "Name": "MessageClone",
+        "Type": "String",
+        "InputType": "string-default",
+        "IsTitle": false,
+        "Metadata": [
+          {
+            "Id": 182275,
+            "Version": 5,
+            "Guid": "cdae0626-d593-4675-8b8a-f659a987ec37",
+            "Type": {
+              "Id": "@All",
+              "Name": "@All"
+            },
+            "Attributes": {
+              "String": {
+                "CustomJavaScript": {
+                  "en-us": ""
+                },
+                "DefaultValue": {
+                  "en-us": ""
+                },
+                "Information": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": "string-default"
+                },
+                "Name": {
+                  "en-us": "Message (Original)"
+                },
+                "Notes": {
+                  "en-us": "<p>Just a description to inherit - also by Clone. 3</p>"
+                },
+                "Placeholder": {
+                  "en-us": ""
+                },
+                "Tooltip": {
+                  "en-us": ""
+                },
+                "ValidationRegExJavaScript": {
+                  "en-us": ""
+                }
+              },
+              "Hyperlink": {
+                "HelpLink": {
+                  "en-us": ""
+                }
+              },
+              "Entity": {
+                "Errors": {
+                  "*": []
+                },
+                "Formulas": {
+                  "*": []
+                },
+                "Warnings": {
+                  "*": []
+                }
+              },
+              "Boolean": {
+                "Disabled": {
+                  "en-us": false
+                },
+                "DisableTranslation": {
+                  "en-us": false
+                },
+                "Required": {
+                  "en-us": false
+                },
+                "VisibleInEditUI": {
+                  "en-us": true
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182280,
+            "Version": 4,
+            "Guid": "86effc53-73d8-4e15-a25d-76ab0d406820",
+            "Type": {
+              "Id": "@String",
+              "Name": "@String"
+            },
+            "Attributes": {
+              "String": {
+                "DropdownValues": {
+                  "en-us": ""
+                },
+                "InputType": {
+                  "en-us": ""
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          },
+          {
+            "Id": 182281,
+            "Version": 4,
+            "Guid": "89b49952-54c5-4cf6-a534-fcb85ace597d",
+            "Type": {
+              "Id": "@string-default",
+              "Name": "@string-default"
+            },
+            "Attributes": {
+              "String": {
+                "InputFontFamily": {
+                  "en-us": ""
+                }
+              }
+            },
+            "Owner": "dnn:userid=41"
+          }
+        ]
+      }
+    ],
+    "Metadata": []
+  },
+  "Entities": []
+}
