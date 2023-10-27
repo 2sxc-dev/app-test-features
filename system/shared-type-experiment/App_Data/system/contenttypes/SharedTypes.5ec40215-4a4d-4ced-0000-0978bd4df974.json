@@ -4,9 +4,9 @@
   },
   "ContentType": {
     "Id": "5ec40215-4a4d-4ced-0000-0978bd4df974",
-    "Name": "ShareTypeSourceJson",
+    "Name": "ShareTypeSource",
     "Scope": "SharedTypes",
-    "Description": null,
+    "Metadata": [],
     "Attributes": [
       {
         "Name": "Title",
@@ -125,14 +125,14 @@
         ]
       },
       {
-        "Guid": "ee13d775-c0f1-4950-0000-b8b30a2f5d5a",
-        "SysSettings": {
-          "ShareLevel": 1
-        },
         "Name": "Dropdown",
+        "Guid": "ee13d775-c0f1-4950-954f-b8b30a2f5d5a",
         "Type": "String",
         "InputType": "string-dropdown",
         "IsTitle": false,
+        "SysSettings": {
+          "Share": true
+        },
         "Metadata": [
           {
             "Id": 182274,
@@ -259,18 +259,18 @@
         ]
       },
       {
-        "Guid": "5b29e05a-d1d0-4c1b-0000-4e7820365aec",
-        "SysSettings": {
-          "ShareLevel": 1
-        },
         "Name": "Message",
+        "Guid": "5b29e05a-d1d0-4c1b-8c90-4e7820365aec",
         "Type": "String",
         "InputType": "string-default",
         "IsTitle": false,
+        "SysSettings": {
+          "Share": true
+        },
         "Metadata": [
           {
             "Id": 182275,
-            "Version": 5,
+            "Version": 8,
             "Guid": "cdae0626-d593-4675-8b8a-f659a987ec37",
             "Type": {
               "Id": "@All",
@@ -294,7 +294,7 @@
                   "en-us": "Message (Original)"
                 },
                 "Notes": {
-                  "en-us": "<p>Just a description to inherit - also by Clone. 11</p>"
+                  "en-us": "<p>Just a description to inherit - also by Clone. 6</p>"
                 },
                 "Placeholder": {
                   "en-us": ""
@@ -341,7 +341,7 @@
           },
           {
             "Id": 182280,
-            "Version": 4,
+            "Version": 7,
             "Guid": "86effc53-73d8-4e15-a25d-76ab0d406820",
             "Type": {
               "Id": "@String",
@@ -361,7 +361,7 @@
           },
           {
             "Id": 182281,
-            "Version": 4,
+            "Version": 7,
             "Guid": "89b49952-54c5-4cf6-a534-fcb85ace597d",
             "Type": {
               "Id": "@string-default",
@@ -423,127 +423,15 @@
         ]
       },
       {
-        "SysSettings": {
-          "SourceGuid": "5b29e05a-d1d0-4c1b-0000-4e7820365aec",
-          "InheritMetadata": true
-        },
         "Name": "MessageClone",
         "Type": "String",
         "InputType": "string-default",
         "IsTitle": false,
-        "Metadata": [
-          {
-            "Id": 182275,
-            "Version": 5,
-            "Guid": "cdae0626-d593-4675-8b8a-f659a987ec37",
-            "Type": {
-              "Id": "@All",
-              "Name": "@All"
-            },
-            "Attributes": {
-              "String": {
-                "CustomJavaScript": {
-                  "en-us": ""
-                },
-                "DefaultValue": {
-                  "en-us": ""
-                },
-                "Information": {
-                  "en-us": ""
-                },
-                "InputType": {
-                  "en-us": "string-default"
-                },
-                "Name": {
-                  "en-us": "Message (Original)"
-                },
-                "Notes": {
-                  "en-us": "<p>Just a description to inherit - also by Clone. 3</p>"
-                },
-                "Placeholder": {
-                  "en-us": ""
-                },
-                "Tooltip": {
-                  "en-us": ""
-                },
-                "ValidationRegExJavaScript": {
-                  "en-us": ""
-                }
-              },
-              "Hyperlink": {
-                "HelpLink": {
-                  "en-us": ""
-                }
-              },
-              "Entity": {
-                "Errors": {
-                  "*": []
-                },
-                "Formulas": {
-                  "*": []
-                },
-                "Warnings": {
-                  "*": []
-                }
-              },
-              "Boolean": {
-                "Disabled": {
-                  "en-us": false
-                },
-                "DisableTranslation": {
-                  "en-us": false
-                },
-                "Required": {
-                  "en-us": false
-                },
-                "VisibleInEditUI": {
-                  "en-us": true
-                }
-              }
-            },
-            "Owner": "dnn:userid=41"
-          },
-          {
-            "Id": 182280,
-            "Version": 4,
-            "Guid": "86effc53-73d8-4e15-a25d-76ab0d406820",
-            "Type": {
-              "Id": "@String",
-              "Name": "@String"
-            },
-            "Attributes": {
-              "String": {
-                "DropdownValues": {
-                  "en-us": ""
-                },
-                "InputType": {
-                  "en-us": ""
-                }
-              }
-            },
-            "Owner": "dnn:userid=41"
-          },
-          {
-            "Id": 182281,
-            "Version": 4,
-            "Guid": "89b49952-54c5-4cf6-a534-fcb85ace597d",
-            "Type": {
-              "Id": "@string-default",
-              "Name": "@string-default"
-            },
-            "Attributes": {
-              "String": {
-                "InputFontFamily": {
-                  "en-us": ""
-                }
-              }
-            },
-            "Owner": "dnn:userid=41"
-          }
-        ]
+        "SysSettings": {
+          "InheritMetadataOf": "5b29e05a-d1d0-4c1b-8c90-4e7820365aec"
+        }
       }
-    ],
-    "Metadata": []
+    ]
   },
   "Entities": []
 }
