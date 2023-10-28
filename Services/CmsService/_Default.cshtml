@@ -1,0 +1,30 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+@functions {
+  const string TestCt = "FieldValueWysiwyg";
+  public ITypedItem GetTestItem(string testId) {
+    return AsItems(App.Data[TestCt]).FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
+
+<h1>CmsService</h1>
+
+@{
+  var item = GetTestItem("images-rows-25-50-75");
+  var cms = GetService<ICmsService>();
+  var field = item.Field("Contents");
+
+  // Testing new functionality
+  var fieldTyped = field as Field;
+  fieldTyped.Raw = (fieldTyped.Raw as string).Replace("expected", "***replaced expected with something in code!");
+}
+
+<div>
+  Field: @field
+</div>
+
+<h2>Output using Kit.Cms.Html</h2>
+<hr>
+@cms.Html(field)
