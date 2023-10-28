@@ -7,13 +7,9 @@
 <p>
   Testing with data of <code>ImageServiceTests</code>
 </p>
-@functions {
-  public ITypedItem GetTestItem(string testId) {
-    return AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(i => i.String("TestId") == testId);
-  }
-}
 @{
-  var left = GetTestItem("align-left");
+  var testData = GetCode("/_Shared/TestData.cs");
+  var left = AsItem(testData.Find("ImageServiceTests", "align-left") as object);
   var file = left.File("Image");
   var pic = Kit.Image.Picture(file, factor: 2f/12);
 }

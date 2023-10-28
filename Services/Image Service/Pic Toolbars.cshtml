@@ -2,16 +2,16 @@
 @using ToSic.Razor.Blade;
 @using ToSic.Sxc.Data;
 @using ToSic.Sxc.Services;
-
+@functions {
+  const string TestCt = "ImageServiceTests";
+  public ITypedItem GetTestItem(string testId) {
+    return AsItems(App.Data[TestCt]).FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
 <h1>Image Service Service - Picture with different Configs/Metadata for Alignment</h1>
 <p>
   Testing with data of <code>ImageServiceTests</code>
 </p>
-@functions {
-  public ITypedItem GetTestItem(string testId) {
-    return AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(i => i.String("TestId") == testId);
-  }
-}
 @{
   var left = GetTestItem("align-left");
   var picStdToolbar = left.Picture("Image", factor: "2/12");

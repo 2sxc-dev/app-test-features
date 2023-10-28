@@ -1,12 +1,19 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Razor.Blade;
 @using ToSic.Sxc.Services;
+@using ToSic.Sxc.Data;
+@functions {
+  const string TestCt = "ImageServiceTests";
+  public ITypedItem GetTestItem(string testId) {
+    return AsItems(App.Data[TestCt]).FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
 
 @{
   var testId = MyModel.String("TestId");
 }
 @{
-  var data = AsItems(App.Data["ImageServiceTests"]).FirstOrDefault(x => x.String("TestId") == testId);
+  var data = GetTestItem(testId);
   var picDefAlt = data.Picture("Image", factor: "2/12" /*, imgAltFallback: data.EntityTitle */);
   var picCustAlt = data.Picture("Image", factor: "2/12", imgAltFallback: "Manual alt-fallback");
   var picManualDataFallback = data.Picture("Image", factor: "2/12", imgAltFallback: data.Title);
