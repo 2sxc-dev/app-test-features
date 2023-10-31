@@ -29,13 +29,13 @@
   <li>Items from Dyn: @MyModel.Items("Dyn")</li>
   <li>Items from Non-Existing: @MyModel.Items("NonExisting", required: false)</li>
 </ol>
-<h3>Entity</h3>
+@* <h3>Entity</h3>
 <ol>
   <li>Entity from Entity: @MyModel.Entity("Entity", required: true)</li>
   <li>Entity from Dyn: @MyModel.Entity("Dyn", required: true)</li>
   <li>Entity from Item: @MyModel.Entity("Item", required: true)</li>
   <li>Entity from Non-Existing: @MyModel.Entity("NonExisting", required: false)</li>
-</ol>
+</ol> *@
 
 <h3>Item Image (.File)</h3>
 <ol>
@@ -74,6 +74,9 @@
     MdLabelTyped: '@firstMd.String("Label")'; <br>
     Md HTML: @firstMd.Html("Label"); <br>
     (Type: @albumFiles);
+  </li>
+  <li>
+    FirstPic.Url: @firstPic.Url
   </li>
   <li>
     Url File: @urlFile - urlFile.Url
