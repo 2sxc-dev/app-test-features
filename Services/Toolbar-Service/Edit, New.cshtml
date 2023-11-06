@@ -1,4 +1,4 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
 
 <h1>Toolbar Service - Edit, New, Publish, etc.</h1>
 <p>
@@ -6,10 +6,10 @@
 </p>
 @{
 
-  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
+  var itemToCopy = AsItem(App.Data["Dummy"].First());
 
   // var typedItem = AsTyped(App.Data["Dummy"].First());
-  var cmsItem = AsTyped(App.Data["Dummy"].First());
+  var cmsItem = AsItem(App.Data["Dummy"].First());
 
   var pub1 = Kit.Toolbar.Empty().Publish(itemToCopy);
   var pub1f = Kit.Toolbar.Empty().Publish(itemToCopy, operation: "add");
@@ -28,7 +28,7 @@
     Title = "Try to work with Fields - show",
     Toolbar = Kit.Toolbar.Empty().New("FormulaFormParameters", tweak: b => b
       .Prefill("prefill=abc")
-      .Form("SomeMessage=This is a message")
+      .FormParameters("SomeMessage=This is a message")
     )
   })
 </ol>
@@ -66,17 +66,17 @@
   })
 
   <li>
-    Publish Item on Command @Edit.Toolbar(pub1) - @pub1.AsTag()
+    Publish Item on Command @Kit.Edit.Toolbar(pub1) - @pub1.AsTag()
     <br>
     @pub1.AsJson()
   </li>
   <li>
-    Pub Item on Toolbar @Edit.Toolbar(itemToCopy, toolbar: pub2) - @pub2.AsTag()
+    Pub Item on Toolbar @Kit.Edit.Toolbar(itemToCopy, toolbar: pub2) - @pub2.AsTag()
     <br>
     @pub2.AsJson()
   </li>  
   <li>
-    Publish Force show @Edit.Toolbar(pub1f) - @pub1f.AsTag()
+    Publish Force show @Kit.Edit.Toolbar(pub1f) - @pub1f.AsTag()
     <br>
     @pub1.AsJson()
   </li>
