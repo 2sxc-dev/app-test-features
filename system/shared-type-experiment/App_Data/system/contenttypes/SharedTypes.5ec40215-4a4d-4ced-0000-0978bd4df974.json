@@ -4,7 +4,7 @@
   },
   "ContentType": {
     "Id": "5ec40215-4a4d-4ced-0000-0978bd4df974",
-    "Name": "ShareTypeSource",
+    "Name": "ShareTypeSourceFromFile",
     "Scope": "SharedTypes",
     "Metadata": [],
     "Attributes": [
@@ -126,7 +126,7 @@
       },
       {
         "Name": "Dropdown",
-        "Guid": "ee13d775-c0f1-4950-954f-b8b30a2f5d5a",
+        "Guid": "ee13d775-c0f1-4950-0000-b8b30a2f5d5a",
         "Type": "String",
         "InputType": "string-dropdown",
         "IsTitle": false,
@@ -260,7 +260,7 @@
       },
       {
         "Name": "Message",
-        "Guid": "5b29e05a-d1d0-4c1b-8c90-4e7820365aec",
+        "Guid": "5b29e05a-d1d0-4c1b-0000-4e7820365aec",
         "Type": "String",
         "InputType": "string-default",
         "IsTitle": false,
@@ -428,7 +428,7 @@
         "InputType": "string-default",
         "IsTitle": false,
         "SysSettings": {
-          "InheritMetadataOf": "5b29e05a-d1d0-4c1b-8c90-4e7820365aec"
+          "InheritMetadataOf": "5b29e05a-d1d0-4c1b-0000-4e7820365aec"
         }
       }
     ]
