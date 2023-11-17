@@ -6,7 +6,7 @@ public class TestIntellisense
   public void TestBadApis()
   {
     // this namespaces is [PrivateApi] and WIP
-    ToSic.Sxc.Adam. x = null;
+    // ToSic.Sxc.Adam. x = null;
 
     var y = ToSic.Sxc.Configuration.Features.BuiltInFeatures.CdnSourcePublic;
   }

@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Features Service</h1>
+
+
+<ol>
+  <li>Has Dnn: @Kit.Feature.IsEnabled("System-Dnn")</li>
+  <li>Has Oqtane: @Kit.Feature.IsEnabled("System-Oqtane")</li>
+  <li>Has Razor: @Kit.Feature.IsEnabled("System-Razor")</li>
+  <li>Has Blazor: @Kit.Feature.IsEnabled("System-Blazor")</li>
+  <li>Has CSharp08: @Kit.Feature.IsEnabled("System-CSharp08")</li>
+</ol>
