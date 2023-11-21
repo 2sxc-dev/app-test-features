@@ -22,6 +22,19 @@
 <ol>
   <li>pic.Alt (default fallback): @left.Alt</li>
   <li>file.Url: @file.Url</li>
+  <li>
+    @{
+      var md = file.Metadata;
+    }
+    Metadata: 
+    <ul>
+      <li>Child: @md.Children("Copyrights").FirstOrDefault()</li>
+      <li>CopyrightMessage: @((md.Child("Copyrights") ?? md).String("CopyrightMessage"))</li>
+      <li></li>
+      <li>Parents: @md.Parents().Count()</li>
+    </ul>
+
+  </li>
 </ol>
 
 <hr>
