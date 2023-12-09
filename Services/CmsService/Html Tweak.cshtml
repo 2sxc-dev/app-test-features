@@ -12,19 +12,22 @@
 <h1>CmsService</h1>
 
 @{
-  var item = GetTestItem("images-rows-25-50-75");
+  var item = GetTestItem("tweak-tests");
   var cms = GetService<ICmsService>();
   var field = item.Field("Contents");
-
-  // Testing new functionality
-  var fieldTyped = field as Field;
-  fieldTyped.Raw = (fieldTyped.Raw as string).Replace("expected", "***replaced expected with something in code!");
 }
 
 <div>
   Field: @field
 </div>
 
-<h2>Output using Kit.Cms.Html</h2>
+<h2>Test with completely replaced data</h2>
 <hr>
-@cms.Html(field)
+@cms.Html(field, tweak: tw => tw.Input("Test text \n test text \n test \n test").Input(Tags.Nl2Br))
+<hr>
+
+<h2 @Kit.Toolbar.Default(item)>Replace Bars into <code>&lt;br&gt;</code></h2>
+<hr>
+@cms.Html(field, tweak: tw => tw.Input(v => Tags.Nl2Br(v.Replace("|", "\n"))))
+<hr>
+

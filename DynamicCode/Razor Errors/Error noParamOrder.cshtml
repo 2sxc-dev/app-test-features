@@ -1,0 +1,10 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services;
+
+<h1>Warning for noParamOrder</h1>
+<p>
+  This should show a warning because we're using a parameter which is the protector, and shouldn't be used.
+</p>
+@{
+  var x = MyItem.Bool("test", false);
+}

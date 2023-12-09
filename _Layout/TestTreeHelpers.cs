@@ -24,7 +24,7 @@ public class TestTreeHelpers: Custom.Hybrid.Code12
     return subDirectories
       .Where(sd => {
         var name = Path.GetFileName(sd);
-        return !name.StartsWith(".") && !name.StartsWith("_");
+        return !name.StartsWith(".") && !name.StartsWith("_") && name != "App_Data" && name != "api";
       })
       .Select(sd => sd.Substring(App.PhysicalPath.Length + 1))
       .ToArray();

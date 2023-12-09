@@ -1,0 +1,100 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>App Data - Create Update Delete - CT AppDataCreateUpdateDelete</h1>
+
+@* Process url parameters to create/update/delete *@
+@{
+  var pars = MyPage.Parameters;
+  if (pars.ContainsKey("action")) {
+    if (pars["action"] == "create") {
+      Create();
+    } else if (pars["action"] == "createdraft") {
+      CreateDraft();
+    } else if (pars["action"] == "update") {
+      Update(pars.Int("id"));
+    } else if (pars["action"] == "delete") {
+      // Delete();
+    } else if (pars["action"] == "publish") {
+      Publish(pars.Int("id"));
+    } else if (pars["action"] == "unpublish") {
+      Unpublish(pars.Int("id"));
+    } else if (pars["action"] == "adddraft") {
+      AddDraft(pars.Int("id"));
+    }
+  }
+}
+@{
+  var data = AsItems(App.Data.GetStream("AppDataCreateUpdateDelete"));
+}
+
+<ol>
+  @foreach (var item in data)
+  {
+    var draft = item.Dyn.GetDraft();
+    var published = item.Dyn.GetPublished();
+
+    var draftId = draft == null ? (int?)null : item.Entity.RepositoryId;
+    <li>
+      Id: @item.Id 
+      @if (published != null) {
+        <span class="">/@item.Entity.RepositoryId</span>
+      }
+      @(item.Bool("IsPublished") ? "👁️" : "🕶️")
+      @if (draft != null) {
+        <span class="">has draft - @draft.EntityId</span>
+      }
+      @if (published != null) {
+        <span class="">has published - @published.EntityId/@published.Entity.RepositoryId</span>
+      }
+      "@item.Title"
+      <a href='@Link.To(parameters: pars.Set("action", "update").Set("id", item.Id))' class="btn btn-primary">update</a>
+      <a href='@Link.To(parameters: pars.Set("action", "publish").Set("id", item.Id))' class="btn btn-info">publish</a>
+      <a href='@Link.To(parameters: pars.Set("action", "unpublish").Set("id", item.Id))' class="btn btn-info">unpublish</a>
+      <a href='@Link.To(parameters: pars.Set("action", "adddraft").Set("id", item.Id))' class="btn btn-info">add draft</a>
+    </li>
+  }
+</ol>
+
+<hr>
+<a href='@Link.To(parameters: pars.Remove("action").Remove("id"))' class="btn btn-primary">Reset</a>
+<a href='@Link.To(parameters: pars.Set("action", "create"))' class="btn btn-primary">Create</a>
+<a href='@Link.To(parameters: pars.Set("action", "createdraft"))' class="btn btn-secondary">Create Draft</a>
+
+@functions {
+  void Create() {
+    var data = new Dictionary<string, object> {
+      { "Title", $"New Item - {DateTime.Now}" }
+    };
+    var item = App.Data.Create("AppDataCreateUpdateDelete", data);
+  }
+  void CreateDraft() {
+    var item = App.Data.Create("AppDataCreateUpdateDelete", new Dictionary<string, object> {
+      { "Title", $"New Item - {DateTime.Now}" },
+      { "PublishState", "draft" }
+    });
+  }
+  void Publish(int id) {
+    App.Data.Update(id, new Dictionary<string, object> {
+      { "PublishState", "true" }
+    });
+  }
+  void Unpublish(int id) {
+    App.Data.Update(id, new Dictionary<string, object> {
+      { "PublishState", "false" }
+    });
+  }
+  void AddDraft(int id) {
+    App.Data.Update(id, new Dictionary<string, object> {
+      { "Title", $"Added Draft - {DateTime.Now}" },
+      { "PublishState", "draft" }
+    });
+  }
+ 
+  void Update(int id) {
+    var data = new Dictionary<string, object> {
+      { "Title", $"Updated - {DateTime.Now}" }
+    };
+
+    App.Data.Update(id, data);
+  }
+}

@@ -16,7 +16,7 @@
 
 
 @if (Text.Has(testPath)) {
-  <h5>
+  <h5 class="alert alert-info" @Kit.Toolbar.Default()>
     Test: 
     @testPath
     @CreateInstance("./_Layout/RazorVersion.cs").RazorWithVersionPicker(this)
