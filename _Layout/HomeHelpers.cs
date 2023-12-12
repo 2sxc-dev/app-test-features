@@ -21,8 +21,13 @@ public class HomeHelpers : Custom.Hybrid.CodeTyped
       fullPath = root + OldDefault; // already has the path, just missing the file
       // Check if _default exists...
       if (!System.IO.File.Exists(fullPath)) {
+        fullPath = root + NewDefault;
         cshtml = cshtml.Replace(OldDefault, NewDefault);
         root = root.Replace(OldDefault, NewDefault);
+
+        // If the new default doesn't exist, return null so the page can skip showing it
+        if (!System.IO.File.Exists(fullPath))
+          cshtml = null;
       }
     }
   }

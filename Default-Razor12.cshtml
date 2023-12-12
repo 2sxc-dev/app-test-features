@@ -15,6 +15,12 @@
     @CreateInstance("./_Layout/RazorVersion.cs").RazorWithVersionPicker(this)
   </h5>
 }
-@Html.Partial(cshtml)
+@if (cshtml != null) {
+  @Html.Partial(cshtml)
+} else {
+  <div class="alert alert-primary">
+    No home file found. Please select a test below
+  </div>
+}
 
 @Html.Partial("_Layout/Tree SubTests.cshtml", new { Path = root, SkipFiles = !Text.Has(testPath) })
