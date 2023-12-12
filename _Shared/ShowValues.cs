@@ -1,7 +1,3 @@
-using ToSic.Sxc.Demo;
-using ToSic.Razor.Blade;
-using ToSic.Razor.Markup;
-
 public class ShowValues : Custom.Hybrid.Code14 
 {
   public string NumberWithTypeInfo(object value) {

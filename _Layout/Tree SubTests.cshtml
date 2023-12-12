@@ -45,9 +45,11 @@
   <hr>
   <h3>Tests</h3>
   <ol>
-    <li>
-      @linker.SubLinkWithIndicator(pathParam, FixSlash(homeFile), "Home", forceSet: homeIsSetBecauseNoFile)
-    </li>
+    @if (homeFile != null) {
+      <li>
+        @linker.SubLinkWithIndicator(pathParam, FixSlash(homeFile), "Home", forceSet: homeIsSetBecauseNoFile)
+      </li>
+    }
     @foreach (var subTest in filesWithoutHome) {
       var niceName = System.IO.Path.GetFileName(subTest).Trim('_').Replace(".cshtml", "");
       <li>

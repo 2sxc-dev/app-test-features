@@ -1,0 +1,74 @@
+@inherits Custom.Hybrid.RazorTyped
+@{
+  var level = MyModel.Int("Level");
+  if (level > 3) {
+    <code>skip going deeper</code>
+    return;
+  }
+
+  var showHelper = GetCode("/_Shared/ShowValues.cs");
+  var item = MyModel.Item("Item");
+  var subPub = item.Publishing.GetPublished();
+  var subDraft = item.Publishing.GetUnpublished();
+  var opposite = item.Publishing.GetOpposite();
+
+  var repoId = item.Entity.RepositoryId;
+  var ids = $"{item.Id}" + (item.Id != repoId ? $"/{repoId}" : "");
+}
+
+
+@Kit.HtmlTags.Custom("h" + level, item.Title + " (" + ids + ") - " + item.String("Title"))
+
+<ol>
+  @* <li>Publishing: @item.Publishing</li> *@
+  <li>
+    @showHelper.BoolMoji(item.IsPublished)
+    Item.IsPublished
+  </li>
+  <li>
+    @showHelper.BoolMoji(item.Publishing.IsSupported)
+    Item.Publishing.IsSupported
+  </li>
+  <li>
+    @showHelper.BoolMoji(item.Publishing.HasPublished)
+    Item.Publishing.HasPublished
+  </li>
+  <li>
+    @showHelper.BoolMoji(item.Publishing.HasDraft)
+    Item.Publishing.HasDraft
+  </li>
+  <li>
+    @showHelper.BoolMoji(item.Publishing.HasDraft)
+    Item.Publishing.HasDraft
+  </li>
+  <li>
+    @showHelper.BoolMoji(subPub != null)
+    Item.Publishing.GetPublished()
+    @if (subPub != null) {
+      @Html.Partial("./Publishing.Part Details.cshtml", new { item = subPub, Level = level + 1 })
+    } else {
+      <code class="text-muted">null</code>
+    }
+  </li>
+  <li>
+    @showHelper.BoolMoji(subDraft != null)
+    Item.Publishing.GetUnpublished()
+    @if (subDraft != null) {
+      @Html.Partial("./Publishing.Part Details.cshtml", new { item = subDraft, Level = level + 1 })
+    } else {
+      <code class="text-muted">null</code>
+    }
+  </li>
+  <li>
+    @showHelper.BoolMoji(opposite != null)
+    Item.Publishing.GetOpposite()
+    @if (opposite != null) {
+      @Html.Partial("./Publishing.Part Details.cshtml", new { item = opposite, Level = level + 1 })
+    } else {
+      <code class="text-muted">null</code>
+    }
+  </li>
+</ol>
+
+
+<hr>

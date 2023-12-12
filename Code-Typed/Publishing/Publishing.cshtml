@@ -1,0 +1,22 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Data;
+
+<h1>Publishing</h1>
+@functions {
+  const string TestCt = "TestPublishing";
+  public ITypedItem GetTestItem(string testId) {
+    return AsItems(App.Data[TestCt]).FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
+
+@{
+  var published = GetTestItem("published");
+  var draft = GetTestItem("draft");
+  var pAndD = GetTestItem("published-and-draft");
+}
+
+@Html.Partial("./Publishing.Part Details.cshtml", new { item = published, level = 2 })
+
+@Html.Partial("./Publishing.Part Details.cshtml", new { item = draft, level = 2 })
+
+@Html.Partial("./Publishing.Part Details.cshtml", new { item = pAndD, level = 2 })
