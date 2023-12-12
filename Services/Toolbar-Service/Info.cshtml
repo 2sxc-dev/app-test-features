@@ -26,8 +26,15 @@
     @tlbInfo.AsJson()
   </li>
   <li>
-    <strong>Message</strong>
-    @{ tlbInfo = empty.Info(tweak: b => b.Note("this is a test!"), link: "//2sxc.org"); }
+    <strong>Message with Link</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this is a link that also works with ctrl/shift"), link: "//2sxc.org"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>Message with Link in new window</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this must open a new window"), link: "//2sxc.org", target: "_blank"); }
     Show as tag: @tlbInfo.AsTag()
     <br>
     @tlbInfo.AsJson()
