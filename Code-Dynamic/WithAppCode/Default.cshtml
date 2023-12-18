@@ -1,9 +1,9 @@
-@inherits Custom.Hybrid.RazorTyped
+@inherits Custom.Hybrid.Razor14
 @using MyApp.Code;
 
 <h1>With App Code</h1>
 @{
-  var secondClass = new SecondClass();
+  var secondClass = new MyApp.Code.SecondClass();
   secondClass.MyProperty = "Hello World";
   var r = secondClass.Sum(1,1);
 }

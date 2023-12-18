@@ -1,6 +1,11 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Sxc.Services;
 @using ToSic.Razor.Blade;
+@using MyApp.Code;
+
+<hr>
+Test: @(new ShowTestData().BoolMoji(true))
+
 
 @{
   // Get all Paths
@@ -24,3 +29,7 @@
 }
 
 @Html.Partial("_Layout/Tree SubTests.cshtml", new { Path = root, SkipFiles = !Text.Has(testPath) })
+
+
+<hr>
+Test: @(new ShowTestData().BoolMoji(true))

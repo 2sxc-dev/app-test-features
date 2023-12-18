@@ -1,6 +1,7 @@
 @inherits Custom.Hybrid.Razor14
 @using ToSic.Sxc.Services;
 @using ToSic.Razor.Blade;
+@using MyApp.Code;
 
 @{
   // Get all Paths
@@ -31,3 +32,11 @@
 }
 
 @Html.Partial("_Layout/Tree SubTests.cshtml", new { Path = root, SkipFiles = !Text.Has(testPath) })
+
+<hr>
+@{
+  var secondClass = new MyApp.Code.SecondClass();
+  secondClass.MyProperty = "Hello World";
+  var r = secondClass.Sum(1,1);
+}
+<p> Message: @secondClass.MyProperty </p>

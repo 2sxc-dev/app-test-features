@@ -1,4 +1,7 @@
 @inherits Custom.Hybrid.RazorTyped
+
+@* @ using MyApp.Code; *@
+
 @{
   var level = MyModel.Int("Level");
   if (level > 3) {
@@ -14,6 +17,8 @@
 
   var repoId = item.Entity.RepositoryId;
   var ids = $"{item.Id}" + (item.Id != repoId ? $"/{repoId}" : "");
+
+  // var show = new ShowTestData();
 }
 
 
