@@ -15,6 +15,9 @@
   var pAndD = GetTestItem("published-and-draft");
 }
 
+@Html.Partial("./Publishing.Part Shared.cshtml")
+
+
 @Html.Partial("./Publishing.Part Details.cshtml", new { item = published, level = 2 })
 
 @Html.Partial("./Publishing.Part Details.cshtml", new { item = draft, level = 2 })
