@@ -13,6 +13,5 @@ namespace MyApp.Code
     public string BoolMoji(bool value) {
       return value ? "✅" : "❌";
     }
-
   }
 }
