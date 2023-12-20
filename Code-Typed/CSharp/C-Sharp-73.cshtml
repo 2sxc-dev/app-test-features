@@ -1,0 +1,18 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Data;
+@using MyApp.Code;
+
+<h1>CSharp 7.3</h1>
+@functions {
+  string Name => "World";
+}
+@{
+  // tuple
+  var TestProp = (17, "hello");
+}
+
+<ol>
+  <li>
+    TestProp: @TestProp
+  </li>
+</ol>

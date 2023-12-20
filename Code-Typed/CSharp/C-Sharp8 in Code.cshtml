@@ -1,0 +1,17 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Data;
+@using MyApp.Code;
+
+<h1>CSharp 8 in Code</h1>
+
+@{
+  // tuple
+  var cs8 = new CSharp8();
+  var msg = cs8.NullCoalescingAssigment(null);
+}
+
+<ol>
+  <li>
+    NullCoalescingAssigment: @msg
+  </li>
+</ol>
