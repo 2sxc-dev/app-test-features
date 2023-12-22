@@ -1,0 +1,16 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ThisApp.Code
+
+<h1>Entry with! Roslyn</h1>
+
+@{
+  var cs8 = new CSharp8();
+}
+
+<p> Message: @cs8.Name </p>
+
+
+<hr>
+<h2>Subfile with Roslyn</h2>
+
+@Html.Partial("./Subfile with Roslyn - No Code Use.cshtml")
