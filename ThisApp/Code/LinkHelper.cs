@@ -1,6 +1,6 @@
 using System;
 
-namespace MyApp.Code
+namespace ThisApp.Code
 {
   public class LinkHelper : Custom.Hybrid.Code14
   {

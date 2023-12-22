@@ -1,7 +1,7 @@
 ﻿
 using System;
 
-namespace MyApp.Code
+namespace ThisApp.Code
 {
     public class SecondClass
     {
@@ -17,7 +17,7 @@ namespace MyApp.Code
         // Method that sums two numbers
         public int Sum(int a, int b)
         {
-            return a + b + 10;
+            return a + b + 1;
         }
     }
 }

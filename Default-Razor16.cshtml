@@ -1,11 +1,15 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Sxc.Services;
 @using ToSic.Razor.Blade;
-@using MyApp.Code;
+@using ThisApp.Code;
+@{
+  string s = null;
+  // s ??= "Hello"; // c# 8.0 Null-coalescing assignment not working
+  // s ??= "Hello2";
+}
 
 <hr>
-Test: @(new ShowTestData().BoolMoji(true))
-
+Test: @(new ShowTestData().BoolMoji(true))<br>
 
 @{
   // Get all Paths

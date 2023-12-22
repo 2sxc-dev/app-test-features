@@ -1,7 +1,5 @@
-namespace MyApp.Code
+namespace ThisApp.Code
 {
-
-
   public class CSharp8 {
     public string Name => "Hello";
 
