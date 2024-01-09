@@ -1,0 +1,160 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Test implicit usings in default Razor compiler</h1>
+
+<hr>
+
+<h2>based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk</h2>
+
+<h3>IMPLICIT using System</h3>
+@{
+  // Using System.DateTime to get the current date and time
+  var currentDateTime = DateTime.Now;
+}
+<p>The current date and time is: @currentDateTime</p>
+
+<h3>IMPLICIT using System.Collections.Generic</h3>
+@{
+  // Create a list of strings
+  var fruits = new List<string> { "Apple", "Banana", "Cherry", "Date" };
+
+  // Adding an item to the list
+  fruits.Add("Elderberry");
+}
+<p>List count: @fruits.Count</p>
+
+<h3>IMPLICIT using System.IO</h3>
+@{
+  var tempFile = System.IO.Path.GetTempFileName();
+  using (StreamWriter writer = File.CreateText(tempFile))
+  {
+    writer.WriteLine("First line of example");
+    writer.WriteLine("and second line");
+  }
+  File.Delete(tempFile);
+}
+<p>File created and deleted: @tempFile</p>
+
+<h3>IMPLICIT using System.Linq</h3>
+@{
+  var names = new List<string> { "Alice", "Bob", "Charlie", "David", "Eve" };
+
+  // Using LINQ to filter names that start with 'C' and order them alphabetically
+  var filteredNames = names.Where(n => n.StartsWith("C"));
+}
+<p>Name from list that starts with C: @filteredNames.FirstOrDefault()</p>
+
+<h3>NOT IMPLICIT using System.Net.Http</h3>
+@{
+  var t1 = typeof(System.Net.Http.Headers.CookieHeaderValue);
+}
+<p>typeof: @t1</p>
+
+<h3>NOT IMPLICIT using System.Threading</h3>
+@{
+  var t = 0;
+  // Create a thread and start it
+  var thread = new System.Threading.Thread(() => t = 1);
+  thread.Start();
+}
+<p>Thread started: @t</p>
+
+<h3>NOT IMPLICIT using System.Threading.Tasks</h3>
+@{
+  // Create a task and wait for it to complete
+  var task = System.Threading.Tasks.Task.Run(() => "This task has completed.");
+  task.Wait();
+}
+<p>Task result: @task.Result</p>
+
+<hr>
+
+<h2>based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk.Web</h2>
+
+<h3>NOT WORKING using System.Net.Http.Json</h3>
+@{
+  var t2 = typeof(/*System.Net.Http.Json.JsonContent*/ string);
+}
+<p>typeof: @t2</p>
+
+<h3>NOT WORKING using Microsoft.AspNetCore.Builder</h3>
+@{
+  var t3 = typeof(/*Microsoft.AspNetCore.Builder.IApplicationBuilder*/ string);
+}
+<p>typeof: @t3</p>
+
+<h3>NOT WORKING using Microsoft.AspNetCore.Hosting</h3>
+@{
+  var t4 = typeof(/*Microsoft.AspNetCore.Hosting.IWebHostEnvironment*/ string);
+}
+<p>typeof: @t4</p>
+
+<h3>NOT WORKING using Microsoft.AspNetCore.Http</h3>
+@{
+  var t5 = typeof(/*Microsoft.AspNetCore.Http.HttpRequest*/ string);
+}
+<p>typeof: @t5</p>
+
+<h3>NOT WORKING using Microsoft.AspNetCore.Routing</h3>
+@{
+  var t6 = typeof(/*Microsoft.AspNetCore.Routing.RouteBuilder*/ string);
+}
+<p>typeof: @t6</p>
+
+<h3>NOT IMPLICIT using Microsoft.Extensions.Configuration</h3>
+@{
+  var t7 = typeof(Microsoft.Extensions.Configuration.IConfiguration);
+}
+<p>typeof: @t7</p>
+
+<h3>NOT IMPLICIT using Microsoft.Extensions.DependencyInjection</h3>
+@{
+  var t8 = typeof(Microsoft.Extensions.DependencyInjection.IServiceCollection);
+}
+<p>typeof: @t8</p>
+
+<h3>NOT WORKING using Microsoft.Extensions.Hosting</h3>
+@{
+  var t9 = typeof(/*Microsoft.Extensions.Hosting.IHostEnvironment*/ string);
+}
+<p>typeof: @t9</p>
+
+<h3>NOT IMPLICIT using Microsoft.Extensions.Logging</h3>
+@{
+  var t10 = typeof(Microsoft.Extensions.Logging.ILogger);
+}
+<p>typeof: @t10</p>
+
+
+
+<h2>DNN specific (because of web.config)</h2>
+
+<h3>NOT IMPLICIT using System.Text</h3>
+@{
+  var t11 = typeof(System.Text.Encoding);
+}
+<p>typeof: @t11</p>
+
+<h3>IMPLICIT using System.Web</h3>
+@{
+  var t12 = typeof(HttpUtility);
+}
+<p>typeof: @t12</p>
+
+<h3>IMPLICIT using System.Web.UI</h3>
+@{
+  var t13 = typeof(Control);
+}
+<p>typeof: @t13</p>
+
+<h3>NOT IMPLICIT using System.Web.UI.WebControls</h3>
+@{
+  var t14 = typeof(System.Web.UI.WebControls.Button);
+}
+<p>typeof: @t14</p>
+
+<h3>IMPLICIT using System.Web.WebPages</h3>
+@{
+  var t15 = typeof(WebPageRenderingBase);
+}
+<p>typeof: @t15</p>
