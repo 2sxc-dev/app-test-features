@@ -1,19 +1,36 @@
 @inherits Custom.Hybrid.RazorTyped
+@using ThisApp.Code;
 
-<h1>Test implicit usings in default Razor compiler</h1>
+<h1>Test implicit usings in Razor compiler</h1>
+<p>Test 1: select razor version <strong>12</strong> or <strong>14</strong> to test with default razor compiler</p>
+<p>Test 2: select razor version <strong>Typed</strong> to test with 2sxc roslyn razor compiler</p>
+
+@functions{
+  public string CheckType(string typeName)
+  {
+    try
+    {
+      return Type.GetType(typeName)?.FullName ?? $"{typeName} is unknonwn.";
+    }
+    catch (Exception ex)
+    {
+      return ex.Message;
+    }
+  }
+}
 
 <hr>
 
-<h2>based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk</h2>
+<h2>1. based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk</h2>
 
-<h3>IMPLICIT using System</h3>
+<h3>implicit using System</h3>
 @{
   // Using System.DateTime to get the current date and time
   var currentDateTime = DateTime.Now;
 }
 <p>The current date and time is: @currentDateTime</p>
 
-<h3>IMPLICIT using System.Collections.Generic</h3>
+<h3>implicit using System.Collections.Generic</h3>
 @{
   // Create a list of strings
   var fruits = new List<string> { "Apple", "Banana", "Cherry", "Date" };
@@ -23,19 +40,19 @@
 }
 <p>List count: @fruits.Count</p>
 
-<h3>IMPLICIT using System.IO</h3>
+<h3>System.IO in not implicit using in Oqtane razor</h3>
 @{
   var tempFile = System.IO.Path.GetTempFileName();
-  using (StreamWriter writer = File.CreateText(tempFile))
+  using (System.IO.StreamWriter writer = System.IO.File.CreateText(tempFile))
   {
     writer.WriteLine("First line of example");
     writer.WriteLine("and second line");
   }
-  File.Delete(tempFile);
+  System.IO.File.Delete(tempFile);
 }
 <p>File created and deleted: @tempFile</p>
 
-<h3>IMPLICIT using System.Linq</h3>
+<h3>implicit using System.Linq</h3>
 @{
   var names = new List<string> { "Alice", "Bob", "Charlie", "David", "Eve" };
 
@@ -44,13 +61,10 @@
 }
 <p>Name from list that starts with C: @filteredNames.FirstOrDefault()</p>
 
-<h3>NOT IMPLICIT using System.Net.Http</h3>
-@{
-  var t1 = typeof(System.Net.Http.Headers.CookieHeaderValue);
-}
-<p>typeof: @t1</p>
+<h3>System.Net.Http in not referenced in DNN razor</h3>
+<p>@CheckType("System.Net.Http.HttpClient")</p>
 
-<h3>NOT IMPLICIT using System.Threading</h3>
+<h3>System.Threading is not implicit using in DNN razor</h3>
 @{
   var t = 0;
   // Create a thread and start it
@@ -59,7 +73,7 @@
 }
 <p>Thread started: @t</p>
 
-<h3>NOT IMPLICIT using System.Threading.Tasks</h3>
+<h3>System.Threading.Tasks is not implicit using in DNN razor </h3>
 @{
   // Create a task and wait for it to complete
   var task = System.Threading.Tasks.Task.Run(() => "This task has completed.");
@@ -69,92 +83,50 @@
 
 <hr>
 
-<h2>based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk.Web</h2>
+<h2>2. based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk.Web</h2>
 
-<h3>NOT WORKING using System.Net.Http.Json</h3>
-@{
-  var t2 = typeof(/*System.Net.Http.Json.JsonContent*/ string);
-}
-<p>typeof: @t2</p>
+<h3>System.Net.Http.Json is not referenced in DNN razor</h3>
+<p>@CheckType("System.Net.Http.Json.JsonContent")</p>
 
-<h3>NOT WORKING using Microsoft.AspNetCore.Builder</h3>
-@{
-  var t3 = typeof(/*Microsoft.AspNetCore.Builder.IApplicationBuilder*/ string);
-}
-<p>typeof: @t3</p>
+<h3>Microsoft.AspNetCore.Builder is not referenced in DNN razor</h3>
+<p>@CheckType("Microsoft.AspNetCore.Builder.IApplicationBuilder")</p>
 
-<h3>NOT WORKING using Microsoft.AspNetCore.Hosting</h3>
-@{
-  var t4 = typeof(/*Microsoft.AspNetCore.Hosting.IWebHostEnvironment*/ string);
-}
-<p>typeof: @t4</p>
+<h3>Microsoft.AspNetCore.Hosting is not referenced in DNN razor</h3>
+<p>@CheckType("Microsoft.AspNetCore.Hosting.IWebHostEnvironment")</p>
 
-<h3>NOT WORKING using Microsoft.AspNetCore.Http</h3>
-@{
-  var t5 = typeof(/*Microsoft.AspNetCore.Http.HttpRequest*/ string);
-}
-<p>typeof: @t5</p>
+<h3>Microsoft.AspNetCore.Http is not referenced in DNN razor</h3>
+<p>@CheckType("Microsoft.AspNetCore.Http.HttpRequest")</p>
 
-<h3>NOT WORKING using Microsoft.AspNetCore.Routing</h3>
-@{
-  var t6 = typeof(/*Microsoft.AspNetCore.Routing.RouteBuilder*/ string);
-}
-<p>typeof: @t6</p>
+<h3>Microsoft.AspNetCore.Routing is not referenced in DNN razor</h3>
+<p>@CheckType("Microsoft.AspNetCore.Routing.RouteBuilder")</p>
 
-<h3>NOT IMPLICIT using Microsoft.Extensions.Configuration</h3>
-@{
-  var t7 = typeof(Microsoft.Extensions.Configuration.IConfiguration);
-}
-<p>typeof: @t7</p>
+<h3>Microsoft.Extensions.Configuration is not implicit using in DNN razor</h3>
+<p>@CheckType("Microsoft.Extensions.Configuration.IConfiguration")</p>
 
-<h3>NOT IMPLICIT using Microsoft.Extensions.DependencyInjection</h3>
-@{
-  var t8 = typeof(Microsoft.Extensions.DependencyInjection.IServiceCollection);
-}
-<p>typeof: @t8</p>
+<h3>Microsoft.Extensions.DependencyInjection is not implicit using in DNN razor</h3>
+<p>@CheckType("Microsoft.Extensions.DependencyInjection.IServiceCollection")</p>
 
-<h3>NOT WORKING using Microsoft.Extensions.Hosting</h3>
-@{
-  var t9 = typeof(/*Microsoft.Extensions.Hosting.IHostEnvironment*/ string);
-}
-<p>typeof: @t9</p>
+<h3>Microsoft.Extensions.Hosting is not referenced in DNN razor</h3>
+<p>@CheckType("Microsoft.Extensions.Hosting.IHostEnvironment")</p>
 
-<h3>NOT IMPLICIT using Microsoft.Extensions.Logging</h3>
-@{
-  var t10 = typeof(Microsoft.Extensions.Logging.ILogger);
-}
-<p>typeof: @t10</p>
+<h3>Microsoft.Extensions.Logging is not implicit using in DNN razor</h3>
+<p>@CheckType("Microsoft.Extensions.Logging.ILogger")</p>
 
+<hr>
 
+<h2>3. other usings</h2>
 
-<h2>DNN specific (because of web.config)</h2>
+<h3>System.Text is not implicit using in DNN razor</h3>
+<p>@CheckType("System.Text.Encoding")</p>
 
-<h3>NOT IMPLICIT using System.Text</h3>
-@{
-  var t11 = typeof(System.Text.Encoding);
-}
-<p>typeof: @t11</p>
+<h3>System.Web is not implicit using in Oqtane razor</h3>
+<p>@CheckType("System.Web.HttpUtility")</p>
 
-<h3>IMPLICIT using System.Web</h3>
-@{
-  var t12 = typeof(HttpUtility);
-}
-<p>typeof: @t12</p>
+<h3>System.Web.UI is not referenced in Oqtane razor</h3>
+<p>@CheckType("System.Web.UI.Control")</p>
 
-<h3>IMPLICIT using System.Web.UI</h3>
-@{
-  var t13 = typeof(Control);
-}
-<p>typeof: @t13</p>
+<h3>System.Web.UI.WebControls is not referenced in Oqtane razor</h3>
+<p>@CheckType("System.Web.UI.WebControls.Button")</p>
 
-<h3>NOT IMPLICIT using System.Web.UI.WebControls</h3>
-@{
-  var t14 = typeof(System.Web.UI.WebControls.Button);
-}
-<p>typeof: @t14</p>
-
-<h3>IMPLICIT using System.Web.WebPages</h3>
-@{
-  var t15 = typeof(WebPageRenderingBase);
-}
-<p>typeof: @t15</p>
+<h3>System.Web.WebPages is not referenced in Oqtane razor</h3>
+<p>@CheckType("WebPageRenderingBase")</p>
