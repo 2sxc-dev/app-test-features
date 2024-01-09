@@ -5,17 +5,48 @@
 <p>Test 1: select razor version <strong>12</strong> or <strong>14</strong> to test with default razor compiler</p>
 <p>Test 2: select razor version <strong>Typed</strong> to test with 2sxc roslyn razor compiler</p>
 
-@functions{
+@functions {
   public string CheckType(string typeName)
   {
     try
     {
-      return Type.GetType(typeName)?.FullName ?? $"{typeName} is unknonwn.";
+      return GetTypeFromName(typeName)?.FullName ?? $"{typeName} is unknonwn.";
     }
     catch (Exception ex)
     {
       return ex.Message;
     }
+  }
+
+  public static Type GetTypeFromName(string typeName)
+  {
+    // Check in mscorlib
+    Type type = Type.GetType(typeName);
+    if (type != null)
+      return type;
+
+    // Check in ImplicitUsings.ForRazor
+    foreach (var ns in ToSic.Sxc.Code.Internal.HotBuild.ImplicitUsings.ForRazor)
+    {
+      type = Type.GetType($"{ns}.{typeName}");
+      if (type != null)
+        return type;
+    }
+
+    // // Check in the currently executing assembly
+    // type = Type.GetType(typeName, assemblyResolver: asmName => Assembly.GetExecutingAssembly(), typeResolver: null);
+    // if (type != null)
+    // return type;
+
+    // // Optionally, check in other loaded assemblies
+    // foreach (var asm in AppDomain.CurrentDomain.GetAssemblies())
+    // {
+    // type = asm.GetType(typeName);
+    // if (type != null)
+    // return type;
+    // }
+
+    return null; // Type not found
   }
 }
 
@@ -24,6 +55,7 @@
 <h2>1. based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk</h2>
 
 <h3>implicit using System</h3>
+<p>@CheckType("DateTime")</p>
 @{
   // Using System.DateTime to get the current date and time
   var currentDateTime = DateTime.Now;
@@ -31,6 +63,7 @@
 <p>The current date and time is: @currentDateTime</p>
 
 <h3>implicit using System.Collections.Generic</h3>
+<p>@CheckType("List`1[[System.String, mscorlib]]")</p>
 @{
   // Create a list of strings
   var fruits = new List<string> { "Apple", "Banana", "Cherry", "Date" };
@@ -40,19 +73,11 @@
 }
 <p>List count: @fruits.Count</p>
 
-<h3>System.IO in not implicit using in Oqtane razor</h3>
-@{
-  var tempFile = System.IO.Path.GetTempFileName();
-  using (System.IO.StreamWriter writer = System.IO.File.CreateText(tempFile))
-  {
-    writer.WriteLine("First line of example");
-    writer.WriteLine("and second line");
-  }
-  System.IO.File.Delete(tempFile);
-}
-<p>File created and deleted: @tempFile</p>
+<h3>System.IO in not implicit using in razor</h3>
+<p>@CheckType("File")</p>
 
 <h3>implicit using System.Linq</h3>
+@* <p>@CheckType("Queryable")</p> *@
 @{
   var names = new List<string> { "Alice", "Bob", "Charlie", "David", "Eve" };
 
@@ -61,19 +86,14 @@
 }
 <p>Name from list that starts with C: @filteredNames.FirstOrDefault()</p>
 
-<h3>System.Net.Http in not referenced in DNN razor</h3>
+<h3>System.Net.Http in not referenced in razor</h3>
 <p>@CheckType("System.Net.Http.HttpClient")</p>
 
-<h3>System.Threading is not implicit using in DNN razor</h3>
-@{
-  var t = 0;
-  // Create a thread and start it
-  var thread = new System.Threading.Thread(() => t = 1);
-  thread.Start();
-}
-<p>Thread started: @t</p>
+<h3>System.Threading is not implicit using in razor</h3>
+<p>@CheckType("Thread")</p>
 
-<h3>System.Threading.Tasks is not implicit using in DNN razor </h3>
+<h3>System.Threading.Tasks is not implicit using in razor </h3>
+<p>@CheckType("Task")</p>
 @{
   // Create a task and wait for it to complete
   var task = System.Threading.Tasks.Task.Run(() => "This task has completed.");
@@ -85,48 +105,48 @@
 
 <h2>2. based on 'obj/*/*.GlobalUsings.g.cs' for Microsoft.NET.Sdk.Web</h2>
 
-<h3>System.Net.Http.Json is not referenced in DNN razor</h3>
+<h3>System.Net.Http.Json is not referenced in razor</h3>
 <p>@CheckType("System.Net.Http.Json.JsonContent")</p>
 
-<h3>Microsoft.AspNetCore.Builder is not referenced in DNN razor</h3>
-<p>@CheckType("Microsoft.AspNetCore.Builder.IApplicationBuilder")</p>
+<h3>Microsoft.AspNetCore.Builder is not referenced in razor</h3>
+<p>@CheckType("Microsoft.AspNetCore.Builder.ApplicationBuilder")</p>
 
-<h3>Microsoft.AspNetCore.Hosting is not referenced in DNN razor</h3>
-<p>@CheckType("Microsoft.AspNetCore.Hosting.IWebHostEnvironment")</p>
+<h3>Microsoft.AspNetCore.Hosting is not referenced in razor</h3>
+<p>@CheckType("Microsoft.AspNetCore.Hosting.EnvironmentName")</p>
 
-<h3>Microsoft.AspNetCore.Http is not referenced in DNN razor</h3>
+<h3>Microsoft.AspNetCore.Http is not referenced in razor</h3>
 <p>@CheckType("Microsoft.AspNetCore.Http.HttpRequest")</p>
 
-<h3>Microsoft.AspNetCore.Routing is not referenced in DNN razor</h3>
+<h3>Microsoft.AspNetCore.Routing is not referenced in razor</h3>
 <p>@CheckType("Microsoft.AspNetCore.Routing.RouteBuilder")</p>
 
-<h3>Microsoft.Extensions.Configuration is not implicit using in DNN razor</h3>
-<p>@CheckType("Microsoft.Extensions.Configuration.IConfiguration")</p>
+<h3>Microsoft.Extensions.Configuration is not referenced in razor</h3>
+<p>@CheckType("Microsoft.Extensions.Configuration.BinderOptions")</p>
 
-<h3>Microsoft.Extensions.DependencyInjection is not implicit using in DNN razor</h3>
-<p>@CheckType("Microsoft.Extensions.DependencyInjection.IServiceCollection")</p>
+<h3>Microsoft.Extensions.DependencyInjection is not referenced in razor</h3>
+<p>@CheckType("Microsoft.Extensions.DependencyInjection.ActivatorUtilities")</p>
 
-<h3>Microsoft.Extensions.Hosting is not referenced in DNN razor</h3>
-<p>@CheckType("Microsoft.Extensions.Hosting.IHostEnvironment")</p>
+<h3>Microsoft.Extensions.Hosting is not referenced in razor</h3>
+<p>@CheckType("Microsoft.Extensions.Hosting.EnvironmentName")</p>
 
-<h3>Microsoft.Extensions.Logging is not implicit using in DNN razor</h3>
-<p>@CheckType("Microsoft.Extensions.Logging.ILogger")</p>
+<h3>Microsoft.Extensions.Logging is not referenced in razor</h3>
+<p>@CheckType("Microsoft.Extensions.Logging.LoggerFactory")</p>
 
 <hr>
 
 <h2>3. other usings</h2>
 
-<h3>System.Text is not implicit using in DNN razor</h3>
-<p>@CheckType("System.Text.Encoding")</p>
+<h3>System.Text is not implicit using in razor</h3>
+<p>@CheckType("Encoding")</p>
 
-<h3>System.Web is not implicit using in Oqtane razor</h3>
+<h3>System.Web is not referenced in razor</h3>
 <p>@CheckType("System.Web.HttpUtility")</p>
 
-<h3>System.Web.UI is not referenced in Oqtane razor</h3>
+<h3>System.Web.UI is not referenced in razor</h3>
 <p>@CheckType("System.Web.UI.Control")</p>
 
-<h3>System.Web.UI.WebControls is not referenced in Oqtane razor</h3>
+<h3>System.Web.UI.WebControls is not referenced in razor</h3>
 <p>@CheckType("System.Web.UI.WebControls.Button")</p>
 
-<h3>System.Web.WebPages is not referenced in Oqtane razor</h3>
-<p>@CheckType("WebPageRenderingBase")</p>
+<h3>System.Web.WebPages is not referenced in razor</h3>
+<p>@CheckType("System.Web.WebPages.WebPageRenderingBase")</p>
