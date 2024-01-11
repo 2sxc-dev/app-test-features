@@ -2,13 +2,21 @@
   <!-- This file helps VS Code provide IntelliSense - see https://go.2sxc.org/vscode -->
 
   <PropertyGroup>
-    <TargetFramework>net4.7.2</TargetFramework>
-    <RootNamespace>App</RootNamespace>
+    <!-- Specify which .net to use eg. "net472" or "net48" or "net8" (Oqtane only) -->
+    <TargetFramework>net472</TargetFramework>
+
+    <!-- Specify the default Namespace for code in this specific App -->
+    <RootNamespace>ThisApp</RootNamespace>
+    
+    <!-- Specify what C# version to use, eg. "7.3", "8.0" or "12.0" (Oqtane only) -->
     <LangVersion>8.0</LangVersion>
+
+    <!-- Path to where the DLLs are in Dnn -->
+    <PathBin>..\..\..\..\bin</PathBin>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Tell Visual Studio & VSCode to respect all ToSic.* DLLs in the root bin folder -->
-    <Reference Include="..\..\..\..\bin\ToSic.*.dll" />
+    <Reference Include="$(PathBin)\ToSic.*.dll" />
   </ItemGroup>
 </Project>
