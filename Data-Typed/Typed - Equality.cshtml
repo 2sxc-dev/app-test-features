@@ -9,6 +9,16 @@
   var items = AsItems(App.Data["TestGetValues"]);
   var item = AsItem(App.Data["TestGetValues"].First());
   var firstInList = items.First();
+
+  // Group by Child #1 of Grandchildren - one set should have the same one
+  var itemsWithChildren = items.Where(i => i.IsNotEmpty("Children")).ToList();
+  var grouped = itemsWithChildren
+    .GroupBy(i => i.Child("Children"))
+    .ToList();
+
+  var gFirst = grouped.First().Key;
+  var gSecond = grouped.Skip(1).First().Key;
+  @* var gThird = grouped.Skip(2).First().Key; *@
   @* var show = GetCode("../_Shared/ShowValues.cs");
 
   DevTools.Debug(item);
@@ -19,6 +29,23 @@
   <li>Item ID: @item.Id</li>
   <li>firstInList Id: @firstInList.Id</li>
   <li>Item GetType: @item.GetType()</li>
+  <li>Item Count: @items.Count()</li>
+  <li>Itemswithchildren count: @itemsWithChildren.Count()</li>
+  <li>Grouped Count: @grouped.Count()</li>
+  <li>Grouped First Count: @grouped.First().Count()</li>
+  <li>Grouped Second Count: @grouped.Skip(1).First().Count()</li>
+  <li>
+    Grouped First Key: @gFirst.Id - @gFirst.GetHashCode()
+  </li>
+  <li>
+    Grouped Second Key: @gSecond.Id - @gSecond.GetHashCode()
+  </li>
+  @* <li>
+    Grouped Third Key: @gThird.Id - @gThird.GetHashCode()
+  </li>
+  <li>
+    second.Equals(third): @gSecond.Equals(gThird)
+  </li> *@
 </ol>
 <h2>Equality Checks</h2>
 <ol>
