@@ -1,0 +1,33 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>CodeApiSvc Inheritance</h1>
+<p>
+  Make sure that the objects in parent / children are the same.
+</p>
+@{
+  var code = GetCode("./CodeApiSvcInheritance.cs");
+  var subCode = code.GetSub();
+}
+
+<hr>
+<h2>Code Root ApiCodeSvc is the same</h2>
+
+<ul>
+  <li>Own _CodeApiSvc: @_CodeApiSvc.GetHashCode()</li>
+  <li>Own Kit: @Kit.GetHashCode()</li>
+  <li>Code _CodeApiSvc: @code._CodeApiSvc.GetHashCode()</li>
+  <li>Code Kit: @code.Kit.GetHashCode()</li>
+  <li>Sub _CodeApiSvc: @subCode._CodeApiSvc.GetHashCode()</li>
+  <li>Sub Kit: @subCode.Kit.GetHashCode()</li>
+</ul>
+
+<hr>
+
+<h2>Child Razors Typed 1</h2>
+
+@Html.Partial("./RazorTypedChild.cshtml")
+
+<h2>Child Razors Typed 2</h2>
+
+@Html.Partial("./RazorTypedChild.cshtml")
+
