@@ -5,7 +5,7 @@
   todo
 </p>
 @{
-  var empty = Kit.Toolbar.Empty() as ToSic.Sxc.Edit.Toolbar.ToolbarBuilder;
+  var empty = Kit.Toolbar.Empty();
 }
 <h2>infos</h2>
 <ol>
@@ -35,6 +35,28 @@
   <li>
     <strong>Message with Link in new window</strong>
     @{ tlbInfo = empty.Info(tweak: b => b.Note("this must open a new window"), link: "//2sxc.org", target: "_blank"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+
+  <li>
+    <strong>🕑 Message with delay</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this is delayed by 1 second", delay: 1000), link: "//2sxc.org"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>🕑 Message with linger</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this will linger for 1 second", linger: 1000), link: "//2sxc.org"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>🕑 Message with delay & linger</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this will delay 500ms and linger for 2 seconds", delay: 500, linger: 2000), link: "//2sxc.org"); }
     Show as tag: @tlbInfo.AsTag()
     <br>
     @tlbInfo.AsJson()
