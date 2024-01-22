@@ -1,0 +1,26 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq;
+
+<h1>Code - Verify Kit-Services Sharing</h1>
+<p>
+  Ensure that Kit-Services are shared between the two code types.
+</p>
+@{
+  // access the edit service to ensure it's generated here
+  var edit16 = Kit.Edit;
+}
+
+<h2>Main Code</h2>
+<ol>
+  <li>Edit16: @edit16 / @edit16.GetHashCode()</li>
+</ol>
+
+@Html.Partial("./_Kit-Sharing/Kit in Razor14.cshtml", new { edit = Kit.Edit })
+
+<h2>After calling Razor 14</h2>
+<p>
+  SecureData was access in Razor14 first, but it should still be the identical object.
+</p>
+<ol>
+  <li>SecureData: @Kit.SecureData / @Kit.SecureData.GetHashCode()</li>
+</ol>

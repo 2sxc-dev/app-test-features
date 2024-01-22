@@ -1,0 +1,15 @@
+@inherits Custom.Hybrid.Razor14
+
+<h2>Razor14 - Kit Use</h2>
+@{
+  var edit14 = Kit.Edit;
+
+  var edit16 = DynamicModel.Edit;
+
+  var secData = Kit.SecureData;
+}
+<ol>
+  <li>Edit14: @edit14 / @edit14.GetHashCode()</li>
+  <li>Edit16: @edit16 / @edit16.GetHashCode()</li>
+  <li>SecureData: @Kit.SecureData / @Kit.SecureData.GetHashCode()</li>
+</ol>
