@@ -1,0 +1,6 @@
+<h1>Parent page without @@inherits</h1>
+<p>
+  Should call child
+</p>
+
+@Html.Partial("./Parent-Calling-Child.Part Child.cshtml", new { data = "hello, world" })

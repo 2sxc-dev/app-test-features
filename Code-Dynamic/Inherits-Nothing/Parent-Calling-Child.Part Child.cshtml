@@ -1,0 +1,15 @@
+<h2>Child Page without @@inherits</h2>
+<p>
+  Hello there - message I got was "@PageData["Data"]"
+</p>
+
+<h2>Testing string-split</h2>
+@{
+  var data = PageData["Data"];
+  var dataSplit = data.Split(',');
+}
+<ol>
+  <li>Count: @dataSplit.Length</li>
+  <li>First: @dataSplit[0] </li>
+  <li>Last: @dataSplit[dataSplit.Length - 1]</li>
+</ol>
