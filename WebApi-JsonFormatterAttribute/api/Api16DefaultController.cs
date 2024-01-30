@@ -14,7 +14,7 @@ using System.Collections.Generic;
 
 
 [AllowAnonymous]
-public class Api16DefaultController : Custom.Hybrid.ApiPro
+public class Api16DefaultController : Custom.Hybrid.ApiTyped
 {
     [HttpGet]
     public object GetEntity()

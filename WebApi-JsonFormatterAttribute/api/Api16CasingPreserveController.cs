@@ -15,7 +15,7 @@ using System.Collections.Generic;
 
 [AllowAnonymous]
 [JsonFormatter(Casing = Casing.Preserve)]
-public class Api16CasingPreserveController : Custom.Hybrid.ApiPro
+public class Api16CasingPreserveController : Custom.Hybrid.ApiTyped
 {
     [HttpGet]
     public object GetEntity()
