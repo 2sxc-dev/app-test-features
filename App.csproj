@@ -40,6 +40,10 @@
     <Reference Include="$(PathBin)\DotNetNuke.dll" />
     <Reference Include="$(PathBin)\DotNetNuke.*.dll" />
     <Reference Include="$(PathBin)\System.Web.Http.dll" />
+    
+    <!-- Tell Visual Studio & VSCode to respect all * DLLs in the Dependencies folder -->
+    <Reference Include="Dependencies\*.dll" />
+
   </ItemGroup>
 
   <!-- Polymorphism

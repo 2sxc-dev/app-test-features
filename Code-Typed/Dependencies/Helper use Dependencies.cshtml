@@ -1,0 +1,11 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Helper code use DepLibrary1.dll from '/Dependencies' folder</h1>
+
+@{
+    var helpers = GetCode("Helpers.cs");
+}
+
+<div>Test @helpers.SayHello()</div>
+
+

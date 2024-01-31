@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ThisApp.Code;
+
+<h1>ThisApp.Code use DepLibrary1.dll from '/Dependencies' folder</h1>
+
+@{
+    var c1 = new ClassUseDependecies();
+}
+
+<div>Test @c1.SayHello()</div>
+
+

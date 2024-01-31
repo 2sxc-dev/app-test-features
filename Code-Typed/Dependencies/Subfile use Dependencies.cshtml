@@ -1,0 +1,13 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ThisApp.Code;
+@using DepLibrary2;
+
+<h1>Razor code use DepLibrary2.dll from '/Dependencies' folder</h1>
+
+@{
+    var d2 = new DepClass();
+}
+
+<div>Test @d2.MyProperty</div>
+
+
