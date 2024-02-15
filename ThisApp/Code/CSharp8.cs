@@ -9,7 +9,7 @@ namespace ThisApp.Code
 
     public (int x, int y) GetPoint() => (1, 2);
 
-    public string NullCoalescingAssigment(string? value) {
+    public string NullCoalescingAssigment(string value) {
       value ??= "Hello";
       return value;
     }
