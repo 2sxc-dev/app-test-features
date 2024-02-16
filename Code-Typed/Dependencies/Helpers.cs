@@ -1,4 +1,4 @@
-using ThisApp.Code;
+using AppCode;
 
 public class Helpers : Custom.Hybrid.CodeTyped
 {

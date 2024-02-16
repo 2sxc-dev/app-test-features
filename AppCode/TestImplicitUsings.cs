@@ -4,7 +4,7 @@
 // using System.Collections.Generic;
 // using System.Reflection;
 
-namespace ThisApp.Code
+namespace AppCode
 {
     public class TestImplicitUsings : Custom.Hybrid.CodeTyped
     {
