@@ -1,5 +1,5 @@
 ﻿// Class that uses dependencies from other libraries.
-namespace ThisApp.Code
+namespace AppCode
 {
     public class ClassUseDependecies : Custom.Hybrid.CodeTyped
     {
