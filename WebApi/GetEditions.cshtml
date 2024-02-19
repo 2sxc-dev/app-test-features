@@ -1,0 +1,33 @@
+@inherits Custom.Hybrid.Razor14
+@Kit.Page.Activate("2sxc.JsCore")
+
+<h1>Test Admin/Code for AppId: @App.AppId</h1>
+<ul>
+    <li><a href="#" onclick="generateDataModels(this); return false;">GenerateDataModels</a></li>
+    <li><a href="#" onclick="getEditions(this); return false;">GetEditions</a></li>
+</ul>
+
+<h2>Results</h2>
+<pre id="output1">...loading...</pre>
+
+
+<script>
+    var rezult = document.getElementById("output1");
+
+    function generateDataModels(moduleContext) {
+        $2sxc(moduleContext).webApi.fetchRaw('admin/code/GenerateDataModels?appId=' + @App.AppId);
+    }
+
+    function getEditions(moduleContext) {
+        $2sxc(moduleContext).webApi
+            .fetchJson('admin/code/GetEditions?appId=' + @App.AppId)
+            .then(data => {
+                console.log('GetEditions: ', data);
+                rezult.innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                console.error('GetEditions failed: ', error);
+                rezult.innerHTML = JSON.stringify(error, null, 2);
+            });
+    }
+</script>
