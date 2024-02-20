@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services;
+
+<h1>UsersService Get Current user</h1>
+
+@{
+  var users = GetService<IUserService>();
+  var user = users.Get(MyUser.Id);
+}
+
+<hr>
+<pre>
+  Username: @user.Username
+  Name: @user.Name
+  Email: @user.Email
+  Id: @user.Id
+  IsAnonymous: @user.IsAnonymous
+  IsSiteAdmin: @user.IsSiteAdmin
+  IsContentAdmin: @user.IsContentAdmin
+  IsSystemAdmin: @user.IsSystemAdmin
+  IsSiteDeveloper: @user.IsSiteDeveloper
+</pre>
+
