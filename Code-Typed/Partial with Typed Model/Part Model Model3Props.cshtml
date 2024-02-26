@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.RazorTyped<Model3Props>
+@* Needs this using to activate Roslyn for tuples *@
+@using AppCode.Razor
+
+
+<h3>Partial with int Model</h3>
+<p>
+  I got this: @Model (@Model.GetType().Name) <br>
+  Name: @Model.Name (@Model.Name.GetType().Name) <br>
+  Number: @Model.Number (@Model.Number.GetType().Name) <br>
+  Something: @Model.Something (@Model.Something.GetType().Name) <br>
+</p>

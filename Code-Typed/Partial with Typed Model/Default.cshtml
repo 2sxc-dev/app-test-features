@@ -1,6 +1,7 @@
 @inherits Custom.Hybrid.RazorTyped
 @* Needs this using to activate Roslyn for tuples *@
 @using AppCode
+@using AppCode.Razor
 
 <h1>Call Partial with Typed Models</h1>
 
@@ -17,6 +18,9 @@
 <h2>Tuple string, int</h2>
 @Html.Partial("./Part Model Tuple.cshtml", ("the answer", 42))
 
+<hr>
+<h2>Tuple string, int</h2>
+@Html.Partial("./Part Model Model3Props.cshtml", new Model3Props { Name = "John", Number = 27, Something = new Something { Name = "Sub object"} })
 
 
 
