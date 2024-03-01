@@ -2,6 +2,14 @@
   <!-- This file helps VS Code provide IntelliSense - see https://go.2sxc.org/vscode -->
 
   <PropertyGroup>
+    <!-- Custom property to define the environment: Dnn, OqtaneDev or OqtaneProd -->
+    <Environment Condition="Exists('..\..\..\..\bin\DotNetNuke.dll')">Dnn</Environment>
+    <Environment Condition="Exists('..\..\..\Oqtane.Server.dll')">OqtaneProd</Environment>
+    <Environment Condition="Exists('..\..\..\bin\Debug\net8.0\Oqtane.Server.dll')">OqtaneDev</Environment>
+  </PropertyGroup>
+
+  <!-- PropertyGroup for Dnn -->
+  <PropertyGroup Condition="'$(Environment)' == 'Dnn'">
     <!-- Specify the .net Framework you are targeting - this is usually net4.7.2 or net4.8
       https://learn.microsoft.com/en-us/dotnet/standard/frameworks
       - eg "net472", "net48", "net8.0" etc.
@@ -9,9 +17,6 @@
       - net8.0 is the default for Oqtane 5
     -->
     <TargetFramework>net472</TargetFramework>
-
-    <!-- Specify the default Namespace for code in this specific App -->
-    <RootNamespace>AppCode</RootNamespace>
 
     <!-- Specify what C# version to use
       https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history
@@ -26,31 +31,52 @@
     -->
     <!-- PathBin for Dnn -->
     <PathBin>..\..\..\..\bin</PathBin>
+  </PropertyGroup>
+
+  <!-- PropertyGroup for Oqtane in production -->
+  <PropertyGroup Condition="'$(Environment)' == 'OqtaneProd'">
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
     <!-- PathBin Oqtane production, just up 3 folders, no bin-subfolder -->
-    <!-- <PathBin>..\..\..</PathBin> -->
+    <PathBin>..\..\..</PathBin>
+  </PropertyGroup>
+
+  <!-- PropertyGroup for Oqtane in development/debug -->
+  <PropertyGroup Condition="'$(Environment)' == 'OqtaneDev'">
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>12.0</LangVersion>
     <!-- PathBin Oqtane dev/debug, up 3 folders and current build folder -->
-    <!-- <PathBin>..\..\..\bin\Debug\net8.0</PathBin> -->
+    <PathBin>..\..\..\bin\Debug\net8.0</PathBin>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!-- Specify the default Namespace for code in this specific App -->
+    <RootNamespace>AppCode</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
     <!-- Tell Visual Studio & VSCode to respect all ToSic.* DLLs in the root bin folder -->
     <Reference Include="$(PathBin)\ToSic.*.dll" />
 
-    <!-- also add System.Web and DotNetNuke DLLs - useful when creating APIs, but be aware that it may make your code less hybrid -->
+    <!-- Tell Visual Studio & VSCode to respect all * DLLs in the Dependencies folder -->
+    <Reference Include="Dependencies\*.dll" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(Environment)' == 'Dnn'">
+    <!-- also add System.Web and DotNetNuke DLLs - useful when creating APIs, but be aware that it
+    may make your code less hybrid -->
     <Reference Include="$(PathBin)\DotNetNuke.dll" />
     <Reference Include="$(PathBin)\DotNetNuke.*.dll" />
     <Reference Include="$(PathBin)\System.Web.Http.dll" />
     <Reference Include="$(PathBin)\System.Web.WebPages.dll" />
-    
-    <!-- Tell Visual Studio & VSCode to respect all * DLLs in the Dependencies folder -->
-    <Reference Include="Dependencies\*.dll" />
 
     <!-- System.Web is not in the DNN folder but in the .net Framework installed on the server -->
     <Reference Include="System.Web" />
   </ItemGroup>
 
   <!-- Polymorphism
-    If you're working with Polymorphism then you have many of the same files, which confuses Intellisense eg.
+    If you're working with Polymorphism then you have many of the same files, which confuses
+  Intellisense eg.
     - /live and /staging have the same files
     - /bs3 /bs4 / bs5 have the same files
     The following is meant to exclude some of these folders from intellisense
@@ -62,4 +88,10 @@
     <Compile Remove="live\**" />
     <EmbeddedResource Remove="live\**" />
   </ItemGroup>
+
+  <Target Name="PrintEnvironment" BeforeTargets="PreBuildEvent">
+    <Message Text="Environment='$(Environment)'" Importance="High" />
+    <Message Text="TargetFramework='$(TargetFramework)'" Importance="High" />
+    <Message Text="LangVersion='$(LangVersion)'" Importance="High" />
+  </Target>
 </Project>
