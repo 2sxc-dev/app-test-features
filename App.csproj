@@ -1,8 +1,26 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <!-- This file helps VS Code provide IntelliSense - see https://go.2sxc.org/vscode -->
 
+  <!-- Specify the default Namespace for C# code in this specific App -->
   <PropertyGroup>
-    <!-- Custom property to define the environment: Dnn, OqtaneDev or OqtaneProd -->
+    <RootNamespace>AppCode</RootNamespace>
+  </PropertyGroup>
+
+  <!-- First: Detect if it's running in Dnn, Oqtane-Production or Oqtane-Dev - and put in variable "Environment" -->
+  <!-- TODO: @STV, pls improve to use variables such as "RunningInDnn" so it's easier to understand. 
+    Also, add an OR condition to check both Oqtanes.
+    I had trouble reading the code, because ${Environment} in the conditions below looked like a system feature,
+    and since I didn't know csproj to well, I was confused. - and others will be too.
+
+    The Oqtane code below should then have 3 sections, one for Oqtane in general, one for dlls oqtane-prod / dev.
+  -->
+  <PropertyGroup>
+    <RunningInDnn Condition="Exists('..\..\..\..\bin\DotNetNuke.dll')">true</RunningInDnn>
+    <!-- TODO: @STV - add an OR condition to check both Oqtanes -->
+    <RunningInOqtane Condition="Exists('..\..\..\Oqtane.Server.dll')">true</RunningInOqtane>
+    <OqtaneIsProd Condition="Exists('..\..\..\Oqtane.Server.dll')">true</OqtaneIsProd>
+    <OqtaneIsDev Condition="Exists('..\..\..\bin\Debug\net8.0\Oqtane.Server.dll')">true</OqtaneIsDev>
+    <!-- TODO: @STV remove this once it works -->
     <Environment Condition="Exists('..\..\..\..\bin\DotNetNuke.dll')">Dnn</Environment>
     <Environment Condition="Exists('..\..\..\Oqtane.Server.dll')">OqtaneProd</Environment>
     <Environment Condition="Exists('..\..\..\bin\Debug\net8.0\Oqtane.Server.dll')">OqtaneDev</Environment>
@@ -33,38 +51,37 @@
     <PathBin>..\..\..\..\bin</PathBin>
   </PropertyGroup>
 
-  <!-- PropertyGroup for Oqtane in production -->
+  <!-- Settings for Oqtane in Production - in this case, the bin folder is in the root. -->
   <PropertyGroup Condition="'$(Environment)' == 'OqtaneProd'">
+    <!-- Oqtane 5+ uses .net 8 and a very new C# language version -->
     <TargetFramework>net8.0</TargetFramework>
+    <!-- TODO: @STV - can we not use "latest" here? -->
     <LangVersion>12.0</LangVersion>
     <!-- PathBin Oqtane production, just up 3 folders, no bin-subfolder -->
     <PathBin>..\..\..</PathBin>
   </PropertyGroup>
 
-  <!-- PropertyGroup for Oqtane in development/debug -->
+  <!-- Settings for Oqtane in Development/Debug - in this case, the bin folder is deeper down -->
   <PropertyGroup Condition="'$(Environment)' == 'OqtaneDev'">
+    <!-- Oqtane 5+ uses .net 8 and a very new C# language version -->
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>12.0</LangVersion>
     <!-- PathBin Oqtane dev/debug, up 3 folders and current build folder -->
     <PathBin>..\..\..\bin\Debug\net8.0</PathBin>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <!-- Specify the default Namespace for code in this specific App -->
-    <RootNamespace>AppCode</RootNamespace>
-  </PropertyGroup>
 
+  <!-- IntelliSense: Load all DLLs which exist in Dnn and Oqtane from the bin folder -->
   <ItemGroup>
-    <!-- Tell Visual Studio & VSCode to respect all ToSic.* DLLs in the root bin folder -->
     <Reference Include="$(PathBin)\ToSic.*.dll" />
-
-    <!-- Tell Visual Studio & VSCode to respect all * DLLs in the Dependencies folder -->
+    <!-- Also load files in the Dependencies folder of the current App -->
     <Reference Include="Dependencies\*.dll" />
   </ItemGroup>
 
+
+  <!-- Dnn IntelliSense: Load all special DLLs of Dnn and .net Framework -->
   <ItemGroup Condition="'$(Environment)' == 'Dnn'">
-    <!-- also add System.Web and DotNetNuke DLLs - useful when creating APIs, but be aware that it
-    may make your code less hybrid -->
+    <!-- System.Web and DotNetNuke DLLs help when creating APIs, but be aware that it may make your code less hybrid -->
     <Reference Include="$(PathBin)\DotNetNuke.dll" />
     <Reference Include="$(PathBin)\DotNetNuke.*.dll" />
     <Reference Include="$(PathBin)\System.Web.Http.dll" />
