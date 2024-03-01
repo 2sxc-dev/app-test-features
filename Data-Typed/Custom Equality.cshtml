@@ -1,14 +1,19 @@
 @inherits Custom.Hybrid.RazorTyped
 @using System.Linq
 @using AppCode
+@using AppCode.Data
 
 <h1>Typed Equality (16.04)</h1>
 <p>
   Content-Type used: <code>TestGetValues</code>
 </p>
 @{
-  var items = AsItems(App.Data["TestGetValues"]);
-  var item = AsItem(App.Data["TestGetValues"].First());
+  // Get all items and the first one
+  var items = App.Data.GetAll<TestGetValues>().ToList();
+
+  // It's important that GetAll is called again, so the objects are newly created
+  var item = App.Data.GetAll<TestGetValues>().First();
+  var itemAsItem = AsItem(item);
   var firstInList = items.First();
 
   // Group by Child #1 of Grandchildren - one set should have the same one
@@ -19,11 +24,6 @@
 
   var gFirst = grouped.First().Key;
   var gSecond = grouped.Skip(1).First().Key;
-  @* var gThird = grouped.Skip(2).First().Key; *@
-  @* var show = GetCode("../_Shared/ShowValues.cs");
-
-  DevTools.Debug(item);
-  DevTools.Debug(Kit.Link); *@
 }
 <h2>Data infos for further debugging</h2>
 <ol>
@@ -41,13 +41,8 @@
   <li>
     Grouped Second Key: @gSecond.Id - @gSecond.GetHashCode()
   </li>
-  @* <li>
-    Grouped Third Key: @gThird.Id - @gThird.GetHashCode()
-  </li>
-  <li>
-    second.Equals(third): @gSecond.Equals(gThird)
-  </li> *@
 </ol>
+<hr>
 <h2>Equality Checks</h2>
 <ol>
   <li>
@@ -66,5 +61,10 @@
   <li>
     Using item.Equals(firstInList): @Assert.AreEqual(item.Equals(firstInList), true)
   </li>
-
+  <li>
+    <hr>
+  </li>
+  <li>
+    Custom Item == Item (ITypedItem): @Assert.AreEqual(itemAsItem == item, false)
+  </li>
 </ol>
