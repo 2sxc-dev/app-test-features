@@ -18,15 +18,9 @@ using Dynlist = System.Collections.Generic.IEnumerable<dynamic>;
 [JsonFormatter(Casing = Casing.Unspecified)]
 public class CasingUnspecifiedController : Custom.Hybrid.Api14
 {
-    [HttpGet]
-    public object GetEntity()
-    {
-        return (App.Data.List.First());
-    }
+  [HttpGet]
+  public object GetEntity() => App.Data.List.First();
 
-    [HttpGet]
-    public object GetEntities()
-    {
-        return App.Data.List;
-    }
+  [HttpGet]
+  public object GetEntities() => App.Data.List.Take(10);
 }

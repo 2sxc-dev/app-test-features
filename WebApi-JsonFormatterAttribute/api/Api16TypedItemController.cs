@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 #else // DNN
 using System.Web.Http;
-using DotNetNuke.Web.Api;
 #endif
 using System.Linq;
 
