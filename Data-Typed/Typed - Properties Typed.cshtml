@@ -1,7 +1,7 @@
 @inherits Custom.Hybrid.RazorTyped
 @using System.Linq;
 
-<h1>Dynamic Code - Get Values - Dynamic object with Typed Accessors (16.01)</h1>
+<h1>Typed Code - Get Values with Typed Accessors (16.01)</h1>
 <p>
   Content-Type used: <code>TestGetValues</code>
 </p>
@@ -24,6 +24,17 @@
   <li>Number (decimal): @show.NumberWithTypeInfo(item.Decimal("Number"))</li>
   <li>NumberFloat (int): @show.NumberWithTypeInfo(item.Int("NumberFloat"))</li>
   <li>NumberFloat (float - in DE it will use a comma in output): @show.NumberWithTypeInfo(item.Float("NumberFloat"))</li>
+
+  <li>
+    @{
+      var gpsFromItem = item.Gps("GpsData");
+    }
+    GPS Test <br>
+    string: @item.String("GpsData") <br>
+    Gps: @gpsFromItem <br>
+    Latitude: @gpsFromItem.Latitude <br>
+    Longitude: @gpsFromItem.Longitude <br>
+  </li>
 
 </ol>
 
