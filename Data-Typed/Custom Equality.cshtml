@@ -17,9 +17,12 @@
   var firstInList = items.First();
 
   // Group by Child #1 of Grandchildren - one set should have the same one
-  var itemsWithChildren = items.Where(i => i.IsNotEmpty("Children")).ToList();
+  var itemsWithChildren = items
+    .Where(i => i.IsNotEmpty("Children"))
+    .ToList();
+
   var grouped = itemsWithChildren
-    .GroupBy(i => i.Child("Children"))
+    .GroupBy(i => i.Children.First()) // must have a first, as we only took the non-empty //.Child("Children"))
     .ToList();
 
   var gFirst = grouped.First().Key;
@@ -27,9 +30,10 @@
 }
 <h2>Data infos for further debugging</h2>
 <ol>
+  <li>Class name: @nameof(TestGetValues)</li>
+  <li>Item GetType: @item.GetType()</li>
   <li>Item ID: @item.Id</li>
   <li>firstInList Id: @firstInList.Id</li>
-  <li>Item GetType: @item.GetType()</li>
   <li>Item Count: @items.Count()</li>
   <li>Itemswithchildren count: @itemsWithChildren.Count()</li>
   <li>Grouped Count: @grouped.Count()</li>
