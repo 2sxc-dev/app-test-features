@@ -6,28 +6,16 @@
     <RootNamespace>AppCode</RootNamespace>
   </PropertyGroup>
 
-  <!-- First: Detect if it's running in Dnn, Oqtane-Production or Oqtane-Dev - and put in variable "Environment" -->
-  <!-- TODO: @STV, pls improve to use variables such as "RunningInDnn" so it's easier to understand. 
-    Also, add an OR condition to check both Oqtanes.
-    I had trouble reading the code, because ${Environment} in the conditions below looked like a system feature,
-    and since I didn't know csproj to well, I was confused. - and others will be too.
-
-    The Oqtane code below should then have 3 sections, one for Oqtane in general, one for dlls oqtane-prod / dev.
-  -->
+  <!-- First: Detect if it's running in Dnn, Oqtane-Production or Oqtane-Dev -->
   <PropertyGroup>
     <RunningInDnn Condition="Exists('..\..\..\..\bin\DotNetNuke.dll')">true</RunningInDnn>
-    <!-- TODO: @STV - add an OR condition to check both Oqtanes -->
-    <RunningInOqtane Condition="Exists('..\..\..\Oqtane.Server.dll')">true</RunningInOqtane>
+    <RunningInOqtane Condition="Exists('..\..\..\Oqtane.Server.dll') Or Exists('..\..\..\bin\Debug\net8.0\Oqtane.Server.dll')">true</RunningInOqtane>
     <OqtaneIsProd Condition="Exists('..\..\..\Oqtane.Server.dll')">true</OqtaneIsProd>
     <OqtaneIsDev Condition="Exists('..\..\..\bin\Debug\net8.0\Oqtane.Server.dll')">true</OqtaneIsDev>
-    <!-- TODO: @STV remove this once it works -->
-    <Environment Condition="Exists('..\..\..\..\bin\DotNetNuke.dll')">Dnn</Environment>
-    <Environment Condition="Exists('..\..\..\Oqtane.Server.dll')">OqtaneProd</Environment>
-    <Environment Condition="Exists('..\..\..\bin\Debug\net8.0\Oqtane.Server.dll')">OqtaneDev</Environment>
   </PropertyGroup>
 
   <!-- PropertyGroup for Dnn -->
-  <PropertyGroup Condition="'$(Environment)' == 'Dnn'">
+  <PropertyGroup Condition="'$(RunningInDnn)' == 'true'">
     <!-- Specify the .net Framework you are targeting - this is usually net4.7.2 or net4.8
       https://learn.microsoft.com/en-us/dotnet/standard/frameworks
       - eg "net472", "net48", "net8.0" etc.
@@ -50,24 +38,19 @@
     <!-- PathBin for Dnn -->
     <PathBin>..\..\..\..\bin</PathBin>
   </PropertyGroup>
+  
 
-  <!-- Settings for Oqtane in Production - in this case, the bin folder is in the root. -->
-  <PropertyGroup Condition="'$(Environment)' == 'OqtaneProd'">
+  <!-- PropertyGroup for Oqtane -->
+  <PropertyGroup Condition="'$(RunningInOqtane)' == 'true'">
     <!-- Oqtane 5+ uses .net 8 and a very new C# language version -->
     <TargetFramework>net8.0</TargetFramework>
-    <!-- TODO: @STV - can we not use "latest" here? -->
-    <LangVersion>12.0</LangVersion>
-    <!-- PathBin Oqtane production, just up 3 folders, no bin-subfolder -->
-    <PathBin>..\..\..</PathBin>
-  </PropertyGroup>
+    <LangVersion>latest</LangVersion>
 
-  <!-- Settings for Oqtane in Development/Debug - in this case, the bin folder is deeper down -->
-  <PropertyGroup Condition="'$(Environment)' == 'OqtaneDev'">
-    <!-- Oqtane 5+ uses .net 8 and a very new C# language version -->
-    <TargetFramework>net8.0</TargetFramework>
-    <LangVersion>12.0</LangVersion>
-    <!-- PathBin Oqtane dev/debug, up 3 folders and current build folder -->
-    <PathBin>..\..\..\bin\Debug\net8.0</PathBin>
+    <!-- PathBin Oqtane production, the bin folder is in the root, just up 3 folders, no bin-subfolder -->
+    <PathBin Condition="'$(OqtaneIsProd)' == 'true'">..\..\..</PathBin>
+
+    <!-- PathBin Oqtane dev/debug, the bin folder is deeper down, up 3 folders and current build folder -->
+    <PathBin Condition="'$(OqtaneIsDev)' == 'true'">..\..\..\bin\Debug\net8.0</PathBin>
   </PropertyGroup>
 
 
@@ -80,7 +63,7 @@
 
 
   <!-- Dnn IntelliSense: Load all special DLLs of Dnn and .net Framework -->
-  <ItemGroup Condition="'$(Environment)' == 'Dnn'">
+  <ItemGroup Condition="'$(RunningInDnn)' == 'true'">
     <!-- System.Web and DotNetNuke DLLs help when creating APIs, but be aware that it may make your code less hybrid -->
     <Reference Include="$(PathBin)\DotNetNuke.dll" />
     <Reference Include="$(PathBin)\DotNetNuke.*.dll" />
@@ -106,9 +89,14 @@
     <EmbeddedResource Remove="live\**" />
   </ItemGroup>
 
+  <!-- Info -->
   <Target Name="PrintEnvironment" BeforeTargets="PreBuildEvent">
-    <Message Text="Environment='$(Environment)'" Importance="High" />
+    <Message Text="RunningInDnn='$(RunningInDnn)'" Importance="High" />
+    <Message Text="RunningInOqtane='$(RunningInOqtane)'" Importance="High" />
+    <Message Text="OqtaneIsProd='$(OqtaneIsProd)'" Importance="High" />
+    <Message Text="OqtaneIsDev='$(OqtaneIsDev)'" Importance="High" />
     <Message Text="TargetFramework='$(TargetFramework)'" Importance="High" />
     <Message Text="LangVersion='$(LangVersion)'" Importance="High" />
   </Target>
+
 </Project>
