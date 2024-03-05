@@ -3,7 +3,7 @@
 @using AppCode
 @using AppCode.Data
 
-<h1>Typed Equality (16.04)</h1>
+<h1>Custom Item Equality (17.03+ | == in 17.04)</h1>
 <p>
   Content-Type used: <code>TestGetValues</code>
 </p>
@@ -53,8 +53,8 @@
     Item == Item (itself): @Assert.AreEqual(item == item, true)
   </li>
   <li>
-    First Item in Item-List = item made of first Entity: @Assert.AreEqual(firstInList == item, false)
-    <strong>FAILS - "==" can't work - must use Equals in case the object is different, since we can't overload ==</strong>
+    First Item in Item-List = item made of first Entity: @Assert.AreEqual(firstInList == item, true)
+    <strong>on objects "==" can work! we can overload ==!!</strong>
   </li>
   <li>
     Using item.Equals(item): @Assert.AreEqual(item.Equals(item), true)

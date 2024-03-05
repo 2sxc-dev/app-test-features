@@ -44,6 +44,7 @@
       "description": "live edition"
     },
     "staging": {
+      "isDefault": true,
       "description": "staging edition"
     },
     "bs5": {
