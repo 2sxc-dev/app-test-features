@@ -1,0 +1,15 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+@using AppCode;
+@{
+  dynamic testItem = AsTyped(new { A = "aaa", B = 1 });
+}
+
+<h1>WrapObjectTyped - Get("B")</h1>
+
+<pre>
+testItem = @testItem;
+testItem.Get("B") = @testItem.Get("B");
+</pre>

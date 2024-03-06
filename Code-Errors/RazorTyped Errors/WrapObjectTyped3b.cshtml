@@ -1,0 +1,18 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+@using ToSic.Sxc.Data.Internal.Wrapper;
+@using AppCode;
+@{
+  var Wrapper = GetService<CodeDataWrapper>();
+  object data = new { First = "FirstData", Last = "LastData"};
+  dynamic testItem = Wrapper.TypedFromObject(data, WrapperSettings.Typed(true, true));
+}
+
+<h1>WrapObjectTyped - Get("Last")</h1>
+
+<pre>
+testItem = @testItem;
+testItem.Get("Last") = @testItem.Get("Last");
+</pre>
