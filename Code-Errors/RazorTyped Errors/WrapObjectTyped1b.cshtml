@@ -1,0 +1,15 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Data;
+@using ToSic.Sxc.Services;
+@using AppCode;
+@{
+  dynamic testItem = MyItem;
+}
+
+<h1>WrapObjectTyped - Get("EntityId")</h1>
+
+<pre>
+testItem = @testItem;
+testItem.Get("EntityId") = @testItem.Get("EntityId");
+</pre>
