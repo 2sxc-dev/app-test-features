@@ -14,7 +14,7 @@ namespace AppCode.Data
 // Generator:   CSharpDataModelsGenerator v17.04.01
 // App/Edition: App Test Features/
 // User:        2sichost
-// When:        2024-03-18 16:01:34Z
+// When:        2024-03-19 22:27:34Z
 using System.Collections.Generic;
 using ToSic.Sxc.Data;
 
@@ -25,7 +25,7 @@ namespace AppCode.Data
 
   /// <summary>
   /// InputPickerString data. <br/>
-  /// Generated 2024-03-18 16:01:34Z. Re-generate whenever you change the ContentType. <br/>
+  /// Generated 2024-03-19 22:27:34Z. Re-generate whenever you change the ContentType. <br/>
   /// <br/>
   /// Default properties such as `.Title` or `.Id` are provided in the base class. <br/>
   /// Most properties have a simple access, such as `.PickerEntity`. <br/>
