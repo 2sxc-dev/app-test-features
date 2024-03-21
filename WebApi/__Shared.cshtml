@@ -1,7 +1,6 @@
 @inherits Custom.Hybrid.Razor14
 @{
-  var page = GetService<ToSic.Sxc.Services.IPageService>();
-  page.Activate("2sxc.JsCore");
+  Kit.Page.Activate("2sxc.JsCore");
 }
 <script type="text/javascript">
   // Use an IFFE to ensure the variables are not exposed globaly

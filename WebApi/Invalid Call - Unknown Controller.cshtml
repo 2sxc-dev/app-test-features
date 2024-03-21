@@ -1,0 +1,13 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Test Controller-Not-Found Error</h1>
+
+<p>
+  Should error because the controller doesn't exist
+</p>
+
+<pre id="jsonResult1">...loading...</pre>
+
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "UnknownController", Method = "UnknownMethod", Placeholder = "jsonResult1" })
+
+@Html.Partial("__Shared.cshtml")
