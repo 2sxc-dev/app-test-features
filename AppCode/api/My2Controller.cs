@@ -16,7 +16,7 @@ namespace AppCode.Api
       [HttpGet]        // [HttpGet] says we're listening to GET requests
       public string Hello()
       {
-          return "Hello from AppCode. 2";
+          return "Hello2 from AppCode.";
       }
   }
 

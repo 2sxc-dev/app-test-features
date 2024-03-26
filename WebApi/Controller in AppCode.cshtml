@@ -3,14 +3,29 @@
 <h1>Controller in AppCode</h1>
 
 
-<h2>1, get with Block</h2>
-<h3>expected string result: "Hello from AppCode."</h3>
-<pre id="jsonResult1">...loading...</pre>
-@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "My2", Method = "Hello", Placeholder = "jsonResult1" })
+<h2>get 'WebApi/api/My1/Hello' with Block</h2>
+<h3>expected string result: "Hello1 from AppCode."</h3>
+<pre id="jsonResult">...loading...</pre>
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "My1", Method = "Hello", Placeholder = "jsonResult" })
 
-<h2>2, get without Block</h2>
-<h3>expected string result: "Hello from AppCode."</h3>
+<h2>get 'WebApi/api/My1/Hello' without Block</h2>
+<h3>expected string result: "Hello1 from AppCode."</h3>
+<pre id="jsonResult1">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "WebApi/api/My1/Hello", placeholder = "jsonResult1" })
+
+<h2>get 'api/My1/Hello' without Block</h2>
+<h3>expected string result: "Hello1 from AppCode."</h3>
 <pre id="jsonResult2">...loading...</pre>
-@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "WebApi/api/My2/Hello", placeholder = "jsonResult2" })
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/My1/Hello", placeholder = "jsonResult2" })
+
+<h2>get 'api/My2/Hello' without Block</h2>
+<h3>expected string result: "Hello2 from AppCode."</h3>
+<pre id="jsonResult3">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/My2/Hello", placeholder = "jsonResult3" })
+
+<h2>get 'api/My3/Hello' without Block</h2>
+<h3>expected string result: "Hello3 from AppCode."</h3>
+<pre id="jsonResult4">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/My3/Hello", placeholder = "jsonResult4" })
 
 @Html.Partial("__Shared.cshtml")
