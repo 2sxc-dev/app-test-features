@@ -15,15 +15,6 @@ public class MyController : Custom.Hybrid.Api14
     [HttpGet]        // [HttpGet] says we're listening to GET requests
     public string Hello()
     {
-        return "Hello from the controller with ValidateAntiForgeryToken in /api";
-    }
-
-    [HttpPost]        // [HttpPost] says we're listening to POST requests
-    [ValidateAntiForgeryToken] // protects from the users not on your site (CSRF protection)
-    public int Sum([FromBody] dynamic bodyJson) // post body { "a": 2, "b": 3 }
-    {
-        int a = bodyJson.a;
-        int b = bodyJson.b;
-        return a + b;
+        return "Hello from normal API controller in /api";
     }
 }

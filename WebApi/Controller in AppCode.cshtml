@@ -2,7 +2,6 @@
 
 <h1>Controller in AppCode</h1>
 
-
 <h3>get 'WebApi/api/My1/Hello' with Block</h3>
 <p>expected string result: "Hello1 from AppCode."</p>
 <pre id="jsonResult">...loading...</pre>
@@ -27,5 +26,18 @@
 <p>expected string result: "Hello3 from AppCode."</p>
 <pre id="jsonResult4">...loading...</pre>
 @Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/My3/Hello", placeholder = "jsonResult4" })
+
+
+<h1>Controller in /api</h1>
+
+<h3>get 'WebApi/api/My/Hello' with Block</h3>
+<p>expected string result: "Hello from normal API controller in /api."</p>
+<pre id="jsonResult5">...loading...</pre>
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "My", Method = "Hello", Placeholder = "jsonResult5" })
+
+<h3>get 'WebApi/api/My/Hello' without Block</h3>
+<p>expected string result: "Hello from normal API controller in /api."</p>
+<pre id="jsonResult6">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "WebApi/api/My/Hello", placeholder = "jsonResult6" })
 
 @Html.Partial("__Shared.cshtml")
