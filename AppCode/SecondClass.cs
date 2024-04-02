@@ -6,7 +6,7 @@ namespace AppCode
     public class SecondClass
     {
         // Property that returns a string
-        public string MyProperty { get; set; }
+        public string MyProperty { get; set; } = "I'm from AppCode";
 
         public FirstClass GetFirstClass()
         {

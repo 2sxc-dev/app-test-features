@@ -1,0 +1,10 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Controller in /api relaying on AppCode</h1>
+
+<h3>get 'WebApi/api/My4/Hello' with Block</h3>
+<p>expected string result: "Hello from the controller relaying on AppCode (I'm from AppCode)."</p>
+<pre id="jsonResult">...loading...</pre>
+@Kit.Page.TurnOn("window.downloadJson()", data: new { Controller =  "My4", Method = "Hello", Placeholder = "jsonResult" })
+
+@Html.Partial("__Shared.cshtml")
