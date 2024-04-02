@@ -1,0 +1,40 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Controller in AppCode</h1>
+
+<h2>Verify GetCode works in Controllers</h2>
+
+<h3>get 'WebApiGetCode/GetPath'</h3>
+<p>expected string result: "/Portals/Features/2sxc/app-test-features/AppCode/"</p>
+<pre id="jsonWebApiGetPath">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "WebApi/api/WebApiGetCode/GetPath", placeholder = "jsonWebApiGetPath" })
+
+
+<h3>get 'WebApiGetCode/HelloFromSharedHelperRelative'</h3>
+<p>expected string result: "TODO"</p>
+<pre id="jsonWebApiHelloRelative">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "WebApi/api/WebApiGetCode/HelloFromSharedHelperRelative", placeholder = "jsonWebApiHelloRelative" })
+
+<h3>get 'WebApiGetCode/HelloFromSharedHelperAbsolute'</h3>
+<p>expected string result: "TODO"</p>
+<pre id="jsonWebApiHelloAbsolute">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "WebApi/api/WebApiGetCode/HelloFromSharedHelperAbsolute", placeholder = "jsonWebApiHelloAbsolute" })
+
+<h3>get 'AppCodeGetCode/GetPath'</h3>
+<p>expected string result: "/Portals/Features/2sxc/app-test-features/AppCode/"</p>
+<pre id="jsonAppCodeGetPath">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/AppCodeGetCode/GetPath", placeholder = "jsonAppCodeGetPath" })
+
+<h3>get 'AppCodeGetCode/HelloFromSharedHelperRelative'</h3>
+<p>expected string result: "TODO"</p>
+<pre id="jsonAppCodeHelloRelative">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/AppCodeGetCode/HelloFromSharedHelperRelative", placeholder = "jsonAppCodeHelloRelative" })
+
+
+<h3>get 'AppCodeGetCode/HelloFromSharedHelperAbsolute'</h3>
+<p>expected string result: "TODO"</p>
+<pre id="jsonAppCodeHelloAbsolute">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/AppCodeGetCode/HelloFromSharedHelperAbsolute", placeholder = "jsonAppCodeHelloAbsolute" })
+
+
+@Html.Partial("__Shared.cshtml")
