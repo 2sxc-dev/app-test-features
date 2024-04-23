@@ -1,0 +1,48 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Data
+@using ToSic.Sxc.Services
+
+@using ToSic.Eav.Data
+@using System.Collections
+@using System.Collections.Generic
+
+
+<h1>Link Service using Settings</h1>
+<p>
+  ...
+</p>
+@{
+  var url = "abc.jpg";
+  var contentSettings = AllSettings.Get("Images.Content");
+}
+
+<h2>Data</h2>
+<ol>
+  <li>
+      url (FYI): @url
+  </li>
+  <li>
+    contentSettings Is IEnumerable: @(contentSettings is IEnumerable)
+  </li>
+  <li>
+    contentSettings Is ICanGetByName: @(contentSettings is ICanGetByName)
+  </li>
+  <li>
+    contentSettings Is IEnum...ITypedItem: @(contentSettings is IEnumerable<ITypedItem>)
+  </li>
+  <li>
+    contentSettings Is IEnum...ICanGetByName: @(contentSettings is IEnumerable<ICanGetByName>)
+  </li>
+  <li>
+    using link service raw: 
+    <br>
+    @Link.Image(url)
+  </li>
+  <li>
+    using link service with settings: 
+    <br>
+    @Link.Image(url, contentSettings)
+  </li>
+  
+</ol>
