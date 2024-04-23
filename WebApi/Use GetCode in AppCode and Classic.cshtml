@@ -36,5 +36,21 @@
 <pre id="jsonAppCodeHelloAbsolute">...loading...</pre>
 @Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/AppCodeGetCode/HelloFromSharedHelperAbsolute", placeholder = "jsonAppCodeHelloAbsolute" })
 
+<hr>
+
+
+<h3>get 'AppCodeGetCode/GenerateMailFromFullName'</h3>
+<p>expected string result: "TODO"</p>
+<pre id="jsonGenerateMailFromFullName">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/AppCodeGetCode/GenerateMailFromFullName", placeholder = "jsonGenerateMailFromFullName" })
+
+<h3>get 'AppCodeGetCode/GenerateMailFromClassName'</h3>
+<p>expected string result: "TODO"</p>
+<pre id="jsonGenerateMailFromClassName">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "api/AppCodeGetCode/GenerateMailFromClassName", placeholder = "jsonGenerateMailFromClassName" })
+
+
+<hr>
+
 
 @Html.Partial("__Shared.cshtml")
