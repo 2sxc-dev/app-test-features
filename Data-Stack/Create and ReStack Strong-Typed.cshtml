@@ -1,0 +1,74 @@
+@inherits Custom.Hybrid.RazorTyped
+@using Custom.Data
+
+<h1>Create and Re-Stack (Pro: AllSettings &amp; AllResources)</h1>
+
+@functions {
+  public class SpecialSettings : CustomItem
+  {
+    public string Color => _item.String("Color", fallback: "");
+    public int Width => _item.Int("Width");
+    public string Title1 => _item.String("Title1", fallback: "");
+    public string Title2 => _item.String("Title2", fallback: "");
+  }
+}
+
+@{
+  AllSettings.Debug = true;
+}
+
+<hr>
+<h2>Re-Stacking</h2>
+<p>
+  These tests should help verify that a stack can be combined with other objects.
+</p>
+@{
+  
+  var testPart1 = AsTyped(new {
+    Color = "red",
+    Width = 100,
+    Title1 = "Test Title 1",
+  });
+  var testPart2 = AsTyped(new {
+    Color = "blue",
+    Width = 200,
+    Title2 = "Test Title 2",
+  });
+  var singleItemStack = AsStack(null, testPart1); // add multiple params to be sure it runs through the stack code
+  var partsStack = AsStack(testPart1, testPart2);
+  var revPartsStack = AsStack(testPart2, testPart1);
+  var restack1 = AsStack(null, singleItemStack); // add a null to ensure it doesn't just return the original object
+  // order may matter...
+  // var mixSettings = AsStack(AllSettings.Get("Images.Content"), testPart1);
+  var mixSettings = AsStack(testPart1, AllSettings.Get("Images.Content"));
+}
+
+<h2>Quick intial tests for debugging</h2>
+<ol>
+  <li>type of restack: @restack1</li>
+  <li>restack1.Get("Color"): @restack1.Get("Color")</li>
+</ol>
+
+<h2>Basic Tests</h2>
+<ol>
+  <li>Type: @singleItemStack</li>
+  <li>SingleItem.Get("Color"): @singleItemStack.Get("Color")</li>
+  <li>partStack.Color: @partsStack.Get("Color")</li>
+  <li>revPartStack.Get("Color"): @revPartsStack.Get("Color")</li>
+  <li>restack1.Get("Color"): @restack1.Get("Color")</li>
+  <li>mixSettings.Get("Color"): @mixSettings.Get("Color")</li>
+  <li>mixSettings.Width: @mixSettings.Int("Width")</li>
+  <li>mixSettings.Title1: @mixSettings.Get("Title1")</li>
+</ol>
+
+<h2>Strong-Typed Tests</h2>
+@{
+  var strong = As<SpecialSettings>(partsStack);
+}
+<ol>
+  <li>strong.Color: @strong.Color</li>
+  <li>strong.Width: @strong.Width</li>
+  <li>strong.Title1: @strong.Title1</li>
+  <li>strong.Title2: @strong.Title2</li>
+  <li>Field of Title1: @strong.Field("Title1")</li>
+</ol>
