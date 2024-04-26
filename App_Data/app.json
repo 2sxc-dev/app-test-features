@@ -36,6 +36,10 @@
     ]
   },
 
+  "dotnet":{
+    "razorCompiler": "roslyn"
+  },
+
   "editions": {
     "": {
       "description": "default, root edition"
