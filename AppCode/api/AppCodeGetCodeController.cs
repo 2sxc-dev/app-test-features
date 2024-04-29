@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 #else // DNN
 using System.Web.Http;
-using AppCode.Mails;
 // using DotNetNuke.Modules.UserDefinedTable.Components;
 using DotNetNuke.Web.Api;
 #endif
 using ToSic.Sxc.Services; // Make it easier to use https://go.2sxc.org/services
+using AppCode.Mails;
 
 [AllowAnonymous]
 public class AppCodeGetCodeController : Custom.Hybrid.ApiTyped
