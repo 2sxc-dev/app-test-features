@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>app.json - Rosyln compiler in code file</h1>
+
+<p>It should work without statment 'using AppCode;' in "AppJsonCodeTests.cs" file.</p>
+
+<h2>"roslyn" should be configured in 'app.json'.</h2>
+<pre>
+  "dotnet":{
+    "compiler": "roslyn"
+  },
+</pre>
+
+@{
+  var appJsonCodeTests = GetCode("AppJsonCodeTests.cs");
+}
+
+
+<ul>
+    <li>Feature 'coalescing assignment' is @appJsonCodeTests.Available.</li>
+</ul>
+
+

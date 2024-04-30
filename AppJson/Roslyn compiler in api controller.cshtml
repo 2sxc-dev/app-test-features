@@ -1,0 +1,43 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>app.json - Rosyln compiler in api controller file</h1>
+
+<p>It should work without statment 'using AppCode;' in "AppJsonTestsController.cs" file.</p>
+
+<h2>"roslyn" should be configured in 'app.json'.</h2>
+<pre>
+  "dotnet":{
+    "compiler": "roslyn"
+  },
+</pre>
+
+@{
+  Kit.Page.Activate("2sxc.JsCore");
+}
+
+<ul>
+  <li>Feature 'coalescing assignment' is <span id="available">...loading...</span>.</li>
+</ul>
+
+@Kit.Page.TurnOn("window.downloadJson()", data: new
+  {
+    Controller = "AppJsonTests",
+    Method = "Available",
+    Placeholder = "available"
+  })
+
+<script type="text/javascript">
+  // Use an IFFE to ensure the variables are not exposed globaly
+  // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+  (() => {
+    function downloadJson(data) {
+      $2sxc(@MyContext.Module.Id).webApi
+        .fetchJson('app/auto/AppJson/api/' + data.Controller + '/' + data.Method)
+        .then(response => {
+          // console.log(response);
+          document.getElementById(data.Placeholder).innerHTML = JSON.stringify(response, null, 2);
+        });
+    }
+    window.downloadJson = downloadJson;
+  })();
+</script>
