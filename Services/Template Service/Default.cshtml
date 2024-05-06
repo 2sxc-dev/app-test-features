@@ -1,0 +1,82 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade;
+@using ToSic.Sxc.Services;
+
+<h1>Template Service</h1>
+@{
+  var templateSvc = GetService<ITemplateService>();
+  var engine = templateSvc.Default();
+
+  var templateQs = "[QueryString:TestPath]";
+
+  var templateQsWrapped = $"Path is: <strong>{templateQs}</strong>";
+
+  var myTestToken = "[My:TestValue]";
+  var mySource = templateSvc.CreateSource("My", new Dictionary<string, string> { { "TestValue", "This is a test value" } });
+  var mySources = new[] { mySource };
+  var myEngine = templateSvc.Empty(sources: mySources);
+
+  var mixedTokens = myTestToken + " and " + templateQs;
+
+  var mixedEngine = templateSvc.Default(sources: mySources);
+}
+<p>
+  The LookUpService should provide a way to look up values from other sources.
+</p>
+
+<ol>
+  <li>
+    Quick Parse <code>@templateQs</code>:
+    <br>
+    @templateSvc.Parse(templateQs) 
+  </li>
+  <li>
+    Sources: @engine.Sources.Count()
+  </li>
+  <li>
+    Parse <code>@templateQs</code>:
+    <br>
+    @engine.Parse(templateQs) 
+  </li>
+
+  <li>
+    Parse <code>@templateQsWrapped</code>:
+    <br>
+    @Html.Raw(engine.Parse(templateQsWrapped))
+  </li>
+  <li>
+    Parse <code>@myTestToken</code> with default engine:
+    <br>
+    @engine.Parse(myTestToken)
+  </li>
+  <li>
+    Parse <code>@myTestToken</code> with custom engine:
+    <br>
+    @myEngine.Parse(myTestToken)
+  </li>
+  <li>
+    Parse <code>@mixedTokens</code> with default engine:
+    <br>
+    @engine.Parse(mixedTokens)
+  </li>
+  <li>
+    Parse <code>@mixedTokens</code> with custom engine:
+    <br>
+    @myEngine.Parse(mixedTokens)
+  </li>
+  <li>
+    Parse <code>@mixedTokens</code> with mixed engine:
+    <br>
+    @mixedEngine.Parse(mixedTokens)
+  </li>
+  <li>
+    Parse <code>@mixedTokens</code> with default engine and more sources:
+    <br>
+    @engine.Parse(mixedTokens, sources: mySources)
+  </li>
+  <li>
+    Parse <code>@mixedTokens</code> with template service and more sources:
+    <br>
+    @templateSvc.Parse(mixedTokens, sources: mySources)
+  </li>
+</ol>
