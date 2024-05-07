@@ -26,10 +26,36 @@
 
 <ol>
   <li>
+    Add url param ?WithToken=[QueryString:TestPath] to see the result
+    <br>
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("WithToken", "[QueryString:TestPath]"))'>With dangerous token</a>
+    ,
+    <a href='@Link.To(parameters: MyPage.Parameters.Remove("WithToken"))'>remove</a>
+    <br>
+    Result: @templateSvc.Parse("[QueryString:WithToken]")
+    <br>
+    With Token Fallback: @templateSvc.Parse("[QueryString:WithToken||[User:UserName]]")
+  </li>
+</ol>
+
+<h2>Template SVC direct calls</h2>
+
+<ol>
+  <li>
     Quick Parse <code>@templateQs</code>:
     <br>
     @templateSvc.Parse(templateQs) 
   </li>
+  <li>
+    Parse <code>@mixedTokens</code> with template service and more sources:
+    <br>
+    @templateSvc.Parse(mixedTokens, sources: mySources)
+  </li>
+</ol>
+
+<h2>Template Engine</h2>
+
+<ol>
   <li>
     Sources: @engine.Sources.Count()
   </li>
@@ -73,10 +99,5 @@
     Parse <code>@mixedTokens</code> with default engine and more sources:
     <br>
     @engine.Parse(mixedTokens, sources: mySources)
-  </li>
-  <li>
-    Parse <code>@mixedTokens</code> with template service and more sources:
-    <br>
-    @templateSvc.Parse(mixedTokens, sources: mySources)
   </li>
 </ol>
