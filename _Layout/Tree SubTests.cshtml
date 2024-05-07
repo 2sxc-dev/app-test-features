@@ -1,7 +1,7 @@
 @inherits Custom.Hybrid.Razor14
-@using ToSic.Sxc.Services;
-@using System.IO;
-@using System.Linq;
+@using ToSic.Sxc.Services
+@using System.IO
+@using System.Linq
 @{
   var testTree = CreateInstance("TestTreeHelpers.cs");
   var skipFiles = (DynamicModel.SkipFiles as bool?) ?? false;

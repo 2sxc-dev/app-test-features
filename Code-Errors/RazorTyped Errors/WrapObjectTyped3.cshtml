@@ -1,9 +1,9 @@
 @inherits Custom.Hybrid.RazorTyped
-@using ToSic.Razor.Blade;
-@using ToSic.Sxc.Data;
-@using ToSic.Sxc.Services;
-@using ToSic.Sxc.Data.Internal.Wrapper;
-@using AppCode;
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Data
+@using ToSic.Sxc.Services
+@using ToSic.Sxc.Data.Internal.Wrapper
+@using AppCode
 @{
   var Wrapper = GetService<CodeDataWrapper>();
   object data = new { First = "FirstData", Last = "LastData"};
