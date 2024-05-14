@@ -1,0 +1,29 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Services
+
+<h1>Template Service</h1>
+@{
+  var templateSvc = GetService<ITemplateService>();
+  var engine = templateSvc.Default();
+
+  var templateQs = "[QueryString:TestPath]";
+}
+
+<hr>
+<h2>Security check to prevent token inject with other tokens</h2>
+<p>
+  Add url param ?WithToken=[QueryString:TestPath] to see the result.
+    <br>
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("WithToken", "[QueryString:TestPath]"))'>add dangerous token</a>
+    ,
+    <a href='@Link.To(parameters: MyPage.Parameters.Remove("WithToken"))'>remove</a>
+</p>
+<ol>
+  <li>
+    Result: @templateSvc.Parse("[QueryString:WithToken]")
+  </li>
+  <li>
+    With Token Fallback retrieving user name: @templateSvc.Parse("[QueryString:WithToken||[User:UserName]]")
+  </li>
+</ol>

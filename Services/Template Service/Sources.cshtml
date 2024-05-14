@@ -1,0 +1,66 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Services
+
+<h1>Template Service</h1>
+@{
+  // var Kit.Template = Kit.Template;// GetService<ITemplateService>();
+  var engine = Kit.Template.Default();
+  var engine2 = Kit.Template.Default();
+
+  var templateQs = "[QueryString:TestPath]";
+
+  var templateQsWrapped = $"Path is: <strong>{templateQs}</strong>";
+
+  var myTestToken = "[My:TestValue]";
+  var mySource = Kit.Template.CreateSource("My", new Dictionary<string, string> { { "TestValue", "This is a test value" } });
+  var mySources = new[] { mySource };
+  var myEngine = Kit.Template.Empty(sources: mySources);
+
+  var mixedTokens = myTestToken + " and " + templateQs;
+
+  var mixedEngine = Kit.Template.Default(sources: mySources);
+}
+<p>
+  Query a TemplateEngine for it's sources on various levels.
+</p>
+
+
+<h2>Template Engine</h2>
+
+<ol>
+  <li>
+    Sources: @engine.GetSources().Count()
+  </li>
+  <li>
+    Sources QueryString: @Kit.Template.GetSource("QueryString")
+  </li>
+  <li>
+    Sources Dummy: @Kit.Template.GetSource("Dummy")
+  </li>
+  <li>
+    Sources (depth: 1): @engine.GetSources(depth: 1).Count()
+  </li>
+  <li>
+    Sources (depth: 2): @engine.GetSources(depth: 2).Count()
+  </li>
+  <li>
+    Mixed Engine Sources (depth: 0): @mixedEngine.GetSources(depth: 0).Count()
+  </li>
+  <li>
+    Mixed Engine Sources (depth: 1): @mixedEngine.GetSources(depth: 1).Count()
+  </li>
+  <li>
+    Mixed Engine Sources (depth: 2): @mixedEngine.GetSources(depth: 2).Count()
+  </li>
+</ol>
+
+<h2>List all</h2>
+<ol>
+  @foreach (var source in mixedEngine.GetSources(depth: 2))
+  {
+    <li>
+      @source.Name - @source
+    </li>
+  }
+</ol>

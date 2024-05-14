@@ -1,0 +1,51 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.Data
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Services
+
+<h1>Template Service - with Data</h1>
+@{
+  var template = App.Data.GetAll<TestTemplateService>().FirstOrDefault();
+
+  var data = App.Data.GetAll<TestTemplateServiceData>().FirstOrDefault();
+
+  var engine = Kit.Template.Default();
+  var itemDs = Kit.Template.CreateSource("Item", data);
+  var engineWithData = Kit.Template.Default(sources: new[] { itemDs });
+}
+<p>
+  Query a TemplateEngine for it's sources on various levels.
+</p>
+
+
+<h2>Raw Data</h2>
+<ul>
+  <li @Kit.Toolbar.Edit(template)>
+    Template Item: @template.Title
+  </li>
+  <li @Kit.Toolbar.Edit(data)>
+    Template Data: @data.Title
+  </li>
+</ul>
+
+<h2>Results</h2>
+<ol>
+  <li>
+    <code>@template.Title</code>
+    <br>
+    result: <code>@engine.Parse(template.Title)</code>
+  </li>
+  <li>
+    <code>@template.Message</code>
+    <br>
+    result: <code>@engine.Parse(template.Message)</code>
+  </li>
+  <li>
+    HTML:
+    @template.Html("Message", tweak: t => t.Input(engine.Parse))
+  </li>
+  <li>
+    HTML with data:
+    @template.Html("Message", tweak: t => t.Input(engineWithData.Parse))
+  </li>
+</ol>
