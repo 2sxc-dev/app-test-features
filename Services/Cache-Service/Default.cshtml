@@ -1,0 +1,102 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services
+
+<h1>Cache Service</h1>
+@{
+  var dataNow = DateTime.Now;
+  var key = "TestDateTimeNowThen";
+
+  var byUserSpecs = Kit.Cache.CreateSpecs(key).VaryByUser();
+  var keyApp = "KeyApp";
+  var withAppSpecs = Kit.Cache.CreateSpecs(keyApp).WatchApp();
+}
+<ul>
+  <li>
+    <a href='@Link.To(parameters: MyPage.Parameters.Remove("action"))'>No Action</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set"))'>Set</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove"))'>Remove</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-user"))'>Set current user only</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove-user"))'>Remove current user only</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app"))'>Set Watch App</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove-app"))'>Remove Watch App</a>
+
+  </li>
+</ul>
+@{
+  switch (MyPage.Parameters.String("action"))
+  {
+    case "set":
+      Kit.Cache.Set(key, dataNow);
+      break;
+    case "remove":
+      Kit.Cache.Remove(key);
+      break;
+    case "set-user":
+      Kit.Cache.Set(key, dataNow, tweak: t => t.VaryByUser());
+      break;
+    case "remove-user":
+      Kit.Cache.Remove(byUserSpecs);
+      break;
+    case "set-app":
+      Kit.Cache.Set(keyApp, dataNow, tweak: t => t.WatchApp());
+      break;
+    case "remove-app":
+      Kit.Cache.Remove(withAppSpecs);
+      break;
+  }
+
+}
+
+<hr>
+
+<h3>Result for main cache</h3>
+
+<ol>
+  <li>
+    Cache Service: @Kit.Cache
+  </li>
+
+  <li>
+    <strong>Cache Service - Contains</strong>
+    <br>
+    contains: @Kit.Cache.Contains(key)
+    <br>
+    Value: @(Kit.Cache.Get<DateTime>(key))
+  </li>
+  <li>
+    TryGet: @(Kit.Cache.TryGet<DateTime>(key, out var value)) - Value: @value
+  </li>
+</ol>
+
+<h3>Result for USER-cache</h3>
+<ol>
+  <li>
+    <strong>Cache Service - Contains</strong>
+    <br>
+    contains: @Kit.Cache.Contains(byUserSpecs)
+    <br>
+    Value: @(Kit.Cache.Get<DateTime>(byUserSpecs))
+  </li>
+  <li>
+    TryGet: @(Kit.Cache.TryGet<DateTime>(byUserSpecs, out var byUserValue)) - Value: @byUserValue
+  </li>
+</ol>
+
+<h3>Results for Apps-based cache</h3>
+<ol>
+  <li>
+    <strong>Cache Service - Contains</strong>
+    <br>
+    contains: @Kit.Cache.Contains(withAppSpecs)
+    <br>
+    Value: @(Kit.Cache.Get<DateTime>(withAppSpecs))
+  </li>
+  <li>
+    TryGet: @(Kit.Cache.TryGet<DateTime>(withAppSpecs, out var withAppValue)) - Value: @withAppValue
+  </li>

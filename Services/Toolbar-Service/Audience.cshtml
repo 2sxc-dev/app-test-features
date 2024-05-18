@@ -1,0 +1,91 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Toolbar Service - Audience Action - new/wip 17.08</h1>
+<p>
+  todo
+</p>
+@{
+  var empty = Kit.Toolbar.Empty().Audience(everyone: true);
+}
+<h2>infos</h2>
+<ol>
+  <li>
+    <strong>Default - using tweak</strong>
+    @{
+      var tlbInfo = empty.Info(tweak: b => b.Note(AllResources.String("Toolbar.IsDemoSubItem"), background: "yellow"));
+    }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>Empty</strong>
+    @{ tlbInfo = empty.Info(); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>Message with Link</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this is a link that also works with ctrl/shift"), link: "//2sxc.org"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>Message with Link in new window</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this must open a new window"), link: "//2sxc.org", target: "_blank"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+
+  <li>
+    <strong>🕑 Message with delay</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this is delayed by 1 second", delay: 1000), link: "//2sxc.org"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>🕑 Message with linger</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this will linger for 1 second", linger: 1000), link: "//2sxc.org"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    <strong>🕑 Message with delay & linger</strong>
+    @{ tlbInfo = empty.Info(tweak: b => b.Note("this will delay 500ms and linger for 2 seconds", delay: 500, linger: 2000), link: "//2sxc.org"); }
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+</ol>
+
+<hr>
+<h2>Links</h2>
+@{
+
+  var tlbHelp = empty.Info(tweak: b => b.Note("check out the help", type: "help"), link: "//google.com");
+
+  var tlbLink = empty.Info(tweak: b => b.Note("check out the help", type: "warning"), link: "//google.com");
+
+}
+<ol>
+  <li>
+    Show as tag: @tlbInfo.AsTag()
+    <br>
+    @tlbInfo.AsJson()
+  </li>
+  <li>
+    Show as tag: @tlbHelp.AsTag()
+    <br>
+    @tlbHelp.AsJson()
+  </li>
+  <li>
+    Show as tag: @tlbLink.AsTag()
+    <br>
+    @tlbLink.AsJson()
+  </li>
+</ol>
