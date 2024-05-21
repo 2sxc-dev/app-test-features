@@ -9,9 +9,18 @@
 
   var byUserSpecs = Kit.Cache.CreateSpecs(key).VaryByUser();
   var keyApp = "KeyApp";
-  var withAppSpecs = Kit.Cache.CreateSpecs(keyApp).WatchAppData().WatchAppFolder();
+  var withAppSpecs = Kit.Cache.CreateSpecs(keyApp)
+    .WatchAppData()
+    .WatchAppFolder();
+
+  var withAppByUser = withAppSpecs.VaryByUser();
+
   var showTestData = new ShowTestData();
 }
+<h2>Use these actions to set/reset/unset caches</h2>
+<p>
+  For some tests, you must set something, then switch the page back to "no action".
+</p>
 <ul>
   <li>
     <a href='@Link.To(parameters: MyPage.Parameters.Remove("action"))'>No Action</a>
@@ -20,7 +29,9 @@
     |
     <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove-user"))'>Remove current user only</a>
     |
-    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app"))'>Set Watch App</a>
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app"))'>Set Watch App (key/tweak)</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app-specs"))'>Set Watch App (using specs)</a>
     |
     <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove-app"))'>Remove Watch App</a>
 
@@ -43,6 +54,9 @@
       break;
     case "set-app":
       Kit.Cache.Set(keyApp, dataNow, tweak: t => t.WatchAppData().WatchAppFolder());
+      break;
+    case "set-app-specs":
+      Kit.Cache.Set(withAppSpecs, dataNow);
       break;
     case "remove-app":
       Kit.Cache.Remove(withAppSpecs);
