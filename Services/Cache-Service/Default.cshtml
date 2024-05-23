@@ -7,7 +7,9 @@
   var dataNow = DateTime.Now;
   var key = "TestDateTimeNowThen";
 
-  var byUserSpecs = Kit.Cache.CreateSpecs(key).VaryByUser();
+  var byUserSpecs = Kit.Cache.CreateSpecs(key)
+    .VaryByUser();
+
   var keyApp = "KeyApp";
   var withAppSpecs = Kit.Cache.CreateSpecs(keyApp)
     .WatchAppData()
@@ -34,7 +36,6 @@
     <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app-specs"))'>Set Watch App (using specs)</a>
     |
     <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove-app"))'>Remove Watch App</a>
-
   </li>
 </ul>
 @{
@@ -47,13 +48,13 @@
       Kit.Cache.Remove(key);
       break;
     case "set-user":
-      Kit.Cache.Set(key, dataNow, tweak: t => t.VaryByUser());
+      Kit.Cache.Set(byUserSpecs, dataNow);
       break;
     case "remove-user":
       Kit.Cache.Remove(byUserSpecs);
       break;
     case "set-app":
-      Kit.Cache.Set(keyApp, dataNow, tweak: t => t.WatchAppData().WatchAppFolder());
+      Kit.Cache.Set(withAppSpecs, dataNow);
       break;
     case "set-app-specs":
       Kit.Cache.Set(withAppSpecs, dataNow);
@@ -79,6 +80,8 @@
     <br>
     contains: @showTestData.BoolMoji(Kit.Cache.Contains(key))
     <br>
+    Key: <code>@key</code>
+    <br>
     Value: @(Kit.Cache.Get<DateTime>(key))
   </li>
   <li>
@@ -93,6 +96,8 @@
     <br>
     contains: @showTestData.BoolMoji(Kit.Cache.Contains(byUserSpecs))
     <br>
+    Key: <code>@byUserSpecs.Key</code>
+    <br>
     Value: @(Kit.Cache.Get<DateTime>(byUserSpecs))
   </li>
   <li>
@@ -106,6 +111,8 @@
     <strong>Cache Service - Contains</strong>
     <br>
     contains: @showTestData.BoolMoji(Kit.Cache.Contains(withAppSpecs))
+    <br>
+    Key: <code>@withAppSpecs.Key</code>
     <br>
     Value: @(Kit.Cache.Get<DateTime>(withAppSpecs))
   </li>
