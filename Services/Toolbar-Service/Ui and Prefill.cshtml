@@ -1,24 +1,118 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.Data
 
-<h1>Toolbar Service - UI and Prefill</h1>
+<h1 @Kit.Toolbar.Default()>
+  Toolbar Service - UI and Prefill
+</h1>
+
 <p>
   Show various cases where a toolbar service is just to-HTMLed
 </p>
+
+<p>
+  unclear - but it seem that this is mostly not working? - maybe the data already exists?
+</p>
 @{
-  var tlbTest = CreateInstance("ToolbarServiceTests.cs");
+  var typeName = nameof(ForPrefillTests);
+  var testCategories = App.Data.GetAll<ForPrefillTestsCategories>();
+  var testCat1 = testCategories.First();
+  var testCat2 = testCategories.Last();
+
+  var tlbTest = GetCode("ToolbarServiceTests.cs");
 
 
-  var tlb = Kit.Toolbar.Default()
+  @* var tlb = Kit.Toolbar.Default()
     .Metadata(CmsContext.Page, parameters: new { prefill = new { title = "daniel"} })
     .Settings(classes: "test-from-test", ui: new { V1 = 27, test = "should-be-changed" })
-    .For(Content);
+    .For(Content); *@
 }
+<h2>Text, WYSIWYG, Number, Multiple (tests should be synced with v10 string-tests</h2>
+<ol>
+  @tlbTest.TbTestAsTag(
+    "Basic Text Prefill on Title",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("Title", "daniel"))
+  )
 
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of Text with / and ?",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("Title", "a great title/or what?"))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of WYSIWYG",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("WYSIWYG", "<b>bold text</b> and not so bold \"quoted\""))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of a number",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ANumber", "20503"))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of a text and number",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("Title", "the title!").Prefill("ANumber", "20503"))
+  )
+</ol>
+<hr>
+<h2>Related Item IDs</h2>
+<ol>
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of a single item with Guid-id as string",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("SingleItem",
+    testCat1.Guid))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of a single item PICKER with Guid-id as string",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("SingleItemPicker",
+    testCat1.Guid))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of many items with Guid-id CSV",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
+      testCat1.Guid + "," + testCat2.Guid))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of many items picker with Guid-id CSV",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItemsPicker",
+      testCat1.Guid + "," + testCat2.Guid))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of many items with id - ARRAY - not supported",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
+    "[" + testCat1.Id + "," + testCat2.Id + "]" ))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of many items with Guid-id - GUID ARRAY WITH QUOTES",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
+    "[\"" + testCat1.Guid + "\",\"" + testCat2.Guid + "\"]" ))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of many items with Guid-id - STRING GUID ARRAY WITH QUOTES",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
+    new[] { testCat1.Guid.ToString(), testCat2.Guid.ToString() }))
+  )
+
+  @tlbTest.TbTestAsTag(
+    "Basic Prefill of many items with Guid-id REAL ARRAY",
+    Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems", new[] { testCat1.Guid, testCat2.Guid }))
+  )
+</ol>
+
+<hr>
+<h2>Special</h2>
 <ol>
   @tlbTest.TbTestAsTag("UI and Prefill example",
     Kit.Toolbar.Default()
-    .Metadata(CmsContext.Page, parameters: new { prefill = new { title = "daniel"} })
+    .Metadata(MyPage, parameters: new { prefill = new { title = "daniel"} })
     .Settings(classes: "test-from-test", ui: new { V1 = 27, test = "should-be-changed" })
-    .For(Content))
+  )
+
+
 
 </ol>
