@@ -11,10 +11,10 @@ namespace AppCode.Data
 }
 */
 
-// Generator:   CSharpDataModelsGenerator v17.07.01
+// Generator:   CSharpDataModelsGenerator v17.10.00
 // App/Edition: App Test Features/
 // User:        2sichost
-// When:        2024-05-14 20:40:49Z
+// When:        2024-05-31 09:14:59Z
 namespace AppCode.Data
 {
   // This is a generated class for FieldsBoolean 
@@ -22,7 +22,7 @@ namespace AppCode.Data
 
   /// <summary>
   /// FieldsBoolean data. <br/>
-  /// Generated 2024-05-14 20:40:49Z. Re-generate whenever you change the ContentType. <br/>
+  /// Generated 2024-05-31 09:14:59Z. Re-generate whenever you change the ContentType. <br/>
   /// <br/>
   /// Default properties such as `.Title` or `.Id` are provided in the base class. <br/>
   /// Most properties have a simple access, such as `.LabelStandardFalse`. <br/>
