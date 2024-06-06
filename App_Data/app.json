@@ -42,13 +42,13 @@
 
   "editions": {
     "": {
+      "isDefault": true,
       "description": "default, root edition"
     },
     "live": {
       "description": "live edition"
     },
     "staging": {
-      "isDefault": true,
       "description": "staging edition"
     },
     "bs5": {

@@ -1,0 +1,57 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq
+@using AppCode
+@using AppCode.Data
+
+<h1>Typed - Languages WIP</h1>
+<p>
+  Content-Type used: <code>WithMetadata</code>
+</p>
+@{
+  var item = App.Data.GetAll<MultiLanguageTests>().FirstOrDefault();
+}
+
+<ol @Kit.Toolbar.Edit(item)>
+  <li>item.Title: @item.Title</li>
+  <li>item.Number: @item.Number</li>
+  @* <li>item.WYSIWYG: @item.WYSIWYG</li> *@
+  <li>
+    Force get other language EN: @item.Get("Title", language: "en")
+  </li>
+  <li>
+    Force get other language DE: @item.Get("Title", language: "de")
+  </li>
+  <li>
+    Force get other language QR (unknown language): @item.Get("Title", language: "qr")
+  </li>
+  <li>
+    Check empty anywhere: @Assert.AreEqual(item.IsEmpty("EmptyInDe"), false)
+    <br>
+    Check not empty anywhere: @Assert.AreEqual(item.IsNotEmpty("EmptyInDe"), true)
+  </li>
+  <li>
+    Check empty EN: @Assert.AreEqual(item.IsEmpty("EmptyInDe", language: "en"), false)
+    <br>
+    Check not empty EN: @Assert.AreEqual(item.IsNotEmpty("EmptyInDe", language: "en"), true)
+  </li>
+  <li>
+    Check empty DE: @Assert.AreEqual(item.IsEmpty("EmptyInDe", language: "de"), true)
+    <br>
+    Check not empty DE: @Assert.AreEqual(item.IsNotEmpty("EmptyInDe", language: "de"), false)
+  </li>
+  <li>
+    Check empty QR: @Assert.AreEqual(item.IsEmpty("EmptyInDe", language: "qr"), true)
+    <br>
+    Check not empty QR: @Assert.AreEqual(item.IsNotEmpty("EmptyInDe", language: "qr"), false)
+  </li>
+  <li>
+    Check empty QR,EN: @Assert.AreEqual(item.IsEmpty("EmptyInDe", language: "qr,en"), false)
+    <br>
+    Check not empty QR,EN: @Assert.AreEqual(item.IsNotEmpty("EmptyInDe", language: "qr,en"), true)
+  </li>
+  <li>
+    Check empty QR,DE: @Assert.AreEqual(item.IsEmpty("EmptyInDe", language: "qr,de"), true)
+    <br>
+    Check not empty QR,DE: @Assert.AreEqual(item.IsNotEmpty("EmptyInDe", language: "qr,de"), false)
+  </li>
+</ol>

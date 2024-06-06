@@ -1,0 +1,34 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Toolbar Service - Conditions</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+  var tlb = Kit.Toolbar.Default()
+    .Settings(
+      classes: "test-from-test", 
+      ui: "classes=test-class-in-ui"
+    )
+    ; //.Layout(ui: "class=color-green");
+
+  var tlbButtonEditNone = tlb.Edit();
+  var tlbButtonEditTrue = tlb.Edit(tweak: t => t.Condition(true));
+  var tlbButtonEditFalse = tlb.Edit(tweak: t => t.Condition(false));
+}
+
+<ol>
+  <li>
+    <strong @tlbButtonEditNone>on this tag (mouse over) - None</strong>
+    @tlbButtonEditNone
+  </li>
+  <li>
+    <strong @tlbButtonEditTrue>on this tag (mouse over) - True</strong>
+    @tlbButtonEditTrue
+  </li>
+  <hr>
+  <li>
+    <strong @tlbButtonEditFalse>on this tag (mouse over) - False</strong>
+    @tlbButtonEditFalse
+  </li>
+</ol>
