@@ -1,8 +1,12 @@
 @inherits Custom.Hybrid.Razor14
 @using ToSic.Razor.Blade
 @using ToSic.Sxc.Services
+@using ToSic.Sxc.Services.Internal
 
-<h1>TurnOn Service</h1>
+<h1>TurnOn Service - internal tests</h1>
+<p>
+  These tests are internal, as the <code>ITurnOnSrevice</code> is not publicly available.
+</p>
 @{
   var turnOn = GetService<ITurnOnService>();
 }

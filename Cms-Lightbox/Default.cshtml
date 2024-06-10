@@ -1,0 +1,69 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade
+
+<h1>CMS Lightbox</h1>
+<p>
+  Work on getting image settings give it a lightbox - in this case no gallery.
+</p>
+@{
+}
+
+<h2>Lightbox</h2>
+<ol>
+  <li>
+    <p>
+      <a
+      data-cms-lightbox
+      data-cms-lightbox-group="default"
+      data-src="https://www.w3schools.com/w3images/fjords.jpg" 
+      data-preload="false"
+      data-caption="Some image caption"
+      >
+        <img src="https://www.w3schools.com/w3images/fjords.jpg" alt="Fjords" style="width:100%;max-width:300px" />
+        Image #1
+      </a>
+
+      <a href="https://www.w3schools.com/w3images/fjords.jpg"
+        data-lightbox="image-1"
+        data-title="My caption">Image #1</a>
+    </p>
+  </li>
+  <li>
+    without link
+    <img
+      src="https://www.w3schools.com/w3images/fjords.jpg"
+      data-cms-lightbox
+      data-src="https://www.w3schools.com/w3images/fjords.jpg"
+      data-caption="Some image caption without link"
+      alt="Fjords"
+      style="width:100%;max-width:300px"
+    />
+    
+  </li>
+</ol>
+<script>
+  // window.debugTurnOn = true;
+  function testFb(attribute, config, param3) {
+    console.log('testFb');
+    console.log('attribute', attribute);
+    console.log('config', config);
+    console.log('param3', param3);
+    window.Fancybox.bind(attribute, config);
+  }
+</script>
+
+@{
+  var lbArgs = new object[] {
+    "[data-cms-lightbox]",
+    new {
+      groupAll = false,
+      Thumbs = new {
+        autoStart = false
+      },
+    },
+  };
+}
+
+@Kit.Page.Activate("fancybox4")
+@* @Kit.Page.TurnOn("window.testFb()", args: lbArgs, require: "window.Fancybox") *@
+@Kit.Page.TurnOn("window.Fancybox.bind()", args: lbArgs)

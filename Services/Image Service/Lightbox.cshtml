@@ -1,0 +1,43 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade
+@using AppCode.Data
+
+@functions {
+  public ImageServiceTests GetTestItem(string testId) {
+    return App.Data.GetAll<ImageServiceTests>().FirstOrDefault(i => i.String("TestId") == testId);
+  }
+}
+<h1>Image Service Service - Lightboxes</h1>
+<p>
+  Testing with data of <code>ImageServiceTests</code>
+</p>
+
+@{
+  var lbNone = GetTestItem("lightbox-none");
+  var lbStandard = GetTestItem("lightbox-standard");
+}
+<h2>Simple</h2>
+
+<hr>
+Show without lightbox:
+<br>
+@lbNone.Picture("Image", factor: 2f/12)
+<hr>
+With lightbox
+<br>
+@lbStandard.Picture("Image", factor: 2f/12)
+<hr>
+
+<h2>Joined as default</h2>
+
+<ol>
+  <li>
+    @GetTestItem("lightbox-set-default").Picture("Image", factor: 2f/12)
+  </li>
+  <li>
+    @GetTestItem("lightbox-set-default2").Picture("Image", factor: 2f/12)
+  </li>
+  <li>
+    @GetTestItem("lightbox-set-default3").Picture("Image", factor: 2f/12)
+  </li>
+</ol>
