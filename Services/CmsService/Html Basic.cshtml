@@ -13,14 +13,10 @@
 
 @{
   var item = GetTestItem("images-rows-25-50-75");
-  var cms = GetService<ICmsService>();
-  var field = item.Field("Contents");
+  @* var cms = GetService<ICmsService>(); *@
+  @* var field = item.Field("Contents"); *@
 }
-
-<div>
-  Field: @field
-</div>
 
 <h2>Output using Kit.Cms.Html</h2>
 <hr>
-@cms.Html(field)
+@item.Html("Contents")
