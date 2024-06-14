@@ -9,7 +9,7 @@
 }
 <h1>Image Service Service - Lightboxes</h1>
 <p>
-  Testing with data of <code>ImageServiceTests</code>
+  Testing with data of <code>@(nameof(ImageServiceTests))</code>
 </p>
 
 @{
@@ -28,6 +28,11 @@ With lightbox
 @lbStandard.Picture("Image", factor: 2f/12)
 <hr>
 
+Img With lightbox
+<br>
+@lbStandard.Img("Image", factor: 2f/12)
+
+<hr>
 <h2>Joined as default</h2>
 
 <ol>
