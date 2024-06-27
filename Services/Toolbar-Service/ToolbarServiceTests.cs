@@ -13,7 +13,10 @@ public class ToolbarServiceTests: Custom.Hybrid.Code14
       toolbar.AsTag(),
       Tag.Br(),
       "JSON: ",
-      toolbar.AsJson(),
+      Tag.Code(
+        toolbar.AsJson()
+      ).Attr(toolbar),
+      // toolbar.AsJson(),
       Tag.Hr()
     );
   }
@@ -27,7 +30,11 @@ public class ToolbarServiceTests: Custom.Hybrid.Code14
       toolbar.AsTag(),
       Tag.Br(),
       "JSON: ",
-      toolbar.AsJson(),
+      Tag.Pre(
+        toolbar.AsJson()
+      ),
+      // "JSON: ",
+      // toolbar.AsJson(),
       Tag.Hr()
     );
   }

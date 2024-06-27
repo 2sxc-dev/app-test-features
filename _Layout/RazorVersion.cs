@@ -20,6 +20,9 @@ public class RazorVersion : Custom.Hybrid.Code14
         : tags.A("Typed").Href(Link.To(parameters: par.Set("Razor16", "true"))),
      ")")
      // .Style("width: 100%;")
-     .Attr(Kit.Toolbar.Default().Settings(hover: "left"));
+     .Attr(
+        Kit.Toolbar.Default().Settings(hover: "left")
+      )
+    ;
   }
 }
