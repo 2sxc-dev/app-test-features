@@ -1,0 +1,7 @@
+@inherits Custom.Hybrid.Razor14
+
+@Html.Partial("__SharedPost.cshtml", new {
+  Controller = "Api15MyUser",
+  Title = "Api15 POST test (System.Text.Json deserialization is not possible)",
+  Result = "System.Text.Json.JsonException"
+})
