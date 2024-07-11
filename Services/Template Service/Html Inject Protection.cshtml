@@ -1,0 +1,37 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Services
+
+<h1>Template Service - HTML Inject</h1>
+@{
+  var templateSvc = GetService<ITemplateService>();
+  var engine = templateSvc.Default();
+
+  var templateQs = "[QueryString:Token]";
+}
+
+<hr>
+<h2>Security check to prevent token inject with other tokens</h2>
+<ul>
+  <li>
+    Test with <a href='@Link.To(parameters: MyPage.Parameters.Set("Token", "Hello"))'>?Token=Hello</a>
+  </li>
+  <li>
+    Test with <a href='@Link.To(parameters: MyPage.Parameters.Set("Token", "<h1>bad</h1>"))'>H1 html</a>
+  </li>
+  <li>
+    Test with <a href='@Link.To(parameters: MyPage.Parameters.Set("Token", "<script>alert('you have been XSSed')</script>"))'>javascript alert</a>
+  </li>
+</ul>
+<h3>Result</h3>
+<ol>
+  <li>
+    Standard: @templateSvc.Parse("[QueryString:Token]")
+  </li>
+  <li>
+    Unprotected: @templateSvc.Parse("[QueryString:Token]", allowHtml: true)
+  </li>
+  <li>
+    Unprotected html: @Html.Raw(templateSvc.Parse("[QueryString:Token]", allowHtml: true))
+  </li>
+</ol>
