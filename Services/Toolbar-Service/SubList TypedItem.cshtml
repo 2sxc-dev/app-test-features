@@ -1,0 +1,36 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.Data
+
+<h1>Toolbar Service - Sub-Lists on TypedItem</h1>
+<p>
+  Show various cases where a toolbar service is just to-HTMLed
+</p>
+@{
+  var itemWithEmptyChildren = AsItems(App.Data.GetStream(nameof(ToolbarTest))).First(d => d.String("TestId") == "sub-list-empty");
+  var children = itemWithEmptyChildren.Children("Items");
+  var tlb = Kit.Toolbar.Default(children);
+}
+
+<ol>
+  <li>
+    <strong @tlb>on this tag (mouse over)</strong>
+    @tlb 
+  </li>
+  <li>
+    mode tag: @tlb.AsTag()
+  </li>
+  <li>
+    mode json: @tlb.AsJson()
+  </li>
+</ol>
+
+
+<hr>
+
+<h2>Data - just so you know the toolbar does the right thing</h2>
+
+<ul>
+  <li>
+    Sub-Item count: @children.Count()
+  </li>
+</ul>

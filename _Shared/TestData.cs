@@ -1,8 +1,6 @@
 using ToSic.Sxc.Data;
 using System.Linq;
 
-// Important notes: 
-// - This class should have the same name as the file it's in
 public class TestData : Custom.Hybrid.CodeTyped
 {
   /// <summary>
