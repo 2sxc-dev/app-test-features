@@ -1,9 +1,11 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Razor.Blade
+@using System.Collections
 @using AppCode.Data
 
 @functions {
-  public ImageServiceTests GetTestItem(string testId) {
+  public ImageServiceTests GetTestItem(string testId)
+  {
     return App.Data.GetAll<ImageServiceTests>().FirstOrDefault(i => i.String("TestId") == testId);
   }
 }
@@ -19,30 +21,51 @@
 <h2>Simple</h2>
 
 <hr>
-Show without lightbox:
+Picture without lightbox in Image Metadata: @Kit.Toolbar.Edit(lbNone).AsTag()
 <br>
-@lbNone.Picture("Image", factor: 2f/12)
+@lbNone.Picture("Image", factor: 2f / 12)
+@lbNone.Picture(nameof(ImageServiceTests.ImageNoFieldConfig), factor: 2f / 12)
+
 <hr>
-With lightbox
+New fluid API; 1st disabled, second enabled; third with custom text...?
 <br>
-@lbStandard.Picture("Image", factor: 2f/12)
+@lbNone.Picture("Image", tweak: t => t.LightboxEnable(false), factor: 2f / 12)
+@lbNone.Picture("Image", tweak: t => t.LightboxEnable().Resize(t => t.Factor(2f/12)))
+@lbNone.Picture("Image", tweak: t => t.LightboxEnable()
+  .LightboxDescription("this is a message")
+  .Resize(t => t.Factor(2f/12))
+)
+<hr>
+Custom no-lazy loading - loading="eager"
+<br>
+@lbNone.Picture("Image", tweak: t => t
+  .ImgAttributes(new Dictionary<string, string> { { "loading", "eager" } })
+  .Resize(t => t.Factor(2f/12))
+)
+
+<hr>
+Picture With lightbox @Kit.Toolbar.Edit(lbStandard).AsTag()
+<br>
+@lbStandard.Picture("Image", factor: 2f / 12)
+@lbStandard.Picture(nameof(ImageServiceTests.ImageNoFieldConfig), factor: 2f / 12)
 <hr>
 
-Img With lightbox
+Img With lightbox @Kit.Toolbar.Edit(lbNone).AsTag()
 <br>
-@lbStandard.Img("Image", factor: 2f/12)
+@lbStandard.Img("Image", factor: 2f / 12)
+@lbStandard.Img(nameof(ImageServiceTests.ImageNoFieldConfig), factor: 2f / 12)
 
 <hr>
 <h2>Joined as default</h2>
 
 <ol>
   <li>
-    @GetTestItem("lightbox-set-default").Picture("Image", factor: 2f/12)
+    @GetTestItem("lightbox-set-default").Picture("Image", factor: 2f / 12)
   </li>
   <li>
-    @GetTestItem("lightbox-set-default2").Picture("Image", factor: 2f/12)
+    @GetTestItem("lightbox-set-default2").Picture("Image", factor: 2f / 12)
   </li>
   <li>
-    @GetTestItem("lightbox-set-default3").Picture("Image", factor: 2f/12)
+    @GetTestItem("lightbox-set-default3").Picture("Image", factor: 2f / 12)
   </li>
 </ol>
