@@ -1,11 +1,15 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Test Secure Encrypted Form1</h1>
+<h1>Test Secure Encrypted Form2</h1>
 
-<label for="field1">Field 1:</label>
-<textarea id="field1" name="field1" rows="1" style="width:100%">text1</textarea>
-<label for="field2">Field 2:</label>
-<textarea id="field2" name="field2" rows="1" style="width:100%">text2</textarea>
+<label for="p1">P1:</label>
+<textarea id="p1" name="p1" rows="1" style="width:100%">t1</textarea>
+<label for="p2">P2:</label>
+<textarea id="p2" name="p2" rows="1" style="width:100%">t2</textarea>
+<label for="p3">P3:</label>
+<textarea id="p3" name="p3" rows="1" style="width:100%">t3</textarea>
+<label for="p4">P4:</label>
+<textarea id="p4" name="p4" rows="1" style="width:100%">1</textarea>
 <br><br>
 <button id="button1" name="button1" type="submit">Submit</button>
 
@@ -21,16 +25,18 @@
             event.preventDefault();
 
             const data = {
-                field1: document.getElementById('field1').value,
-                field2: document.getElementById('field2').value
+                p1: document.getElementById('p1').value,
+                p2: document.getElementById('p2').value,
+                p3: document.getElementById('p3').value,
+                p4: parseInt(document.getElementById('p4').value, 10)
             };
 
             const secureEndpoint = new $2sxcSecureEndpointLibrary.SecureEndpoint();
             const encryptedData = await secureEndpoint.encryptData(data);
-            
             console.log('Before POST:', encryptedData);
+
             $2sxc(@CmsContext.Module.Id).webApi
-                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', encryptedData)
+                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm2?q1=11&q2=qq22', encryptedData)
                 .then(data => {
                     console.log('Success:', data);
                 })
