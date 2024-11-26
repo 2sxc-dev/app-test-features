@@ -1,8 +1,9 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Test Secure Encrypted Form1</h1>
+<h1>Test Secure Encrypted Form4</h1>
 
 <p><b>[SecureEndpoint]</b> attribute on <b>SubmitForm</b> method.</p>
+<p>providing config: <pre>SecureEndpoint({ throwExceptionWhenEncryptionIsNotAvailable: true, showDialogOnException: true })</pre></p>
 
 <label for="field1">Field 1:</label>
 <textarea id="field1" name="field1" rows="1" style="width:100%">test1</textarea>
@@ -29,7 +30,7 @@
             };
 
             // Encrypt form data before submission
-            const secureEndpoint = new $2sxcSecureEndpointLibrary.SecureEndpoint();
+            const secureEndpoint = new $2sxcSecureEndpointLibrary.SecureEndpoint({ throwExceptionWhenEncryptionIsNotAvailable: true, showDialogOnException: true });
             const encryptedData = await secureEndpoint.encryptData(data);
             console.log('Before POST:', encryptedData);
 
