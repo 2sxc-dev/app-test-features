@@ -1,6 +1,6 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Test Secure Encrypted Form2</h1>
+<h1>Test Secure Encrypted Form2 - query string parameters</h1>
 
 <p><b>[SecureEndpoint]</b> attribute on <b>SubmitForm2</b> method width many parameters in query string.</p>
 <p>Check messages in development console.</p>
@@ -18,7 +18,7 @@
 
 @Html.Partial("__SharedPost.cshtml")
 
-@Kit.Page.TurnOn("window.postEncryptedData2()", require: "window.$2sxcSecureEndpointLibrary", data: new { Controller = DynamicModel.Controller })
+@Kit.Page.TurnOn("window.postEncryptedData2()", require: "window.$2sxc", data: new { Controller = DynamicModel.Controller })
 
 <script type="text/javascript">
     // Use an IFFE to ensure the variables are not exposed globaly
@@ -34,15 +34,14 @@
                 p4: parseInt(document.getElementById('p4').value, 10)
             };
 
-            // Encrypt form data before submission
-            const secureEndpoint = new $2sxcSecureEndpointLibrary.SecureEndpoint();
-            const encryptedData = await secureEndpoint.encryptData(data);
-            console.log('Before POST:', encryptedData);
-
             $2sxc(@CmsContext.Module.Id).webApi
-                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm2?q1=11&q2=qq22', encryptedData)
-                .then(data => {
-                    console.log('Success:', data);
+                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm2?q1=11&q2=qq22', data, {})
+                .then(result => {
+                    if (result.data.p1 == data.p1 && result.data.p2 == data.p2 && result.data.p3 == data.p3 && result.data.p4 == data.p4) {
+                        console.log('Success:', result, result.data);
+                    } else {
+                        console.error('Error: Data mismatch', data, result);
+                    }
                 })
                 .catch((error) => {
                     console.error('Error:', error);

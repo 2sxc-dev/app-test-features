@@ -1,9 +1,9 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Test Secure Encrypted Form4</h1>
+<h1>Test Secure Encrypted Form6 - encrypt: true, encryptShowErrorToUser: true </h1>
 
 <p><b>[SecureEndpoint]</b> attribute on <b>SubmitForm</b> method.</p>
-<p>providing config: <pre>SecureEndpoint({ throwExceptionWhenEncryptionIsNotAvailable: true, showDialogOnException: true })</pre></p>
+<p>providing fetchRaw config: <pre>{ encrypt: true, encryptShowErrorToUser: true }</pre></p>
 <p>Check messages in development console.</p>
 
 <label for="field1">Field 1:</label>
@@ -15,7 +15,7 @@
 
 @Html.Partial("__SharedPost.cshtml")
 
-@Kit.Page.TurnOn("window.postEncryptedData()", require: "window.$2sxcSecureEndpointLibrary", data: new { Controller = DynamicModel.Controller })
+@Kit.Page.TurnOn("window.postEncryptedData()", require: "window.$2sxc", data: new { Controller = DynamicModel.Controller })
 
 <script type="text/javascript">
     // Use an IFFE to ensure the variables are not exposed globaly
@@ -30,15 +30,14 @@
                 field2: document.getElementById('field2').value
             };
 
-            // Encrypt form data before submission
-            const secureEndpoint = new $2sxcSecureEndpointLibrary.SecureEndpoint({ throwExceptionWhenEncryptionIsNotAvailable: true, showDialogOnException: true });
-            const encryptedData = await secureEndpoint.encryptData(data);
-            console.log('Before POST:', encryptedData);
-
             try {
                 const result = await window.$2sxc(@CmsContext.Module.Id).webApi
-                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', encryptedData);
-                console.log('Success:', result);
+                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', data, { encrypt: true, encryptShowErrorToUser: true });
+                if (result.field1 == data.field1 && result.field2 == data.field2) {
+                    console.log('Success:', result);
+                } else {
+                    console.error('Error: Data mismatch', data, result);
+                }
             } catch (error) {
                 console.error('Error:', error);
             }

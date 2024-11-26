@@ -1,6 +1,6 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Test Secure Encrypted Form3</h1>
+<h1>Test Secure Encrypted Form4 - large content</h1>
 
 <p><b>[SecureEndpoint]</b> attribute on <b>SecureEndpoint2Controller</b> class.</p>
 <p>Large content for encryption/decryption.</p>
@@ -15,7 +15,7 @@
 
 @Html.Partial("__SharedPost.cshtml")
 
-@Kit.Page.TurnOn("window.postEncryptedData3()", require: "window.$2sxcSecureEndpointLibrary", data: new { Controller = DynamicModel.Controller })
+@Kit.Page.TurnOn("window.postEncryptedData3()", require: "window.$2sxc", data: new { Controller = DynamicModel.Controller })
 
 <script type="text/javascript">
     // Use an IFFE to ensure the variables are not exposed globaly
@@ -30,15 +30,14 @@
                 field2: document.getElementById('field2').value
             };
 
-            // Encrypt form data before submission
-            const secureEndpoint = new window.$2sxcSecureEndpointLibrary.SecureEndpoint();
-            const encryptedData = await secureEndpoint.encryptData(data);
-            console.log('Before POST:', encryptedData);
-
             try {
                 const result = await window.$2sxc(@CmsContext.Module.Id).webApi
-                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint2/SubmitForm', encryptedData);
-                console.log('Success:', result);
+                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint2/SubmitForm', data, { encrypt: true });
+                if (result.field1 == data.field1 && result.field2 == data.field2) {
+                    console.log('Success:', result);
+                } else {
+                    console.error('Error: Data mismatch', data, result);
+                }
             } catch (error) {
                 console.error('Error:', error);
             }

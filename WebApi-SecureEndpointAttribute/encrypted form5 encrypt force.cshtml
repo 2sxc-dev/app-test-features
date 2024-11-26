@@ -1,0 +1,55 @@
+@inherits Custom.Hybrid.Razor14
+
+<h1>Test Secure Encrypted Form5 - encrypt: 'force' </h1>
+
+<p><b>[SecureEndpoint]</b> attribute on <b>SubmitForm</b> method.</p>
+<p>providing fetchRaw config: <pre>{ encrypt: 'force' }</pre></p>
+<p>Check messages in development console.</p>
+
+<label for="field1">Field 1:</label>
+<textarea id="field1" name="field1" rows="1" style="width:100%">test1</textarea>
+<label for="field2">Field 2:</label>
+<textarea id="field2" name="field2" rows="1" style="width:100%">text2</textarea>
+<br><br>
+<button id="button1" name="button1" type="submit">Submit</button>
+
+@Html.Partial("__SharedPost.cshtml")
+
+@Kit.Page.TurnOn("window.postEncryptedData()", require: "window.$2sxc", data: new { Controller = DynamicModel.Controller })
+
+<script type="text/javascript">
+    // Use an IFFE to ensure the variables are not exposed globaly
+    // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+    (() => {
+
+        async function postEncryptedData() {
+            
+            // Prepare data to be sent
+            const data = {
+                field1: document.getElementById('field1').value,
+                field2: document.getElementById('field2').value
+            };
+
+            try {
+                const result = await window.$2sxc(@CmsContext.Module.Id).webApi
+                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', data, { encrypt: 'force' });
+                if (result.field1 == data.field1 && result.field2 == data.field2) {
+                    console.log('Success:', result);
+                } else {
+                    console.error('Error: Data mismatch', data, result);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        document.getElementById('button1').addEventListener('click', async function (event) {
+            event.preventDefault();
+            await postEncryptedData();
+        });
+
+        // Generate on window so it can be called from the html
+        window.postEncryptedData = postEncryptedData;
+
+    })();
+</script>
