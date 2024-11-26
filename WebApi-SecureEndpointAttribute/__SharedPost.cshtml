@@ -2,5 +2,11 @@
 @{
   var page = GetService<ToSic.Sxc.Services.IPageService>();
   page.Activate("2sxc.JsCore");
+#if NETCOREAPP
+  var path = "/Modules/ToSic.Sxc.Oqtane/";
+#else
+  var path = "/DesktopModules/ToSIC_SexyContent/";
+#endif
 }
-<script src="/DesktopModules/ToSIC_SexyContent/js/2sxc.secure-endpoint.min.js"></script>
+<script src="@path/js/2sxc.secure-endpoint.min.js"></script>
+
