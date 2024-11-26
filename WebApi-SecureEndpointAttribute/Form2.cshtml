@@ -1,6 +1,7 @@
 @inherits Custom.Hybrid.Razor14
 
 <h1>Test Secure Encrypted Form2</h1>
+<p>[SecureEndpoint] attribute on 'SubmitForm2' method width many parameters parseInt query string</p>
 
 <label for="p1">P1:</label>
 <textarea id="p1" name="p1" rows="1" style="width:100%">t1</textarea>
@@ -15,15 +16,15 @@
 
 @Html.Partial("__SharedPost.cshtml")
 
+@Kit.Page.TurnOn("window.postEncryptedData2()", require: "window.$2sxcSecureEndpointLibrary", data: new { Controller = DynamicModel.Controller })
+
 <script type="text/javascript">
     // Use an IFFE to ensure the variables are not exposed globaly
     // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
     (() => {
-
-        // Example usage: Encrypt form data before submission
-        document.getElementById('button1').addEventListener('click', async function (event) {
-            event.preventDefault();
-
+        async function postEncryptedData() {
+            
+            // Prepare data to be sent
             const data = {
                 p1: document.getElementById('p1').value,
                 p2: document.getElementById('p2').value,
@@ -31,6 +32,7 @@
                 p4: parseInt(document.getElementById('p4').value, 10)
             };
 
+            // Encrypt form data before submission
             const secureEndpoint = new $2sxcSecureEndpointLibrary.SecureEndpoint();
             const encryptedData = await secureEndpoint.encryptData(data);
             console.log('Before POST:', encryptedData);
@@ -43,7 +45,15 @@
                 .catch((error) => {
                     console.error('Error:', error);
                 });
+        }
+
+        document.getElementById('button1').addEventListener('click', async function (event) {
+            event.preventDefault();
+            await postEncryptedData();
         });
+
+        // Generate on window so it can be called from the html
+        window.postEncryptedData2 = postEncryptedData;
 
     })();
 </script>

@@ -1,9 +1,10 @@
 @inherits Custom.Hybrid.Razor14
 
 <h1>Test Secure Encrypted Form1</h1>
+<p>[SecureEndpoint] attribute on 'SubmitForm' method</p>
 
 <label for="field1">Field 1:</label>
-<textarea id="field1" name="field1" rows="1" style="width:100%">text1</textarea>
+<textarea id="field1" name="field1" rows="1" style="width:100%">test1</textarea>
 <label for="field2">Field 2:</label>
 <textarea id="field2" name="field2" rows="1" style="width:100%">text2</textarea>
 <br><br>
@@ -11,33 +12,42 @@
 
 @Html.Partial("__SharedPost.cshtml")
 
+@Kit.Page.TurnOn("window.postEncryptedData()", require: "window.$2sxcSecureEndpointLibrary", data: new { Controller = DynamicModel.Controller })
+
 <script type="text/javascript">
     // Use an IFFE to ensure the variables are not exposed globaly
     // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
     (() => {
 
-        // Example usage: Encrypt form data before submission
-        document.getElementById('button1').addEventListener('click', async function (event) {
-            event.preventDefault();
-
+        async function postEncryptedData() {
+            
+            // Prepare data to be sent
             const data = {
                 field1: document.getElementById('field1').value,
                 field2: document.getElementById('field2').value
             };
 
+            // Encrypt form data before submission
             const secureEndpoint = new $2sxcSecureEndpointLibrary.SecureEndpoint();
             const encryptedData = await secureEndpoint.encryptData(data);
-            
             console.log('Before POST:', encryptedData);
-            $2sxc(@CmsContext.Module.Id).webApi
-                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', encryptedData)
-                .then(data => {
-                    console.log('Success:', data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
+
+            try {
+                const result = await window.$2sxc(@CmsContext.Module.Id).webApi
+                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', encryptedData);
+                console.log('Success:', result);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+
+        document.getElementById('button1').addEventListener('click', async function (event) {
+            event.preventDefault();
+            await postEncryptedData();
         });
+
+        // Generate on window so it can be called from the html
+        window.postEncryptedData = postEncryptedData;
 
     })();
 </script>
