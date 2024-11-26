@@ -38,4 +38,11 @@ public class SecureEndpointController : Custom.Hybrid.ApiTyped
   {
     return new { q1, data, q2, q3 };
   }
+
+  [HttpPost]
+  [SecureEndpoint]
+  public object SubmitForm3(dynamic data)
+  {
+    return data;
+  }
 }
