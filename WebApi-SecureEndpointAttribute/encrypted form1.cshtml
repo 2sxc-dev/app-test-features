@@ -14,6 +14,8 @@
 
 @Html.Partial("__SharedPost.cshtml")
 
+@Kit.Page.Activate("Network.EncryptBody")
+
 @Kit.Page.TurnOn("window.postEncryptedData()", require: "window.$2sxc", data: new { Controller = DynamicModel.Controller })
 
 <script type="text/javascript">
