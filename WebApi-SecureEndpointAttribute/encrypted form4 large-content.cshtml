@@ -32,7 +32,7 @@
 
             try {
                 const result = await window.$2sxc(@CmsContext.Module.Id).webApi
-                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint2/SubmitForm', data, { encrypt: true });
+                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint2/SubmitForm', data);
                 if (result.field1 == data.field1 && result.field2 == data.field2) {
                     console.log('Success:', result);
                 } else {

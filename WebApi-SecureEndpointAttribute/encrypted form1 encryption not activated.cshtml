@@ -1,6 +1,6 @@
 @inherits Custom.Hybrid.Razor14
 
-<h1>Test Secure Encrypted Form1</h1>
+<h1>Test Secure Encrypted Form1 - encrypton not activated</h1>
 
 <p><b>[SecureEndpoint]</b> attribute on <b>SubmitForm</b> method.</p>
 <p>Check messages in development console.</p>
@@ -12,7 +12,7 @@
 <br><br>
 <button id="button1" name="button1" type="submit">Submit</button>
 
-@Html.Partial("__SharedPost.cshtml")
+@Kit.Page.Activate("2sxc.JsCore")
 
 @Kit.Page.TurnOn("window.postEncryptedData()", require: "window.$2sxc", data: new { Controller = DynamicModel.Controller })
 

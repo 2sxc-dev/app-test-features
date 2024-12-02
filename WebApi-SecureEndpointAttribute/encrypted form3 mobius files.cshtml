@@ -24,7 +24,7 @@
 
             try {
                 const result = await window.$2sxc(@CmsContext.Module.Id).webApi
-                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm3', data, { });
+                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm3', data);
                 if (result.Files[0].Encoded == data.Files[0].Encoded 
                     && result.Files[1].Encoded == data.Files[1].Encoded) {
                     console.log('Success:', result);

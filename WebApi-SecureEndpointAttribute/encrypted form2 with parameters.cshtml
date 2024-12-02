@@ -35,7 +35,7 @@
             };
 
             $2sxc(@CmsContext.Module.Id).webApi
-                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm2?q1=11&q2=qq22', data, {})
+                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm2?q1=11&q2=qq22', data)
                 .then(result => {
                     if (result.data.p1 == data.p1 && result.data.p2 == data.p2 && result.data.p3 == data.p3 && result.data.p4 == data.p4) {
                         console.log('Success:', result, result.data);
