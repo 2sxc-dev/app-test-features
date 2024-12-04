@@ -18,37 +18,37 @@
 @Kit.Page.TurnOn("window.postEncryptedData()", require: "window.$2sxc", data: new { Controller = DynamicModel.Controller })
 
 <script type="text/javascript">
-    // Use an IFFE to ensure the variables are not exposed globaly
-    // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
-    (() => {
+    // Use an IIFE to ensure the variables are not exposed globally
+    (function() {
 
-        async function postEncryptedData() {
-            
+        function postEncryptedData() {
+
             // Prepare data to be sent
             const data = {
                 field1: document.getElementById('field1').value,
                 field2: document.getElementById('field2').value
             };
 
-            try {
-                const result = await window.$2sxc(@CmsContext.Module.Id).webApi
-                    .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', data, { encrypt: 'force' });
-                if (result.field1 == data.field1 && result.field2 == data.field2) {
-                    console.log('Success:', result);
-                } else {
-                    console.error('Error: Data mismatch', data, result);
-                }
-            } catch (error) {
-                console.error('Handle error in async function: ', error);
-            }
+            window.$2sxc(@CmsContext.Module.Id).webApi
+                .fetchJson('app/auto/WebApi-SecureEndpointAttribute/api/SecureEndpoint/SubmitForm', data, { encrypt: 'force' })
+                .then(function(result) {
+                    if (result.field1 == data.field1 && result.field2 == data.field2) {
+                        console.log('Success:', result);
+                    } else {
+                        console.error('Error: Data mismatch', data, result);
+                    }
+                })
+                .catch(function(error) {
+                    console.error('Handle error in promise: ', error);
+                });
         }
 
-        document.getElementById('button1').addEventListener('click', async function (event) {
+        document.getElementById('button1').addEventListener('click', function(event) {
             event.preventDefault();
-            await postEncryptedData();
+            postEncryptedData();
         });
 
-        // Generate on window so it can be called from the html
+        // Generate on window so it can be called from the HTML
         window.postEncryptedData = postEncryptedData;
 
     })();
