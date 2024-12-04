@@ -1,12 +1,10 @@
 #if NETCOREAPP // Oqtane
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ToSic.Sxc.WebApi.ActionFilters;
 #else // DNN
 using System.Web.Http;
-using ToSic.Sxc.Dnn.WebApi.Internal.SecureEndpoint;
 #endif
-using System.Linq;
+using ToSic.Sxc.WebApi;
 
 [AllowAnonymous]
 [SecureEndpoint]
