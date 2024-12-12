@@ -1,44 +1,43 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
 
 <h1>Toolbar Service - Detect if Root IsDemo</h1>
 <p>
   Show how to use the toolbar with Root-IsDemo detection.
 </p>
+<p>
+  IMPORTANT: this test only works if the main item is in demo mode.
+  If it is not, these tests won't show any useful result.
+</p>
+<p>
+  To fix this (in case the this test accidentally got the demo item removed),
+  either add this module to another page (so it has a fresh demo item),
+  or remove it manually in the ContentGroup.
+</p>
+  
 @{
-  var main = AsTyped(Data.MyContent);
+  var main = MyItem;
 
-
-  var itemToCopy = AsDynamic(App.Data["Dummy"].First());
-
-  // var typedItem = AsTyped(App.Data["Dummy"].First());
-  var cmsItem = AsTyped(App.Data["Dummy"].First());
-
+  var cmsItem = AsItem(App.Data.GetStream("Dummy").First());
 }
 
 
 
 <hr>
-<h2>Root is Demo: @main.IsDemoItem</h2>
+<h2>MyItem is Demo: @main.IsDemoItem</h2>
 <ol>
-  @{
-    var toolbar = Kit.Toolbar.Empty().DetectDemo(main).Edit(cmsItem).New().New(cmsItem);
-  }
-  <li>
-    Toolbar Type: @toolbar.GetType() (should be <code>Frozen</code> if root is demo)
-  </li>
   @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
-    Title = "Root for something else",
-    Toolbar = Kit.Toolbar.Empty().DetectDemo(main).Edit(cmsItem).New().New(cmsItem)
+    Title = "MyItem for something else - should show an info-only, since it's demo",
+    Toolbar = Kit.Toolbar.Empty().DetectDemo(MyItem).Edit(cmsItem).New().New(cmsItem)
   })
 
   @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
-    Title = "Root for itself",
-    Toolbar = Kit.Toolbar.Empty(main).DetectDemo(main).Edit(cmsItem).New().New(cmsItem)
+    Title = "MyItem for itself",
+    Toolbar = Kit.Toolbar.Empty(MyItem).DetectDemo(MyItem).Edit(cmsItem).New().New(cmsItem)
   })
 
 
   @Html.Partial("./_Helpers/ShowDebugToolbar.cshtml", new {
-    Title = "Edit Item on Toolbar",
+    Title = "Verify it works without DetectDemo",
     Toolbar = Kit.Toolbar.Empty(cmsItem).Edit().New().New("Dummy")
   })
 
