@@ -1,29 +1,170 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
 @using ToSic.Sxc.Services
 
 <h1>Adam Service</h1>
 @{
+  var cmsItem = AsItem(App.Data.GetStream("Dummy").First());
+
   var adamSvc = GetService<IAdamService>();
-  var file = adamSvc.File(Content.Field("Image"));
+  var file = adamSvc.File(cmsItem.Field("Image"));
+  var folder = adamSvc.Folder(cmsItem.Field("Image"));
 }
+
+<h2>IFile from ToSic.Sxc.Adam.IFile</h2>
+
+Note that this `IFile` purely only implements:
+
+<ol>
+  <li><code>Eav.Apps.Assets.IAsset</code></li>
+  <li><code>Eav.Apps.Assets.IFile</code></li>
+  <li><code>ToSic.Sxc.Adam.IAsset</code></li>
+  <li><code>ToSic.Eav.Metadata.IHasMetadata</code></li>
+</ol>
+
+
+<h3>Eav.Apps.Assets.IAsset</h3>
 
 <ol>
   <li>
-    File name: @file.Name
+    Created: @file.Created
   </li>
   <li>
-    File Size: @file.Size
+    Id: @file.Id
   </li>
   <li>
-    Size in Bytes: @file.SizeInfo.Bytes
+    ParentId: @file.ParentId
   </li>
   <li>
-    Size in KBytes: @file.SizeInfo.Kb
+    Modified: @file.Modified
   </li>
   <li>
-    Size in MBytes: @file.SizeInfo.Mb
+    Name: @file.Name
   </li>
   <li>
-    Best Size: @file.SizeInfo.BestSize @file.SizeInfo.BestUnit
+    Path: @file.Path
+  </li>
+  <li>
+    PhysicalPath: @file.PhysicalPath
+  </li>
+</ol>
+
+<h3>Eav.Apps.Assets.IFile</h3>
+<ol>
+  <li>
+    Extension: @file.Extension
+  </li>
+  <li>
+    Folder: @file.Folder
+  </li>
+  <li>
+    FolderId: @file.FolderId
+  </li>
+  <li>
+    FullName: @file.FullName
+  </li>
+  <li>
+    Size: @file.Size
+  </li>
+  <li>
+    SizeInfo.Bytes: @file.SizeInfo.Bytes
+  </li>
+  <li>
+    SizeInfo.Kb: @file.SizeInfo.Kb
+  </li>
+  <li>
+    SizeInfo.Mb: @file.SizeInfo.Mb
+  </li>
+  <li>
+    Best Size / BestUnit: @file.SizeInfo.BestSize @file.SizeInfo.BestUnit
+  </li>
+</ol>
+
+<h3>ToSic.Sxc.Adam.IAsset</h3>
+<ol>
+  <li>
+    HasMetadata: @file.HasMetadata 
+  </li>
+  <li>
+    Metadata: @file.Metadata
+  </li>
+  <li>
+    Url: @file.Url
+  </li>
+  <li>
+    Type: @file.Type
+  </li>
+</ol>
+
+<h2>IFolder from ToSic.Sxc.Adam.IFolder</h2>
+
+Note that this `IFolder` purely only implements:
+
+<ol>
+  <li><code>Eav.Apps.Assets.IAsset</code></li>
+  <li><code>Eav.Apps.Assets.IFolder</code></li>
+  <li><code>ToSic.Sxc.Adam.IAsset</code></li>
+  <li><code>ToSic.Eav.Metadata.IHasMetadata</code></li>
+</ol>
+
+<h3>Eav.Apps.Assets.IAsset</h3>
+
+<ol>
+  <li>
+    Created: @folder.Created
+  </li>
+  <li>
+    Id: @folder.Id
+  </li>
+  <li>
+    ParentId: @folder.ParentId
+  </li>
+  <li>
+    Modified: @folder.Modified
+  </li>
+  <li>
+    Name: @folder.Name
+  </li>
+  <li>
+    File Path: @folder.Path
+  </li>
+  <li>
+    Physical Path: @folder.PhysicalPath
+  </li>
+</ol>
+
+<h3>Eav.Apps.Assets.IFolder</h3>
+
+<ol>
+  <li>
+    Files: @folder.Files (@folder.Files.Count())
+  </li>
+  <li>
+    Folders: @folder.Folders (@folder.Folders.Count())
+  </li>
+</ol>
+
+<h3>ToSic.Sxc.Adam.IAsset</h3>
+
+<h3>ToSic.Sxc.Adam.IAsset</h3>
+<ol>
+  <li>
+    HasMetadata: @folder.HasMetadata 
+  </li>
+  <li>
+    Metadata: @folder.Metadata
+  </li>
+  <li>
+    Url: @folder.Url
+  </li>
+  <li>
+    Type: @folder.Type
+  </li>
+</ol>
+
+<h2>Comparison: Apps Properties</h2>
+
+<ol>
+  <li>
+    App Path: @App.Folder.Path
   </li>
 </ol>
