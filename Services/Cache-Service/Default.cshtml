@@ -7,7 +7,8 @@
   var dataNow = DateTime.Now;
   var key = "TestDateTimeNowThen";
 
-  var byUserSpecs = Kit.Cache.CreateSpecs(key)
+  var specs = Kit.Cache.CreateSpecs(key);
+  var byUserSpecs = specs
     .VaryByUser();
 
   var keyApp = "KeyApp";
@@ -27,11 +28,15 @@
   <li>
     <a href='@Link.To(parameters: MyPage.Parameters.Remove("action"))'>No Action</a>
     |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set"))'>Set date-time for all</date-time></a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove"))'>Remove date-time</a>
+    |
     <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-user"))'>Set current user only</a>
     |
     <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "remove-user"))'>Remove current user only</a>
-    |
-    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app"))'>Set Watch App (key/tweak)</a>
+    
+    @*| <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app"))'>Set Watch App (key/tweak)</a> *@
     |
     <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "set-app-specs"))'>Set Watch App (using specs)</a>
     |
@@ -42,10 +47,10 @@
   switch (MyPage.Parameters.String("action"))
   {
     case "set":
-      Kit.Cache.Set(key, dataNow);
+      Kit.Cache.Set(specs, dataNow);
       break;
     case "remove":
-      Kit.Cache.Remove(key);
+      Kit.Cache.Remove(specs);
       break;
     case "set-user":
       Kit.Cache.Set(byUserSpecs, dataNow);
@@ -53,9 +58,9 @@
     case "remove-user":
       Kit.Cache.Remove(byUserSpecs);
       break;
-    case "set-app":
+    @* case "set-app":
       Kit.Cache.Set(withAppSpecs, dataNow);
-      break;
+      break; *@
     case "set-app-specs":
       Kit.Cache.Set(withAppSpecs, dataNow);
       break;
@@ -78,14 +83,14 @@
   <li>
     <strong>Cache Service - Contains</strong>
     <br>
-    contains: @showTestData.BoolMoji(Kit.Cache.Contains(key))
+    contains: @showTestData.BoolMoji(Kit.Cache.Contains(specs))
     <br>
     Key: <code>@key</code>
     <br>
-    Value: @(Kit.Cache.Get<DateTime>(key))
+    Value: @(Kit.Cache.Get<DateTime>(specs))
   </li>
   <li>
-    TryGet: @(Kit.Cache.TryGet<DateTime>(key, out var value)) - Value: @value
+    TryGet: @(Kit.Cache.TryGet<DateTime>(specs, out var value)) - Value: @value
   </li>
 </ol>
 
