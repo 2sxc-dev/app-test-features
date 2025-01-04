@@ -1,0 +1,17 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Code
+@using ToSic.Eav.DataSources
+@using AppCode.DataSources @* this is necessary so AppCode is included *@
+
+<h1>App Custom Dynamic DataSources from AppCode</h1>
+<h2>using Basic102 with namespace</h2>
+
+@{
+  var expected = 1;
+  var ds = Kit.Data.GetSource<AppCode.DataSources.Basic102>(parameters: new {
+    AmountOfItems = expected,
+    FavoriteNumber = 2724
+  });
+}
+
+@Html.Partial("./../_Helpers/ShowDataInSource.cshtml", new { List = ds.GetStream("Default").List, Expected = expected })

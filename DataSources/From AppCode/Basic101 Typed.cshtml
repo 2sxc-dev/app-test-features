@@ -1,13 +1,14 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
 @using ToSic.Sxc.Code
 @using ToSic.Eav.DataSources
+@using AppCode.DataSources @* this is necessary so AppCode is included *@
 
 <h1>App Custom Dynamic DataSources from AppCode</h1>
 <h2>using Basic101</h2>
 
 @{
   var expected = 1;
-  var ds = Kit.Data.GetSource(name: "Basic101", parameters: new {
+  var ds = Kit.Data.GetSource<global::Basic101>(parameters: new {
     AmountOfItems = expected,
     FavoriteNumber = 2724
   });

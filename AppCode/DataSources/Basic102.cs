@@ -1,5 +1,5 @@
 
-namespace App.DataSources
+namespace AppCode.DataSources
 {
   public class Basic102 : Custom.DataSource.DataSource16
   {
