@@ -1,0 +1,63 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Code
+@using ToSic.Sxc.Apps
+
+<h1>App Files from DataSource</h1>
+
+@{
+  var expected = 1;
+  var ds = Kit.Data.GetSource<ToSic.Sxc.DataSources.AppAssets>(parameters: new {
+    @* TODO: this does something, but not what we expected? *@
+    @* FileFilter = "*.jpg", *@
+    Temp = "dummy",
+  });
+
+  var folders = AsList<ToSic.Sxc.Apps.TypedAppFolder>(ds.GetStream("Folders"));
+  var files = AsList<ToSic.Sxc.Apps.TypedAppFile>(ds.GetStream("Files"));
+
+  var folder = folders.FirstOrDefault();
+  var file = files.FirstOrDefault();
+}
+
+<h2>Folder</h2>
+@* Show the first folder *@
+<ol>
+  <li>Id: @folder.Id</li>
+  <li>Guid: @folder.Guid</li>
+  <li>Created: @folder.Created</li>
+  <li>Modified: @folder.Modified</li>
+  <li>Path: @folder.Path</li>
+  <li>Url: @folder.Url</li>
+  <li>Name: @folder.Name</li>
+  <li>FullName: @folder.FullName</li>
+  <li>Folder: @folder.Folder</li>
+  <li>Folder Name: @folder.Folder.Name</li>
+  <li>Files: @folder.Files.Count()</li>
+  <li>Folders: @folder.Folders.Count()</li>
+  @* TODO: probably bug: first folder seems to contain itself *@
+  <li>First Folder Name: @folder.Folders.First().Name</li>
+  <li>First Folder Id: @folder.Folders.First().Id</li>
+  <li>First Folder Url: @folder.Folders.First().Url </li>
+  <li>First Folder files: @folder.Folders.Skip(1).First().Files.Count() </li>
+</ol>
+
+<h2>File</h2>
+@* Show the first file *@
+<ol>
+  <li>Id: @file.Id</li>
+  <li>Guid: @file.Guid</li>
+  <li>Created: @file.Created</li>
+  <li>Modified: @file.Modified</li>
+  <li>Path: @file.Path</li>
+  <li>Url: @file.Url</li>
+  <li>Size: @file.Size (bytes)</li>
+  <li>Name: @file.Name</li>
+  <li>Extension: @file.Extension</li>
+  <li>FullName: @file.FullName</li>
+  <li>Title: @file.Title </li>
+  <li>Folder: @file.Folder </li>
+  <li>Folder Name: @file.Folder.Name </li>
+</ol>
+
+@* Old show-default list, not sure if useful, but leave for a moment *@
+@Html.Partial("./../_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })
