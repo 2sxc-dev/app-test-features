@@ -1,45 +1,121 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Sxc.Code
 @using ToSic.Sxc.Apps
+@using ToSic.Sxc.Adam
 
 <h1>App Files from DataSource</h1>
 
 @{
   var expected = 1;
+  var fileFilter = "*.cs";
   var ds = Kit.Data.GetSource<ToSic.Sxc.DataSources.AppAssets>(parameters: new {
-    @* TODO: this does something, but not what we expected? *@
-    @* FileFilter = "*.jpg", *@
+    FileFilter = fileFilter,
     Temp = "dummy",
   });
 
-  var folders = AsList<ToSic.Sxc.Apps.TypedAppFolder>(ds.GetStream("Folders"));
-  var files = AsList<ToSic.Sxc.Apps.TypedAppFile>(ds.GetStream("Files"));
+  var folders = AsList<FolderTyped>(ds.GetStream("Folders"));
+  var files = AsList<FileTyped>(ds.GetStream("Files"));
 
   var folder = folders.FirstOrDefault();
   var file = files.FirstOrDefault();
+
+  var appFolder = App.Folder;
+  var viewFolder = MyContext.View.Folder;
+  @* var tvFolder = folders.FirstOrDefault(f => f.Url == viewFolder.Url); *@
 }
+<p>
+  AppAssets using this file filter: @fileFilter
+</p>
 
 <h2>Folder</h2>
 @* Show the first folder *@
+<table>
+  <tr>
+    <th>Property</th>
+    <th>FolderTyped</th>
+    <th>App.Folder</th>
+    <th>View.Folder</th>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>@folder.Id</td>
+    <td>@appFolder.Id</td>
+    <td>@viewFolder.Id</td>
+  </tr>
+  <tr>
+    <td>Guid</td>
+    <td>@folder.Guid</td>
+    <td>⛔</td>
+    <td>⛔</td>
+  </tr>
+  <tr>
+    <td>Created</td>
+    <td>@folder.Created</td>
+    <td>@appFolder.Created</td>
+    <td>@viewFolder.Created</td>
+  </tr>
+  <tr>
+    <td>Modified</td>
+    <td>@folder.Modified</td>
+    <td>@appFolder.Modified</td>
+    <td>@viewFolder.Modified</td>
+  </tr>
+  <tr>
+    <td>Path</td>
+    <td>@folder.Path</td>
+    <td>@appFolder.Path</td>
+    <td>@viewFolder.Path</td>
+  </tr>
+  <tr>
+    <td>Url</td>
+    <td>@folder.Url</td>
+    <td>@appFolder.Url</td>
+    <td>@viewFolder.Url</td>
+  </tr>
+  <tr>
+    <td>Name</td>
+    <td>@folder.Name</td>
+    <td>@appFolder.Name</td>
+    <td>@viewFolder.Name</td>
+  </tr>
+  <tr>
+    <td>FullName</td>
+    <td>@folder.FullName</td>
+    <td>⛔</td>
+    <td>⛔</td>
+  </tr>
+  <tr>
+    <td>Files</td>
+    <td>@folder.Files.Count()</td>
+    <td>⛔</td>
+    @* <td>@appFolder.Files.Count()</td> *@
+    <td>⛔</td>
+    @* <td>@viewFolder.Files.Count()</td> *@
+  </tr>
+  <tr>
+    <td>Folders</td>
+    <td>@folder.Folders.Count()</td>
+    <td>⛔</td>
+    @* <td>@appFolder.Folders.Count()</td> *@
+    <td>⛔</td>
+    @* <td>@viewFolder.Folders.Count()</td> *@
+  </tr>
+</table>
+
+
+<h2>First Folder</h2>
+@{
+  var firstFolder = folder.Folders.First();
+}
 <ol>
-  <li>Id: @folder.Id</li>
-  <li>Guid: @folder.Guid</li>
-  <li>Created: @folder.Created</li>
-  <li>Modified: @folder.Modified</li>
-  <li>Path: @folder.Path</li>
-  <li>Url: @folder.Url</li>
-  <li>Name: @folder.Name</li>
-  <li>FullName: @folder.FullName</li>
-  <li>Folder: @folder.Folder</li>
-  <li>Folder Name: @folder.Folder.Name</li>
-  <li>Files: @folder.Files.Count()</li>
-  <li>Folders: @folder.Folders.Count()</li>
-  @* TODO: probably bug: first folder seems to contain itself *@
-  <li>First Folder Name: @folder.Folders.First().Name</li>
-  <li>First Folder Id: @folder.Folders.First().Id</li>
-  <li>First Folder Url: @folder.Folders.First().Url </li>
-  <li>First Folder files: @folder.Folders.Skip(1).First().Files.Count() </li>
+  <li>Name: @firstFolder.Name</li>
+  <li>Id: @firstFolder.Id</li>
+  <li>Url: @firstFolder.Url </li>
+  <li>files: @firstFolder.Files.Count() </li>
+  <li>Folder: @firstFolder.Folder</li>
+  <li>Folder Name: @firstFolder.Folder.Name</li>
 </ol>
+
 
 <h2>File</h2>
 @* Show the first file *@
