@@ -1,0 +1,58 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Code
+@using ToSic.Sxc.Apps
+@using ToSic.Sxc.Models
+
+<h1>User from DataSource</h1>
+
+@{
+  var expected = 1;
+  var ds = Kit.Data.GetSource<ToSic.Sxc.DataSources.Users>(parameters: new {
+    Temp = "dummy",
+  });
+
+  var users = AsList<UserModel>(ds);
+  var roles = AsList<UserRoleModel>(ds.GetStream("Roles"));
+
+  @* var firstPage = users.FirstOrDefault(); *@
+  @* var current = pages.FirstOrDefault(p => p.Id == MyPage.Id);
+  var belowCurrent = pages.FirstOrDefault(p => p.ParentId == MyPage.Id);
+  var formulasPage = pages.Where(p => p.Name == "Formulas").FirstOrDefault();
+
+  var interestingPages = new List<PageModel> {
+    firstPage,
+    current,
+    belowCurrent,
+    formulasPage
+  }
+  .Where(p => p != null)
+  .ToList(); *@
+}
+
+<h2>Users @users.Count()</h2>
+@foreach(var user in users)
+{
+  var userRoles = user.Roles.ToList();
+  // var children = page.Children;
+  // var firstChild = children.FirstOrDefault();
+  <h3>User @(user.Name)</h3>
+  <ol>
+    <li>Name: @(user.Name)</li>
+    @* <li>Title: @(user.Title)</li> *@
+    <li>Id: @(user.Id)</li>
+    <li>Guid: @(user.Guid)</li>
+
+    <li>
+      Roles @userRoles.Count
+      <ol>
+        @foreach(var role in userRoles)
+        {
+          <li>@role.Name (@role.Id)</li>
+        }
+      </ol>
+    </li>
+  </ol>
+}
+
+@* Old show-default list, not sure if useful, but leave for a moment *@
+@Html.Partial("./../_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })

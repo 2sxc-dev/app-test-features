@@ -8,6 +8,7 @@
     "files.associations": {
       "*.json": "jsonc",
       "*.partial": "mustache",
-    }  
+    },
+    "liveServer.settings.port": 5501
   }
 }

@@ -1,0 +1,65 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Code
+@using ToSic.Sxc.Apps
+@using ToSic.Sxc.Models
+
+<h1>Pages from DataSource</h1>
+
+@{
+  var expected = 1;
+  var ds = Kit.Data.GetSource<ToSic.Sxc.DataSources.Pages>(parameters: new {
+    Temp = "dummy",
+  });
+
+  var pages = AsList<PageModel>(ds);
+
+  var firstPage = pages.FirstOrDefault();
+  var current = pages.FirstOrDefault(p => p.Id == MyPage.Id);
+  var belowCurrent = pages.FirstOrDefault(p => p.ParentId == MyPage.Id);
+  var formulasPage = pages.Where(p => p.Name == "Formulas").FirstOrDefault();
+
+  var interestingPages = new List<PageModel> {
+    firstPage,
+    current,
+    belowCurrent,
+    formulasPage
+  }
+  .Where(p => p != null)
+  .ToList();
+}
+
+<h2>Interesting Pages @interestingPages.Count</h2>
+@foreach(var page in interestingPages)
+{
+  var children = page.Children;
+  var firstChild = children.FirstOrDefault();
+  <h3>Page @(page.Name)</h3>
+  <ol>
+    <li>Name: @(page.Name)</li>
+    <li>Title: @(page.Title)</li>
+    <li>Id: @(page.Id)</li>
+    <li>Guid: @(page.Guid)</li>
+    <li>ParentId: @(page.ParentId)</li>
+    <li>Url: @(page.Url)</li>
+    <li>Path: @(page.Path)</li>
+    <li>Created: @(page.Created)</li>
+    <li>Modified: @(page.Modified)</li>
+
+    <li>IsClickable: @(page.IsClickable) </li>
+    <li>Order: @(page.Order)</li>
+    <li>Level: @(page.Level)</li>
+    <li>IsNavigation: @(page.IsNavigation)</li>
+    <li>LinkTarget @(page.LinkTarget)</li>
+    <li>IsDeleted: @(page.IsDeleted)</li>
+    <li>
+      Children
+      <ol>
+        <li>Has Children @(page.HasChildren) </li>
+        <li>Count @children.Count()</li>
+        <li>First Child: @(firstChild?.Name)</li>
+      </ol>
+    </li>
+  </ol>
+}
+@* Old show-default list, not sure if useful, but leave for a moment *@
+@Html.Partial("./../_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })
