@@ -1,7 +1,7 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Sxc.Code
 @using ToSic.Sxc.Apps
-@using ToSic.Sxc.Adam
+@using ToSic.Sxc.Models
 
 <h1>App Files from DataSource</h1>
 
@@ -13,8 +13,10 @@
     Temp = "dummy",
   });
 
-  var folders = AsList<FolderTyped>(ds.GetStream("Folders"));
-  var files = AsList<FileTyped>(ds.GetStream("Files"));
+  var x = new AppCode.Data.AdamFields();
+
+  var folders = AsList<FolderModel>(ds.GetStream("Folders"));
+  var files = AsList<FileModel>(ds.GetStream("Files"));
 
   var folder = folders.FirstOrDefault();
   var file = files.FirstOrDefault();
@@ -38,13 +40,19 @@
   </tr>
   <tr>
     <td>Id</td>
-    <td>@folder.Id</td>
-    <td>@appFolder.Id</td>
+    <td>
+      @* @folder.Id *@
+    </td>
+    <td>
+      @* @appFolder.Id *@
+    </td>
     <td>@viewFolder.Id</td>
   </tr>
   <tr>
     <td>Guid</td>
-    <td>@folder.Guid</td>
+    <td>
+      @* @folder.Guid *@
+    </td>
     <td>⛔</td>
     <td>⛔</td>
   </tr>
@@ -109,7 +117,7 @@
 }
 <ol>
   <li>Name: @firstFolder.Name</li>
-  <li>Id: @firstFolder.Id</li>
+  <li>Id: @@firstFolder.Id</li>
   <li>Url: @firstFolder.Url </li>
   <li>files: @firstFolder.Files.Count() </li>
   <li>Folder: @firstFolder.Folder</li>
@@ -120,8 +128,8 @@
 <h2>File</h2>
 @* Show the first file *@
 <ol>
-  <li>Id: @file.Id</li>
-  <li>Guid: @file.Guid</li>
+  <li>Id: @@file.Id</li>
+  <li>Guid: @@file.Guid</li>
   <li>Created: @file.Created</li>
   <li>Modified: @file.Modified</li>
   <li>Path: @file.Path</li>
@@ -130,7 +138,6 @@
   <li>Name: @file.Name</li>
   <li>Extension: @file.Extension</li>
   <li>FullName: @file.FullName</li>
-  <li>Title: @file.Title </li>
   <li>Folder: @file.Folder </li>
   <li>Folder Name: @file.Folder.Name </li>
 </ol>
