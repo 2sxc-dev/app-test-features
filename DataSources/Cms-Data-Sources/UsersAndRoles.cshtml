@@ -2,19 +2,20 @@
 @using ToSic.Sxc.Code
 @using ToSic.Sxc.Apps
 @using ToSic.Sxc.Models
+@using ToSic.Sxc.DataSources
 
 <h1>User from DataSource</h1>
 
 @{
   var expected = 1;
-  var ds = Kit.Data.GetSource<ToSic.Sxc.DataSources.Users>(parameters: new {
+  var ds = Kit.Data.GetSource<Users>(parameters: new {
     Temp = "dummy",
   });
 
   var users = AsList<UserModel>(ds);
   var userRoles = AsList<UserRoleModel>(ds.GetStream("Roles"));
 
-  var dsRoles = Kit.Data.GetSource<ToSic.Sxc.DataSources.Roles>(parameters: new {
+  var dsRoles = Kit.Data.GetSource<UserRoles>(parameters: new {
     Temp = "dummy",
   });
   var roles = AsList<UserRoleModel>(dsRoles);
