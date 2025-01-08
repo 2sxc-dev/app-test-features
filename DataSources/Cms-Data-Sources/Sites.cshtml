@@ -1,0 +1,43 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Code
+@using ToSic.Sxc.Apps
+@using ToSic.Sxc.Models
+
+<h1>Sites from DataSource</h1>
+
+@{
+  var expected = 1;
+  var ds = Kit.Data.GetSource<ToSic.Sxc.DataSources.Sites>(parameters: new {
+    Temp = "dummy",
+  });
+
+  var sites = AsList<SiteModel>(ds);
+}
+
+<h2>Users @sites.Count()</h2>
+@foreach(var site in sites)
+{
+  <h3>User @(site.Name)</h3>
+  <ol>
+    <li>Name: @(site.Name)</li>
+    <li>Id: @(site.Id)</li>
+    <li>Guid: @(site.Guid)</li>
+    @* <li>Title: @(site.Title)</li> *@
+    <li>Url: @(site.Url)</li>
+    @* <li>Path: @(site.Path)</li> *@
+    <li>Created: @(site.Created)</li>
+    <li>Modified: @(site.Modified)</li>
+
+    <li>Languages: @(site.Languages)</li>
+    <li>DefaultLanguage: @(site.DefaultLanguage)</li>
+
+    <li>ZoneId: @(site.ZoneId)</li>
+    <li>ContentAppId: @(site.ContentAppId)</li>
+    <li>PrimaryAppId: @(site.PrimaryAppId)</li>
+
+  </ol>
+}
+
+
+@* Old show-default list, not sure if useful, but leave for a moment *@
+@Html.Partial("./../_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })
