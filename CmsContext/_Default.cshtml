@@ -1,9 +1,17 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
 
 <h1>CmsContext</h1>
 
 @{
-  var view = CmsContext.View;
+  var view = MyView;
+
+  var viewMd = MyView.Metadata;
+
+  var typedMd = AsItem(viewMd);
+
+  var razorFileName = MyView.Metadata.String("Path");
+
+  var viewSpecs = App.Data.GetOne<Custom.Data.CustomItem>(MyView.Id, skipTypeCheck: true);
 }
 
 <h2>View</h2>
@@ -22,7 +30,19 @@
   </li>
   <li>
     Metadata: @view.Metadata
+    <ol>
+      <li>MD Typed: @typedMd</li>
+      <li>Some Field: @typedMd.Title</li>
+      <li>Direct Path: @razorFileName</li>
+    </ol>
   </li>
+  <li>
+    View Specs
+    <ol>
+      <li>Direct Path: @viewSpecs.String("Path")</li>
+    </ol>
+  </li>
+
   <li>
     Path: @view.Path
   </li>
