@@ -11,7 +11,7 @@
 
   var razorFileName = MyView.Metadata.String("Path");
 
-  var viewSpecs = App.Data.GetOne<Custom.Data.CustomItem>(MyView.Id, skipTypeCheck: true);
+  var viewSpecs = App.Data.GetOne<Custom.Data.CustomItem>(MyView.Id);
 }
 
 <h2>View</h2>

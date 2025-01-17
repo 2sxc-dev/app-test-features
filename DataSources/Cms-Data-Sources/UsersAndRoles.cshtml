@@ -12,13 +12,13 @@
     Temp = "dummy",
   });
 
-  var users = AsList<UserModel>(ds);
-  var userRoles = AsList<UserRoleModel>(ds.GetStream("Roles"));
+  var users = AsList<IUserModel>(ds);
+  var userRoles = AsList<IUserRoleModel>(ds.GetStream("Roles"));
 
   var dsRoles = Kit.Data.GetSource<UserRoles>(parameters: new {
     Temp = "dummy",
   });
-  var roles = AsList<UserRoleModel>(dsRoles);
+  var roles = AsList<IUserRoleModel>(dsRoles);
 }
 
 <h2>Users @users.Count()</h2>

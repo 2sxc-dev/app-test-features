@@ -11,14 +11,16 @@
     Temp = "dummy",
   });
 
-  var pages = AsList<PageModel>(ds);
+  var pages = AsList<IPageModel>(ds);
+
+  var onePage = As<IPageModel>(ds);
 
   var firstPage = pages.FirstOrDefault();
   var current = pages.FirstOrDefault(p => p.Id == MyPage.Id);
   var belowCurrent = pages.FirstOrDefault(p => p.ParentId == MyPage.Id);
   var formulasPage = pages.Where(p => p.Name == "Formulas").FirstOrDefault();
 
-  var interestingPages = new List<PageModel> {
+  var interestingPages = new List<IPageModel> {
     firstPage,
     current,
     belowCurrent,
@@ -27,6 +29,12 @@
   .Where(p => p != null)
   .ToList();
 }
+
+<h2>One Page</h2>
+<ol>
+  <li>@onePage.Id</li>
+  <li>@onePage.Path</li>
+</ol>
 
 <h2>Interesting Pages @interestingPages.Count</h2>
 @foreach(var page in interestingPages)
