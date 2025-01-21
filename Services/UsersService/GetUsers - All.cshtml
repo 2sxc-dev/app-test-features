@@ -1,0 +1,14 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services
+
+<h1>UsersService Get All Users</h1>
+
+@{
+  var users = Kit.User.GetUsers();
+}
+
+@foreach (var user in users)
+{
+  @Html.Partial("__ShowUserDetails.cshtml", new { user })
+}
+

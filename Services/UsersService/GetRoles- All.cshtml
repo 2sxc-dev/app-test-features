@@ -1,0 +1,17 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services
+
+<h1>UsersService Get All Roles</h1>
+
+@{
+  var roles = Kit.User.GetRoles();
+}
+
+<h3>Roles: @roles.Count()</h3>
+<ol>
+  @foreach (var role in roles)
+  {
+    <li>@role.Id</li>
+    <li>@role.Name</li>
+  }
+</ol>

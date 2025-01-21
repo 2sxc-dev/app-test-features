@@ -1,11 +1,8 @@
 @inherits Custom.Hybrid.RazorTyped
 @using ToSic.Sxc.Services
 
-<h1>UsersService Get Current user</h1>
-
 @{
-  var users = GetService<IUserService>();
-  var user = users.Get(MyUser.Id);
+  var user = MyModel.Get<ToSic.Sxc.Cms.Users.IUserModel>("user");
 }
 
 <hr>
@@ -21,3 +18,11 @@
   IsSiteDeveloper: @user.IsSiteDeveloper
 </pre>
 
+<h3>Roles: @user.Roles.Count()</h3>
+<ol>
+  @foreach (var role in user.Roles)
+  {
+    <li>@role.Id</li>
+    <li>@role.Name</li>
+  }
+</ol>

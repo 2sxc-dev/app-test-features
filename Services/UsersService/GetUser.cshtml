@@ -1,0 +1,10 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services
+
+<h1>UsersService Get Current user</h1>
+
+@{
+  var user = Kit.User.GetUser(MyUser.Id);
+}
+
+@Html.Partial("__ShowUserDetails.cshtml", new { user })
