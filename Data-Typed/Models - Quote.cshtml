@@ -1,0 +1,60 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode
+@using AppCode.Data
+
+<h1>Custom Models (19.03)</h1>
+<p>
+  Content-Type used: <code>Quotes</code>
+</p>
+@{
+  var quotes = App.Data.GetAll<Quotes>();
+  var quote = quotes.First();
+  var firstQuoteAgain = App.Data.GetOne<Quotes>(quote.Id);
+}
+<h2>Classic Quotes</h2>
+
+<ol>
+  <li>Count: @quotes.Count()</li>
+  <li>First: @quote.Id / @quote.Title</li>
+  <li>Equals: @quote.Equals(firstQuoteAgain)</li>
+</ol>
+
+<h2>Models</h2>
+@{
+  var qModels = App.Data.GetAll<QuotesModel>();
+  var qModel = qModels.First();
+  var firstQModelAgain = App.Data.GetOne<QuotesModel>(qModel.Id /*, skipTypeCheck: true */);
+  // var firstQModelAgain = App.Data.GetOne<QuotesModelBadName>(qModel.Id /*, skipTypeCheck: true */);
+  // var firstQModelAgain = App.Data.GetOne<QuoteIncorrectNameModel>(qModel.Id /*, skipTypeCheck: true */);
+}
+
+<ol>
+  <li>Count: @qModels.Count()</li>
+  <li>First: @qModel.Id / @qModel.Title</li>
+  <li>Equals: @qModel.Equals(firstQModelAgain)</li>
+  <li>Self: @qModel.Self.Id</li>
+</ol>
+
+
+
+
+@* <h2>Equality Checks</h2>
+<ol>
+  <li>
+    Item == Item (itself): @Assert.AreEqual(item == item, true)
+  </li>
+  <li>
+    First Item in Item-List = item made of first Entity: @Assert.AreEqual(firstInList == item, false)
+    <strong>FAILS - "==" can't work - must use Equals in case the object is different, since we can't overload ==</strong>
+  </li>
+  <li>
+    Using item.Equals(item): @Assert.AreEqual(item.Equals(item), true)
+  </li>
+  <li>
+    Using firstInList.Equals(item): @Assert.AreEqual(firstInList.Equals(item), true)
+  </li>
+  <li>
+    Using item.Equals(firstInList): @Assert.AreEqual(item.Equals(firstInList), true)
+  </li>
+
+</ol> *@
