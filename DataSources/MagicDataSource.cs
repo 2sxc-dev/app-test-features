@@ -4,6 +4,10 @@ using System.Linq;
 using ToSic.Eav.DataSource;
 using ToSic.Eav.DataSource.VisualQuery;
 
+/// <summary>
+/// Note: used to be called "MyMagic" but was renamed,
+/// and it should continue to work because of the Guid NameId
+/// </summary>
 [VisualQuery(NameId = "42efa241-a404-4c69-a3ed-5860575319c4")]
 public class MagicDataSource : Custom.DataSource.DataSource16
 {
