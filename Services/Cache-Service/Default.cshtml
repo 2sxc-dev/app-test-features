@@ -11,6 +11,8 @@
   var byUserSpecs = specs
     .VaryByUser();
 
+  Kit.Cache.GetOrSet(specs, () => SomeExpensiveOperation());
+
   var keyApp = "KeyApp";
   var withAppSpecs = Kit.Cache.CreateSpecs(keyApp)
     .WatchAppData()
@@ -125,3 +127,10 @@
     TryGet: @(Kit.Cache.TryGet<DateTime>(withAppSpecs, out var withAppValue)) - Value: @withAppValue
   </li>
 </ol>
+
+@* @functions {
+  private DateTime SomeExpensiveOperation()
+  {
+    return DateTime.Now;
+  }
+} *@
