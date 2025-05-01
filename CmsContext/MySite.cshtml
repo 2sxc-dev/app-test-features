@@ -1,0 +1,27 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>CmsContext - MySite</h1>
+<p>
+  This is to test the MySite.
+</p>
+
+@{
+  var MySite = MyContext.Site;
+  var userMd = MySite.Metadata;
+
+  var typedMd = AsItem(userMd);
+}
+
+<h2>MySite</h2>
+<ol>
+  <li>Id: @MySite.Id</li>
+  <li>Url: @MySite.Url</li>
+  <li>UrlRoot: @MySite.UrlRoot</li>
+  <li>
+    Metadata: @MySite.Metadata
+    <ol>
+      <li>MD Typed: @typedMd</li>
+      <li>Title: @typedMd.Title</li>
+    </ol>
+  </li>
+</ol>

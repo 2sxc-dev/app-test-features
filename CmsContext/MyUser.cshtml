@@ -1,0 +1,58 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>CmsContext - MyUser</h1>
+<p>
+  This is to test the MyUser with v20 Model enhancements.
+</p>
+
+@{
+  var user = MyUser;
+
+  var userMd = MyUser.Metadata;
+
+  var typedMd = AsItem(userMd);
+}
+
+<h2>MyUser</h2>
+<ol>
+  <li>
+    Id: @MyUser.Id
+  </li>
+  <li>
+    Guid: @MyUser.Guid
+  </li>
+  <li>Name: @MyUser.Name</li>
+  <li>Username: @MyUser.Username</li>
+  <li>
+    NameId: @MyUser.NameId
+  </li>
+  <li>
+    Email: @MyUser.Email
+  </li>
+  <li>Created: @MyUser.Created</li>
+  <li>Modified: @MyUser.Modified</li>
+  <li>IsAnonymous: @MyUser.IsAnonymous</li>
+  <li>IsContentEditor: @MyUser.IsContentEditor</li>
+  <li>IsContentAdmin: @MyUser.IsContentAdmin</li>
+  <li>IsSiteAdmin: @MyUser.IsSiteAdmin</li>
+  <li>IsSystemAdmin: @MyUser.IsSystemAdmin</li>
+
+  <li>
+    Metadata: @MyUser.Metadata
+    <ol>
+      <li>MD Typed: @typedMd</li>
+      <li>Title: @typedMd.Title</li>
+    </ol>
+  </li>
+
+  <li>
+    Roles: @MyUser.Roles.Count()
+    <ol>
+      @foreach (var role in MyUser.Roles)
+      {
+        <li>@role.Name</li>
+      }
+    </ol>
+  </li>
+
+</ol>
