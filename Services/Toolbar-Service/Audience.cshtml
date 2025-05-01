@@ -3,9 +3,16 @@
 <h1>Toolbar Service - Audience Action - new/wip 17.08</h1>
 <p>
   Force show the Toolbar for everyone?
+  <br>
+  Best test with the user "testnormaluser" (same password) which should be in the "Registered Users" and "Subscribers" groups.
 </p>
 @{
-  var forAll = Kit.Toolbar.Empty().Audience(everyone: true);
+  var forAll = Kit.Toolbar.Empty()
+    .Audience(everyone: true);
+  var forSubscribers = Kit.Toolbar.Empty()
+    .Audience(roleNames: new[] { "Subscribers" });
+  var forNonSubscribers = Kit.Toolbar.Empty()
+    .Audience(everyone: true, denyRoleNames: new[] { "Subscribers" });
   var forAdmin = Kit.Toolbar.Empty();
 }
 <h2>infos</h2>
@@ -22,9 +29,24 @@
   <li>
     <strong>For all</strong>
     @{ tlbInfo = forAll.Info(); }
-    Show as tag: @tlbInfo.AsTag()
+    Show as tag: @forAll.Info().AsTag()
     <br>
     @tlbInfo.AsJson()
+  </li>
+
+  <li>
+    <strong>For Subscribers</strong>
+    @forSubscribers.Info().AsTag()
+    
+    <br>
+    @forSubscribers.Info().AsJson()
+  </li>
+  <li>
+    <strong>For all <em>except</em> Subscribers</strong>
+    @forNonSubscribers.Info().AsTag()
+    
+    <br>
+    @forNonSubscribers.Info().AsJson()
   </li>
 
 </ol>
