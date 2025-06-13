@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.Razor14
+@* @using ToSic.Eav.Data *@
+
+<h1>IEntity Error</h1>
+<p>
+  For scenarios that trigger the old use of IEntity on the wrong namespace.
+</p>
+@{
+  var x = AsEntity(Content) as ToSic.Eav.Data.IEntity;
+  var title = x.Get<string>("Title");
+}
+Title:Error @title
