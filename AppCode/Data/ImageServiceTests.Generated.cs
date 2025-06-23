@@ -11,10 +11,9 @@ namespace AppCode.Data
 }
 */
 
-// Generator:   CSharpDataModelsGenerator v18.03.00
+// Generator:   CSharpDataModelsGenerator
 // App/Edition: App Test Features/
 // User:        2sichost
-// When:        2024-10-28 17:38:39Z
 using System.Text.Json.Serialization;
 using ToSic.Sxc.Adam;
 
@@ -25,7 +24,7 @@ namespace AppCode.Data
 
   /// <summary>
   /// ImageServiceTests data. <br/>
-  /// Generated 2024-10-28 17:38:39Z. Re-generate whenever you change the ContentType. <br/>
+  /// Re-generate whenever you change the ContentType. <br/>
   /// <br/>
   /// Default properties such as `.Title` or `.Id` are provided in the base class. <br/>
   /// Most properties have a simple access, such as `.Image`. <br/>

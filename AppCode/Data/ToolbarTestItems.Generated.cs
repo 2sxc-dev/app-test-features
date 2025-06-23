@@ -11,10 +11,9 @@ namespace AppCode.Data
 }
 */
 
-// Generator:   CSharpDataModelsGenerator v17.10.00
+// Generator:   CSharpDataModelsGenerator
 // App/Edition: App Test Features/
 // User:        2sichost
-// When:        2024-05-31 09:14:59Z
 namespace AppCode.Data
 {
   // This is a generated class for ToolbarTestItems 
@@ -22,7 +21,7 @@ namespace AppCode.Data
 
   /// <summary>
   /// ToolbarTestItems data. <br/>
-  /// Generated 2024-05-31 09:14:59Z. Re-generate whenever you change the ContentType. <br/>
+  /// Re-generate whenever you change the ContentType. <br/>
   /// <br/>
   /// Default properties such as `.Title` or `.Id` are provided in the base class. <br/>
   /// Most properties have a simple access, such as `.Title`. <br/>
