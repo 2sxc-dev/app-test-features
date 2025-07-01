@@ -16,7 +16,7 @@ public class AppCodeGetCodeController : Custom.Hybrid.ApiTyped
   [HttpGet]
   public string GetPath()
   {
-    var temp = this as ToSic.Sxc.Code.Internal.IGetCodePath;
+    var temp = this as ToSic.Sxc.Code.Sys.IGetCodePath;
     return temp.CreateInstancePath;
   }
 
