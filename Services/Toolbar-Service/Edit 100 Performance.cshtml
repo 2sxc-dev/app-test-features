@@ -1,0 +1,28 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Toolbar Service - Edit 100x for performance checks</h1>
+<p>
+  Test cases where the edit-toolbar is used 100x
+</p>
+@{
+  var itemToCopy = AsItem(App.Data["Dummy"].First());
+
+  var measure = Log.Call("Toolbar.Edit.Measure", useTimer: true);
+  for (int i = 0; i < 100; i++)
+  {
+    var x = Kit.Toolbar.Empty().Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy)
+      .Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy)
+      .Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy)
+      .Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy).Edit(itemToCopy)
+      .Edit(itemToCopy).ToString();
+  }
+  measure("done");
+}
+
+
+<hr>
+<h2>Performance</h2>
+
+<ol>
+  <li>@itemToCopy.Title - @Kit.Toolbar.Edit(itemToCopy).AsTag()</li>
+</ol>
