@@ -1,0 +1,16 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Toolbar Service - Alternate Save Endpoint for v20 experimental</h1>
+<p>
+  Very experimental
+</p>
+@{
+  var itemToCopy = AsItem(App.Data["Dummy"].First());
+
+  var toolbar = Kit.Toolbar
+    .Empty().New("b535b6aa-d0a1-40c1-b996-b7e8461efc0c", tweak: b => b.Custom("dialog", "save", "false"));
+}
+
+<ol>
+  <li>@itemToCopy.Title - @toolbar.AsTag()</li>
+</ol>
