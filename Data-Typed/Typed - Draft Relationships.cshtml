@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode
+@using AppCode.Data
+
+<h1>Typed with draft relationships</h1>
+<p>
+  Goal is to get tests out where the .Children and .Parents don't return draft data.
+</p>
+@{
+  // Note: this already does some filtering...
+  var children = App.Data.GetAll<DataWithRelationshipChild>();
+  @* var child = children.First(c => c.TestId == "draft-child-draft-children"); *@
+  var child = children.First(c => c.TestId == "pub-child-draft-children");
+}
+<h2>Children</h2>
+
+<ol>
+  <li>Count: @child.Children.Count()</li>
+  <li>First: @child.Children.First()</li>
+  <li>Child: @child.Child("Children").Title (@child.Child("Children").Id) (should be diff for admin/anonymous)</li>
+  <li>Parent: @(child.Parent()?.Title) (@(child.Parent()?.Id)) (should be diff for admin/anonymous)</li>
+</ol>
+
