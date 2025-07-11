@@ -1,0 +1,29 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq
+@using AppCode.Data
+
+<h1>Kit.Data.GetQuery(...) AllImageServiceTests</h1>
+
+@{
+  // var query = Kit.Data.GetQuery("AllImageServiceTests");
+  // var queryData = AsList(query);
+
+  var query = App.GetQuery("AllImageServiceTests");
+  var queryData = query.GetAll<ImageServiceTests>().ToList();
+}
+
+@Html.Partial("../../_Shared/Dump Table.cshtml", new { Title = "AllImageServiceTests Query", data = query })
+
+@foreach (var imgSvc in queryData)
+{
+  <p>@imgSvc.Title</p>
+  <ul>
+    <li>@imgSvc.ImageFile</li>
+    <li>@imgSvc.TestId</li>
+  </ul>
+  @* <p>Image URL: <a href="@imgSvc.ImageUrl">@imgSvc.ImageUrl</a></p>
+  <p>Image ID: @imgSvc.ImageId</p>
+  <p>Image Size: @imgSvc.ImageSize</p>
+  <p>Image Type: @imgSvc.ImageType</p> *@
+  <hr />
+}
