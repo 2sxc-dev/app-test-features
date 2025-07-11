@@ -38,15 +38,18 @@ public class AppCodeGetCodeController : Custom.Hybrid.ApiTyped
   [HttpGet]
   public string GenerateMailFromFullName()
   {
-    var generator = GetService<IMailGenerator>(typeName: "AppCode.Mails.BasicMailGenerator");
-    return generator.Title("Hello Full Name");
+    throw new System.Exception("This experimental feature was removed in v20 since it doesn't make sense any more.");
+    // var generator = GetService<IMailGenerator>(typeName: "AppCode.Mails.BasicMailGenerator");
+    // return generator.Title("Hello Full Name");
   }
 
   [HttpGet]
   public string GenerateMailFromClassName()
   {
-    var generator = GetService<IMailGenerator>(typeName: "BasicMailGenerator");
-    return generator.Title("Hello Class Name");
+    throw new System.Exception("This experimental feature was removed in v20 since it doesn't make sense any more.");
+
+    // var generator = GetService<IMailGenerator>(typeName: "BasicMailGenerator");
+    // return generator.Title("Hello Class Name");
   }
 
 
