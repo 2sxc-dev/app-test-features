@@ -1,5 +1,5 @@
 @inherits Custom.Hybrid.RazorTyped
 
-@Configuration.OutputPartial(cache: c => c.WatchAppData().WatchAppFolder())
+@Configuration.Partial(cache: c => c.WatchAppData().WatchAppFolder())
 
 @DateTime.Now (cached with watchers)

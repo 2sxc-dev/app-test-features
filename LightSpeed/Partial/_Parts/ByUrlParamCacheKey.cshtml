@@ -1,6 +1,6 @@
 @inherits Custom.Hybrid.RazorTyped
 
-@Configuration.OutputPartial(cache: c => c
+@Configuration.Partial(cache: c => c
   .WatchAppFolder()
   .SetSlidingExpiration(seconds: 60)
   .VaryByPageParameters("cacheId")

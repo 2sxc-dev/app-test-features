@@ -1,6 +1,8 @@
 @inherits Custom.Hybrid.RazorTyped
 
-@Configuration.OutputPartial(cache: c => c.WatchAppData().WatchAppFolder())
+@Configuration.Partial(cache: c => c.SetSlidingExpiration(seconds: 300).WatchAppData().WatchAppFolder())
+
+@Configuration.PartialCache(sliding: 300, watch: "data,folder")
 
 @DateTime.Now (cached with watchers)
 

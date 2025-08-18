@@ -1,5 +1,5 @@
 @inherits Custom.Hybrid.RazorTyped
 
-@Configuration.OutputPartial(cache: c => c.WatchAppFolder().SetSlidingExpiration(seconds: 60).VaryByUser())
+@Configuration.PartialCache(sliding: 60, varyBy: "user")
 
 @DateTime.Now (60 seconds sliding expiration)

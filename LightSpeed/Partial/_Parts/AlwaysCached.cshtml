@@ -1,5 +1,5 @@
 @inherits Custom.Hybrid.RazorTyped
 
-@Configuration.OutputPartial(cache: c => c.Enable())
+@Configuration.Partial(cache: c => c.Enable())
 
 @DateTime.Now (always cached, no watchers)
