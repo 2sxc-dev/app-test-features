@@ -1,0 +1,14 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@Configuration.OutputPartial(cache: c => c.WatchAppData().WatchAppFolder())
+
+@DateTime.Now (cached with watchers)
+
+<p>
+  Will show the part changing the page title.
+  <br>
+  <br>
+  Refresh many times and verify that the title is still modified.
+</p>
+
+@Kit.Page.SetTitle("New Title from cached control")

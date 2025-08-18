@@ -1,0 +1,14 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@Configuration.OutputPartial(cache: c => c.WatchAppData().WatchAppFolder())
+
+@DateTime.Now (cached with watchers)
+
+<p>
+  Will show the part TurnOn called.
+  <br>
+  <br>
+  Refresh many times and verify that the console.log still happens.
+</p>
+
+@Kit.Page.TurnOn("window.console.log()", data: DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"))

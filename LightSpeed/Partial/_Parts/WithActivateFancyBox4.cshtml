@@ -1,0 +1,14 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@Configuration.OutputPartial(cache: c => c.WatchAppData().WatchAppFolder())
+
+@DateTime.Now (cached with watchers)
+
+<p>
+  Will show the part with FancyBox4 activated.
+  <br>
+  <br>
+  Refresh many times and verify that fancybox is still being loaded in the network tab even if the time doesn't change.
+</p>
+
+@Kit.Page.Activate("Fancybox4")
