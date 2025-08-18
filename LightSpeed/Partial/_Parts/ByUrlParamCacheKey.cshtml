@@ -1,0 +1,22 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@Configuration.OutputPartial(cache: c => c
+  .WatchAppFolder()
+  .SetSlidingExpiration(seconds: 60)
+  .VaryByPageParameters("cacheId")
+)
+
+@DateTime.Now (By Url-Param for <code>cacheId</code> 60 seconds sliding expiration)
+
+<h3>Test links with different CacheId</h3>
+<ol>
+  <li>
+    <a href="@Link.To(parameters: MyPage.Parameters.Set("cacheId", "1"))">CacheId 1</a>
+  </li>
+  <li>
+    <a href="@Link.To(parameters: MyPage.Parameters.Set("cacheId", "2"))">CacheId 2</a>
+  </li>
+  <li>
+    <a href="@Link.To(parameters: MyPage.Parameters.Set("cacheId", "3"))">CacheId 3</a>
+  </li>
+</ol>

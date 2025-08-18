@@ -1,0 +1,39 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Razor Partial Caching - Single Test</h1>
+
+<p>
+  This will call one Razor part.
+</p>
+@{
+  var partName = MyPage.Parameters.String("cachepart");
+
+  // TODO: maybe make it automatic - pick up all files in _Parts folder
+
+  var list = new List<string> {
+    "Uncached",
+    "Disabled",
+    "AlwaysCached",
+    "CachedTillChanged",
+    "CachedTillChangedData",
+    "CachedTillChangedFolder",
+    "ByModel",
+    "ByUser",
+    "ByUrlParamCacheKey",
+    "Exception"
+  };
+}
+
+<h2>Part to call @partName</h2>
+@if (MyPage.Parameters.ContainsKey("cachePart")) {
+  @Html.Partial("_parts/" + partName + ".cshtml")
+}
+
+<h2>List of Parts</h2>
+<ol>
+  @foreach (var item in list) {
+    <li>
+      <a href="@Link.To(parameters: MyPage.Parameters.Set("cachePart", item))">@item</a>
+    </li>
+  }
+</ol>

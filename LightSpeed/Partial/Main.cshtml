@@ -1,0 +1,31 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Razor Partial Caching</h1>
+<p>
+  This will called various Razor parts - with different caching configurations.
+</p>
+
+<h2>Basics</h2>
+<ol>
+  <li>
+    Non-cached: should always show a new value:
+    @Html.Partial("_Parts/Uncached.cshtml")
+  </li>
+  <li>
+    Disabled explicitly:
+    @Html.Partial("_Parts/Uncached.cshtml")
+  </li>
+  <li>
+    Always cached: should always show the same value:
+    @Html.Partial("_Parts/AlwaysCached.cshtml")
+  </li>
+</ol>
+
+
+<h2>Vary By</h2>
+<ol>
+  <li>
+    Vary by user: should show different values for different users:
+    @Html.Partial("_Parts/ByUser.cshtml")
+  </li>
+</ol>

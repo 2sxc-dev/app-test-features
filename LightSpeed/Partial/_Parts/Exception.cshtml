@@ -1,0 +1,5 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@{
+  throw new Exception("This is an test-exception in a Razor partial, which should not be cached. It will be caught by the main page and displayed as an error.");
+}

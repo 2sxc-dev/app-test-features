@@ -1,0 +1,12 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@Configuration.OutputPartial(cache: c => c
+  .WatchAppFolder()
+  .SetSlidingExpiration(seconds: 60)
+  .VaryByModel("id")
+)
+@{
+  var id = MyModel.Int("id");
+}
+
+@DateTime.Now (ByModel - showing Model for <code>@id</code> 60 seconds sliding expiration)
