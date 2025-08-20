@@ -18,6 +18,7 @@
     "CachedTillChangedData",
     "CachedTillChangedFolder",
     "ByModel",
+    "ByModelAccumulated",
     "ByUser",
     "ByUrlParamCacheKey",
     "Exception",
@@ -29,7 +30,7 @@
 
 <h2>Part to call @partName</h2>
 @if (MyPage.Parameters.ContainsKey("cachePart")) {
-  @Html.Partial("_parts/" + partName + ".cshtml")
+  @Html.Partial($"_parts/{partName}.cshtml")
 }
 
 <h2>List of Parts</h2>

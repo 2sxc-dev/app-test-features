@@ -1,0 +1,13 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<p>
+  Will show the part-by model with many calls, to see accumulated time
+</p>
+@{
+  var randomId = new Random().Next(1, 6);
+}
+
+@for (int i = 100; i < 300; i++)
+{
+  @Html.Partial("ByModel.PartShowingModel.cshtml", new { id = i })
+}
