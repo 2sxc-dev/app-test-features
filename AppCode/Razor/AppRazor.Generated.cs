@@ -1,10 +1,9 @@
 // DO NOT MODIFY THIS FILE - IT IS AUTO-GENERATED
 // All the classes are partial, so you can extend them in a separate file.
 
-// Generator:   RazorViewsGenerator v17.05.00
+// Generator:   RazorViewsGenerator
 // App/Edition: App Test Features/
 // User:        2sichost
-// When:        2024-03-22 14:45:03Z
 
 using AppCode.Data;
 using ToSic.Sxc.Apps;
