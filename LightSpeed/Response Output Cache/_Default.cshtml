@@ -7,11 +7,31 @@
 </p>
 
 @{
-  Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(5));
+  // Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(5));
   Response.Cache.SetCacheability(HttpCacheability.Public);
-  Response.Cache.SetMaxAge(TimeSpan.FromMinutes(5));
-  Response.Cache.VaryByParams.IgnoreParams = true;
+  // Response.Cache.SetMaxAge(TimeSpan.FromMinutes(5));
+  // Response.Cache.VaryByParams.IgnoreParams = true;
 
-  Response.Headers["Cache-Control"] = "public, max-age=300";
-Response.Headers["Expires"] = DateTime.UtcNow.AddMinutes(5).ToString("R");
+  // Response.Headers["Cache-Control"] = "public, max-age=300";
+// Response.Headers["Expires"] = DateTime.UtcNow.AddMinutes(5).ToString("R");
+
+  // note: important finding
+  // this only works ATM, if DNN server is configured
+  // with "public" caching
+
+  var ttl = TimeSpan.FromSeconds(36000);
+
+  Response.Cache.SetValidUntilExpires(true);
+
+  Response.Cache.SetMaxAge(ttl);
+
+  Response.Cache.SetProxyMaxAge(ttl);
+
+  Response.Cache.SetExpires(DateTime.UtcNow.Add(ttl));
+  
+  // Won't work, once you start editing Response.Cache
+  // Response.Headers["Cache-Control"] = "public, max-age=12345";
+  // Response.Headers["Expires"] = DateTime.UtcNow.AddMinutes(5).ToString("R");
 }
+
+caching?
