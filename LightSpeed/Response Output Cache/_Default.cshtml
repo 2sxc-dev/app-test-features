@@ -1,0 +1,17 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Response Output Cache</h1>
+
+<p>
+  This is an experimental to see if / how we can change the Http Response caching from code.
+</p>
+
+@{
+  Response.Cache.SetExpires(DateTime.UtcNow.AddMinutes(5));
+  Response.Cache.SetCacheability(HttpCacheability.Public);
+  Response.Cache.SetMaxAge(TimeSpan.FromMinutes(5));
+  Response.Cache.VaryByParams.IgnoreParams = true;
+
+  Response.Headers["Cache-Control"] = "public, max-age=300";
+Response.Headers["Expires"] = DateTime.UtcNow.AddMinutes(5).ToString("R");
+}
