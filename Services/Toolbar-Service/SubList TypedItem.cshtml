@@ -34,3 +34,29 @@
     Sub-Item count: @children.Count()
   </li>
 </ul>
+
+
+<h2>Testing with children-of-children</h2>
+<p>
+  This is because on some code - I believe in /Edu,- things failed editing a third-level child.
+</p>
+@{
+  var first = App.Data.GetAll<ToolbarTest>().First(d => d.String("TestId") == "first");
+  var firstChildren = first.Items;
+  var firstChildChildren = firstChildren.First().Children;
+}
+<ol>
+  <li>
+    First level children: @firstChildren.Count()
+  </li>
+  <li>
+    Second level children of first child: @firstChildChildren.Count()
+  </li>
+  <li>
+    Toolbar on second-level children: 
+    @{
+      var tlb2 = Kit.Toolbar.Default(firstChildChildren);
+    }
+    @tlb2.AsTag()
+  </li>
+</ol>
