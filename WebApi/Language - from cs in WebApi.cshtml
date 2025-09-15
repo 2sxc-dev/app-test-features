@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Use Language Controller</h1>
+
+@{
+  // Find out the current thread culture language
+  var lang = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+
+  // Get data of the MultiLanguageTests
+  var item = AsItem(App.Data["MultiLanguageTests"].List.FirstOrDefault());
+}
+
+<h3>get 'WebApi/api/WebApiLanguage/Hello'</h3>
+<p>
+  This should help test if the API controller gets the correct language context.
+  expected string result: 
+  <code>
+    Hello from WebApiLanguageController API controller in /api - current language:
+    @lang - item title: @(item?.Title)
+  </code>
+</p>
+<pre id="jsonResult1">...loading...</pre>
+@Kit.Page.TurnOn("window.justFetch()", data: new { route =  "WebApi/api/WebApiLanguage/Hello", placeholder = "jsonResult1" })
+
+@Html.Partial("__Shared.cshtml")
