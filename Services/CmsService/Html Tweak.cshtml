@@ -2,6 +2,7 @@
 @using ToSic.Razor.Blade
 @using ToSic.Sxc.Data
 @using ToSic.Sxc.Services
+
 @functions {
   const string TestCt = "FieldValueWysiwyg";
   public ITypedItem GetTestItem(string testId) {
@@ -13,7 +14,7 @@
 
 @{
   var item = GetTestItem("tweak-tests");
-  var cms = GetService<ICmsService>();
+  var cms = GetService<ToSic.Sxc.Services.Sys.Cms.ICmsService>();
   var field = item.Field("Contents");
 }
 
@@ -21,12 +22,15 @@
   Field: @field
 </div>
 
-<h2>Test with completely replaced data</h2>
+<h2 @Kit.Toolbar.Edit(item)>Test with completely replaced data</h2>
+<h3>Before</h3>
+@cms.Html(field)
 <hr>
+<h3>Insert Completely different value</h3>
 @cms.Html(field, tweak: tw => tw.Input("Test text \n test text \n test \n test").Input(Tags.Nl2Br))
 <hr>
 
-<h2 @Kit.Toolbar.Default(item)>Replace Bars into <code>&lt;br&gt;</code></h2>
+<h3 @Kit.Toolbar.Default(item)>Replace Bars into <code>&lt;br&gt;</code></h3>
 <hr>
 @cms.Html(field, tweak: tw => tw.Input(v => Tags.Nl2Br(v.Replace("|", "\n"))))
 <hr>
