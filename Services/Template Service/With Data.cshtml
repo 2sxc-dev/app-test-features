@@ -12,6 +12,8 @@
   var engine = Kit.Template.Default();
   var itemDs = Kit.Template.CreateSource("Item", data);
   var engineWithData = Kit.Template.Default(sources: new[] { itemDs });
+
+  var templateItem = Kit.Template.ParseAs<TestTemplateService>(template, parser: engineWithData);
 }
 <p>
   Query a TemplateEngine for it's sources on various levels.
@@ -28,9 +30,10 @@
   </li>
 </ul>
 
-<h2>Results</h2>
+<h2>Results using Template Service and tweak.Input</h2>
 <ol>
   <li>
+    Title:
     <code>@template.Title</code>
     <br>
     result: <code>@engine.Parse(template.Title)</code>
@@ -41,11 +44,36 @@
     result: <code>@engine.Parse(template.Message)</code>
   </li>
   <li>
-    HTML:
+    HTML without data:
     @template.Html("Message", tweak: t => t.Input(engine.Parse))
   </li>
   <li>
     HTML with data:
     @template.Html("Message", tweak: t => t.Input(engineWithData.Parse))
+  </li>
+  <li>
+    Photo direct: <br>
+    @template.Picture("Photo", width: 200)
+  </li>
+</ol>
+
+
+<h2>Results using TemplateItem</h2>
+<ol>
+  <li>
+    Title:
+    <code>@templateItem.Title</code>
+  </li>
+  <li>
+    <code>@templateItem.Message</code>
+  </li>
+  <li>
+    HTML with Item Data:
+    @templateItem.String("Message")
+  </li>
+  <li>
+    Photo with Item Data:
+    <br>
+    @templateItem.Picture("Photo", width: 200)
   </li>
 </ol>
