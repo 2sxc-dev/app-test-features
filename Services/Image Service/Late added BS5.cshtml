@@ -1,0 +1,26 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Data
+@using ToSic.Sxc.Services
+
+<h1>Image Service Service - Late Added BS5</h1>
+<p>
+  Working to get the ImageService to realize when Bootstrap5 is added late.
+</p>
+@{
+
+  Kit.Page.Activate("BootstrapX"); // intentionally not specifying version to simulate late add
+
+  var testData = GetCode("/_Shared/TestData.cs");
+  var left = AsItem(testData.Find("ImageServiceTests", "align-left") as object);
+  var file = left.File("Image");
+  var pic = Kit.Image.Picture(file, factor: 2f/12);
+}
+<h2>Data</h2>
+<ol>
+  <li>pic.Class (<code>img-fluid</code> expected for Bootstrap5): <code>@pic.Class</code></li>
+</ol>
+
+Show Left: 
+@pic
+
