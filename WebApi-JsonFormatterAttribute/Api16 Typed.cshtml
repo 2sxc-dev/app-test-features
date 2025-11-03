@@ -7,6 +7,16 @@
 <p>method:</p>
 <pre>-</pre>
 
+<h3>Preflight</h3>
+<p>
+  Test 2025-11-03 2dm access the property Description first to get it...
+</p>
+@{
+  var firstItemAppDescription = AsDynamic(App.Data.List.First());
+  var desc = firstItemAppDescription.Description;
+}
+Description: @desc (id: @firstItemAppDescription.EntityId)
+
 <h2>1, get single IEntity</h2>
 <h3>expected JSON result: single EavLightEntity, camel case.</h3>
 <pre id="jsonResult1">...loading...</pre>
