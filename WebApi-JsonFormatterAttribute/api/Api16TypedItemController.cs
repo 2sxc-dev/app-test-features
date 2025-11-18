@@ -15,7 +15,7 @@ public class Api16TypedItemController : Custom.Hybrid.ApiTyped
   [HttpGet]
   public object GetEntity()
   {
-    var item = AsItem(App.Data.List.First());
+    var item = AsItem(App.Data.List.First(i => i.GetBestTitle() == "App Test Features"));
     Log.Add($"returning item id {item.Id} - Description: {item.String("Description")}");
 
     // var list = new List<ITypedItem> { item };
