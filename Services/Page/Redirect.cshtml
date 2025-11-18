@@ -1,0 +1,57 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>Page Service - Redirect Tests</h1>
+<p>
+  This should be used to test Redirect features WIP v20.09?
+</p>
+
+<h2>old Redirects</h2>
+
+<p>
+  click on one of these to trigger a Redirect the classic way.
+</p>
+
+<ul>
+  <li>
+    <a target="_blank" href="@Link.To(parameters: MyPage.Parameters.Add("redirect", "https://2sxc.org"))">
+      Redirect to https://2sxc.org
+    </a>
+  </li>
+</ul>
+
+@{
+  var redirectUrl = MyPage.Parameters.Get("redirect");
+  if (!string.IsNullOrWhiteSpace(redirectUrl))
+  {
+    Response.Redirect(redirectUrl);
+  }
+}
+
+<h2>New Redirects</h2>
+
+<p>
+  click on one of these to trigger a Redirect using the new Redirect feature.
+</p>
+
+<ul>
+  <li>
+    <a target="_blank" href="@Link.To(parameters: MyPage.Parameters.Add("redirect-new", "https://2sxc.org"))">
+      Redirect to https://2sxc.org
+    </a>
+  </li>
+</ul>
+
+@{
+  var redirectUrlNew = MyPage.Parameters.Get("redirect-new");
+  if (!string.IsNullOrWhiteSpace(redirectUrlNew))
+  {
+    try
+    {
+      Response.Redirect(redirectUrlNew, false);
+    }
+    catch (System.Threading.ThreadAbortException)
+    {
+      // this is expected
+    }
+  }
+}
