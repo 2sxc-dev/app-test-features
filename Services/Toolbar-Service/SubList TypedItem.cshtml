@@ -48,6 +48,16 @@
       @copyToolbar.AsJson()
     </code>
   </li>
+  @{
+    var copyToolbarDirect = Kit.Toolbar.Empty().Copy(lastChildToCopy);
+  }
+  <li>
+    now the real copy without Empty(list) @copyToolbarDirect.AsTag()
+    <br>
+    <code>
+      @copyToolbarDirect.AsJson()
+    </code>
+  </li>
   <li>
     mode json with Edit having a parameter:
     @testWithParameter.AsJson()
