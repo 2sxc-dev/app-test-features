@@ -8,6 +8,7 @@
 @{
   var itemWithEmptyChildren = AsItems(App.Data.GetStream(nameof(ToolbarTest))).First(d => d.String("TestId") == "sub-list-empty");
   var children = itemWithEmptyChildren.Children("Items");
+  var lastChildToCopy = children.Last();
   var tlb = Kit.Toolbar.Default(children);
 }
 
@@ -22,6 +23,34 @@
   <li>
     mode json: @tlb.AsJson()
   </li>
+  @{
+    var testWithParameter = Kit.Toolbar.Empty(children).New(tweak: t => t.Parameters("copyId", lastChildToCopy.Id));
+  }
+  <li>
+    mode tag with Edit having a parameter:
+    @testWithParameter.AsTag()
+    <br>
+    quick edit test
+    @Kit.Toolbar.Edit(itemWithEmptyChildren, tweak: t => t.Parameters("copyId", 14)).AsTag()
+  </li>
+  <li>
+    Classic copy toolbar:
+    @Kit.Toolbar.Empty().Copy(lastChildToCopy).AsTag()
+    @Kit.Toolbar.Empty().Copy(lastChildToCopy).AsJson()
+  </li>
+  @{
+    var copyToolbar = Kit.Toolbar.Empty(lastChildToCopy).Copy(lastChildToCopy);
+  }
+  <li>
+    now the real copy @copyToolbar.AsTag()
+    <br>
+    <code>
+      @copyToolbar.AsJson()
+    </code>
+  </li>
+  <li>
+    mode json with Edit having a parameter:
+    @testWithParameter.AsJson()
 </ol>
 
 
