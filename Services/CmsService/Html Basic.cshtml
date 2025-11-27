@@ -18,5 +18,8 @@
 <h2 @Kit.Toolbar.Edit(item)>
   Output using Kit.Cms.Html
 </h2>
+<p @Kit.Toolbar.Edit(item, tweak: t => t.UiFields("Contents"))>
+  Minor Test-Link.
+</p>
 <hr>
 @item.Html("Contents")
