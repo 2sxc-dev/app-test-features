@@ -6,34 +6,81 @@
 
   var tests = new List<RestTest>
   {
+    // Basic test - all books
     new RestTest
     {
-      Title = "Books - no $select",
+      Title = "All Books",
       Description = "Just the normal call, no filters, nothing"
     },
+
+    // Select tests
     new RestTest
     {
-      Title = "Books - Title, ISBN",
+      Category = "Select",
+      Title = "Title, ISBN",
       Description = "Expect some of the books, but only the title and ISBN",
       Select = "Title,ISBN"
     },
     new RestTest
     {
-      Title = "Books - Title, ISBN, Pages",
+      Category = "Select",
+      Title = "Title, ISBN, Pages",
       Description = "Expect only books with more than 300 pages",
       Select = "Title,ISBN,Pages"
     },
     new RestTest
     {
-      Title = "Books - ID, Guid, Title, ISBN, Pages",
+      Category = "Select",
+      Title = "ID, Guid, Title, ISBN, Pages",
       Description = "Expect only books with more than 300 pages",
       Select = "ID,Guid,Title,ISBN,Pages"
-    }
+    },
+    new RestTest
+    {
+      Category = "Select",
+      Title = "ID, Title, Authors",
+      Description = "Expect only books with more than 300 pages",
+      Select = "ID,Title,Authors"
+    },
+    new RestTest
+    {
+      Category = "Select",
+      Title = "ID, Title, Authors/Id (not working yet)",
+      Description = "Expect only books with more than 300 pages",
+      Select = "ID,Title,Authors/Id"
+    },
+    new RestTest
+    {
+      Category = "Select",
+      Title = "ID, Title, Authors/Id & Authors/Name",
+      Description = "Expect only books with more than 300 pages",
+      Select = "ID,Title,Authors/Id,Authors/Name"
+    },
+
+    // Filter tests
+    new RestTest
+    {
+      Category = "Filter",
+      Title = "filter Pages gt 300",
+      Description = "Expect only books with more than 300 pages",
+      Filter = "Pages gt 300"
+    },
+    new RestTest
+    {
+      Category = "Filter",
+      Title = "filter Pages lt 200",
+      Description = "Expect only books with less than 200 pages",
+      Filter = "Pages lt 200"
+    },
   };
 
   var selectedId = MyPage.Parameters.Int("TestId", fallback: 0);
   var selectedTest = tests.ElementAtOrDefault(selectedId)
     ?? tests[0];
+
+  var groupedByCategory = tests
+    .GroupBy(t => t.Category)
+    .ToList();
 }
 
 
@@ -46,19 +93,23 @@
   <div class="row border-bottom py-2">
     @* Show the menu to pick a test *@
     <div class="col-4 fw-bold">
-      <ol>
-        @foreach(var test in tests)
-        {
-          var index = tests.IndexOf(test);
-          var link = Link.To(parameters: MyPage.Parameters.Set("TestId", index));
-          var selectedClass = index == selectedId ? "bg-info" : "";
-          <li class='@selectedClass'>
-            <a href='@link'>
-              @test.Title
-            </a>
-          </li>
-        }
-      </ol>
+      @foreach(var group in groupedByCategory)
+      {
+        <h5>@group.Key</h5>
+        <ol>
+          @foreach(var test in group)
+          {
+            var index = tests.IndexOf(test);
+            var link = Link.To(parameters: MyPage.Parameters.Set("TestId", index));
+            var selectedClass = index == selectedId ? "bg-info" : "";
+            <li class='@selectedClass'>
+              <a href='@link'>
+                @test.Title
+              </a>
+            </li>
+          }
+        </ol>
+      }
     </div>
     <div class="col-8">
       @Html.Partial("__REST-Data-Test.cshtml", selectedTest)

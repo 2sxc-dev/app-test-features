@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.09" ExportDate="2025-12-01T21:41:48.1959081+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.09" ExportDate="2025-12-01T21:50:43.7358536+01:00">
   <Header>
     <App Guid="ab297ff7-224c-4158-a8ad-3f384997103f" />
     <Language Default="en-us" />
@@ -5347,6 +5347,69 @@
             <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
           </Entity>
         </Attribute>
+        <Attribute StaticName="Authors" Type="Entity" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="9e9705de-a954-4993-9fea-a660ffd06c47" Json="True" KeyNumber="43756">
+            <Value Key="CustomJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DefaultValue" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Disabled" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="DisableTranslation" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="InputType" Value="entity-default" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Name" Value="Author" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Notes" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Placeholder" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Required" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="ValidationRegExJavaScript" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@Entity" AttributeSetName="@Entity" EntityGUID="1ec9eb86-a1c0-461f-a799-b90ca347f638" Json="True" KeyNumber="43756">
+            <Value Key="AllowMultiValue" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableAddExisting" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableCreate" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableDelete" Value="False" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableEdit" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EnableRemove" Value="True" Type="Boolean">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="EntityType" Value="RestTestAuthor" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+            <Value Key="Prefill" Value="" Type="String">
+              <Dimension DimensionID="229" ReadOnly="false" />
+            </Value>
+          </Entity>
+        </Attribute>
       </Attributes>
     </AttributeSet>
     <AttributeSet StaticName="5ec40215-4a4d-4ced-91f7-0978bd4df974" Name="ShareTypeSource" Scope="SharedTypes" AlwaysShareConfiguration="false">
@@ -9471,6 +9534,7 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="9ee7a5ed-b9d0-4220-91ce-7ee05d292f04" AttributeSetName="RestTestBook" EntityGUID="ba56bf65-88d2-4e3e-bc64-12a222c52171">
+      <Value Key="Authors" Value="9babf25b-ca01-4c94-866f-f34341740c99" Type="Entity" />
       <Value Key="ISBN" Value="978-0063373662" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
@@ -9485,6 +9549,7 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="9ee7a5ed-b9d0-4220-91ce-7ee05d292f04" AttributeSetName="RestTestBook" EntityGUID="38dd375d-54fe-45d6-93b9-afafcbe6d6cf">
+      <Value Key="Authors" Value="9babf25b-ca01-4c94-866f-f34341740c99" Type="Entity" />
       <Value Key="ISBN" Value="978-0063385542" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>

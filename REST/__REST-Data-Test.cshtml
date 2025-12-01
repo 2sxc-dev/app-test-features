@@ -15,10 +15,7 @@
   ...loading...
 </pre>
 
-@Kit.Page.TurnOn("window.postJson()", data: new {
-  ContentType = Model.ContentType,
-  Select = Model.Select
-})
+@Kit.Page.TurnOn("window.postJson()", data: Model)
 
 <script type="text/javascript">
   // Use an IFFE to ensure the variables are not exposed globaly
@@ -26,10 +23,18 @@
   (() => {
     function postJson(data) {
       const select = data.Select
-        ? "?$select=" + data.Select
+        ? "$select=" + data.Select
         : "";
 
-      const url = 'app/auto/data/' + data.ContentType + select;
+      const filter = data.Filter
+        ? "$filter=" + encodeURIComponent(data.Filter)
+        : "";
+
+      const combined = [select, filter]
+        .filter(part => part.length > 0)
+        .join("&");
+
+      const url = 'app/auto/data/' + data.ContentType + (combined ? "?" + combined : "");
       document.getElementById("url").innerHTML = url;
 
       $2sxc(@MyContext.Module.Id).webApi
