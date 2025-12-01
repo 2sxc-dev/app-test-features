@@ -1,0 +1,45 @@
+@inherits Custom.Hybrid.RazorTyped<RestTest>
+@using AppCode.RestTests
+@{
+  Kit.Page.Activate("2sxc.JsCore");
+}
+<h3>@Model.Title</h3>
+<p>
+  @Model.Description
+</p>
+<div>
+  URL:
+  <code id="url"></code>
+</div>
+<pre id="output1">
+  ...loading...
+</pre>
+
+@Kit.Page.TurnOn("window.postJson()", data: new {
+  ContentType = Model.ContentType,
+  Select = Model.Select
+})
+
+<script type="text/javascript">
+  // Use an IFFE to ensure the variables are not exposed globaly
+  // See https://developer.mozilla.org/en-US/docs/Glossary/IIFE
+  (() => {
+    function postJson(data) {
+      const select = data.Select
+        ? "?$select=" + data.Select
+        : "";
+
+      const url = 'app/auto/data/' + data.ContentType + select;
+      document.getElementById("url").innerHTML = url;
+
+      $2sxc(@MyContext.Module.Id).webApi
+        .fetchJson(url)
+        .then(response => {
+          console.log(response);
+          document.getElementById("output1").innerHTML = JSON.stringify(response, null, 2);
+        });
+    }
+    // Generate on window so it can be called from the html
+    window.postJson = postJson;
+  })();
+</script>

@@ -1,0 +1,71 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.RestTests
+
+@{
+  var bookCt = "RestTestBook";
+
+  var tests = new List<RestTest>
+  {
+    new RestTest
+    {
+      Title = "Books - no $select",
+      Description = "Just the normal call, no filters, nothing"
+    },
+    new RestTest
+    {
+      Title = "Books - Title, ISBN",
+      Description = "Expect some of the books, but only the title and ISBN",
+      Select = "Title,ISBN"
+    },
+    new RestTest
+    {
+      Title = "Books - Title, ISBN, Pages",
+      Description = "Expect only books with more than 300 pages",
+      Select = "Title,ISBN,Pages"
+    },
+    new RestTest
+    {
+      Title = "Books - ID, Guid, Title, ISBN, Pages",
+      Description = "Expect only books with more than 300 pages",
+      Select = "ID,Guid,Title,ISBN,Pages"
+    }
+  };
+
+  var selectedId = MyPage.Parameters.Int("TestId", fallback: 0);
+  var selectedTest = tests.ElementAtOrDefault(selectedId)
+    ?? tests[0];
+}
+
+
+
+<div class="container-fluid">
+  <div class="row border-bottom py-2">
+    <div class="col-4 fw-bold">Menu</div>
+    <div class="col-8">Result</div>
+  </div>
+  <div class="row border-bottom py-2">
+    @* Show the menu to pick a test *@
+    <div class="col-4 fw-bold">
+      <ol>
+        @foreach(var test in tests)
+        {
+          var index = tests.IndexOf(test);
+          var link = Link.To(parameters: MyPage.Parameters.Set("TestId", index));
+          var selectedClass = index == selectedId ? "bg-info" : "";
+          <li class='@selectedClass'>
+            <a href='@link'>
+              @test.Title
+            </a>
+          </li>
+        }
+      </ol>
+    </div>
+    <div class="col-8">
+      @Html.Partial("__REST-Data-Test.cshtml", selectedTest)
+    </div>
+  </div>
+  <div class="row border-bottom py-2">
+    <div class="col-4 fw-bold">Third Label</div>
+    <div class="col-8">Third Value</div>
+  </div>
+</div>

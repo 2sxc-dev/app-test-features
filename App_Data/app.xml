@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.09" ExportDate="2025-11-03T22:56:32.3457342+01:00">
+<SexyContent FileVersion="07.00.00" MinimumRequiredVersion="07.04.02" ModuleVersion="20.00.09" ExportDate="2025-12-01T21:41:48.1959081+01:00">
   <Header>
     <App Guid="ab297ff7-224c-4158-a8ad-3f384997103f" />
     <Language Default="en-us" />
@@ -5299,6 +5299,56 @@
         </Attribute>
       </Attributes>
     </AttributeSet>
+    <AttributeSet StaticName="bbcba5cb-8ec7-4070-85b4-e601bf783331" Name="RestTestAuthor" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Name" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="f279e8c7-3bec-4898-9815-101f854def7e" Json="True" KeyNumber="43754">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Name" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="IsMale" Type="Boolean" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="8b60d7aa-1bb6-4e8f-953e-5d57400e5a05" Json="True" KeyNumber="43755">
+            <Value Key="InputType" Value="boolean-default" Type="String" />
+            <Value Key="Name" Value="IsMale" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
+    <AttributeSet StaticName="9ee7a5ed-b9d0-4220-91ce-7ee05d292f04" Name="RestTestBook" Scope="Default" AlwaysShareConfiguration="false">
+      <Attributes>
+        <Attribute StaticName="Title" Type="String" IsTitle="true">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="490f79a1-6cc2-48f8-9862-e60ae3463cc1" Json="True" KeyNumber="43750">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="Title" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="ISBN" Type="String" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="f2cc2959-165a-46c8-8030-117d07cfa9a5" Json="True" KeyNumber="43751">
+            <Value Key="InputType" Value="string-default" Type="String" />
+            <Value Key="Name" Value="ISBN" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Published" Type="DateTime" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="ef281e9c-435a-4028-aff2-a99065bc545a" Json="True" KeyNumber="43752">
+            <Value Key="InputType" Value="datetime-default" Type="String" />
+            <Value Key="Name" Value="Published" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+        <Attribute StaticName="Pages" Type="Number" IsTitle="false">
+          <Entity TargetType="2" AssignmentObjectType="EAV Field Properties" AttributeSetStaticName="@All" AttributeSetName="@All" EntityGUID="63c63c0a-f47b-45ea-bade-2fe55d56e6af" Json="True" KeyNumber="43753">
+            <Value Key="InputType" Value="number-default" Type="String" />
+            <Value Key="Name" Value="Pages" Type="String" />
+            <Value Key="VisibleInEditUI" Value="True" Type="Boolean" />
+          </Entity>
+        </Attribute>
+      </Attributes>
+    </AttributeSet>
     <AttributeSet StaticName="5ec40215-4a4d-4ced-91f7-0978bd4df974" Name="ShareTypeSource" Scope="SharedTypes" AlwaysShareConfiguration="false">
       <Attributes>
         <Attribute StaticName="Title" Type="String" IsTitle="true">
@@ -8848,7 +8898,7 @@
       </Value>
     </Entity>
     <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="e14676e9-cf3c-487e-bbc9-2a4a1720c0bc" AttributeSetName="ToolbarTest" EntityGUID="4ae9c4f2-0db9-4384-b4cc-3f3a1c43036e">
-      <Value Key="Items" Value="4e4f681d-d00d-4835-a7b1-089a93e06726,815bd44a-a426-482c-9cfb-1b4608a2ebcd,bab34bb9-22ae-47a1-89e2-5586db70296b" Type="Entity" />
+      <Value Key="Items" Value="4e4f681d-d00d-4835-a7b1-089a93e06726,9876ad8e-9793-4249-9578-783f2ae7beb3,815bd44a-a426-482c-9cfb-1b4608a2ebcd,bab34bb9-22ae-47a1-89e2-5586db70296b,c1f6b56b-9f5f-4f40-ad6f-92ded164acf2" Type="Entity" />
       <Value Key="TestId" Value="sub-list-empty" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
@@ -9281,6 +9331,170 @@
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
       <Value Key="version" Value="00.00.01" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="a0f44af0-6750-40c9-9ad9-4a07b6eda8b3" AttributeSetName="🥷AppExtension" EntityGUID="98c8362f-b4dc-4367-a566-842a0627c21a" Json="True">
+      <Value Key="appCodeInside" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="contentTypesInside" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="copyright" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="createdBy" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="dataBundles" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="dataInside" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="description" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="dnnSupported" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="dnnVersionMin" Value="10.00.00" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="editionsSupported" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="inputFieldAssets" Value="index.js" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="inputFieldInside" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="isInstalled" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="linkDemo" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="linkDocs" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="linkMain" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="linkSource" Value="" Type="Hyperlink">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="name" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="nameId" Value="98c8362f-b4dc-4367-a566-842a0627c21a" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="oqtSupported" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="oqtVersionMin" Value="06.02.00" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="queriesInside" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="razorInside" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="sxcSupported" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="sxcVersionMin" Value="20.09.00" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="teaser" Value="" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="version" Value="00.00.01" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="viewsInside" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="webApiInside" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c762b0a9-bc7b-4517-abc9-1b47d326a7a0" AttributeSetName="ToolbarTestItems" EntityGUID="9876ad8e-9793-4249-9578-783f2ae7beb3">
+      <Value Key="Title" Value="14:22 - copy" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c762b0a9-bc7b-4517-abc9-1b47d326a7a0" AttributeSetName="ToolbarTestItems" EntityGUID="c1f6b56b-9f5f-4f40-ad6f-92ded164acf2">
+      <Value Key="Title" Value="14:22 17:21" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="c762b0a9-bc7b-4517-abc9-1b47d326a7a0" AttributeSetName="ToolbarTestItems" EntityGUID="ce1a7d22-50d9-464f-a126-dc9f9787d793">
+      <Value Key="Title" Value="14:22 17:21 copy 1745" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="bbcba5cb-8ec7-4070-85b4-e601bf783331" AttributeSetName="RestTestAuthor" EntityGUID="9babf25b-ca01-4c94-866f-f34341740c99">
+      <Value Key="IsMale" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Terry Pratchett" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="bbcba5cb-8ec7-4070-85b4-e601bf783331" AttributeSetName="RestTestAuthor" EntityGUID="c8545d30-ff53-4048-ae20-ccb9c1ea2f21">
+      <Value Key="IsMale" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Neil Gaiman" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="bbcba5cb-8ec7-4070-85b4-e601bf783331" AttributeSetName="RestTestAuthor" EntityGUID="2630cb6b-164d-4cfc-8558-d50f7af2c412">
+      <Value Key="IsMale" Value="True" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Arthur Douglas" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="bbcba5cb-8ec7-4070-85b4-e601bf783331" AttributeSetName="RestTestAuthor" EntityGUID="e08483c4-d8bc-4805-bcf1-4ad390b7a851">
+      <Value Key="IsMale" Value="False" Type="Boolean">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Name" Value="Jade Jones" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="9ee7a5ed-b9d0-4220-91ce-7ee05d292f04" AttributeSetName="RestTestBook" EntityGUID="ba56bf65-88d2-4e3e-bc64-12a222c52171">
+      <Value Key="ISBN" Value="978-0063373662" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Pages" Value="100" Type="Number">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Published" Value="1983-01-01T00:00:00" Type="DateTime">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="The Colour of Magic: Discworld, Book 1" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+    </Entity>
+    <Entity TargetType="1" AssignmentObjectType="Default" AttributeSetStaticName="9ee7a5ed-b9d0-4220-91ce-7ee05d292f04" AttributeSetName="RestTestBook" EntityGUID="38dd375d-54fe-45d6-93b9-afafcbe6d6cf">
+      <Value Key="ISBN" Value="978-0063385542" Type="String">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Pages" Value="312" Type="Number">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Published" Value="1980-01-01T00:00:00" Type="DateTime">
+        <Dimension DimensionID="229" ReadOnly="false" />
+      </Value>
+      <Value Key="Title" Value="Equal Rites: A Discworld Novel (Witches, 1)" Type="String">
         <Dimension DimensionID="229" ReadOnly="false" />
       </Value>
     </Entity>
