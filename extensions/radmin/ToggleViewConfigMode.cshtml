@@ -1,0 +1,44 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode
+@using AppCode.Data
+@using AppCode.Extensions.Radmin
+@using RadminData = AppCode.Extensions.Radmin.Data
+@using ToSic.Razor.Blade
+
+@* Toggle switch for table configuration mode (admins only, skip for demo items) *@
+
+@{
+  var res = App.Data.GetAll<RadminResources>().FirstOrDefault();
+  var item = MyModel.Get<RadminData.RadminTable>("item");
+
+  if (!MyUser.IsSiteAdmin || item.IsDemoItem)
+    return;
+
+  // The view config mode would enable the JS to show edit buttons to configure the table
+  var viewConfigMode = MyPage.Parameters.Bool(SxcTablesConstants.UrlParamConfigMode, fallback: false);
+
+  // Preserve existing query parameters:
+  var currentParams = MyPage.Parameters;
+  var targetParams = viewConfigMode
+    ? currentParams.Remove(SxcTablesConstants.UrlParamConfigMode)
+    : currentParams.Add(SxcTablesConstants.UrlParamConfigMode, "true");
+
+  // Build final URL using Link.To with the parameters object (avoids string manipulation)
+  var onChangeLink = Link.To(parameters: targetParams);
+}
+
+<div class="form-check form-switch">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    role="switch"
+    title="Toolbars For Table-Configuration"
+    id="flexSwitchCheckDefault"
+    onchange="location.href='@onChangeLink'"
+    @(viewConfigMode ? "checked" : "")
+  >
+  <label class="form-check-label" for="flexSwitchCheckDefault">
+    @* TODO: Serve with bundle -> @res.ViewConfigModeLabel *@
+    View Config Mode
+  </label>
+</div>

@@ -1,0 +1,46 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode
+@using AppCode.Extensions.Radmin
+@using AppCode.Extensions.Radmin.Data
+
+@{
+  Kit.Page.Activate("2sxc.JsCore");
+
+  var itemViewId = MyPage.Parameters.String(SxcTablesConstants.UrlParamViewId, fallback: null);
+
+  var item = string.IsNullOrEmpty(itemViewId) || !Guid.TryParse(itemViewId, out var parsedGuid)
+    ? As<RadminTable>(MyItem)
+    : App.Data.GetOne<RadminTable>(parsedGuid);
+
+  var appUrl = App.Folder.Url;
+}
+
+@* Show Switcher to toggle table configuration mode - to admins only, and not for demo since that shouldn't be modified *@
+@Html.Partial("./ToggleViewConfigMode.cshtml", new { item })
+
+<div class="d-flex justify-content-between align-items-center mb-1" @Kit.Toolbar.Default(item)>
+  <h1>@item.Title</h1>
+  @* The filter input will be dynamically inserted here by JavaScript *@
+</div>
+
+@* Add error container before the table *@
+<div id="tosxc-table-error-@MyContext.Module.Id" class="mb-3"></div>
+
+<div>
+  @* Tabulator ID *@
+  <div id="tosxc-table-@MyContext.Module.Id" />
+</div>
+
+@Kit.Page.TurnOn("window.table.createTabulatorTable()", data: new {
+  tableName = "tosxc-table-" + MyContext.Module.Id,
+  filterName = "tosxc-table-filter-" + MyContext.Module.Id,
+  errorContainerId = "tosxc-table-error-" + MyContext.Module.Id,
+  moduleId = MyContext.Module.Id,
+  viewId = item.Guid.ToString(),
+  canEditConfig = MyUser.IsSiteAdmin && !item.IsDemoItem,
+  canEditData = MyUser.IsContentEditor && !item.IsDemoItem,
+  customizerDistPath = (string.IsNullOrEmpty(item.CustomizersDistPath) ? "" : appUrl + item.CustomizersDistPath)
+})
+
+<script src="@appUrl/extensions/radmin/dist/tables.js" @Kit.Page.AssetAttributes(position: "bottom")></script>
+<link href="@appUrl/extensions/radmin/dist/styles.min.css" rel="stylesheet" @Kit.Page.AssetAttributes(position: "bottom") />
