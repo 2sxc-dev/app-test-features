@@ -1,0 +1,105 @@
+{
+  "version": "00.04.09",
+  "files": [
+    {
+      "file": "/extensions/radmin/package-lock.json",
+      "hash": "a4d8e79b0b399a26aa0ebcdee57e0563f28ef5981d7439c0fb3e0b0bf5c8ad1c"
+    },
+    {
+      "file": "/extensions/radmin/package.json",
+      "hash": "dff76c591e82bf5d6309f4651e90f0a7e248378d8213703233b19440b5811e23"
+    },
+    {
+      "file": "/extensions/radmin/Radmin Table.cshtml",
+      "hash": "0196135261b5c41c438f031f1e4cd31ef5bb3972e7402926bd90bf6e51810a00"
+    },
+    {
+      "file": "/extensions/radmin/ToggleViewConfigMode.cshtml",
+      "hash": "e26ac888488062ef00cf9365f5df73fa3091865e66ffedbacbde577c9b2f8728"
+    },
+    {
+      "file": "/extensions/radmin/dist/styles.js",
+      "hash": "89b3fa0b60f59518ba472eb0460c748dd6dd3a4a777289dc1e0b753b1161fb8a"
+    },
+    {
+      "file": "/extensions/radmin/dist/styles.min.css",
+      "hash": "cb3ce80cdcf05537b374ee291e59febdb4643f9f0a4a2f68e7f2bcc7ab9dcb88"
+    },
+    {
+      "file": "/extensions/radmin/dist/tables.js",
+      "hash": "55ac90e92baf189f2a0b3bf6403b05799d1420a299ff7e9eca292c74fa74fab6"
+    },
+    {
+      "file": "/extensions/radmin/node_modules/.package-lock.json",
+      "hash": "695e7dc5ab79f5939dcf068100c9a6e28ac9d2a58b51c8622ab61b21e2c9fc4d"
+    },
+    {
+      "file": "/extensions/radmin/node_modules/@types/tabulator-tables/index.d.mts",
+      "hash": "97e1818573679b5d3d697406abd3e5f1e9cd00da1f2783ab236912180462f5be"
+    },
+    {
+      "file": "/extensions/radmin/node_modules/@types/tabulator-tables/index.d.ts",
+      "hash": "5dad07a186cca86ca5fcaf4b7843a20edf134a0e72f8dc381293adf6998457fe"
+    },
+    {
+      "file": "/extensions/radmin/node_modules/@types/tabulator-tables/LICENSE",
+      "hash": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    },
+    {
+      "file": "/extensions/radmin/node_modules/@types/tabulator-tables/package.json",
+      "hash": "d373cbf90b5cd68a83265751edf2128c4e9b45b9e18bd6b841d3a40eb3419eae"
+    },
+    {
+      "file": "/extensions/radmin/node_modules/@types/tabulator-tables/README.md",
+      "hash": "86357cc14dd8223796916f6ca64dc7cd2c58497a378e73f3f7bd65a11af2c639"
+    },
+    {
+      "file": "/extensions/radmin/src/configs/radmin-column-config.ts",
+      "hash": "0562a0fbf2dd80d1bd5740f65d1e2d8cde83aab142c0bf4503b076710551f422"
+    },
+    {
+      "file": "/extensions/radmin/src/configs/radmin-table-config.ts",
+      "hash": "eabed11628404e115425946d1b476ecd306138415c657e94ccfe07d76a13e1c8"
+    },
+    {
+      "file": "/extensions/radmin/src/customizers/table-customizer.ts",
+      "hash": "002f8465e376a12a97774b0a88565199d57051239b8da067b247ed7da6a22084"
+    },
+    {
+      "file": "/AppCode/extensions/radmin/SxcTablesConstants.cs",
+      "hash": "3d2d9c2ce860130a5804d22ae80f3de65ad34c6b00c7c2fdfa5b7accb9e62178"
+    },
+    {
+      "file": "/AppCode/extensions/radmin/Api/JsonSchemas.cs",
+      "hash": "3336400e6544180d344f3765d054b79a23644c2ad75233ec652b48497c05565d"
+    },
+    {
+      "file": "/AppCode/extensions/radmin/Api/RadminController.cs",
+      "hash": "9ac0cdc376124701195f1b886b8404bf7c1e7cd9bd7c89a993ff935f620e6901"
+    },
+    {
+      "file": "/AppCode/extensions/radmin/Api/RadminSchemaHelper.cs",
+      "hash": "bdd71e63fd0369c2240d16e2b077b61ae2ef4829ce2c3b17a21288314e4e4104"
+    },
+    {
+      "file": "/AppCode/extensions/radmin/Data/RadminResources.Generated.cs",
+      "hash": "4dd043d0f2fb400e0e8f739b079767be8b048f2b1556c3105cb30d89feb83695"
+    },
+    {
+      "file": "/AppCode/extensions/radmin/Data/RadminTable.Generated.cs",
+      "hash": "f8c770db9187ffd62f8786d304294f0d8de445bcfb6aa9048c49179ee2a5f72f"
+    },
+    {
+      "file": "/AppCode/extensions/radmin/Data/RadminTableColumn.Generated.cs",
+      "hash": "db649c78f06a3824451358afb0c18607cb05e6f3f666368b56685f64d126a3ec"
+    },
+    {
+      "file": "/extensions/radmin/App_Data/system/bundles/radmin.json",
+      "hash": "8901091a1d3aa8502c65d558a68d310efb73d58e305c16263cff5cb5ecb1db35"
+    },
+    {
+      "file": "/extensions/radmin/App_Data/extension.json",
+      "hash": "58a7a4ba079daa2130595f6aa43c2760715fc3b368638eab7e737fe006fb0f69"
+    }
+  ]
+}
