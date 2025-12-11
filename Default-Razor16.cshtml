@@ -8,16 +8,13 @@
   // s ??= "Hello2";
 }
 
-<hr>
-Test: @(new ShowTestData().BoolMoji(true))<br>
-
 @{
   // Get all Paths
   string root, fullPath, cshtml, testPath;
   GetCode("./_Layout/HomeHelpers.cs").GetAllPaths(out root, out cshtml, out fullPath, out testPath);
 }
 
-@if(Text.Has(testPath)) {
+@if (Text.Has(testPath)) {
   <h5>
     Test: 
     @testPath
@@ -34,6 +31,4 @@ Test: @(new ShowTestData().BoolMoji(true))<br>
 
 @Html.Partial("_Layout/Tree SubTests.cshtml", new { Path = root, SkipFiles = !Text.Has(testPath) })
 
-
-<hr>
-Test: @(new ShowTestData().BoolMoji(true))
+@* Test: @(new ShowTestData().BoolMoji(true)) *@
