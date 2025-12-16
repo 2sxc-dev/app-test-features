@@ -1,0 +1,52 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq
+@using ToSic.Razor.Blade
+@using ToSic.Sxc.Data
+@using AppCode.Data
+
+<h1>Mock Data Field Names (16.03)</h1>
+<p>
+  Content-Type used: <code>TestGetValues</code>
+</p>
+@{
+  var item = AsItem(App.Data["TestGetValues"].First());
+
+  var mockData = new {
+    Id = 27,
+    Name = "Mock object",
+    File = item.String("File"),
+    Wysiwyg = "<strong>Mocked Wysiwyg</strong><em>should work</em>"
+  };
+
+  var mocked = Kit.Convert.ToMockItem(mockData);
+  var file = mocked.File("File");
+  var folder = mocked.Folder("File");
+}
+<h2>Mocked Item</h2>
+  <li>Folder object: @folder</li>
+  <li>Folder Files: @folder.Files (@folder.Files.Count())</li>
+  <li>Folder Folders: @folder.Files (@folder.Folders.Count())</li>
+  <li>
+    Wysiwyg: @mocked.Html("Wysiwyg")
+    <br>
+    <em>Should be rendered as HTML but without edit-functionality</em>
+  </li>
+  <li>Picture: @mocked.Picture("File", width: 200)</li>
+</ol>
+
+@{
+  var mockTyped = Kit.Convert.ToMock<TestGetValues>(mockData);
+  file = mockTyped.File("File");
+  folder = mockTyped.Folder("File");
+}
+<h2>Mocked Typed</h2>
+<li>Folder object: @folder</li>
+  <li>Folder Files: @folder.Files (@folder.Files.Count())</li>
+  <li>Folder Folders: @folder.Files (@folder.Folders.Count())</li>
+  <li>
+    Wysiwyg: @mockTyped.Html("Wysiwyg")
+    <br>
+    <em>Should be rendered as HTML but without edit-functionality</em>
+  </li>
+  <li>Picture: @mockTyped.Picture("File", width: 200)</li>
+</ol>
