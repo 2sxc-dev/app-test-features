@@ -1,0 +1,46 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Eav.Data
+
+<h1>Content Type Attributes</h1>
+@{
+  var type = App.Data.GetContentType("FieldsStringWysiwyg");
+  var attributes = type.Attributes.ToList();
+  var sorted = attributes
+    .OrderBy(a => a.SortOrder)
+    .ToList();
+}
+<p>
+  Content-Type used: <code>@type.Name</code>
+</p>
+
+<h2>Attributes Unsorted</h2>
+
+<!-- Show table of Attributes with Names in the left column values in the right -->
+<table class="table">
+  <thead>
+    <tr>
+      <th>As Is</th>
+      <th>As Is Is String</th>
+      <th>Sorted</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (var i = 0; i < attributes.Count; i++)
+    {
+      <tr>
+        <td>
+          @if (attributes[i].IsGroupTitle())
+          {
+            <strong>@attributes[i].Name</strong>
+          }
+          else
+          {
+            @attributes[i].Name
+          }
+        </td>
+        <td>@attributes[i].IsString()</td>
+        <td>@sorted[i].Name</td>
+      </tr>
+    }
+  </tbody>
+</table>
