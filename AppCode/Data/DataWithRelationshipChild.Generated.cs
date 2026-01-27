@@ -11,7 +11,7 @@ namespace AppCode.Data
 }
 */
 
-// Generator:   CSharpDataModelsGenerator
+// Generator:   CSharpTypedDataModelsGenerator
 // App/Edition: App Test Features/
 // User:        2sichost
 using System.Collections.Generic;
