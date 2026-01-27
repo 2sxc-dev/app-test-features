@@ -13,7 +13,10 @@
   var templateQsWrapped = $"Path is: <strong>{templateQs}</strong>";
 
   var myTestToken = "[My:TestValue]";
-  var mySource = templateSvc.CreateSource("My", new Dictionary<string, string> { { "TestValue", "This is a test value" } });
+  var mySource = templateSvc.CreateSource("My", new Dictionary<string, string>
+    {
+      { "TestValue", "This is a test value" }
+    });
   var mySources = new[] { mySource };
   var myEngine = templateSvc.Empty(sources: mySources);
 
@@ -29,22 +32,23 @@
 
 <ol>
   <li>
-    Default engine / engine2 are equal: @(engine == engine2)
+    Default engine / engine2 are equal (expected: true):
+    <code>@(engine == engine2)</code>
   </li>
   <li>
     Quick Parse <code>@templateQs</code>:
     <br>
-    @templateSvc.Default().Parse(templateQs) 
+    <code>@templateSvc.Default().Parse(templateQs)</code>
   </li>
   <li>
     Parse <code>@mixedTokens</code> with template service and more sources in Parse(...):
     <br>
-    @templateSvc.Default().Parse(mixedTokens, sources: mySources)
+    <code>@templateSvc.Default().Parse(mixedTokens, sources: mySources)</code>
   </li>
   <li>
     Parse <code>@mixedTokens</code> with template service and more sources in Default(...):
     <br>
-    @templateSvc.Default(sources: mySources).Parse(mixedTokens)
+    <code>@templateSvc.Default(sources: mySources).Parse(mixedTokens)</code>
   </li>
 </ol>
 
@@ -52,50 +56,44 @@
 
 <ol>
   <li>
-    Sources: @engine.GetSources().Count()
-  </li>
-  <li>
-    Sources (depth: 1): @engine.GetSources(depth: 5).Count()
-  </li>
-  <li>
     Parse <code>@templateQs</code>:
     <br>
-    @engine.Parse(templateQs) 
+    <code>@engine.Parse(templateQs)</code>
   </li>
 
   <li>
     Parse <code>@templateQsWrapped</code>:
     <br>
-    @Html.Raw(engine.Parse(templateQsWrapped))
+    <code>@Html.Raw(engine.Parse(templateQsWrapped))</code>
   </li>
   <li>
     Parse <code>@myTestToken</code> with default engine:
     <br>
-    @engine.Parse(myTestToken)
+    <code>@engine.Parse(myTestToken)</code>
   </li>
   <li>
     Parse <code>@myTestToken</code> with custom engine:
     <br>
-    @myEngine.Parse(myTestToken)
+    <code>@myEngine.Parse(myTestToken)</code>
   </li>
   <li>
     Parse <code>@mixedTokens</code> with default engine:
     <br>
-    @engine.Parse(mixedTokens)
+    <code>@engine.Parse(mixedTokens)</code>
   </li>
   <li>
     Parse <code>@mixedTokens</code> with custom engine:
     <br>
-    @myEngine.Parse(mixedTokens)
+    <code>@myEngine.Parse(mixedTokens)</code>
   </li>
   <li>
     Parse <code>@mixedTokens</code> with mixed engine:
     <br>
-    @mixedEngine.Parse(mixedTokens)
+    <code>@mixedEngine.Parse(mixedTokens)</code>
   </li>
   <li>
     Parse <code>@mixedTokens</code> with default engine and more sources:
     <br>
-    @engine.Parse(mixedTokens, sources: mySources)
+    <code>@engine.Parse(mixedTokens, sources: mySources)</code>
   </li>
 </ol>
