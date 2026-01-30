@@ -19,6 +19,9 @@
   var folder = folders.FirstOrDefault();
   var file = files.FirstOrDefault();
 
+  var folderWithSubfolders = folders.FirstOrDefault(f => f.Folders.Any());
+  var folderWithFiles = folders.FirstOrDefault(f => f.Files.Any());
+
   var appFolder = App.Folder;
   var viewFolder = MyContext.View.Folder;
   @* var tvFolder = folders.FirstOrDefault(f => f.Url == viewFolder.Url); *@
@@ -29,7 +32,7 @@
 
 <h2>Folder</h2>
 @* Show the first folder *@
-<table>
+<table class="table">
   <tr>
     <th>Property</th>
     <th>FolderTyped</th>
@@ -118,9 +121,19 @@
   <li>Id: @@firstFolder.Id</li>
   <li>Url: @firstFolder.Url </li>
   <li>files: @firstFolder.Files.Count() </li>
-  <li>Folder: @firstFolder.Folder</li>
-  <li>Folder Name: @firstFolder.Folder.Name</li>
+  <li>
+    Folder:
+    @firstFolder.Folder.ToString()
+  </li>
+  TODO:
+  <li>
+    Folder Name:
+    @firstFolder.Folder.Name
+    (null? @(firstFolder.Folder == null) / @(firstFolder.Folder?.Name == null))
+  </li>
 </ol>
+
+
 
 
 <h2>File</h2>
@@ -137,8 +150,42 @@
   <li>Extension: @file.Extension</li>
   <li>FullName: @file.FullName</li>
   <li>Folder: @file.Folder </li>
+  TODO:
   <li>Folder Name: @file.Folder.Name </li>
 </ol>
+
+
+<h2>Folder with Subfolders</h2>
+@if (folderWithSubfolders != null)
+{
+    <p>Folder: @folderWithSubfolders.Name has @folderWithSubfolders.Folders.Count() subfolders:</p>
+    <ul>
+      @foreach (var sub in folderWithSubfolders.Folders)
+      {
+          <li>@sub.Name (Id: @@sub.Id)</li>
+      }
+    </ul>
+}
+else
+{
+    <p>No folder with subfolders found.</p>
+}
+
+<h2>Folder with Files</h2>
+@if (folderWithFiles != null)
+{
+    <p>Folder: @folderWithFiles.Name has @folderWithFiles.Files.Count() files:</p>
+    <ul>
+      @foreach (var f in folderWithFiles.Files)
+      {
+          <li>@f.Name (Id: @@f.Id)</li>
+      }
+    </ul>
+}
+else
+{
+    <p>No folder with files found.</p>
+}
 
 @* Old show-default list, not sure if useful, but leave for a moment *@
 @Html.Partial("./../_Helpers/ShowDataInSource.cshtml", new { List = ds.List, Expected = expected })

@@ -1,0 +1,82 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode
+@using AppCode.Data
+
+@using ToSic.Eav.Data
+@using ToSic.Sxc.Blocks.Sys.Views
+
+<h1>Lightweight Models (v21)</h1>
+<p>
+  Content-Type used: <code>ViewConfiguration</code>
+</p>
+@{
+  var show = new ShowTestData();
+
+  // Must use Data.List to ensure we use the EAV extensions
+  var list = App.Data.List;
+
+  var viewConfigs = list.GetAll<ViewConfiguration>(typeName: ViewConfiguration.ContentTypeName);
+  var firstOfAll = viewConfigs.First();
+
+  var firstGetThenConvert = list
+    .First(typeName: ViewConfiguration.ContentTypeName)
+    .As<ViewConfiguration>();
+
+  var x = viewConfigs.FirstOrDefault();
+
+  var firstDirect = list.First<ViewConfiguration>();
+
+  var firstByName = list.First<ViewConfiguration>(typeName: ViewConfiguration.ContentTypeName);
+
+  var second = viewConfigs.Skip(1).First();
+  var secondGetById = list.GetOne<ViewConfiguration>(second.Id);
+  var secondGetByGuid = list.GetOne<ViewConfiguration>(second.Guid);
+  var secondRecast = second.As<ViewConfiguration>();
+}
+<h2>Classic ViewConfigurations</h2>
+
+<ol>
+  <li>Count: @viewConfigs.Count()</li>
+  <li>
+    First of all: @firstOfAll.Id / @firstOfAll.Title
+  </li>
+  <li>
+    First get then convert: @firstGetThenConvert.Id / @firstGetThenConvert.Title
+  </li>
+  <li>
+    First direct: @firstDirect.Id / @firstDirect.Title
+  </li>
+  <li>
+    First by Name: @firstByName.Id / @firstByName.Title
+  </li>
+  <li>Equals @nameof(firstOfAll) .Equals @nameof(firstDirect):
+     @show.BoolMoji(firstOfAll.Equals(firstDirect))
+  </li>
+  <li>Equals @nameof(firstOfAll) .Equals @nameof(firstGetThenConvert):
+     @show.BoolMoji(firstOfAll.Equals(firstGetThenConvert))
+  </li>
+  <li>Equals @nameof(firstOfAll) == @nameof(firstDirect):
+     @show.BoolMoji(firstOfAll == firstDirect)
+  </li>
+
+</ol>
+
+<hr>
+
+<h2>Second Item</h2>
+
+<ol>
+  <li>
+    Second of all: @second.Id / @second.Title
+  </li>
+  <li>
+    Second get by Id: @secondGetById.Id / @secondGetById.Title
+  </li>
+  <li>
+    Second get by Guid: @secondGetByGuid.Id / @secondGetByGuid.Title
+  </li>
+  <li>
+    Second recast: @secondRecast.Id / @secondRecast.Title
+  </li>
+  <li>Equals first: @second.Equals(firstOfAll)</li>
+</ol>

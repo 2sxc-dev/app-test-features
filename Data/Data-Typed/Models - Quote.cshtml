@@ -1,8 +1,9 @@
 @inherits Custom.Hybrid.RazorTyped
 @using AppCode
 @using AppCode.Data
+@using ToSic.Eav.Data
 
-<h1>Custom Models (19.03)</h1>
+<h1>Custom Models (19.03/21.01)</h1>
 <p>
   Content-Type used: <code>Quotes</code>
 </p>
@@ -21,18 +22,41 @@
 
 <h2>Models</h2>
 @{
-  var qModels = App.Data.GetAll<QuotesModel>();
+  var qModels = App.Data.GetAll<QuotesModel>(); 
   var qModel = qModels.First();
-  var firstQModelAgain = App.Data.GetOne<QuotesModel>(qModel.Id /*, skipTypeCheck: true */);
+  var id = (qModel as ICanBeEntity).Entity.EntityId;
+  var firstQModelAgain = App.Data.GetOne<QuotesModel>(id /*, skipTypeCheck: true */);
   // var firstQModelAgain = App.Data.GetOne<QuotesModelBadName>(qModel.Id /*, skipTypeCheck: true */);
   // var firstQModelAgain = App.Data.GetOne<QuoteIncorrectNameModel>(qModel.Id /*, skipTypeCheck: true */);
 }
 
 <ol>
   <li>Count: @qModels.Count()</li>
-  <li>First: @qModel.Id / @qModel.Title</li>
+  <li>First: @id / @qModel.Title</li>
   <li>Equals: @qModel.Equals(firstQModelAgain)</li>
-  <li>Self: @qModel.Self.Id</li>
+  @* <li>Self: @qModel.Self.Id</li> *@
+  <li>
+    Json: <pre>@Kit.Json.ToJson(qModel, 2)</pre>
+  </li>
+</ol>
+
+<h2>Models - Classic</h2>
+@{
+  // TODO: DOESN'T WORK YET BECAUSE OF SKIP TYPE CHECK
+  // var qModelsClassic = App.Data.GetAll<QuotesModelClassic>(typeName: "Quotes");
+  var qModelsClassic = App.Data.GetAll<QuotesModelClassic>();
+  var qModelClassic = qModelsClassic.First();
+  var idClassic = (qModelClassic as ICanBeEntity).Entity.EntityId;
+  var firstQModelClassicAgain = App.Data.GetOne<QuotesModelClassic>(idClassic /*, skipTypeCheck: true */);
+}
+<ol>
+  <li>Count: @qModelsClassic.Count()</li>
+  <li>First: @idClassic / @qModelClassic.Title</li>
+  <li>Equals: @qModelClassic.Equals(firstQModelClassicAgain) !!!</li>
+  @* <li>Self: @qModelClassic.Self.Id</li> *@
+  <li>
+    Json: <pre>@Kit.Json.ToJson(qModelClassic, 2)</pre>
+  </li>
 </ol>
 
 
