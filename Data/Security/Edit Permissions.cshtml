@@ -1,0 +1,26 @@
+@inherits Custom.Hybrid.RazorTyped
+@using System.Linq
+@using AppCode
+@using AppCode.Data
+
+<h1>Edit Permissions WIP</h1>
+<p>
+  Basic idea: Super users may edit, editors not.
+</p>
+
+<div>
+  Create a list of permission items.
+</div>
+@{
+  var data = App.Data.GetStream("PermissionConfiguration").ToList();
+}
+<ol>
+  @foreach (var item in data)
+  {
+    <li>
+      @item.GetBestTitle() @Kit.Toolbar.Edit(item).AsTag()
+    </li>
+  }
+
+
+</ol>

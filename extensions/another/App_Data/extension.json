@@ -10,7 +10,10 @@
   "linkSource": "",
   "linkDemo": "",
   "version": "00.00.01",
-  "releases": [],
+  "releases": [
+    "e7c3b80a-5bf1-4cf8-9f1d-4584d37018fa",
+    "0dc4433d-598b-43d7-b812-a14808acb9bb"
+  ],
   "isInstalled": false,
   "editionsSupported": false,
   "sxcSupported": false,
