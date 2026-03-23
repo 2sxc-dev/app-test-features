@@ -1,5 +1,4 @@
 <Project>
-  <!-- DNN-only references, including legacy Razor and design-time helpers -->
   <ItemGroup Condition="'$(PathBin)' != ''">
     <Reference Include="$(PathBin)\DotNetNuke.dll" Condition="Exists('$(PathBin)\DotNetNuke.dll')" />
     <Reference Include="$(PathBin)\DotNetNuke.*.dll" />
@@ -18,6 +17,7 @@
     <Reference Include="System.Net.Http" />
   </ItemGroup>
 
+  <!-- Legacy ASP.NET Core Razor packages are only needed for editor/design-time support. -->
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor" Version="2.2.0" PrivateAssets="all" />
