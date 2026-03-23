@@ -1,0 +1,22 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>LightSpeed External Data</h1>
+
+<p>
+  These tests demonstrate LightSpeed output caching with data that behaves like an external source.
+  The source data is generated in AppCode, so it can change independently of the Razor output cache.
+</p>
+
+<ol>
+  <li><code>Dependency Flush.cshtml</code> caches the page output and registers an explicit external dependency key.</li>
+  <li><code>App Flush.cshtml</code> caches the page output without an explicit dependency and relies on the app-wide flush path.</li>
+  <li><code>Kit Flush Dependency.cshtml</code> stays uncached and calls <code>Kit.OutputCacheManagement.Flush(App.AppId, new[] { dependency })</code> from Razor.</li>
+  <li><code>Kit Flush App.cshtml</code> stays uncached and calls <code>Kit.OutputCacheManagement.Flush(App.AppId)</code> from Razor.</li>
+  <li><code>Diagnostics.cshtml</code> stays uncached and shows the current raw source snapshots.</li>
+</ol>
+
+<p>
+  Typical sequence: open one of the cached pages, note the rendered timestamp and generation, regenerate the source only,
+  verify the raw source changed but the cached render did not, then use either the API-based page or the new Razor-based
+  <code>Kit.OutputCacheManagement.Flush...</code> helper page to invalidate the cache and verify the next page load updates.
+</p>

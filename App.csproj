@@ -6,23 +6,9 @@
   <!-- Import everything so it just magically works. For fine-grained control, import the individual files instead of the all-in-one. -->
   <Import Project="extensions\dotnet-project\all-in-one.import.csproj" />
 
-  <!-- Polymorphism - if have files with the same classes confuse IntelliSense - see https://go.2sxc.org/vscode -->
-  <!-- Example: exclude /live as we're always working on /staging -->
-  <!-- <ItemGroup>
-    <None Remove="live\**" />
-    <Content Remove="live\**" />
-    <Compile Remove="live\**" />
-    <EmbeddedResource Remove="live\**" />
-  </ItemGroup> -->
-
-  <!-- Info Messages -->
-  <!-- <Target Name="PrintEnvironment" BeforeTargets="PreBuildEvent">
-    <Message Text="RunningInDnn='$(RunningInDnn)'" Importance="High" />
-    <Message Text="RunningInOqtane='$(RunningInOqtane)'" Importance="High" />
-    <Message Text="OqtaneIsProd='$(OqtaneIsProd)'" Importance="High" />
-    <Message Text="OqtaneIsDev='$(OqtaneIsDev)'" Importance="High" />
-    <Message Text="TargetFramework='$(TargetFramework)'" Importance="High" />
-    <Message Text="LangVersion='$(LangVersion)'" Importance="High" />
-  </Target> -->
+  <ItemGroup>
+    <Content Remove="package.json" />
+    <Content Remove="package-lock.json" />
+  </ItemGroup>
 
 </Project>

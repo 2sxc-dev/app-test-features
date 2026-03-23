@@ -1,0 +1,51 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@using AppCode
+@using AppCode.LightSpeed
+
+@{
+  var dependency = "lightspeed-external-data-demo";
+  var key = "dependency-demo";
+  Kit.OutputCache.Enable();
+  Kit.OutputCache.DependOn(dependency);
+
+  var snapshot = ExternalDataStore.Get(key);
+  var renderTime = DateTime.Now;
+}
+
+<h1>LightSpeed External Data - Dependency Flush</h1>
+
+<p>
+  This page output is cached and depends on the explicit dependency key <code>@dependency</code>.
+  Regenerating the source does not change this page until the dependency cache is flushed.
+</p>
+
+<ol>
+  <li>Refresh the page a few times. The rendered values below should remain unchanged while cached.</li>
+  <li>Click <strong>Regenerate Source Only</strong>. The raw API payload changes, but the rendered values on this page stay stale.</li>
+  <li>Click <strong>Regenerate + Flush Dependency</strong>. The page reloads and should now show the new generation.</li>
+</ol>
+
+<dl>
+  <dt>Rendered At</dt>
+  <dd>@renderTime.ToString("yyyy-MM-dd HH:mm:ss.fff")</dd>
+  <dt>Generation Seen By This Render</dt>
+  <dd>@snapshot.Generation</dd>
+  <dt>Source Timestamp Seen By This Render</dt>
+  <dd>@snapshot.GeneratedUtc.ToString("yyyy-MM-dd HH:mm:ss.fff") UTC</dd>
+  <dt>Display Token</dt>
+  <dd>@snapshot.DisplayToken</dd>
+</dl>
+
+<p>
+  <button type="button" onclick="window.lightSpeedExternalData.regenerateOnly({ key: '@key', rawId: 'rawDependency', statusId: 'statusDependency' });">Regenerate Source Only</button>
+  <button type="button" onclick="window.lightSpeedExternalData.regenerateAndFlushDependency({ key: '@key', dependency: '@dependency', statusId: 'statusDependency' });">Regenerate + Flush Dependency</button>
+</p>
+
+<p id="statusDependency">Waiting for action.</p>
+
+<h2>Current Raw Source</h2>
+<pre id="rawDependency">Loading...</pre>
+
+@Html.Partial("__Shared.cshtml")
+@Kit.Page.TurnOn("window.lightSpeedExternalData.loadRaw()", data: new { key, rawId = "rawDependency" })

@@ -1,0 +1,48 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services
+@using AppCode.LightSpeed
+
+@{
+  var key = "app-flush-demo";
+  Kit.OutputCache.Enable();
+
+  var snapshot = ExternalDataStore.Get(key);
+  var renderTime = DateTime.Now;
+}
+
+<h1>LightSpeed External Data - App Flush</h1>
+
+<p>
+  This page output is cached without any explicit external dependency key.
+  It demonstrates the app-wide LightSpeed flush path which should invalidate all LightSpeed entries for the app.
+</p>
+
+<ol>
+  <li>Refresh the page a few times. The rendered values below should remain unchanged while cached.</li>
+  <li>Click <strong>Regenerate Source Only</strong>. The raw API payload changes, but the cached render stays stale.</li>
+  <li>Click <strong>Regenerate + Flush App</strong>. The page reloads and should now show the new source generation.</li>
+</ol>
+
+<dl>
+  <dt>Rendered At</dt>
+  <dd>@renderTime.ToString("yyyy-MM-dd HH:mm:ss.fff")</dd>
+  <dt>Generation Seen By This Render</dt>
+  <dd>@snapshot.Generation</dd>
+  <dt>Source Timestamp Seen By This Render</dt>
+  <dd>@snapshot.GeneratedUtc.ToString("yyyy-MM-dd HH:mm:ss.fff") UTC</dd>
+  <dt>Display Token</dt>
+  <dd>@snapshot.DisplayToken</dd>
+</dl>
+
+<p>
+  <button type="button" onclick="window.lightSpeedExternalData.regenerateOnly({ key: '@key', rawId: 'rawAppFlush', statusId: 'statusAppFlush' });">Regenerate Source Only</button>
+  <button type="button" onclick="window.lightSpeedExternalData.regenerateAndFlushApp({ key: '@key', statusId: 'statusAppFlush' });">Regenerate + Flush App</button>
+</p>
+
+<p id="statusAppFlush">Waiting for action.</p>
+
+<h2>Current Raw Source</h2>
+<pre id="rawAppFlush">Loading...</pre>
+
+@Html.Partial("__Shared.cshtml")
+@Kit.Page.TurnOn("window.lightSpeedExternalData.loadRaw()", data: new { key, rawId = "rawAppFlush" })

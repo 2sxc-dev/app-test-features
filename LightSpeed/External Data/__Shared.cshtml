@@ -1,0 +1,97 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services
+
+@Kit.Page.Activate("turnOn", "2sxc.JsCore")
+
+<script type="text/javascript">
+  (() => {
+    const sxc = $2sxc(@MyContext.Module.Id);
+
+    function apiRoute(action, key) {
+      const query = key == null
+        ? '?tick=' + Date.now()
+        : '?key=' + encodeURIComponent(key) + '&tick=' + Date.now();
+
+      return 'app/auto/api/LightSpeedExternalData/' + action + query;
+    }
+
+    function writeText(id, value) {
+      const target = document.getElementById(id);
+      if (target)
+        target.textContent = value;
+    }
+
+    function writeJson(id, value) {
+      writeText(id, JSON.stringify(value, null, 2));
+    }
+
+    function writeError(data, error) {
+      console.error(error);
+      writeText(data.statusId, error?.message || 'Request failed.');
+    }
+
+    async function loadRaw(data) {
+      try {
+        const response = await sxc.webApi.fetchJson(apiRoute('Current', data.key));
+        writeJson(data.rawId, response);
+        return response;
+      } catch (error) {
+        console.error(error);
+        writeText(data.rawId, error?.message || 'Request failed.');
+      }
+    }
+
+    async function loadAll(data) {
+      try {
+        const response = await sxc.webApi.fetchJson(apiRoute('All'));
+        writeJson(data.rawId, response);
+        return response;
+      } catch (error) {
+        console.error(error);
+        writeText(data.rawId, error?.message || 'Request failed.');
+      }
+    }
+
+    async function regenerateOnly(data) {
+      try {
+        writeText(data.statusId, 'Regenerating source data...');
+        const response = await sxc.webApi.fetchJson(apiRoute('Regenerate', data.key));
+        writeJson(data.rawId, response);
+        writeText(data.statusId, 'Source changed. Rendered page stays stale until cache is flushed and the page reloads.');
+        return response;
+      } catch (error) {
+        writeError(data, error);
+      }
+    }
+
+    async function regenerateAndFlushDependency(data) {
+      try {
+        writeText(data.statusId, 'Regenerating source data and flushing the LightSpeed dependency...');
+        await sxc.webApi.fetchJson(apiRoute('Regenerate', data.key));
+        await sxc.webApi.fetchJson('app/auto/cache/flush', { dependencies: [data.dependency] });
+        location.reload();
+      } catch (error) {
+        writeError(data, error);
+      }
+    }
+
+    async function regenerateAndFlushApp(data) {
+      try {
+        writeText(data.statusId, 'Regenerating source data and flushing the app-wide LightSpeed cache...');
+        await sxc.webApi.fetchJson(apiRoute('Regenerate', data.key));
+        await sxc.webApi.fetchJson('app/auto/cache/flush', { dependencies: [] });
+        location.reload();
+      } catch (error) {
+        writeError(data, error);
+      }
+    }
+
+    window.lightSpeedExternalData = {
+      loadAll,
+      loadRaw,
+      regenerateOnly,
+      regenerateAndFlushDependency,
+      regenerateAndFlushApp,
+    };
+  })();
+</script>

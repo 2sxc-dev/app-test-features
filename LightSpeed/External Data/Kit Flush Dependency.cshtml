@@ -1,0 +1,84 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@using ToSic.Sxc.Services
+@using AppCode.LightSpeed
+
+@{
+  var dependency = "lightspeed-external-data-demo";
+  var key = "dependency-demo";
+
+  // This helper page must stay uncached so every action runs on the server.
+  Kit.OutputCache.Disable();
+
+  var action = MyPage.Parameters.String("action");
+  var touched = (int?)null;
+  var actionResult = "No action executed.";
+
+  switch (action)
+  {
+    case "regenerate":
+      var regeneratedOnly = ExternalDataStore.Regenerate(key);
+      actionResult = $"Source regenerated to generation {regeneratedOnly.Generation}. Cached dependency pages stay stale until the dependency is flushed.";
+      break;
+    case "flush":
+      touched = Kit.OutputCacheManagement.Flush(App.AppId, new[] { dependency });
+      actionResult = $"Kit.OutputCacheManagement.Flush(App.AppId, new[] {{ \"{dependency}\" }}) touched {touched} dependency marker(s).";
+      break;
+    case "regenerate-flush":
+      var regeneratedAndFlushed = ExternalDataStore.Regenerate(key);
+      touched = Kit.OutputCacheManagement.Flush(App.AppId, new[] { dependency });
+      actionResult = $"Source regenerated to generation {regeneratedAndFlushed.Generation} and Kit.OutputCacheManagement.Flush(App.AppId, new[] {{ \"{dependency}\" }}) touched {touched} dependency marker(s).";
+      break;
+  }
+
+  var snapshot = ExternalDataStore.Get(key);
+}
+
+<h1>LightSpeed External Data - Kit Flush Dependency</h1>
+
+<p>
+  This page is intentionally uncached and exists to test the Razor API
+  <code>Kit.OutputCacheManagement.Flush(App.AppId, new[] { "@dependency" })</code>.
+  Use it together with the cached page <code>Dependency Flush.cshtml</code>.
+</p>
+
+<ol>
+  <li>Open <code>Dependency Flush.cshtml</code> and note the rendered generation.</li>
+  <li>Use <strong>Regenerate Source Only</strong> here to change the external source without invalidating the cached output.</li>
+  <li>Use <strong>Flush Dependency Only</strong> or <strong>Regenerate + Flush Dependency</strong> here.</li>
+  <li>Reload <code>Dependency Flush.cshtml</code> and verify it now shows the current generation.</li>
+</ol>
+
+<p>
+  <a href='@Link.To(parameters: MyPage.Parameters.Remove("action"))'>No Action</a>
+  |
+  <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "regenerate"))'>Regenerate Source Only</a>
+  |
+  <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "flush"))'>Flush Dependency Only</a>
+  |
+  <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "regenerate-flush"))'>Regenerate + Flush Dependency</a>
+</p>
+
+<dl>
+  <dt>Target Cached Page</dt>
+  <dd><code>Dependency Flush.cshtml</code></dd>
+  <dt>Dependency Key</dt>
+  <dd>@dependency</dd>
+  <dt>Current Raw Generation</dt>
+  <dd>@snapshot.Generation</dd>
+  <dt>Current Raw Source Timestamp</dt>
+  <dd>@snapshot.GeneratedUtc.ToString("yyyy-MM-dd HH:mm:ss.fff") UTC</dd>
+  <dt>Current Raw Display Token</dt>
+  <dd>@snapshot.DisplayToken</dd>
+  <dt>Flush Return Value</dt>
+  <dd>@(touched?.ToString() ?? "n/a")</dd>
+  <dt>Last Action Result</dt>
+  <dd>@actionResult</dd>
+</dl>
+
+@if (!string.IsNullOrEmpty(action))
+{
+  <script>
+    history.replaceState(null, document.title, '@Link.To(parameters: MyPage.Parameters.Remove("action"))');
+  </script>
+}

@@ -1,0 +1,23 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.LightSpeed
+@{
+  _ = ExternalDataStore.Get("dependency-demo");
+  _ = ExternalDataStore.Get("app-flush-demo");
+}
+
+<h1>LightSpeed External Data - Diagnostics</h1>
+
+<p>
+  This page is intended to stay uncached and show the current source snapshots through the AppCode API.
+  Use it to compare the live data with the rendered values on the cached pages.
+</p>
+
+<h2>Current Raw Snapshots</h2>
+<pre id="rawDiagnostics">Loading...</pre>
+
+<p>
+  Reload this page after using the action buttons on the cached pages if you want a quick check of the source state.
+</p>
+
+@Html.Partial("__Shared.cshtml")
+@Kit.Page.TurnOn("window.lightSpeedExternalData.loadAll()", data: new { rawId = "rawDiagnostics" })
