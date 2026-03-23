@@ -20,13 +20,13 @@
       actionResult = $"Source regenerated to generation {regeneratedOnly.Generation}. Cached app-wide pages stay stale until the app-wide marker is flushed.";
       break;
     case "flush":
-      touched = Kit.OutputCache.Flush();
-      actionResult = $"Kit.OutputCache.Flush() returned {touched}. A return value of 0 is expected for the app-wide flush path.";
+      touched = Kit.OutputCacheManagement.Flush(App.AppId);
+      actionResult = $"Kit.OutputCacheManagement.Flush(App.AppId) returned {touched}. A return value of 0 is expected for the app-wide flush path.";
       break;
     case "regenerate-flush":
       var regeneratedAndFlushed = ExternalDataStore.Regenerate(key);
-      touched = Kit.OutputCache.Flush();
-      actionResult = $"Source regenerated to generation {regeneratedAndFlushed.Generation} and Kit.OutputCache.Flush() returned {touched}. A return value of 0 is expected for the app-wide flush path.";
+      touched = Kit.OutputCacheManagement.Flush(App.AppId);
+      actionResult = $"Source regenerated to generation {regeneratedAndFlushed.Generation} and Kit.OutputCacheManagement.Flush(App.AppId) returned {touched}. A return value of 0 is expected for the app-wide flush path.";
       break;
   }
 
@@ -37,7 +37,7 @@
 
 <p>
   This page is intentionally uncached and exists to test the Razor API
-  <code>Kit.OutputCache.Flush()</code>.
+  <code>Kit.OutputCacheManagement.Flush(App.AppId)</code>.
   Use it together with the cached page <code>App Flush.cshtml</code>.
 </p>
 

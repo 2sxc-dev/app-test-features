@@ -21,13 +21,13 @@
       actionResult = $"Source regenerated to generation {regeneratedOnly.Generation}. Cached dependency pages stay stale until the dependency is flushed.";
       break;
     case "flush":
-      touched = Kit.OutputCache.Flush(new[] { dependency });
-      actionResult = $"Kit.OutputCache.Flush(new[] {{ \"{dependency}\" }}) touched {touched} dependency marker(s).";
+      touched = Kit.OutputCacheManagement.Flush(App.AppId, new[] { dependency });
+      actionResult = $"Kit.OutputCacheManagement.Flush(App.AppId, new[] {{ \"{dependency}\" }}) touched {touched} dependency marker(s).";
       break;
     case "regenerate-flush":
       var regeneratedAndFlushed = ExternalDataStore.Regenerate(key);
-      touched = Kit.OutputCache.Flush(new[] { dependency });
-      actionResult = $"Source regenerated to generation {regeneratedAndFlushed.Generation} and Kit.OutputCache.Flush(new[] {{ \"{dependency}\" }}) touched {touched} dependency marker(s).";
+      touched = Kit.OutputCacheManagement.Flush(App.AppId, new[] { dependency });
+      actionResult = $"Source regenerated to generation {regeneratedAndFlushed.Generation} and Kit.OutputCacheManagement.Flush(App.AppId, new[] {{ \"{dependency}\" }}) touched {touched} dependency marker(s).";
       break;
   }
 
@@ -38,7 +38,7 @@
 
 <p>
   This page is intentionally uncached and exists to test the Razor API
-  <code>Kit.OutputCache.Flush(new[] { "@dependency" })</code>.
+  <code>Kit.OutputCacheManagement.Flush(App.AppId, new[] { "@dependency" })</code>.
   Use it together with the cached page <code>Dependency Flush.cshtml</code>.
 </p>
 
