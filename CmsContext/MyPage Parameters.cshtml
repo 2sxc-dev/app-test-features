@@ -1,0 +1,61 @@
+@inherits Custom.Hybrid.RazorTyped
+
+<h1>CmsContext - MyPage Parameters</h1>
+<p>
+  This is to test the MyPage parameters - especially with empty parameter slugs...
+  We were testing various cases to put the slug at the end.
+  But it can't work, because the system cannot tell the difference between "&value=&slug-abcd"
+  basically both variants are seen as null, so we can't auto-sort to put the slug at the end.
+</p>
+
+@{
+  var MyPage = MyContext.Page;
+  var pParams = MyPage.Parameters;
+
+}
+
+<h2>MyPage.Parameters</h2>
+<ol>
+  <li>Id: @MyPage.Id</li>
+  <li>ToString: @pParams</li>
+  <li>Count: @pParams.Count()</li>
+  <li>Keys: @string.Join(", ", pParams.Select(p => p.Key))</li>
+  <li>Values: @string.Join(", ", pParams.Select(p => p.Value))</li>
+  <li>
+    Parameter List
+    <ol>
+      @foreach (var p in pParams)
+      {
+        <li>
+          <code>@p.Key</code>: <code>@p.Value</code> (empty: @string.IsNullOrEmpty(p.Value), null: @(p.Value == null))
+        </li>
+      }
+    </ol>
+  </li>
+</ol>
+
+<hr />
+
+<h3>Set Test Values</h3>
+<ol>
+  <li>
+    <a href="@Link.To(parameters: pParams)">No change</a>
+  </li>
+  <li>
+    <a href='@Link.To(parameters: pParams.Set("add", "value"))'>Add "add=value"</a>
+  </li>
+  <li>
+    <a href='@Link.To(parameters: pParams.Remove("add"))'>Remove "add=value"</a>
+  </li>
+  <li>
+    <a href='@Link.To(parameters: pParams.Toggle("add", "value"))'>Toggle "add=value"</a>
+  </li>
+  <li>
+    <a href='@Link.To(parameters: pParams.Set("slug-example"))'>Set "slug-example"</a>
+  </li>
+  <li>
+    <a href='@Link.To(parameters: pParams.Set("space", ""))'>Set "space="</a>
+  </li>
+  <li>
+    <a href='@Link.To(parameters: pParams.Remove("space").Remove("slug-example"))'>Remove "space="</a>
+  </li></ol>
