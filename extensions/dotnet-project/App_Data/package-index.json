@@ -4,7 +4,7 @@
   "files": [
     {
       "file": "/Extensions/dotnet-project/all-in-one.import.csproj",
-      "hash": "da090a9f20bed68f940d98649d641f8c9c85e77a9f5833cd50213470a295842a"
+      "hash": "c2f8ec2d8d3445759094962842a3d782c9d9630995111ad235fe0745f68184ef"
     },
     {
       "file": "/Extensions/dotnet-project/icon.png",
@@ -48,11 +48,15 @@
     },
     {
       "file": "/Extensions/dotnet-project/8-final/ignore-editions.props",
-      "hash": "5043681f613f2ceb07f6d6c413df5b2e78a63611eab7537880839875fce1387f"
+      "hash": "5ead78279b3d1d2cfed3cad9f2f8da2468131f98c2865bbea0c2da280d2ed540"
     },
     {
       "file": "/Extensions/dotnet-project/8-final/import-dlls.props",
       "hash": "0c48f929d708890cf58dc1ebb566d310e72d684fca214f21959bcc8e57aa60a8"
+    },
+    {
+      "file": "/Extensions/dotnet-project/8-final/publish-targetpath.props",
+      "hash": "41698545cbcbb6c356fc76e17fd27699259b880ce79126d53895614caae33dd5"
     },
     {
       "file": "/Extensions/dotnet-project/9-devkit/dnn/all.props",
