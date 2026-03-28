@@ -11,7 +11,7 @@
   var byUserSpecs = specs
     .VaryByUser();
 
-  Kit.Cache.GetOrSet(specs, () => SomeExpensiveOperation());
+  Kit.Cache.GetOrSet(specs, generate: () => SomeExpensiveOperation());
 
   var keyApp = "KeyApp";
   var withAppSpecs = Kit.Cache.CreateSpecs(keyApp)
@@ -128,9 +128,9 @@
   </li>
 </ol>
 
-@* @functions {
+@functions {
   private DateTime SomeExpensiveOperation()
   {
     return DateTime.Now;
   }
-} *@
+}
