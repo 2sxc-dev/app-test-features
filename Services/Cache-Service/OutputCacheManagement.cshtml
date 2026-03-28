@@ -1,0 +1,44 @@
+@inherits Custom.Hybrid.RazorTyped
+@using ToSic.Sxc.Services
+@using AppCode
+@using ToSic.Sxc.Services.OutputCache
+
+<h1>OutputCacheManagement Service</h1>
+@{
+  var tutorialAppId = 1154; // PC 2dm
+  var thisAppId = App.AppId;
+
+  var svc = GetService<IOutputCacheManagementService>();
+}
+<h2>Use these actions to set/reset/unset caches</h2>
+<p>
+  For some tests, you must set something, then switch the page back to "no action".
+</p>
+<ul>
+  <li>
+    <a href='@Link.To(parameters: MyPage.Parameters.Remove("action"))'>No Action</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "flush"))'>Flush all caches for @tutorialAppId</a>
+    |
+    <a href='@Link.To(parameters: MyPage.Parameters.Set("action", "flush-this"))'>Flush all caches for this app (@thisAppId)</a>
+
+    | <a href='/api/2sxc/sys/insights/LightSpeedStats?' target="_blank">See LightSpeed cache</a>
+  </li>
+</ul>
+
+@{
+  switch (MyPage.Parameters.String("action"))
+  {
+    case "flush":
+      svc.Flush(tutorialAppId);
+      <div class="alert alert-info">flushed App @tutorialAppId</div>
+      break;
+    case "flush-this":
+      svc.Flush(thisAppId);
+      <div class="alert alert-info">flushed App @thisAppId</div>
+      break;
+  }
+
+}
+
+<hr>
