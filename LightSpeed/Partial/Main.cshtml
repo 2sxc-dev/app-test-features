@@ -28,4 +28,9 @@
     Vary by user: should show different values for different users:
     @Html.Partial("_Parts/ByUser.cshtml")
   </li>
+  <li>
+    Vary by language: should keep a separate cached value per language.
+    Refresh in the same language to keep the same marker, then switch the site language to get a different one:
+    @Html.Partial("_Parts/ByLanguage.cshtml")
+  </li>
 </ol>

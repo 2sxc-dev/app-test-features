@@ -2,7 +2,7 @@
 
 @Configuration.PartialCache(tweak: c => c.SetSlidingExpiration(seconds: 300).WatchAppData().WatchAppFolder())
 
-@Configuration.PartialCache(sliding: 300, watch: "data,folder")
+@Configuration.PartialCache(seconds: 300, watch: "data,folder")
 
 @DateTime.Now (cached with watchers)
 

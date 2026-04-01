@@ -1,0 +1,16 @@
+@inherits Custom.Hybrid.RazorTyped
+
+@Configuration.PartialCache(seconds: 60, varyBy: "language")
+
+@{
+  var cmsLanguage = MyContext.Culture.CurrentCode;
+  var threadLanguage = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+  var cacheMarker = Guid.NewGuid();
+}
+
+<span data-test-id="partial-cache-by-language" data-language="@cmsLanguage">
+  language: <code>@cmsLanguage</code>,
+  thread culture: <code>@threadLanguage</code>,
+  marker: <code>@cacheMarker</code>
+  (60 seconds sliding expiration)
+</span>
