@@ -11,9 +11,11 @@
   var data = App.Data.GetAll<EditEntityListFromPage>().First();
 }
 
-<h2>@data.Title</h2>
-<h3>Simple list, should just work</h3>
-<ul @Kit.Toolbar.Default(data.EntitiesBasic)>
+<h2 @Kit.Toolbar.Default(data)>
+  @data.Title
+</h2>
+<h3 @Kit.Toolbar.Default(data.EntitiesBasic)>Simple list, should just work</h3>
+<ul>
   @foreach (var item in data.EntitiesBasic)
   {
     <li @Kit.Toolbar.Default(item)>
@@ -28,8 +30,8 @@
   }
 </ul>
 
-<h3>Picker, with one type stored somewhere</h3>
-<ul @Kit.Toolbar.Default(data.EntitiesPickerOne)>
+<h3 @Kit.Toolbar.Default(data.EntitiesPickerOne)>Picker, with one type stored somewhere</h3>
+<ul>
   @foreach (var item in data.EntitiesPickerOne)
   {
     <li @Kit.Toolbar.Default(item)>
@@ -44,8 +46,17 @@
   }
 </ul>
 
-<h3>Picker, with multiple types stored somewhere</h3>
-<ul @Kit.Toolbar.Default(data.EntitiesPickerMany)>
+@{
+  // special toolbar
+  var toolbar = Kit.Toolbar
+    .Default(data.EntitiesPickerMany)
+    .New(tweak: t => t
+      .Parameters("contentType", "DummyData2")
+      .Tooltip("new dummy2")
+    );
+}
+<h3 @toolbar>Picker, with multiple types stored somewhere</h3>
+<ul>
   @foreach (var item in data.EntitiesPickerMany)
   {
     <li @Kit.Toolbar.Default(item)>
