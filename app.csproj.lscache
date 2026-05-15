@@ -1,0 +1,1575 @@
+version=1
+
+# This file caches language service data to improve the performance of C# Dev Kit.
+# It is not intended for manual editing. It can safely be deleted and will be
+# regenerated automatically. For more information, see https://aka.ms/lscache
+#
+# To control where cache files are stored, use the following VS Code setting:
+#   "dotnet.projectsystem.cacheInProjectFolder": true
+
+[project]
+language=C#
+primary
+lastDtbSucceeded
+
+[properties]
+AssemblyName=app
+CommandLineArgsForDesignTimeEvaluation=-langversion:8.0 -define:TRACE;DESIGN_TIME_BUILD
+CompilerGeneratedFilesOutputPath=
+MaxSupportedLangVersion=7.3
+ProjectAssetsFile=<PATH>obj/project.assets.json
+RootNamespace=AppCode
+RunAnalyzers=
+RunAnalyzersDuringLiveAnalysis=
+SolutionPath=<PATH>App.sln
+TargetFrameworkIdentifier=.NETFramework
+TargetPath=<PATH>bin/Debug/net48/app.dll
+TargetRefPath=
+TemporaryDependencyNodeTargetIdentifier=net48
+
+[commandLineArguments]
+/noconfig
+/unsafe-
+/checked-
+/nowarn:1701,1702,CS0108,CS0234,CS0115,CS0534,CS0103,CS0114,MVC1000,MSB3277,1701,1702
+/fullpaths
+/nostdlib+
+/errorreport:prompt
+/warn:4
+/define:TRACE;DESIGN_TIME_BUILD;DEBUG;NETFRAMEWORK;NET48;NET20_OR_GREATER;NET30_OR_GREATER;NET35_OR_GREATER;NET40_OR_GREATER;NET45_OR_GREATER;NET451_OR_GREATER;NET452_OR_GREATER;NET46_OR_GREATER;NET461_OR_GREATER;NET462_OR_GREATER;NET47_OR_GREATER;NET471_OR_GREATER;NET472_OR_GREATER;NET48_OR_GREATER
+/highentropyva+
+/debug+
+/debug:portable
+/filealign:512
+/optimize-
+/out:obj\Debug\net48\app.dll
+/subsystemversion:6.00
+/target:library
+/warnaserror-
+/utf8output
+/deterministic+
+/langversion:8.0
+/warnaserror+:NU1605
+
+[sourceFiles]
+AppCode/api/
+ AppCodeGetCodeController.cs
+ ControllerBase.Generated.cs
+ LightSpeedExternalDataController.cs
+ My1Controller.cs
+ My2Controller.cs
+ My3Controller.cs
+AppCode/
+ Assert.cs
+ ClassUseDependecies.cs
+ CSharp8.cs
+ Data/
+  AdamFields.Generated.cs
+  AdamFieldsMetadata.Generated.cs
+  AppDataCreateUpdateDelete.Generated.cs
+  AppResources.Generated.cs
+  AppSettings.Generated.cs
+  AutoGenTests.Generated.cs
+  ContentTypeEmpty.Generated.cs
+  ContentTypeTitle.Generated.cs
+  ContentTypeWysiwyg.Generated.cs
+  DataAdam.Generated.cs
+  DataWithRelationshipChild.Generated.cs
+  DataWithRelationshipGrandChild.Generated.cs
+  DataWithRelationshipParent.Generated.cs
+  Dummy.Generated.cs
+  DummyData1.Generated.cs
+  DummyData2.Generated.cs
+  EditEntityListFromPage.Generated.cs
+  FieldsBoolean.Generated.cs
+  FieldsDateTime.Generated.cs
+  FieldsEmpty.Generated.cs
+  FieldsHyperlink.Generated.cs
+  FieldsNumber.Generated.cs
+  FieldsStringJson.Generated.cs
+  FieldsStringUrl.Generated.cs
+  FieldsStringWysiwyg.Generated.cs
+  FieldsStringWysiwygAll.Generated.cs
+  FieldsStringWysiwygInnerContent.Generated.cs
+  FieldValueWysiwyg.Generated.cs
+  FormulaFormParameters.Generated.cs
+  FormulaParametersFromSettings.Generated.cs
+  ForPrefillTests.Generated.cs
+  ForPrefillTestsCategories.Generated.cs
+  ImageServiceTests.Generated.cs
+  InputPickerString.Generated.cs
+  LanguageTests.Generated.cs
+  MagicDataSourceConfiguration.Generated.cs
+  MultiLanguageTests.Generated.cs
+  QTestColor.Generated.cs
+  Quotes.Generated.cs
+  QuotesModel.Generated.cs
+  QuotesModelClassic.Manual.cs
+  RestTestAuthor.Generated.cs
+  RestTestBook.Generated.cs
+  TempPickerShowingInheritedContentType.Generated.cs
+  TempStringDropdown.Generated.cs
+  TestGetValues.Generated.cs
+  TestPublishing.Generated.cs
+  TestTemplateService.Generated.cs
+  TestTemplateServiceData.Generated.cs
+  ToolbarTest.Generated.cs
+  ToolbarTestItems.Generated.cs
+  ViewSettingsDummy.Generated.cs
+  ViewTestDefault.Generated.cs
+  ViewTestHeader.Generated.cs
+  ViewTestPresentation.Generated.cs
+  WithMetadata.Generated.cs
+  WithMetadataMetadata.Generated.cs
+ DataSources/
+  Basic101.cs
+  Basic102.cs
+ DemoService.cs
+ extensions/radmin/Api/
+  JsonSchemas.cs
+  RadminController.cs
+  RadminSchemaHelper.cs
+ extensions/radmin/Data/
+  RadminResources.Generated.cs
+  RadminTable.Generated.cs
+  RadminTableColumn.Generated.cs
+ extensions/radmin/SxcTablesConstants.cs
+ FirstClass.cs
+ LightSpeed/ExternalDataStore.cs
+ LinkHelper.cs
+ Mails/
+  BasicMailGenerator.cs
+  IMailGenerator.cs
+ Razor/
+  AppRazor.Generated.cs
+  AppRazorBase.cs
+  Model3Props.cs
+  SomeRazor.cs
+ RestTests/RestTest.cs
+ SecondClass.cs
+ Services/ServiceBase.Generated.cs
+ Show.cs
+ ShowTestData.cs
+ Test/Data/
+  FieldSpacing.Generated.cs
+  RadminDemoData.Generated.cs
+  RadminDetails.Generated.cs
+ TestImplicitUsings.cs
+AppJson/
+ api/AppJsonTestsController.cs
+ AppJsonCodeTests.cs
+BaseClasses/
+ Code14.cs
+ TestLog.cs
+Code-Dynamic/api/UseObsoleteCodeController.cs
+Code-Errors/Cs File Errors/
+ Code16UseAsAdam.cs
+ Code16UseContent.cs
+ Code16UseEdit.cs
+Code-Typed/CodeApiSvc-Inheritance/
+ CodeApiSvcInheritance.cs
+ CodeApiSvcInheritanceSub.cs
+Code-Typed/
+ Dependencies/Helpers.cs
+ GetCode-Mixed/
+  BasicDynamicCode.cs
+  BasicDynamicCode12.cs
+  BasicHybridCode12.cs
+  BasicHybridCode14.cs
+  BasicHybridCode16.cs
+ GetCode/CodeTests.cs
+CodeLog/api/
+ Api12Controller.cs
+ Api14Controller.cs
+ Dnn12Controller.cs
+ DnnApiController.cs
+ OqtaneApiController.cs
+ SxcApiController.cs
+CodeLog/
+ LogCode12.cs
+ LogCode14.cs
+ LogDnn.cs
+ LogDynamicCode.cs
+ LogDynamicCode12.cs
+ LogOqtane.cs
+ TestLog.cs
+DataSources/
+ AnonymousList.cs
+ AnonymousSingle.cs
+ Code14.cs
+ MagicDataSource.cs
+ MagicError.cs
+ MagicFilter.cs
+ MagicFilter2.cs
+ MagicFilterAppData.cs
+ MagicFilterRawAndEntity.cs
+ RawListWithNameId.cs
+ SplitOddEven.cs
+ Template.cs
+ TreeBasic.cs
+ TreeChildPaths.cs
+ TreeFoldersAndFiles.cs
+ TreeParentPaths.cs
+live/
+ api/My1Controller.cs
+ AppCode/
+  My10Controller.cs
+  subfolder/
+   My100Controller.cs
+   subfolder2/My1000Controller.cs
+ subfolder/
+  api/ShouldNotWork02Controller.cs
+  ShouldNotWork01Controller.cs
+obj/Debug/net48/
+ .NETFramework,Version=v4.8.AssemblyAttributes.cs
+ app.AssemblyInfo.cs
+Services/Toolbar-Service/ToolbarServiceTests.cs
+staging/
+ api/My2Controller.cs
+ AppCode/api/My20Controller.cs
+Toolbars/V10 String API/TestGenerators.cs
+VsCode/Intellisense.cs
+WebApi-JsonDeserialization/api/
+ Api12PostController.cs
+ Api14PostController.cs
+ Api15MyUserController.cs
+ Api15PostController.cs
+ DnnApiPostController.cs
+ SxcApiPostController.cs
+WebApi-JsonFormatterAttribute/api/
+ Api14AttController.cs
+ Api14Controller.cs
+ Api15AttController.cs
+ Api16CasingPreserveController.cs
+ Api16CustomItemController.cs
+ Api16DefaultController.cs
+ Api16TypedItemController.cs
+ CasingCamelController.cs
+ CasingDictionaryCamelController.cs
+ CasingDictionaryPreserveController.cs
+ CasingPreserveController.cs
+ CasingUnspecifiedController.cs
+ ChildController.cs
+ ClassAndMethodBController.cs
+ ClassAndMethodController.cs
+ ClassController.cs
+ EntityFormatLightController.cs
+ EntityFormatNoneController.cs
+ MethodController.cs
+WebApi-SecureEndpointAttribute/api/
+ SecureEndpoint2Controller.cs
+ SecureEndpointController.cs
+WebApi/api/
+ CompileErrorController.cs
+ My4Controller.cs
+ MyController.cs
+ SharedHelperCode.cs
+ WebApiGetCodeController.cs
+ WebApiLanguageController.cs
+Z-Old/
+ CmsService/CmsServiceTest.cs
+ VsCodeBug.cs
+_Layout/
+ HomeHelpers.cs
+ RazorVersion.cs
+ TestTreeHelpers.cs
+_Shared/
+ ShowToolbars.cs
+ ShowValues.cs
+ TestData.cs
+ TestLinker.cs
+
+[metadataReferences]
+../../../../bin/
+ Connect.Koi.dll
+ CsvHelper.dll
+ DotNetNuke.Abstractions.dll
+ DotNetNuke.Authentication.Facebook.dll
+ DotNetNuke.Authentication.Google.dll
+ DotNetNuke.Authentication.LiveConnect.dll
+ DotNetNuke.Authentication.Twitter.dll
+ DotNetNuke.DependencyInjection.dll
+ DotNetNuke.dll
+ DotNetNuke.HttpModules.dll
+ DotNetNuke.Instrumentation.dll
+ DotNetNuke.Log4Net.dll
+ DotNetNuke.Maintenance.dll
+ DotNetNuke.ModulePipeline.dll
+ DotNetNuke.Modules.CoreMessaging.dll
+ DotNetNuke.Modules.Groups.dll
+ DotNetNuke.Modules.Html.dll
+ DotNetNuke.Modules.HtmlEditorManager.dll
+ DotNetNuke.Modules.Journal.dll
+ DotNetNuke.Modules.MemberDirectory.dll
+ DotNetNuke.Modules.RazorHost.dll
+ dotnetnuke.modules.userdefinedtable.dll
+ DotNetNuke.RadEditorProvider.dll
+ DotNetNuke.Services.Syndication.dll
+ DotNetNuke.SiteExportImport.dll
+ DotNetNuke.SiteExportImport.Library.dll
+ DotNetNuke.Web.Client.dll
+ DotNetNuke.Web.DDRMenu.dll
+ DotNetNuke.Web.Deprecated.dll
+ DotNetNuke.Web.dll
+ DotNetNuke.Web.Mvc.dll
+ DotNetNuke.Web.Razor.dll
+ DotNetNuke.WebControls.dll
+ DotNetNuke.Website.Deprecated.dll
+ DotNetNuke.Website.dll
+ DotNetNuke.WebUtility.dll
+ System.Collections.Immutable.dll
+ System.Memory.dll
+ System.Text.Json.dll
+ System.Web.Http.dll
+ System.Web.Razor.dll
+ System.Web.WebPages.dll
+ System.Web.WebPages.Razor.dll
+ ToSic.Eav.Apps.dll
+ ToSic.Eav.Apps.Persistence.dll
+ ToSic.Eav.Context.dll
+ ToSic.Eav.Data.Build.dll
+ ToSic.Eav.Data.dll
+ ToSic.Eav.Data.Stack.dll
+ ToSic.Eav.DataSource.dll
+ ToSic.Eav.DataSources.dll
+ ToSic.Eav.DataSources.SharePoint.dll
+ ToSic.Eav.ImportExport.dll
+ ToSic.Eav.Insights.dll
+ ToSic.Eav.LookUp.dll
+ ToSic.Eav.Persistence.dll
+ ToSic.Eav.Persistence.Efc.dll
+ ToSic.Eav.Repository.Efc.dll
+ ToSic.Eav.WebApi.dll
+ ToSic.Eav.Work.dll
+ ToSic.Imageflow.Dnn.dll
+ ToSic.Razor.dll
+ ToSic.Razor.Dnn.dll
+ ToSic.Sxc.Adam.dll
+ ToSic.Sxc.Apps.dll
+ ToSic.Sxc.Blocks.dll
+ ToSic.Sxc.Cms.dll
+ ToSic.Sxc.Code.dll
+ ToSic.Sxc.Code.Generate.dll
+ ToSic.Sxc.Code.HotBuild.dll
+ ToSic.Sxc.Core.dll
+ ToSic.Sxc.Custom.dll
+ ToSic.Sxc.Data.dll
+ ToSic.Sxc.Dnn.Core.dll
+ ToSic.Sxc.Dnn.dll
+ ToSic.Sxc.Dnn.Enterprise.dll
+ ToSic.Sxc.Dnn.Razor.dll
+ ToSic.Sxc.Dnn.WebApi.dll
+ ToSic.Sxc.Edit.dll
+ ToSic.Sxc.Engines.dll
+ ToSic.Sxc.Images.dll
+ ToSic.Sxc.LightSpeed.dll
+ ToSic.Sxc.Patch.DisablePagePublishing.dll
+ ToSic.Sxc.Render.dll
+ ToSic.Sxc.Services.dll
+ ToSic.Sxc.Web.dll
+ ToSic.Sxc.WebApi.dll
+ ToSic.Sys.Caching.dll
+ ToSic.Sys.Code.dll
+ ToSic.Sys.Core.dll
+ ToSic.Sys.Features.dll
+ ToSic.Sys.OData.dll
+ ToSic.Sys.Security.dll
+ ToSic.Sys.Utils.dll
+ ToSic.Tutorial.DataSource.Basic.dll
+<DOTNET>/sdk/10.0.101/Sdks/Microsoft.NET.Sdk.Razor/source-generators/Microsoft.AspNetCore.Razor.Utilities.Shared.dll
+<NETFXREF>/v4.8/Facades/
+ Microsoft.Win32.Primitives.dll
+ netstandard.dll
+ System.AppContext.dll
+ System.Collections.Concurrent.dll
+ System.Collections.dll
+ System.Collections.NonGeneric.dll
+ System.Collections.Specialized.dll
+ System.ComponentModel.dll
+ System.ComponentModel.EventBasedAsync.dll
+ System.ComponentModel.Primitives.dll
+ System.ComponentModel.TypeConverter.dll
+ System.Console.dll
+ System.Data.Common.dll
+ System.Diagnostics.Contracts.dll
+ System.Diagnostics.Debug.dll
+ System.Diagnostics.FileVersionInfo.dll
+ System.Diagnostics.Process.dll
+ System.Diagnostics.StackTrace.dll
+ System.Diagnostics.TextWriterTraceListener.dll
+ System.Diagnostics.Tools.dll
+ System.Diagnostics.TraceSource.dll
+ System.Drawing.Primitives.dll
+ System.Dynamic.Runtime.dll
+ System.Globalization.Calendars.dll
+ System.Globalization.dll
+ System.Globalization.Extensions.dll
+ System.IO.Compression.ZipFile.dll
+ System.IO.dll
+ System.IO.FileSystem.dll
+ System.IO.FileSystem.DriveInfo.dll
+ System.IO.FileSystem.Primitives.dll
+ System.IO.FileSystem.Watcher.dll
+ System.IO.IsolatedStorage.dll
+ System.IO.MemoryMappedFiles.dll
+ System.IO.Pipes.dll
+ System.IO.UnmanagedMemoryStream.dll
+ System.Linq.dll
+ System.Linq.Expressions.dll
+ System.Linq.Parallel.dll
+ System.Linq.Queryable.dll
+ System.Net.Http.Rtc.dll
+ System.Net.NameResolution.dll
+ System.Net.NetworkInformation.dll
+ System.Net.Ping.dll
+ System.Net.Primitives.dll
+ System.Net.Requests.dll
+ System.Net.Security.dll
+ System.Net.Sockets.dll
+ System.Net.WebHeaderCollection.dll
+ System.Net.WebSockets.Client.dll
+ System.Net.WebSockets.dll
+ System.ObjectModel.dll
+ System.Reflection.dll
+ System.Reflection.Emit.dll
+ System.Reflection.Emit.ILGeneration.dll
+ System.Reflection.Emit.Lightweight.dll
+ System.Reflection.Extensions.dll
+ System.Reflection.Primitives.dll
+ System.Resources.Reader.dll
+ System.Resources.ResourceManager.dll
+ System.Resources.Writer.dll
+ System.Runtime.CompilerServices.VisualC.dll
+ System.Runtime.dll
+ System.Runtime.Extensions.dll
+ System.Runtime.Handles.dll
+ System.Runtime.InteropServices.dll
+ System.Runtime.InteropServices.RuntimeInformation.dll
+ System.Runtime.InteropServices.WindowsRuntime.dll
+ System.Runtime.Numerics.dll
+ System.Runtime.Serialization.Formatters.dll
+ System.Runtime.Serialization.Json.dll
+ System.Runtime.Serialization.Primitives.dll
+ System.Runtime.Serialization.Xml.dll
+ System.Security.Claims.dll
+ System.Security.Cryptography.Algorithms.dll
+ System.Security.Cryptography.Csp.dll
+ System.Security.Cryptography.Encoding.dll
+ System.Security.Cryptography.Primitives.dll
+ System.Security.Cryptography.X509Certificates.dll
+ System.Security.Principal.dll
+ System.Security.SecureString.dll
+ System.ServiceModel.Duplex.dll
+ System.ServiceModel.Http.dll
+ System.ServiceModel.NetTcp.dll
+ System.ServiceModel.Primitives.dll
+ System.ServiceModel.Security.dll
+ System.Text.Encoding.dll
+ System.Text.Encoding.Extensions.dll
+ System.Text.RegularExpressions.dll
+ System.Threading.dll
+ System.Threading.Overlapped.dll
+ System.Threading.Tasks.dll
+ System.Threading.Tasks.Parallel.dll
+ System.Threading.Thread.dll
+ System.Threading.ThreadPool.dll
+ System.Threading.Timer.dll
+ System.ValueTuple.dll
+ System.Xml.ReaderWriter.dll
+ System.Xml.XDocument.dll
+ System.Xml.XmlDocument.dll
+ System.Xml.XmlSerializer.dll
+ System.Xml.XPath.dll
+ System.Xml.XPath.XDocument.dll
+<NETFXREF>/v4.8/
+ Microsoft.CSharp.dll
+ mscorlib.dll
+ System.ComponentModel.Composition.dll
+ System.ComponentModel.DataAnnotations.dll
+ System.Core.dll
+ System.Data.dll
+ System.Data.OracleClient.dll
+ System.dll
+ System.Drawing.dll
+ System.IO.Compression.dll
+ System.IO.Compression.FileSystem.dll
+ System.Net.dll
+ System.Net.Http.dll
+ System.Numerics.dll
+ System.Runtime.Serialization.dll
+ System.Security.dll
+ System.ServiceProcess.dll
+ System.Transactions.dll
+ System.Web.dll
+ System.Xml.dll
+ System.Xml.Linq.dll
+<NUGET>/
+ microsoft.aspnetcore.antiforgery/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Antiforgery.dll
+ microsoft.aspnetcore.authentication.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Abstractions.dll
+ microsoft.aspnetcore.authentication.core/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authentication.Core.dll
+ microsoft.aspnetcore.authorization.policy/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authorization.Policy.dll
+ microsoft.aspnetcore.authorization/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Authorization.dll
+ microsoft.aspnetcore.cryptography.internal/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+ microsoft.aspnetcore.dataprotection.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.DataProtection.Abstractions.dll
+ microsoft.aspnetcore.dataprotection/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.DataProtection.dll
+ microsoft.aspnetcore.diagnostics.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Diagnostics.Abstractions.dll
+ microsoft.aspnetcore.hosting.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Hosting.Abstractions.dll
+ microsoft.aspnetcore.hosting.server.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
+ microsoft.aspnetcore.html.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Html.Abstractions.dll
+ microsoft.aspnetcore.http.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.Abstractions.dll
+ microsoft.aspnetcore.http.extensions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.Extensions.dll
+ microsoft.aspnetcore.http.features/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.Features.dll
+ microsoft.aspnetcore.http/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Http.dll
+ microsoft.aspnetcore.jsonpatch/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.JsonPatch.dll
+ microsoft.aspnetcore.mvc.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Abstractions.dll
+ microsoft.aspnetcore.mvc.core/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Core.dll
+ microsoft.aspnetcore.mvc.dataannotations/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Mvc.DataAnnotations.dll
+ microsoft.aspnetcore.mvc.formatters.json/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Formatters.Json.dll
+ microsoft.aspnetcore.mvc.razor.extensions/2.2.0/lib/net46/Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
+ microsoft.aspnetcore.mvc.razor/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Mvc.Razor.dll
+ microsoft.aspnetcore.mvc.razorpages/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Mvc.RazorPages.dll
+ microsoft.aspnetcore.mvc.viewfeatures/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Mvc.ViewFeatures.dll
+ microsoft.aspnetcore.razor.language/2.2.0/lib/net46/Microsoft.AspNetCore.Razor.Language.dll
+ microsoft.aspnetcore.razor.runtime/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Razor.Runtime.dll
+ microsoft.aspnetcore.razor/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Razor.dll
+ microsoft.aspnetcore.responsecaching.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.ResponseCaching.Abstractions.dll
+ microsoft.aspnetcore.routing.abstractions/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Routing.Abstractions.dll
+ microsoft.aspnetcore.routing/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.Routing.dll
+ microsoft.aspnetcore.webutilities/2.2.0/lib/netstandard2.0/Microsoft.AspNetCore.WebUtilities.dll
+ microsoft.codeanalysis.common/2.8.0/lib/netstandard1.3/Microsoft.CodeAnalysis.dll
+ microsoft.codeanalysis.csharp/2.8.0/lib/netstandard1.3/Microsoft.CodeAnalysis.CSharp.dll
+ microsoft.codeanalysis.razor/2.2.0/lib/net46/Microsoft.CodeAnalysis.Razor.dll
+ microsoft.dotnet.platformabstractions/2.1.0/lib/net45/Microsoft.DotNet.PlatformAbstractions.dll
+ microsoft.extensions.caching.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Caching.Abstractions.dll
+ microsoft.extensions.caching.memory/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll
+ microsoft.extensions.configuration.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll
+ microsoft.extensions.dependencyinjection.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+ microsoft.extensions.dependencyinjection/2.2.0/lib/net461/Microsoft.Extensions.DependencyInjection.dll
+ microsoft.extensions.dependencymodel/2.1.0/lib/net451/Microsoft.Extensions.DependencyModel.dll
+ microsoft.extensions.fileproviders.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.FileProviders.Abstractions.dll
+ microsoft.extensions.fileproviders.composite/2.2.0/lib/netstandard2.0/Microsoft.Extensions.FileProviders.Composite.dll
+ microsoft.extensions.hosting.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Hosting.Abstractions.dll
+ microsoft.extensions.localization.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Localization.Abstractions.dll
+ microsoft.extensions.localization/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Localization.dll
+ microsoft.extensions.logging.abstractions/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll
+ microsoft.extensions.objectpool/2.2.0/lib/netstandard2.0/Microsoft.Extensions.ObjectPool.dll
+ microsoft.extensions.options/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Options.dll
+ microsoft.extensions.primitives/2.2.0/lib/netstandard2.0/Microsoft.Extensions.Primitives.dll
+ microsoft.extensions.webencoders/2.2.0/lib/netstandard2.0/Microsoft.Extensions.WebEncoders.dll
+ microsoft.net.http.headers/2.2.0/lib/netstandard2.0/Microsoft.Net.Http.Headers.dll
+ microsoft.win32.registry/4.5.0/ref/net461/Microsoft.Win32.Registry.dll
+ newtonsoft.json.bson/1.0.1/lib/net45/Newtonsoft.Json.Bson.dll
+ newtonsoft.json/11.0.2/lib/net45/Newtonsoft.Json.dll
+ system.buffers/4.5.0/ref/net45/System.Buffers.dll
+ system.componentmodel.annotations/4.5.0/ref/net461/System.ComponentModel.Annotations.dll
+ system.diagnostics.diagnosticsource/4.5.0/lib/net46/System.Diagnostics.DiagnosticSource.dll
+ system.reflection.metadata/1.4.2/lib/portable-net45+win8/System.Reflection.Metadata.dll
+ system.runtime.compilerservices.unsafe/4.5.1/ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll
+ system.security.accesscontrol/4.5.0/ref/net461/System.Security.AccessControl.dll
+ system.security.cryptography.xml/4.5.0/ref/net461/System.Security.Cryptography.Xml.dll
+ system.security.permissions/4.5.0/ref/net461/System.Security.Permissions.dll
+ system.security.principal.windows/4.5.0/ref/net461/System.Security.Principal.Windows.dll
+ system.text.encodings.web/4.5.0/lib/netstandard2.0/System.Text.Encodings.Web.dll
+ system.threading.tasks.extensions/4.5.1/ref/netstandard2.0/System.Threading.Tasks.Extensions.dll
+Dependencies/
+ DepLibrary1.dll
+ DepLibrary2.dll
+
+[analyzerReferences]
+<DOTNET>/sdk/10.0.101/Sdks/Microsoft.NET.Sdk.Razor/source-generators/Microsoft.CodeAnalysis.Razor.Compiler.dll
+<NUGET>/microsoft.codeanalysis.analyzers/1.1.0/analyzers/dotnet/cs/
+ Microsoft.CodeAnalysis.Analyzers.dll
+ Microsoft.CodeAnalysis.CSharp.Analyzers.dll
+
+[analyzerConfigFiles]
+obj/Debug/net48/app.GeneratedMSBuildEditorConfig.editorconfig
+
+[additionalFiles]
+$2sxc/Activate/
+ _Default.cshtml
+ _Page-Activate-Inpage.cshtml
+$2sxc/
+ Default.cshtml
+ GetSxc/
+  Default.cshtml
+  _Get-Inline.cshtml
+  _Get-turnOn.cshtml
+ Object to Url/_Default.cshtml
+ SxcCms/
+  Access Cms Without Necessary Js.CMS.cshtml
+  Default.cshtml
+AppJson/
+ Roslyn compiler in api controller.cshtml
+ Roslyn compiler in code.cshtml
+ Roslyn compiler in razor.cshtml
+BaseClasses/
+ _Default.cshtml
+ _Direct-Link-protection.cshtml
+ _Razor12.cshtml
+ _Razor14.cshtml
+Cms-Lightbox/Default.cshtml
+CmsContext/
+ MyPage Parameters.cshtml
+ MySite.cshtml
+ MyUser.cshtml
+ MyView.cshtml
+Code-Dynamic/Conversions using As/
+ AsAdam-Field.cshtml
+ AsList.cshtml
+ _Default.cshtml
+Code-Dynamic/
+ Dnn-Razor12/_Default.cshtml
+ Dnn-RazorComponent-Code/
+  WithCodeBehind.Code.cshtml
+  WithCodeBehind.cshtml
+  _Default.cshtml
+ ImplicitUsings/
+  Default.cshtml
+  ThisAppCode.cshtml
+ Inherits-Nothing/
+  Basic.cshtml
+  Parent-Calling-Child.cshtml
+  Parent-Calling-Child.Part Child.cshtml
+ WebApi Errors/_Default.cshtml
+ WithAppCode/Default.cshtml
+ _Default.cshtml
+Code-Errors/Cs File Errors/
+ Code16UseAsAdam.cshtml
+ Code16UseContent.cshtml
+ Code16UseEdit.cshtml
+ _Default.cshtml
+Code-Errors/
+ Error noParamOrder.cshtml
+ IEntity/
+  Eav.IEntity in code.cshtml
+  Eav.Interfaces.IEntity in code.cshtml
+  IEntity without namespace.cshtml
+  IEntity.Get.T.cshtml
+  IEntity.PrimaryValue.cshtml
+  IEntity.PrimaryValue.T.cshtml
+  IEntity.Value.cshtml
+  IEntity.Value.T.cshtml
+  using Eav.Interfaces.cshtml
+ Inherit SomeRazor.cshtml
+ Lambda.cshtml
+ Oqtane/
+  BrokenChild.cshtml
+  Child.cshtml
+  Parent-with-broken-child.cshtml
+  Parent-with-not-existing-child.cshtml
+  Simple-parent-with-not-existing-child.cshtml
+  _Default.cshtml
+ Razor12 Dnn Errors/
+  CreateInstance-Cshtml (should work).cshtml
+  CreateSource-String.cshtml
+  Object-Dnn (should work).cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  _Default.cshtml
+ Razor12 Errors/
+  CreateInstance-Cshtml.cshtml
+  CreateSource-String.cshtml
+  Object-Dnn.cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  _Default.cshtml
+ Razor14 - Basic Error.cshtml
+ Razor14 Errors/
+  CreateSource-String.cshtml
+  Object-Convert.cshtml
+  Object-Dnn.cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  _Default.cshtml
+ RazorTyped Errors/
+  App-Folder - Add-to-string.cshtml
+  App-Folder - direct Output.cshtml
+  App-Path.cshtml
+  CreateInstance.cshtml
+  CreateSource-String.cshtml
+  Inherits-Semicolon.cshtml
+  Method-AsAdam.cshtml
+  Method-AsDynamic.cshtml
+  MyItem-EntityGuid.cshtml
+  MyItem-EntityId.cshtml
+  MyItem-EntityTitle.cshtml
+  MyItem-null (test incomplete.cshtml
+  Object-Content.cshtml
+  Object-Convert.cshtml
+  Object-Data.cshtml
+  Object-Dnn.cshtml
+  Object-Edit.cshtml
+  Object-Header.cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  Object-Resources.cshtml
+  Object-Resources.Something.cshtml
+  Object-Settings.cshtml
+  View.PathShared.cshtml
+  View.PhysicalPath.cshtml
+  View.PhysicalPathShared.cshtml
+  WrapObjectTyped1.cshtml
+  WrapObjectTyped1b.cshtml
+  WrapObjectTyped2.cshtml
+  WrapObjectTyped2b.cshtml
+  WrapObjectTyped3.cshtml
+  WrapObjectTyped3b.cshtml
+  _Default.cshtml
+ Use DynamicEntity type.cshtml
+ Warning use ILogService.cshtml
+ Warning use Settings.cshtml
+ Warning use SexyContent.Interfaces.IApp.cshtml
+ _Default.cshtml
+ _Inner/CreateInstance.cshtml
+Code-Mixed/
+ Kit Sharing.cshtml
+ Parameters to Razor.cshtml
+ _Default.cshtml
+ _Kit-Sharing/Kit in Razor14.cshtml
+ _Parameters-Parts/
+  Parameters to Razor.Part DynamicModel.cshtml
+  Parameters to Razor.Part No-Inherits.cshtml
+  Parameters to Razor.Part TypedModel.cshtml
+Code-Typed/
+ App StrictlyTyped/Inherit AppRazorBase.cshtml
+ AppCode/Use Class in AppCode.cshtml
+ AppData-CreateUpdateDelete/_Default.cshtml
+ CodeApiSvc-Inheritance/
+  Inheritance.cshtml
+  RazorTypedChild.cshtml
+  RazorTypedGrandchild.cshtml
+ CSharp/
+  C-Sharp-73.cshtml
+  C-Sharp8 in Code.cshtml
+ Dependencies/
+  Helper use Dependencies.cshtml
+  Subfile use Dependencies.cshtml
+  ThisApp use Dependencies.cshtml
+  _Default.cshtml
+ Generate Data Model/Test Generate.cshtml
+ GetCode-Mixed/
+  Basic.cshtml
+  _Default.cshtml
+ GetCode/
+  CodePro-NoParams.cshtml
+  _Default.cshtml
+ Objects/
+  Typed-App.cshtml
+  _Default.cshtml
+ Partial with Typed Model/
+  Default.cshtml
+  Part Model Int.cshtml
+  Part Model Model3Props.cshtml
+  Part Model String.cshtml
+  Part Model Tuple.cshtml
+ Publishing/
+  Publishing.cshtml
+  Publishing.Part Details.cshtml
+  Publishing.Part Shared.cshtml
+ Roslyn/
+  Entry with Roslyn.cshtml
+  Entry without Roslyn.cshtml
+  Subfile with Roslyn - No Code Use.cshtml
+CodeLog/
+ _Default.cshtml
+ _Dnn-Razor12.cshtml
+ _Dnn-RazorComponent.cshtml
+ _Hybrid-Razor12.cshtml
+ _Hybrid-Razor14.cshtml
+ _Oqtane-Razor12.cshtml
+ _SexyContent-SexyContentWebPage.cshtml
+Data/
+ Content Type Attributes.cshtml
+ Data-Dynamic/
+  Dynamic - Classic.cshtml
+  Dynamic - Get-Value.cshtml
+  Dynamic - Metadata.cshtml
+  Dynamic - Owner, Created, Modified.cshtml
+  _Default.cshtml
+ Data-Render/Render with Html()/
+  AppResources.cshtml
+  String-Wysiwyg-Rich.cshtml
+  _Default.cshtml
+ Data-Render/_Default.cshtml
+ Data-Stack/
+  Create and ReStack Razor14.cshtml
+  Create and ReStack RazorTyped.cshtml
+  Create and ReStack Strong-Typed.cshtml
+  Deep-Stack Razor14.cshtml
+  Deep-Stack RazorTyped.cshtml
+  System-Custom-Override.cshtml
+  _Default.cshtml
+ Data-Typed/
+  Custom equality.cshtml
+  Models - Quote.cshtml
+  Typed - Draft Relationships.cshtml
+  Typed - Equality.cshtml
+  Typed - Languages.cshtml
+  Typed - Metadata.cshtml
+  Typed - Mocked Data - Deprecated API.cshtml
+  Typed - Mocked Data - New v20 API.cshtml
+  Typed - Picture and Path.cshtml
+  Typed - Properties Typed.cshtml
+  Typed - Relationships.cshtml
+  Typed - Stack and Keys.cshtml
+  Typed - Strict Field Names.cshtml
+ Eav-As-Conversions/GetAll ViewConfiguration.cshtml
+ Security/Edit Permissions.cshtml
+DataSources/
+ AnonymousList - Show.cshtml
+ AnonymousSingle - Show.cshtml
+ Cms-Data-Sources/
+  AppFiles.cshtml
+  Pages.cshtml
+  Sites.cshtml
+  UsersAndRoles.cshtml
+ Compiled Tutorial Basic/
+  _01-Basic.cshtml
+  _02-Configured.cshtml
+  _Default.cshtml
+ From AppCode/
+  Basic101 Typed.cshtml
+  Basic101.cshtml
+  Basic102 Typed.cshtml
+  Basic102.cshtml
+ MagicDataSource - Attach.cshtml
+ MagicDataSource - Show.cshtml
+ MagicFilterAppData.cshtml
+ RawListWithNameId - Show.cshtml
+ SplitOddEven - Show.cshtml
+ Template.cshtml
+ TreeBasic - Show.cshtml
+ TreeChildPaths - Show.cshtml
+ TreeFoldersAndFiles - Show.cshtml
+ TreeParentPaths - Show.cshtml
+ _Default.cshtml
+ _Helpers/
+  Show Tree Node.cshtml
+  Show Tree.cshtml
+  ShowDataInSource.cshtml
+Default-Razor12.cshtml
+Default-Razor14.cshtml
+Default-Razor16.cshtml
+Edit-UI/
+ Design - Field Spacing.cshtml
+ Edit Picker List/Picker Lists.cshtml
+ Fields/_Default.cshtml
+ _Default.cshtml
+extensions/radmin/
+ Radmin Table.cshtml
+ ToggleViewConfigMode.cshtml
+LightSpeed/External Data/
+ App Flush.cshtml
+ Dependency Flush.cshtml
+ Diagnostics.cshtml
+ Kit Flush App.cshtml
+ Kit Flush Dependency.cshtml
+ _Default.cshtml
+ __Shared.cshtml
+LightSpeed/Partial/
+ Main.cshtml
+ Single-Test.cshtml
+ _Default.cshtml
+ _Parts/
+  AlwaysCached.cshtml
+  ByModel.cshtml
+  ByModel.PartShowingModel.cshtml
+  ByModelAccumulated.cshtml
+  ByUrlParamCacheKey.cshtml
+  ByUser.cshtml
+  CachedTillChanged.cshtml
+  CachedTillChangedData.cshtml
+  CachedTillChangedFolder.cshtml
+  Disabled.cshtml
+  Exception.cshtml
+  Uncached.cshtml
+  WithActivateFancyBox4.cshtml
+  WithPageTitleChange.cshtml
+  WithTurnOn.cshtml
+LightSpeed/Response Output Cache/_Default.cshtml
+Obsolete/
+ _Data.Cache.cshtml
+ _Default.cshtml
+REST/
+ Rest Data.cshtml
+ __REST-Data-Test.cshtml
+Services/
+ Adam-Service/_Default.cshtml
+ Cache-Service/
+  Default.cshtml
+  OutputCacheManagement.cshtml
+ CmsService/
+  Default.cshtml
+  Html Basic.cshtml
+  Html Tweak.cshtml
+ Convert-Service/
+  Razor14.cshtml
+  RazorPro.cshtml
+  _Default.cshtml
+ Data Service/
+  Get Query - Basic.cshtml
+  Get Query - Cached-Basic.cshtml
+  Get Query - Parameters.cshtml
+  _Default.cshtml
+ Features-Service/_Default.cshtml
+ HtmlTag (Razor Blade)/_Default.cshtml
+ Image Service/
+  IFile to Pic and Toolbar.cshtml
+  Late added BS5.cshtml
+  Lightbox.cshtml
+  Pic Config Align.cshtml
+  Pic from IFile.cshtml
+  Pic Properties.cshtml
+  Pic Properties.Part OneFile.cshtml
+  Pic Toolbars.cshtml
+ Link Service/Link Service using Settings.cshtml
+ ModuleService/_Default.cshtml
+ Page/
+  Activate Edit - To Test When Not Enabled.cshtml
+  Activate-Basic - fancybox3-and-4.cshtml
+  Activate-Basic - fancybox4.cshtml
+  Activate-fancybox4 Conditions.cshtml
+  Redirect.cshtml
+  WebResources CDN Tests.cshtml
+  _Default.cshtml
+ Template Service/
+  Basic.cshtml
+  Html Inject Protection.cshtml
+  Sources.cshtml
+  Token Inject Protection.cshtml
+  With Data.cshtml
+ Toolbar-Service/
+  Admin.cshtml
+  Alt-Save-Config-Save-Disabled.cshtml
+  Audience.cshtml
+  Button Add Modify Remove.cshtml
+  Code.cshtml
+  Conditions-Buttons.cshtml
+  Conditions.cshtml
+  Copy.cshtml
+  Data.cshtml
+  Delete.cshtml
+  Demo-Mode.cshtml
+  Edit 100 Performance.cshtml
+  Edit, New.cshtml
+  Groups.cshtml
+  Html.cshtml
+  Info.cshtml
+  Parameters.cshtml
+  Root Detect IsDemo.cshtml
+  SubList CustomItem.cshtml
+  SubList TypedItem.cshtml
+  Toolbar Settings.cshtml
+  Ui and Icons.cshtml
+  Ui and Prefill.cshtml
+  UI Data.cshtml
+  UI Position.cshtml
+  View, Template, Query, Type.cshtml
+  _Default.cshtml
+  _Helpers/ShowDebugToolbar.cshtml
+ TurnOn-Service/_Default.cshtml
+ UsersService/
+  Anonymous.cshtml
+  GetRoles- All.cshtml
+  GetUser.cshtml
+  GetUsers - All.cshtml
+  UnknownUser.cshtml
+  __ShowUserDetails.cshtml
+ _Default.cshtml
+staging/extensions/radmin/
+ Radmin Table.cshtml
+ ToggleViewConfigMode.cshtml
+Toolbars/
+ V08 Object API/_Default.cshtml
+ V10 String API/
+  _Basics.cshtml
+  _Context V13.cshtml
+  _Copy.cshtml
+  _Custom.cshtml
+  _Data (ContentItems).cshtml
+  _Default.cshtml
+  _Edit Toolbar and TagToolbar.cshtml
+  _Groups and Positioning.cshtml
+  _JS Call.cshtml
+  _Js Params and Settings.cshtml
+  _Metadata.cshtml
+  _Named Buttons-pupose unclear.cshtml
+  _Prefill.cshtml
+  _Settings - Colors .cshtml
+  _Template Empty.cshtml
+  __Assets.cshtml
+ _Default.cshtml
+Views/
+ _Default.cshtml
+ _ViewTests/Access Data Objects.cshtml
+WebApi-JsonDeserialization/
+ Api12 Post.cshtml
+ Api14 Post.cshtml
+ Api15 Post MyUser.cshtml
+ Api15 Post.cshtml
+ DnnApi Post.cshtml
+ SxcApi Post.cshtml
+ _Default.cshtml
+ __SharedPost.cshtml
+WebApi-JsonFormatterAttribute/
+ Api14 Att.cshtml
+ Api14 without Att.cshtml
+ Api15 Att with Casing.Camel.cshtml
+ Api15 Att with Casing.DictionaryCamel.cshtml
+ Api15 Att with Casing.DictionaryPreserve.cshtml
+ Api15 Att with Casing.Preserve.cshtml
+ Api15 Att with Casing.Unspecified.cshtml
+ Api15 Att with EntityFormat.Light.cshtml
+ Api15 Att with EntityFormat.None.cshtml
+ Api15 Att with many default and specified parameters on class and method.cshtml
+ Api15 Att with many parameters on class and method.cshtml
+ Api15 Att with many parameters on class.cshtml
+ Api15 Att with many parameters on method.cshtml
+ Api15 Att.cshtml
+ Api16 Att with Casing.Preserve.cshtml
+ Api16 Custom.cshtml
+ Api16 standard.cshtml
+ Api16 Typed.cshtml
+ Att inherited.cshtml
+ _Default.cshtml
+ __Shared.cshtml
+WebApi-SecureEndpointAttribute/
+ encrypted form1 encryption not activated.cshtml
+ encrypted form1.cshtml
+ encrypted form2 with parameters.cshtml
+ encrypted form3 mobius files.cshtml
+ encrypted form4 large-content.cshtml
+ encrypted form5 encrypt auto.cshtml
+ encrypted form5 encrypt false.cshtml
+ encrypted form5 encrypt force with promise.cshtml
+ encrypted form5 encrypt force.cshtml
+ encrypted form5 encrypt null.cshtml
+ encrypted form5 encrypt true.cshtml
+ encrypted form6 encrypt auto encryptShowErrorToUser.cshtml
+ encrypted form6 encrypt true encryptShowErrorToUser.cshtml
+ _Default.cshtml
+ __SharedPost.cshtml
+WebApi/
+ CompileError.cshtml
+ Controller in AppCode.cshtml
+ Controller relying on AppCode.cshtml
+ GetEditions.cshtml
+ Invalid Call - Unknown Controller.cshtml
+ Language - from cs in WebApi.cshtml
+ Use GetCode in AppCode and Classic.cshtml
+ __Shared.cshtml
+Z-Old/CmsService/
+ _Default.cshtml
+ _RazorWithCode.cshtml
+Z-Old/Test2/_Default.cshtml
+_Home.cshtml
+_Layout/Tree SubTests.cshtml
+_Shared/Dump Table.cshtml
+_Template/_Default.cshtml
+
+[dynamicFiles]
+$2sxc/Activate/
+ _Default.cshtml
+ _Page-Activate-Inpage.cshtml
+$2sxc/
+ Default.cshtml
+ GetSxc/
+  Default.cshtml
+  _Get-Inline.cshtml
+  _Get-turnOn.cshtml
+ Object to Url/_Default.cshtml
+ SxcCms/
+  Access Cms Without Necessary Js.CMS.cshtml
+  Default.cshtml
+AppJson/
+ Roslyn compiler in api controller.cshtml
+ Roslyn compiler in code.cshtml
+ Roslyn compiler in razor.cshtml
+BaseClasses/
+ _Default.cshtml
+ _Direct-Link-protection.cshtml
+ _Razor12.cshtml
+ _Razor14.cshtml
+Cms-Lightbox/Default.cshtml
+CmsContext/
+ MyPage Parameters.cshtml
+ MySite.cshtml
+ MyUser.cshtml
+ MyView.cshtml
+Code-Dynamic/Conversions using As/
+ AsAdam-Field.cshtml
+ AsList.cshtml
+ _Default.cshtml
+Code-Dynamic/
+ Dnn-Razor12/_Default.cshtml
+ Dnn-RazorComponent-Code/
+  WithCodeBehind.Code.cshtml
+  WithCodeBehind.cshtml
+  _Default.cshtml
+ ImplicitUsings/
+  Default.cshtml
+  ThisAppCode.cshtml
+ Inherits-Nothing/
+  Basic.cshtml
+  Parent-Calling-Child.cshtml
+  Parent-Calling-Child.Part Child.cshtml
+ WebApi Errors/_Default.cshtml
+ WithAppCode/Default.cshtml
+ _Default.cshtml
+Code-Errors/Cs File Errors/
+ Code16UseAsAdam.cshtml
+ Code16UseContent.cshtml
+ Code16UseEdit.cshtml
+ _Default.cshtml
+Code-Errors/
+ Error noParamOrder.cshtml
+ IEntity/
+  Eav.IEntity in code.cshtml
+  Eav.Interfaces.IEntity in code.cshtml
+  IEntity without namespace.cshtml
+  IEntity.Get.T.cshtml
+  IEntity.PrimaryValue.cshtml
+  IEntity.PrimaryValue.T.cshtml
+  IEntity.Value.cshtml
+  IEntity.Value.T.cshtml
+  using Eav.Interfaces.cshtml
+ Inherit SomeRazor.cshtml
+ Lambda.cshtml
+ Oqtane/
+  BrokenChild.cshtml
+  Child.cshtml
+  Parent-with-broken-child.cshtml
+  Parent-with-not-existing-child.cshtml
+  Simple-parent-with-not-existing-child.cshtml
+  _Default.cshtml
+ Razor12 Dnn Errors/
+  CreateInstance-Cshtml (should work).cshtml
+  CreateSource-String.cshtml
+  Object-Dnn (should work).cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  _Default.cshtml
+ Razor12 Errors/
+  CreateInstance-Cshtml.cshtml
+  CreateSource-String.cshtml
+  Object-Dnn.cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  _Default.cshtml
+ Razor14 - Basic Error.cshtml
+ Razor14 Errors/
+  CreateSource-String.cshtml
+  Object-Convert.cshtml
+  Object-Dnn.cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  _Default.cshtml
+ RazorTyped Errors/
+  App-Folder - Add-to-string.cshtml
+  App-Folder - direct Output.cshtml
+  App-Path.cshtml
+  CreateInstance.cshtml
+  CreateSource-String.cshtml
+  Inherits-Semicolon.cshtml
+  Method-AsAdam.cshtml
+  Method-AsDynamic.cshtml
+  MyItem-EntityGuid.cshtml
+  MyItem-EntityId.cshtml
+  MyItem-EntityTitle.cshtml
+  MyItem-null (test incomplete.cshtml
+  Object-Content.cshtml
+  Object-Convert.cshtml
+  Object-Data.cshtml
+  Object-Dnn.cshtml
+  Object-Edit.cshtml
+  Object-Header.cshtml
+  Object-List-on-this.cshtml
+  Object-List.cshtml
+  Object-ListContent.cshtml
+  Object-ListPresentation.cshtml
+  Object-Presentation.cshtml
+  Object-Resources.cshtml
+  Object-Resources.Something.cshtml
+  Object-Settings.cshtml
+  View.PathShared.cshtml
+  View.PhysicalPath.cshtml
+  View.PhysicalPathShared.cshtml
+  WrapObjectTyped1.cshtml
+  WrapObjectTyped1b.cshtml
+  WrapObjectTyped2.cshtml
+  WrapObjectTyped2b.cshtml
+  WrapObjectTyped3.cshtml
+  WrapObjectTyped3b.cshtml
+  _Default.cshtml
+ Use DynamicEntity type.cshtml
+ Warning use ILogService.cshtml
+ Warning use Settings.cshtml
+ Warning use SexyContent.Interfaces.IApp.cshtml
+ _Default.cshtml
+ _Inner/CreateInstance.cshtml
+Code-Mixed/
+ Kit Sharing.cshtml
+ Parameters to Razor.cshtml
+ _Default.cshtml
+ _Kit-Sharing/Kit in Razor14.cshtml
+ _Parameters-Parts/
+  Parameters to Razor.Part DynamicModel.cshtml
+  Parameters to Razor.Part No-Inherits.cshtml
+  Parameters to Razor.Part TypedModel.cshtml
+Code-Typed/
+ App StrictlyTyped/Inherit AppRazorBase.cshtml
+ AppCode/Use Class in AppCode.cshtml
+ AppData-CreateUpdateDelete/_Default.cshtml
+ CodeApiSvc-Inheritance/
+  Inheritance.cshtml
+  RazorTypedChild.cshtml
+  RazorTypedGrandchild.cshtml
+ CSharp/
+  C-Sharp-73.cshtml
+  C-Sharp8 in Code.cshtml
+ Dependencies/
+  Helper use Dependencies.cshtml
+  Subfile use Dependencies.cshtml
+  ThisApp use Dependencies.cshtml
+  _Default.cshtml
+ Generate Data Model/Test Generate.cshtml
+ GetCode-Mixed/
+  Basic.cshtml
+  _Default.cshtml
+ GetCode/
+  CodePro-NoParams.cshtml
+  _Default.cshtml
+ Objects/
+  Typed-App.cshtml
+  _Default.cshtml
+ Partial with Typed Model/
+  Default.cshtml
+  Part Model Int.cshtml
+  Part Model Model3Props.cshtml
+  Part Model String.cshtml
+  Part Model Tuple.cshtml
+ Publishing/
+  Publishing.cshtml
+  Publishing.Part Details.cshtml
+  Publishing.Part Shared.cshtml
+ Roslyn/
+  Entry with Roslyn.cshtml
+  Entry without Roslyn.cshtml
+  Subfile with Roslyn - No Code Use.cshtml
+CodeLog/
+ _Default.cshtml
+ _Dnn-Razor12.cshtml
+ _Dnn-RazorComponent.cshtml
+ _Hybrid-Razor12.cshtml
+ _Hybrid-Razor14.cshtml
+ _Oqtane-Razor12.cshtml
+ _SexyContent-SexyContentWebPage.cshtml
+Data/
+ Content Type Attributes.cshtml
+ Data-Dynamic/
+  Dynamic - Classic.cshtml
+  Dynamic - Get-Value.cshtml
+  Dynamic - Metadata.cshtml
+  Dynamic - Owner, Created, Modified.cshtml
+  _Default.cshtml
+ Data-Render/Render with Html()/
+  AppResources.cshtml
+  String-Wysiwyg-Rich.cshtml
+  _Default.cshtml
+ Data-Render/_Default.cshtml
+ Data-Stack/
+  Create and ReStack Razor14.cshtml
+  Create and ReStack RazorTyped.cshtml
+  Create and ReStack Strong-Typed.cshtml
+  Deep-Stack Razor14.cshtml
+  Deep-Stack RazorTyped.cshtml
+  System-Custom-Override.cshtml
+  _Default.cshtml
+ Data-Typed/
+  Custom equality.cshtml
+  Models - Quote.cshtml
+  Typed - Draft Relationships.cshtml
+  Typed - Equality.cshtml
+  Typed - Languages.cshtml
+  Typed - Metadata.cshtml
+  Typed - Mocked Data - Deprecated API.cshtml
+  Typed - Mocked Data - New v20 API.cshtml
+  Typed - Picture and Path.cshtml
+  Typed - Properties Typed.cshtml
+  Typed - Relationships.cshtml
+  Typed - Stack and Keys.cshtml
+  Typed - Strict Field Names.cshtml
+ Eav-As-Conversions/GetAll ViewConfiguration.cshtml
+ Security/Edit Permissions.cshtml
+DataSources/
+ AnonymousList - Show.cshtml
+ AnonymousSingle - Show.cshtml
+ Cms-Data-Sources/
+  AppFiles.cshtml
+  Pages.cshtml
+  Sites.cshtml
+  UsersAndRoles.cshtml
+ Compiled Tutorial Basic/
+  _01-Basic.cshtml
+  _02-Configured.cshtml
+  _Default.cshtml
+ From AppCode/
+  Basic101 Typed.cshtml
+  Basic101.cshtml
+  Basic102 Typed.cshtml
+  Basic102.cshtml
+ MagicDataSource - Attach.cshtml
+ MagicDataSource - Show.cshtml
+ MagicFilterAppData.cshtml
+ RawListWithNameId - Show.cshtml
+ SplitOddEven - Show.cshtml
+ Template.cshtml
+ TreeBasic - Show.cshtml
+ TreeChildPaths - Show.cshtml
+ TreeFoldersAndFiles - Show.cshtml
+ TreeParentPaths - Show.cshtml
+ _Default.cshtml
+ _Helpers/
+  Show Tree Node.cshtml
+  Show Tree.cshtml
+  ShowDataInSource.cshtml
+Default-Razor12.cshtml
+Default-Razor14.cshtml
+Default-Razor16.cshtml
+Edit-UI/
+ Design - Field Spacing.cshtml
+ Edit Picker List/Picker Lists.cshtml
+ Fields/_Default.cshtml
+ _Default.cshtml
+extensions/radmin/
+ Radmin Table.cshtml
+ ToggleViewConfigMode.cshtml
+LightSpeed/External Data/
+ App Flush.cshtml
+ Dependency Flush.cshtml
+ Diagnostics.cshtml
+ Kit Flush App.cshtml
+ Kit Flush Dependency.cshtml
+ _Default.cshtml
+ __Shared.cshtml
+LightSpeed/Partial/
+ Main.cshtml
+ Single-Test.cshtml
+ _Default.cshtml
+ _Parts/
+  AlwaysCached.cshtml
+  ByModel.cshtml
+  ByModel.PartShowingModel.cshtml
+  ByModelAccumulated.cshtml
+  ByUrlParamCacheKey.cshtml
+  ByUser.cshtml
+  CachedTillChanged.cshtml
+  CachedTillChangedData.cshtml
+  CachedTillChangedFolder.cshtml
+  Disabled.cshtml
+  Exception.cshtml
+  Uncached.cshtml
+  WithActivateFancyBox4.cshtml
+  WithPageTitleChange.cshtml
+  WithTurnOn.cshtml
+LightSpeed/Response Output Cache/_Default.cshtml
+Obsolete/
+ _Data.Cache.cshtml
+ _Default.cshtml
+REST/
+ Rest Data.cshtml
+ __REST-Data-Test.cshtml
+Services/
+ Adam-Service/_Default.cshtml
+ Cache-Service/
+  Default.cshtml
+  OutputCacheManagement.cshtml
+ CmsService/
+  Default.cshtml
+  Html Basic.cshtml
+  Html Tweak.cshtml
+ Convert-Service/
+  Razor14.cshtml
+  RazorPro.cshtml
+  _Default.cshtml
+ Data Service/
+  Get Query - Basic.cshtml
+  Get Query - Cached-Basic.cshtml
+  Get Query - Parameters.cshtml
+  _Default.cshtml
+ Features-Service/_Default.cshtml
+ HtmlTag (Razor Blade)/_Default.cshtml
+ Image Service/
+  IFile to Pic and Toolbar.cshtml
+  Late added BS5.cshtml
+  Lightbox.cshtml
+  Pic Config Align.cshtml
+  Pic from IFile.cshtml
+  Pic Properties.cshtml
+  Pic Properties.Part OneFile.cshtml
+  Pic Toolbars.cshtml
+ Link Service/Link Service using Settings.cshtml
+ ModuleService/_Default.cshtml
+ Page/
+  Activate Edit - To Test When Not Enabled.cshtml
+  Activate-Basic - fancybox3-and-4.cshtml
+  Activate-Basic - fancybox4.cshtml
+  Activate-fancybox4 Conditions.cshtml
+  Redirect.cshtml
+  WebResources CDN Tests.cshtml
+  _Default.cshtml
+ Template Service/
+  Basic.cshtml
+  Html Inject Protection.cshtml
+  Sources.cshtml
+  Token Inject Protection.cshtml
+  With Data.cshtml
+ Toolbar-Service/
+  Admin.cshtml
+  Alt-Save-Config-Save-Disabled.cshtml
+  Audience.cshtml
+  Button Add Modify Remove.cshtml
+  Code.cshtml
+  Conditions-Buttons.cshtml
+  Conditions.cshtml
+  Copy.cshtml
+  Data.cshtml
+  Delete.cshtml
+  Demo-Mode.cshtml
+  Edit 100 Performance.cshtml
+  Edit, New.cshtml
+  Groups.cshtml
+  Html.cshtml
+  Info.cshtml
+  Parameters.cshtml
+  Root Detect IsDemo.cshtml
+  SubList CustomItem.cshtml
+  SubList TypedItem.cshtml
+  Toolbar Settings.cshtml
+  Ui and Icons.cshtml
+  Ui and Prefill.cshtml
+  UI Data.cshtml
+  UI Position.cshtml
+  View, Template, Query, Type.cshtml
+  _Default.cshtml
+  _Helpers/ShowDebugToolbar.cshtml
+ TurnOn-Service/_Default.cshtml
+ UsersService/
+  Anonymous.cshtml
+  GetRoles- All.cshtml
+  GetUser.cshtml
+  GetUsers - All.cshtml
+  UnknownUser.cshtml
+  __ShowUserDetails.cshtml
+ _Default.cshtml
+staging/extensions/radmin/
+ Radmin Table.cshtml
+ ToggleViewConfigMode.cshtml
+Toolbars/
+ V08 Object API/_Default.cshtml
+ V10 String API/
+  _Basics.cshtml
+  _Context V13.cshtml
+  _Copy.cshtml
+  _Custom.cshtml
+  _Data (ContentItems).cshtml
+  _Default.cshtml
+  _Edit Toolbar and TagToolbar.cshtml
+  _Groups and Positioning.cshtml
+  _JS Call.cshtml
+  _Js Params and Settings.cshtml
+  _Metadata.cshtml
+  _Named Buttons-pupose unclear.cshtml
+  _Prefill.cshtml
+  _Settings - Colors .cshtml
+  _Template Empty.cshtml
+  __Assets.cshtml
+ _Default.cshtml
+Views/
+ _Default.cshtml
+ _ViewTests/Access Data Objects.cshtml
+WebApi-JsonDeserialization/
+ Api12 Post.cshtml
+ Api14 Post.cshtml
+ Api15 Post MyUser.cshtml
+ Api15 Post.cshtml
+ DnnApi Post.cshtml
+ SxcApi Post.cshtml
+ _Default.cshtml
+ __SharedPost.cshtml
+WebApi-JsonFormatterAttribute/
+ Api14 Att.cshtml
+ Api14 without Att.cshtml
+ Api15 Att with Casing.Camel.cshtml
+ Api15 Att with Casing.DictionaryCamel.cshtml
+ Api15 Att with Casing.DictionaryPreserve.cshtml
+ Api15 Att with Casing.Preserve.cshtml
+ Api15 Att with Casing.Unspecified.cshtml
+ Api15 Att with EntityFormat.Light.cshtml
+ Api15 Att with EntityFormat.None.cshtml
+ Api15 Att with many default and specified parameters on class and method.cshtml
+ Api15 Att with many parameters on class and method.cshtml
+ Api15 Att with many parameters on class.cshtml
+ Api15 Att with many parameters on method.cshtml
+ Api15 Att.cshtml
+ Api16 Att with Casing.Preserve.cshtml
+ Api16 Custom.cshtml
+ Api16 standard.cshtml
+ Api16 Typed.cshtml
+ Att inherited.cshtml
+ _Default.cshtml
+ __Shared.cshtml
+WebApi-SecureEndpointAttribute/
+ encrypted form1 encryption not activated.cshtml
+ encrypted form1.cshtml
+ encrypted form2 with parameters.cshtml
+ encrypted form3 mobius files.cshtml
+ encrypted form4 large-content.cshtml
+ encrypted form5 encrypt auto.cshtml
+ encrypted form5 encrypt false.cshtml
+ encrypted form5 encrypt force with promise.cshtml
+ encrypted form5 encrypt force.cshtml
+ encrypted form5 encrypt null.cshtml
+ encrypted form5 encrypt true.cshtml
+ encrypted form6 encrypt auto encryptShowErrorToUser.cshtml
+ encrypted form6 encrypt true encryptShowErrorToUser.cshtml
+ _Default.cshtml
+ __SharedPost.cshtml
+WebApi/
+ CompileError.cshtml
+ Controller in AppCode.cshtml
+ Controller relying on AppCode.cshtml
+ GetEditions.cshtml
+ Invalid Call - Unknown Controller.cshtml
+ Language - from cs in WebApi.cshtml
+ Use GetCode in AppCode and Classic.cshtml
+ __Shared.cshtml
+Z-Old/CmsService/
+ _Default.cshtml
+ _RazorWithCode.cshtml
+Z-Old/Test2/_Default.cshtml
+_Home.cshtml
+_Layout/Tree SubTests.cshtml
+_Shared/Dump Table.cshtml
+_Template/_Default.cshtml

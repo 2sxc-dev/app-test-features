@@ -1,0 +1,61 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.Data
+
+<h1>Edit UI Picker Lists</h1>
+<p>
+  We're working on editing inpage entity lists.
+</p>
+<hr />
+
+@{
+  var data = App.Data.GetAll<EditEntityListFromPage>().First();
+}
+
+<h2>@data.Title</h2>
+<h3>Simple list, should just work</h3>
+<ul @Kit.Toolbar.Default(data.EntitiesBasic)>
+  @foreach (var item in data.EntitiesBasic)
+  {
+    <li @Kit.Toolbar.Default(item)>
+      @item.Title
+    </li>
+  }
+  @if (!data.EntitiesBasic.Any())
+  {
+    <li>
+      No items selected
+    </li>
+  }
+</ul>
+
+<h3>Picker, with one type stored somewhere</h3>
+<ul @Kit.Toolbar.Default(data.EntitiesPickerOne)>
+  @foreach (var item in data.EntitiesPickerOne)
+  {
+    <li @Kit.Toolbar.Default(item)>
+      @item.Title
+    </li>
+  }
+  @if (!data.EntitiesPickerOne.Any())
+  {
+    <li>
+      No items selected
+    </li>
+  }
+</ul>
+
+<h3>Picker, with multiple types stored somewhere</h3>
+<ul @Kit.Toolbar.Default(data.EntitiesPickerMany)>
+  @foreach (var item in data.EntitiesPickerMany)
+  {
+    <li @Kit.Toolbar.Default(item)>
+      @item.Title
+    </li>
+  }
+  @if (!data.EntitiesPickerMany.Any())
+  {
+    <li>
+      No items selected
+    </li>
+  }
+</ul>
