@@ -1,0 +1,55 @@
+@inherits Custom.Hybrid.RazorTyped
+@{
+  var attachmentCount = -1;
+  Exception error = null;
+
+  try
+  {
+    using (var message = Kit.Mail.Create(
+      from: "Mail Service Test <noreply@example.com>",
+      to: "recipient@example.com",
+      bcc: "archive@example.com",
+      subject: "Kit.Mail.Create with empty attachments",
+      body: "<p>Testing mail creation with an explicit empty attachments array.</p>",
+      attachments: System.Array.Empty<System.Net.Mail.Attachment>()
+    ))
+    {
+      attachmentCount = message.Attachments.Count;
+    }
+  }
+  catch (Exception ex)
+  {
+    error = ex;
+  }
+
+  var success = error == null && attachmentCount == 0;
+  var sampleCode = @"var message = Kit.Mail.Create(
+  from: ""Mail Service Test <noreply@example.com>"",
+  to: ""recipient@example.com"",
+  bcc: ""archive@example.com"",
+  subject: ""Kit.Mail.Create with empty attachments"",
+  body: ""<p>Testing mail creation with an explicit empty attachments array.</p>"",
+  attachments: System.Array.Empty<System.Net.Mail.Attachment>()
+);";
+}
+
+<h1>Kit.Mail.Create with Empty Attachments</h1>
+
+<div class="alert @(success ? "alert-success" : "alert-danger")">
+  Result: @(success ? "passed" : "failed")
+  <br>
+  Attachment count: @attachmentCount
+</div>
+
+@if (error != null)
+{
+  <h2>Error</h2>
+  <p>
+    <strong>@error.GetType().FullName</strong><br>
+    @error.Message
+  </p>
+  <pre>@error</pre>
+}
+
+<h2>Sample</h2>
+<pre><code>@sampleCode</code></pre>
