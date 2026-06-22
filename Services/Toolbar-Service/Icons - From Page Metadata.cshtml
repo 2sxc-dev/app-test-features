@@ -8,13 +8,13 @@
 }
 
 <ol>
-  @tlbTest.TbTestAsTag("Page Metadata and Content",
+  @tlbTest.LiToolbarAndJson("Page Metadata and Content",
     Kit.Toolbar.Default()
       .Metadata(MyPage)
       .For(MyItem)
   )
 
-  @tlbTest.TbTestAsTag("Empty - for TestToolbarIcons",
+  @tlbTest.LiToolbarAndJson("Empty - for TestToolbarIcons",
     Kit.Toolbar.Empty()
       .Metadata(MyPage)
   )

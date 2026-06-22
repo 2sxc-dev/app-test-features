@@ -16,7 +16,7 @@
 
 <h2>Metadata - has been working for a long time</h2>
 <ol>
-  @tlbTest.ShowLiAndToolbar("Metadata",
+  @tlbTest.LiAndToolbar("Metadata",
     Kit.Toolbar.Default(target)
       .Metadata(target, contentTypes: nameof(TestToolbarIcons))
   )
@@ -24,37 +24,37 @@
 
 <h2>Edit - SOME cases which work as of v22 (2026-06-20)</h2>
 <ol>
-  @tlbTest.ShowLiAndToolbar("Edit - Empty + edit-w/target (icon works ATM)",
+  @tlbTest.LiAndToolbar("Edit - Empty + edit-w/target (icon works ATM)",
     Kit.Toolbar.Empty(target)
       .Edit(target) // this is needed for the toolbar to pick up the icon from the content type
   )
 
-  @tlbTest.ShowLiAndToolbar("Edit - Edit only (icon works ATM)",
+  @tlbTest.LiAndToolbar("Edit - Edit only (icon works ATM)",
     Kit.Toolbar.Edit(target)
   )
 
-  @tlbTest.ShowLiAndToolbar("Edit - Default Just one add-edit (icon works, but 2 edit buttons, second w/out icon)",
+  @tlbTest.LiAndToolbar("Edit - Default Just one add-edit (icon works, but 2 edit buttons, second w/out icon)",
     Kit.Toolbar.Default(target)
       .Edit(target) // this is needed for the toolbar to pick up the icon from the content type
   )
 
-  @tlbTest.ShowLiAndToolbar("Edit - Default remove + add (icon works ATM)",
+  @tlbTest.LiAndToolbar("Edit - Default remove + add (icon works ATM)",
     Kit.Toolbar.Default(target)
       .Edit("-") // remove original edit
       .Edit(target) // this is needed for the toolbar to pick up the icon from the content type
   )
 
-  @tlbTest.ShowLiAndToolbar("Edit - Default modify with target (icon works ATM)",
+  @tlbTest.LiAndToolbar("Edit - Default modify with target (icon works ATM)",
     Kit.Toolbar.Default(target)
       .Edit(target, operation: "%") // modify
   )
 
-  @tlbTest.ShowLiAndToolbar("Edit - Default modify without target (no icon ATM)",
+  @tlbTest.LiAndToolbar("Edit - Default modify without target (no icon ATM)",
     Kit.Toolbar.Default(target)
       .Edit(operation: "%") // modify
   )
 
-  @* @tlbTest.ShowLiAndToolbar("Empty - for TestToolbarIcons",
+  @* @tlbTest.LiAndToolbar("Empty - for TestToolbarIcons",
     Kit.Toolbar.Empty()
       .Metadata(MyPage)
   ) *@

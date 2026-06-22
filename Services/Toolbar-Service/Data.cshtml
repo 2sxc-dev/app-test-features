@@ -35,52 +35,52 @@
 @if (!skipLots)
 {
   <ol>
-    @tlbTest.TbTestAsVisibleTag("Basic, no params", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, no params", "classic",
       empty.Data())
 
-    @tlbTest.TbTestAsVisibleTag("Basic, params current content-item", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, params current content-item", "classic",
       empty.Data(MyItem))
 
-    @tlbTest.TbTestAsVisibleTag("Basic, params another item (should take it's content-type)", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, params another item (should take it's content-type)", "classic",
       empty.Data(aParent))
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string", "classic",
       empty.Data(parentName))
   </ol>
 
   <h3>Basic, just content-type name as string</h3>
   <ol>
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as string", "classic",
       empty.Data(parentName, filter: "Child=" + aChild.Id))
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "tweak",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as string", "tweak",
       empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.Id)))
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "tweak-kvp",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as string", "tweak-kvp",
       empty.Data(parentName, tweak: b => b.Filter("Child", aChild.Id)))
 
   </ol>
 
   <h3>Multi-filter tweak</h3>
   <ol>
-    @tlbTest.TbTestAsVisibleTag("two values each KVP", "tweak-kvp",
+    @tlbTest.LiToolbarAndJson("two values each KVP", "tweak-kvp",
       empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.Id + "]").Filter("Field2", "value2")))
 
-    @tlbTest.TbTestAsVisibleTag("two values each string-pair", "tweak-kvp",
+    @tlbTest.LiToolbarAndJson("two values each string-pair", "tweak-kvp",
       empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.Id).Filter("Field2=value2")))
 
-    @tlbTest.TbTestAsVisibleTag("two values object and string-pair", "tweak-kvp",
+    @tlbTest.LiToolbarAndJson("two values object and string-pair", "tweak-kvp",
       empty.Data(parentName, tweak: b => b.Filter(new { Child = aChild.Id}).Filter("Field2=value2")))
 
-    @tlbTest.TbTestAsVisibleTag("child INT ARRAY", "tweak-kvp",
+    @tlbTest.LiToolbarAndJson("child INT ARRAY", "tweak-kvp",
       empty.Data(parentName, tweak: b => b.Filter("Child", childIdsArray).Filter("Field2=value2")))
 
   </ol>
 }
 
 <ol>
-  @tlbTest.TbTestAsVisibleTag("child INT ARRAY", "tweak-kvp",
+  @tlbTest.LiToolbarAndJson("child INT ARRAY", "tweak-kvp",
     empty.Data(parentName, tweak: b => b.Filter("Child", childIdsArray).Filter("Field2=value2")))
 
 </ol>
@@ -90,13 +90,13 @@
   <h3>Basic, just content-type name as string, filter as [string]</h3>
   <ol>
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as [string]", "classic",
       empty.Data(parentName, filter: "Child=[" + aChild.Id + "]"))
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "tweak",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as [string]", "tweak",
       empty.Data(parentName, tweak: b => b.Filter("Child=[" + aChild.Id + "]")))
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "tweak-kvp",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as [string]", "tweak-kvp",
       empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.Id + "]")))
 
   </ol>
@@ -104,25 +104,25 @@
   <h3>More / older direct filter: parameter</h3>
   <ol>
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [int,int]", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as [int,int]", "classic",
       empty.Data(parentName, filter: "Children=[" + childIdsString2 + "]"))
 
-    @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as object", "classic",
+    @tlbTest.LiToolbarAndJson("Basic, just content-type name as string, filter as object", "classic",
       empty.Data(parentName, filter: new { Child = aChild.Id }))
 
-    @tlbTest.TbTestAsVisibleTag("Filter as object, giving it a child", "classic",
+    @tlbTest.LiToolbarAndJson("Filter as object, giving it a child", "classic",
       empty.Data(parentName, filter: new { Child = aChild }))
 
-    @tlbTest.TbTestAsVisibleTag("Filter as an int[] ENUMERABLE of numbers", "classic",
+    @tlbTest.LiToolbarAndJson("Filter as an int[] ENUMERABLE of numbers", "classic",
       empty.Data(parentName, filter: new { Child = childIds2 }))
 
-    @tlbTest.TbTestAsVisibleTag("Filter as an int[] ARRAY of numbers", "classic",
+    @tlbTest.LiToolbarAndJson("Filter as an int[] ARRAY of numbers", "classic",
       empty.Data(parentName, filter: new { Child = childIdsArray }))
 
-    @tlbTest.TbTestAsVisibleTag("Filter by giving it an IEnumerable of children", "classic",
+    @tlbTest.LiToolbarAndJson("Filter by giving it an IEnumerable of children", "classic",
       empty.Data(parentName, filter: new { Child = children2 }))
 
-    @tlbTest.TbTestAsVisibleTag("Another property, not relevant but just for demo", "classic",
+    @tlbTest.LiToolbarAndJson("Another property, not relevant but just for demo", "classic",
       empty.Data("Dummy", filter: new { FavoriteNumber = 11 }))
 
 

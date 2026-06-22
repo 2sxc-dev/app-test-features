@@ -13,8 +13,8 @@ namespace AppCode.TestHelpers
     /// <param name="toolbar">The toolbar builder</param>
     /// <param name="showJson">Whether to show the JSON representation</param>
     /// <returns>The generated tag</returns>
-    public ITag ShowLiAndToolbar(string message, IToolbarBuilder toolbar) =>
-      TbTestAsTag(message, toolbar, false);
+    public ITag LiAndToolbar(string message, IToolbarBuilder toolbar, bool showJson = false) =>
+      LiToolbarAndJson(message, toolbar, showJson);
       
     /// <summary>
     /// Show a test according to standard output
@@ -23,7 +23,7 @@ namespace AppCode.TestHelpers
     /// <param name="toolbar">The toolbar builder</param>
     /// <param name="showJson">Whether to show the JSON representation</param>
     /// <returns>The generated tag</returns>
-    public ITag TbTestAsTag(string message, IToolbarBuilder toolbar, bool showJson = true) =>
+    public ITag LiToolbarAndJson(string message, IToolbarBuilder toolbar, bool showJson = true) =>
       Tag.Li(
         message + " ",
         toolbar.AsTag(),
@@ -42,7 +42,7 @@ namespace AppCode.TestHelpers
     /// <param name="variation">The variation to display</param>
     /// <param name="toolbar">The toolbar builder</param>
     /// <returns>The generated tag</returns>
-    public ITag TbTestAsVisibleTag(string message, string variation, IToolbarBuilder toolbar) {
+    public ITag LiToolbarAndJson(string message, string variation, IToolbarBuilder toolbar) {
       return Tag.Li(
         message + " (",
         Tag.Strong(variation),
@@ -50,7 +50,7 @@ namespace AppCode.TestHelpers
         toolbar.AsTag(),
         Tag.Br(),
         "JSON: ",
-        Tag.Pre(
+        Tag.Code(
           toolbar.AsJson()
         ),
         Tag.Hr()
@@ -58,17 +58,17 @@ namespace AppCode.TestHelpers
     }
 
     /// <summary>
-    /// Show a test on a list item
+    /// Show a test on a list item - but only on tag, so hover or not according to settings.
     /// </summary>
     /// <param name="message">The message to display</param>
     /// <param name="toolbar">The toolbar builder</param>
     /// <returns>The generated tag</returns>
-    public ITag TbTestOnLi(string message, IToolbarBuilder toolbar) {
+    public ITag LiToolbarOnTagOnly(string message, IToolbarBuilder toolbar) {
       return Tag.Li(
         message + " ",
         Tag.Br(),
         "JSON: ",
-        toolbar.AsJson(),
+        Tag.Code(toolbar.AsJson()),
         Tag.Hr()
       ).Attr(toolbar);
     }

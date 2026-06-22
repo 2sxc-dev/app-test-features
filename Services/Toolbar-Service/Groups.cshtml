@@ -15,7 +15,7 @@
 }
 
 <ol>
-  @tlbTest.TbTestAsTag("Empty w/2 Groups and leading group",
+  @tlbTest.LiToolbarAndJson("Empty w/2 Groups and leading group",
     Kit.Toolbar.Empty()
     .Group()
     .Edit(itemToUse)
@@ -23,30 +23,30 @@
     .New().New(itemToUse)
     .Group())
   
-  @tlbTest.TbTestAsTag("Empty w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>",
+  @tlbTest.LiToolbarAndJson("Empty w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>",
     Kit.Toolbar.Empty()
     .Edit(itemToUse)
     .Group()
     .New().New(itemToUse))
 
-  @tlbTest.TbTestAsTag("Default w/2 Groups",
+  @tlbTest.LiToolbarAndJson("Default w/2 Groups",
     Kit.Toolbar.Default()
     .Group()
     .Edit(itemToUse)
     .Group()
     .New().New(itemToUse))
 
-  @tlbTest.TbTestAsTag("Default w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>", 
+  @tlbTest.LiToolbarAndJson("Default w/2 Groups and NO leading group <strong>ATM unexpected result, but leave as is</strong>", 
     Kit.Toolbar.Default()
       .Edit(itemToUse)
       .Group()
       .New().New(itemToUse))
 
-  @tlbTest.TbTestAsTag("Default but remove group 'default'", 
+  @tlbTest.LiToolbarAndJson("Default but remove group 'default'", 
     Kit.Toolbar.Default()
       .Group("-default"))
 
-  @tlbTest.TbTestAsTag("Default but remove group 'default' and 'view'", 
+  @tlbTest.LiToolbarAndJson("Default but remove group 'default' and 'view'", 
     Kit.Toolbar.Default()
       .Group("-default")
       .Group("-view"))

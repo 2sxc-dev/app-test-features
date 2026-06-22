@@ -22,25 +22,25 @@
 <h2>New complex FormSettings</h2>
 
 <ol>
-  @tlbTest.TbTestAsTag("Language UI DE/EN",
+  @tlbTest.LiToolbarAndJson("Language UI DE/EN",
     Kit.Toolbar.Empty().Edit(itemToCopyTyped,
       tweak: t => t.Parameters(new { dialogSettings = new { languageUi = "de-de", languageForm = "en-us" }})
     )
   )
 
-  @tlbTest.TbTestAsTag("Language UI DE!/EN",
+  @tlbTest.LiToolbarAndJson("Language UI DE!/EN",
     Kit.Toolbar.Empty().Edit(itemToCopyTyped,
       tweak: t => t.Parameters(new { dialogSettings = new { languageUi = "de-de!", languageForm = "en-us" }})
     )
   )
 
-  @tlbTest.TbTestAsTag("Language UI DE!/EN!",
+  @tlbTest.LiToolbarAndJson("Language UI DE!/EN!",
     Kit.Toolbar.Empty().Edit(itemToCopyTyped,
       tweak: t => t.Parameters(new { dialogSettings = new { languageUi = "de-de!", languageForm = "en-us!" }})
     )
   )
 
-  @tlbTest.TbTestAsTag("Language UI DE/EN - not-configurable",
+  @tlbTest.LiToolbarAndJson("Language UI DE/EN - not-configurable",
     Kit.Toolbar.Empty().Edit(itemToCopyTyped,
       tweak: t => t.Parameters(new { dialogSettings = new { languageUserSettings = false, languageUi = "de-de!", languageForm = "en-us" }})
     )
@@ -52,31 +52,31 @@
 <h2>Simple cases</h2>
 
 <ol>
-  @tlbTest.TbTestAsTag("Simple string param",
+  @tlbTest.LiToolbarAndJson("Simple string param",
     LayoutOnly.Parameters("test=1"))
-  @tlbTest.TbTestAsTag("Simple string param 2x",
+  @tlbTest.LiToolbarAndJson("Simple string param 2x",
     LayoutOnly.Parameters("test=1&id=7"))
-  @tlbTest.TbTestAsTag("Simple obj param - ID will become iD",
+  @tlbTest.LiToolbarAndJson("Simple obj param - ID will become iD",
     LayoutOnly.Parameters(new { test = "simple", ID = 27 }))
 
-  @tlbTest.TbTestAsTag("Simple string param in parameters",
+  @tlbTest.LiToolbarAndJson("Simple string param in parameters",
     LayoutOnly.Parameters(parameters: "test=1"))
-  @tlbTest.TbTestAsTag("Simple string param 2x in parameters",
+  @tlbTest.LiToolbarAndJson("Simple string param 2x in parameters",
     LayoutOnly.Parameters(parameters: "test=1&id=7"))
-  @tlbTest.TbTestAsTag("Simple obj param in parameters",
+  @tlbTest.LiToolbarAndJson("Simple obj param in parameters",
     LayoutOnly.Parameters(parameters: new { test = "simple", ID = 27}))
 
   <hr>
-  @tlbTest.TbTestAsTag("2 uses of parameters - should join into 3 params",
+  @tlbTest.LiToolbarAndJson("2 uses of parameters - should join into 3 params",
     LayoutOnly.Parameters("strTarget=true").Parameters(parameters: new { test = "simple", ID = 27}))
 </ol>
 
 <hr>
 <h2>With target object</h2>
 <ol>
-  @tlbTest.TbTestAsTag("For-item and parameters",
+  @tlbTest.LiToolbarAndJson("For-item and parameters",
     LayoutOnly.For(itemToCopy).Parameters(parameters: new { test = "simple", ID = 27}))
-  @tlbTest.TbTestAsTag("Parameters with item in target",
+  @tlbTest.LiToolbarAndJson("Parameters with item in target",
     LayoutOnly.Parameters(itemToCopy, parameters: new { test = "simple", ID = 27}))
 </ol>
 
@@ -84,6 +84,6 @@
 <hr>
 <h2>Prefill</h2>
 <ol>
-  @tlbTest.TbTestAsTag("With Prefill - note that case is preserved",
+  @tlbTest.LiToolbarAndJson("With Prefill - note that case is preserved",
     Kit.Toolbar.Empty(itemToCopy, parameters: "test=5", prefill: new { Ok = true, Idx = "idx2"}))
 </ol>

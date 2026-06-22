@@ -29,27 +29,27 @@
 }
 <h2>Text, WYSIWYG, Number, Multiple (tests should be synced with v10 string-tests</h2>
 <ol>
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Text Prefill on Title",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("Title", "daniel"))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of Text with / and ?",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("Title", "a great title/or what?"))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of WYSIWYG",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("WYSIWYG", "<b>bold text</b> and not so bold \"quoted\""))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of a number",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ANumber", "20503"))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of a text and number",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("Title", "the title!").Prefill("ANumber", "20503"))
   )
@@ -57,49 +57,49 @@
 <hr>
 <h2>Related Item IDs</h2>
 <ol>
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of a single item with Guid-id as string",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("SingleItem",
     testCat1.Guid))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of a single item PICKER with Guid-id as string",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("SingleItemPicker",
     testCat1.Guid))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of many items with Guid-id CSV",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
       testCat1.Guid + "," + testCat2.Guid))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of many items picker with Guid-id CSV",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItemsPicker",
       testCat1.Guid + "," + testCat2.Guid))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of many items with id - ARRAY - not supported",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
     "[" + testCat1.Id + "," + testCat2.Id + "]" ))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of many items with Guid-id - GUID ARRAY WITH QUOTES",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
     "[\"" + testCat1.Guid + "\",\"" + testCat2.Guid + "\"]" ))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of many items with Guid-id - STRING GUID ARRAY WITH QUOTES",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems",
     new[] { testCat1.Guid.ToString(), testCat2.Guid.ToString() }))
   )
 
-  @tlbTest.TbTestAsTag(
+  @tlbTest.LiToolbarAndJson(
     "Basic Prefill of many items with Guid-id REAL ARRAY",
     Kit.Toolbar.Empty().New(typeName, tweak: t => t.Prefill("ManyItems", new[] { testCat1.Guid, testCat2.Guid }))
   )
@@ -110,7 +110,7 @@
 <hr>
 <h2>Special</h2>
 <ol>
-  @tlbTest.TbTestAsTag("UI and Prefill example",
+  @tlbTest.LiToolbarAndJson("UI and Prefill example",
     Kit.Toolbar.Default()
     .Metadata(MyPage, parameters: new { prefill = new { title = "daniel"} })
     .Settings(classes: "test-from-test", ui: new { V1 = 27, test = "should-be-changed" })

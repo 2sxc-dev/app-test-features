@@ -14,14 +14,14 @@
 
 <h2>Position of MORE button</h2>
 <ol>
-  @show.TbTestOnLi("Default = No Settings",
+  @show.LiToolbarOnTagOnly("Default = No Settings",
     Kit.Toolbar.Default(itemToUse)
   )
-  @show.TbTestOnLi("Settings: AUTO-ADD start (left)",
+  @show.LiToolbarOnTagOnly("Settings: AUTO-ADD start (left)",
     Kit.Toolbar.Default(itemToUse)
       .Settings(autoAddMore: "start")
   )
-  @show.TbTestOnLi("Settings: AUTO-ADD start (never)",
+  @show.LiToolbarOnTagOnly("Settings: AUTO-ADD start (never)",
     Kit.Toolbar.Default(itemToUse)
       .Settings(autoAddMore: "never")
   )
@@ -29,11 +29,11 @@
 
 <h2>Hovers affecting more-position</h2>
 <ol>
-  @show.TbTestOnLi("Settings: Hover left",
+  @show.LiToolbarOnTagOnly("Settings: Hover left",
     Kit.Toolbar.Default(itemToUse)
       .Settings(hover: "left")
   )
-  @show.TbTestOnLi("Settings: Hover left but force ellipsis to right",
+  @show.LiToolbarOnTagOnly("Settings: Hover left but force ellipsis to right",
     Kit.Toolbar.Default(itemToUse)
       .Settings(hover: "left", autoAddMore: "end")
   )
@@ -42,11 +42,11 @@
 
 <h2>Show always</h2>
 <ol>
-  @show.TbTestOnLi("Settings: Show Always",
+  @show.LiToolbarOnTagOnly("Settings: Show Always",
     Kit.Toolbar.Default(itemToUse)
       .Settings(show: "always")
   )
-  @show.TbTestOnLi("Settings: Show Always, left",
+  @show.LiToolbarOnTagOnly("Settings: Show Always, left",
     Kit.Toolbar.Default(itemToUse)
       .Settings(show: "always", hover: "left")
   )
@@ -54,7 +54,7 @@
 
 <h2>Merge multiple settings - show always to better debug</h2>
 <ol>
-  @show.TbTestOnLi("Settings: Merge colors",
+  @show.LiToolbarOnTagOnly("Settings: Merge colors",
     Kit.Toolbar.Default(itemToUse, ui: "autoAddMore=never")
       .Settings(show: "always")
       .Settings(hover: "left")

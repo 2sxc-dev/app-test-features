@@ -24,7 +24,7 @@
 }
 
 <ol>
-  @tlbTest.TbTestAsTag("Various Icons - using ui parameter",
+  @tlbTest.LiToolbarAndJson("Various Icons - using ui parameter",
     Kit.Toolbar.Default()
     .Metadata(MyPage)
     .Edit(ui: new { Icon = iconNote })
@@ -34,7 +34,7 @@
     .Edit(ui: new { Icon = icon24 })
     .For(MyItem))
 
-  @tlbTest.TbTestAsTag("Various Icons - using Tweak",
+  @tlbTest.LiToolbarAndJson("Various Icons - using Tweak",
     Kit.Toolbar.Default()
     .Metadata(MyPage)
     .Edit(tweak: b => b.Icon(iconNote).Note("this is interesting!"))
@@ -45,7 +45,7 @@
     .Edit(tweak: b => b.Icon(icon24))
     .For(MyItem))
 
-  @tlbTest.TbTestAsTag("Test Image Icons",
+  @tlbTest.LiToolbarAndJson("Test Image Icons",
     Kit.Toolbar.Empty()
       .Edit(ui: new { Icon = imageFont})
       .Edit(ui: new { Icon = imageFont, Classes = "single-field" })
