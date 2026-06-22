@@ -1,0 +1,25 @@
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.Data
+@using AppCode.TestHelpers
+
+<h1>Toolbar Service - UI and Icons</h1>
+
+@{
+  var tlbTest = GetService<ToolbarTestHelper>();
+
+  var target = App.Data.GetAll<TestToolbarIcons>().FirstOrDefault();
+}
+
+<ol>
+  @tlbTest.TbTestAsTag("Page Metadata and Content",
+    Kit.Toolbar.Default(target)
+      .Metadata(target, contentTypes: nameof(TestToolbarIcons))
+      .Edit("-") // remove original edit
+      .Edit(target) // this is needed for the toolbar to pick up the icon from the content type
+  )
+
+  @* @tlbTest.TbTestAsTag("Empty - for TestToolbarIcons",
+    Kit.Toolbar.Empty()
+      .Metadata(MyPage)
+  ) *@
+</ol>
