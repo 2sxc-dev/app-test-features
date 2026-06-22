@@ -1,4 +1,5 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.TestHelpers
 
 <h1>Toolbar Service - Groups</h1>
 <p>
@@ -9,8 +10,8 @@
   We don't plan to fix/change that ATM. 
 </p>
 @{
-  var tlbTest = CreateInstance("ToolbarServiceTests.cs");
-  var itemToUse = AsDynamic(App.Data["Dummy"].First());
+  var tlbTest = GetService<ToolbarTestHelper>();
+  var itemToUse = AsItem(App.Data.GetStream("Dummy").First());
 }
 
 <ol>

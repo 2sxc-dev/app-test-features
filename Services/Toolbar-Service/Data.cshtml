@@ -1,20 +1,21 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.TestHelpers
 
 <h1>Toolbar Service - Data Buttons</h1>
 <p>
   Show various cases where a toolbar service creates admin-buttons
 </p>
 @{
-  var tlbTest = CreateInstance("ToolbarServiceTests.cs");
+  var tlbTest = GetService<ToolbarTestHelper>();
 
   var parentName = "DataWithRelationshipParent";
   var childName = "DataWithRelationshipChild";
 
-  var aParent = AsDynamic(App.Data[parentName].First());
-  var aChild = AsDynamic(App.Data[childName].First());
+  var aParent = AsItems(App.Data.GetStream(parentName).First());
+  var aChild = AsItems(App.Data.GetStream(childName)).First();
 
-  var children2 = AsList(App.Data[childName]).Take(2);
-  var childIds2 = children2.Select(d => d.EntityId);
+  var children2 = AsItems(App.Data.GetStream(childName)).Take(2);
+  var childIds2 = children2.Select(d => d.Id);
   var childIdsArray = childIds2.ToArray();
   var childIdsString2 = string.Join(",", childIds2);
 
@@ -38,7 +39,7 @@
       empty.Data())
 
     @tlbTest.TbTestAsVisibleTag("Basic, params current content-item", "classic",
-      empty.Data(Content))
+      empty.Data(MyItem))
 
     @tlbTest.TbTestAsVisibleTag("Basic, params another item (should take it's content-type)", "classic",
       empty.Data(aParent))
@@ -51,26 +52,26 @@
   <ol>
 
     @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "classic",
-      empty.Data(parentName, filter: "Child=" + aChild.EntityId))
+      empty.Data(parentName, filter: "Child=" + aChild.Id))
 
     @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "tweak",
-      empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.EntityId)))
+      empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.Id)))
 
     @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as string", "tweak-kvp",
-      empty.Data(parentName, tweak: b => b.Filter("Child", aChild.EntityId)))
+      empty.Data(parentName, tweak: b => b.Filter("Child", aChild.Id)))
 
   </ol>
 
   <h3>Multi-filter tweak</h3>
   <ol>
     @tlbTest.TbTestAsVisibleTag("two values each KVP", "tweak-kvp",
-      empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.EntityId + "]").Filter("Field2", "value2")))
+      empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.Id + "]").Filter("Field2", "value2")))
 
     @tlbTest.TbTestAsVisibleTag("two values each string-pair", "tweak-kvp",
-      empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.EntityId).Filter("Field2=value2")))
+      empty.Data(parentName, tweak: b => b.Filter("Child=" + aChild.Id).Filter("Field2=value2")))
 
     @tlbTest.TbTestAsVisibleTag("two values object and string-pair", "tweak-kvp",
-      empty.Data(parentName, tweak: b => b.Filter(new { Child = aChild.EntityId}).Filter("Field2=value2")))
+      empty.Data(parentName, tweak: b => b.Filter(new { Child = aChild.Id}).Filter("Field2=value2")))
 
     @tlbTest.TbTestAsVisibleTag("child INT ARRAY", "tweak-kvp",
       empty.Data(parentName, tweak: b => b.Filter("Child", childIdsArray).Filter("Field2=value2")))
@@ -90,13 +91,13 @@
   <ol>
 
     @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "classic",
-      empty.Data(parentName, filter: "Child=[" + aChild.EntityId + "]"))
+      empty.Data(parentName, filter: "Child=[" + aChild.Id + "]"))
 
     @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "tweak",
-      empty.Data(parentName, tweak: b => b.Filter("Child=[" + aChild.EntityId + "]")))
+      empty.Data(parentName, tweak: b => b.Filter("Child=[" + aChild.Id + "]")))
 
     @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as [string]", "tweak-kvp",
-      empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.EntityId + "]")))
+      empty.Data(parentName, tweak: b => b.Filter("Child", "[" + aChild.Id + "]")))
 
   </ol>
 
@@ -107,7 +108,7 @@
       empty.Data(parentName, filter: "Children=[" + childIdsString2 + "]"))
 
     @tlbTest.TbTestAsVisibleTag("Basic, just content-type name as string, filter as object", "classic",
-      empty.Data(parentName, filter: new { Child = aChild.EntityId }))
+      empty.Data(parentName, filter: new { Child = aChild.Id }))
 
     @tlbTest.TbTestAsVisibleTag("Filter as object, giving it a child", "classic",
       empty.Data(parentName, filter: new { Child = aChild }))

@@ -1,4 +1,5 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.TestHelpers
 @using ToSic.Razor.Blade
 @using ToSic.Sxc.Edit.Toolbar;
 
@@ -7,12 +8,12 @@
   Show various cases with params.
 </p>
 @{
-  var tlbTest = CreateInstance("ToolbarServiceTests.cs");
+  var tlbTest = GetService<ToolbarTestHelper>();
 
   var LayoutOnly = Kit.Toolbar.Empty().Layout();
 
-  var itemToCopyTyped = App.Data["Dummy"].First();
-  var itemToCopy = AsDynamic(itemToCopyTyped);
+  var itemToCopyTyped = App.Data.GetStream("Dummy").First();
+  var itemToCopy = AsItem(itemToCopyTyped);
 
   var codeSpace = Kit.Toolbar.Empty().Code("call me");
   var codeBracket = Kit.Toolbar.Empty().Code("callMe(27)");

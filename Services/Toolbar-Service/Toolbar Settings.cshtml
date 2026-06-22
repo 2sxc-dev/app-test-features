@@ -1,12 +1,13 @@
-@inherits Custom.Hybrid.Razor14
+@inherits Custom.Hybrid.RazorTyped
+@using AppCode.TestHelpers
 
 <h1>Toolbar Service - Toolbar Settings</h1>
 <p>
   All kinds of cases for toolbar settings
 </p>
 @{
-  var show = CreateInstance("ToolbarServiceTests.cs");
-  var itemToUse = AsDynamic(App.Data["Dummy"].First());
+  var show = GetService<ToolbarTestHelper>();
+  var itemToUse = AsItem(App.Data.GetStream("Dummy").First());
 }
 
 <hr>
@@ -67,5 +68,5 @@
   <br>
   <br>
   @Kit.Toolbar.Default().AsTag()
-  @Edit.Toolbar()
+  @Kit.Edit.Toolbar()
 </div>

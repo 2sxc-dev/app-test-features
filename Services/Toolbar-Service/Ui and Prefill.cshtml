@@ -1,5 +1,6 @@
 @inherits Custom.Hybrid.RazorTyped
 @using AppCode.Data
+@using AppCode.TestHelpers
 
 <h1 @Kit.Toolbar.Default()>
   Toolbar Service - UI and Prefill
@@ -18,7 +19,7 @@
   var testCat1 = testCategories.First();
   var testCat2 = testCategories.Last();
 
-  var tlbTest = GetCode("ToolbarServiceTests.cs");
+  var tlbTest = GetService<ToolbarTestHelper>();
 
 
   @* var tlb = Kit.Toolbar.Default()
