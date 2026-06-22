@@ -3,22 +3,58 @@
 @using AppCode.TestHelpers
 
 <h1>Toolbar Service - UI and Icons</h1>
-
+<p>
+  This was enhanced by 2dm 2026-06-20, but it doesn't always work as expected.
+  <br />
+  For it to work, you should see different icons for edit (edit-pin instead of pencil).
+</p>
 @{
   var tlbTest = GetService<ToolbarTestHelper>();
 
   var target = App.Data.GetAll<TestToolbarIcons>().FirstOrDefault();
 }
 
+<h2>Metadata - has been working for a long time</h2>
 <ol>
-  @tlbTest.TbTestAsTag("Page Metadata and Content",
+  @tlbTest.ShowLiAndToolbar("Metadata",
     Kit.Toolbar.Default(target)
       .Metadata(target, contentTypes: nameof(TestToolbarIcons))
+  )
+</ol>
+
+<h2>Edit - SOME cases which work as of v22 (2026-06-20)</h2>
+<ol>
+  @tlbTest.ShowLiAndToolbar("Edit - Empty + edit-w/target (icon works ATM)",
+    Kit.Toolbar.Empty(target)
+      .Edit(target) // this is needed for the toolbar to pick up the icon from the content type
+  )
+
+  @tlbTest.ShowLiAndToolbar("Edit - Edit only (icon works ATM)",
+    Kit.Toolbar.Edit(target)
+  )
+
+  @tlbTest.ShowLiAndToolbar("Edit - Default Just one add-edit (icon works, but 2 edit buttons, second w/out icon)",
+    Kit.Toolbar.Default(target)
+      .Edit(target) // this is needed for the toolbar to pick up the icon from the content type
+  )
+
+  @tlbTest.ShowLiAndToolbar("Edit - Default remove + add (icon works ATM)",
+    Kit.Toolbar.Default(target)
       .Edit("-") // remove original edit
       .Edit(target) // this is needed for the toolbar to pick up the icon from the content type
   )
 
-  @* @tlbTest.TbTestAsTag("Empty - for TestToolbarIcons",
+  @tlbTest.ShowLiAndToolbar("Edit - Default modify with target (icon works ATM)",
+    Kit.Toolbar.Default(target)
+      .Edit(target, operation: "%") // modify
+  )
+
+  @tlbTest.ShowLiAndToolbar("Edit - Default modify without target (no icon ATM)",
+    Kit.Toolbar.Default(target)
+      .Edit(operation: "%") // modify
+  )
+
+  @* @tlbTest.ShowLiAndToolbar("Empty - for TestToolbarIcons",
     Kit.Toolbar.Empty()
       .Metadata(MyPage)
   ) *@
