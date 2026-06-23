@@ -53,9 +53,18 @@
     Kit.Toolbar.Default(target)
       .Edit(operation: "%") // modify
   )
+</ol>
 
-  @* @tlbTest.LiAndToolbar("Empty - for TestToolbarIcons",
-    Kit.Toolbar.Empty()
-      .Metadata(MyPage)
-  ) *@
+<h2>Add Existing variants</h2>
+<ol>
+  @tlbTest.LiAndToolbar("Add Existing - no type specified",
+    Kit.Toolbar.Empty(target.ChildrenMultiType)
+      .AddExisting() // this is needed for the toolbar to pick up the icon from the content type
+      .List()
+  )
+  @tlbTest.LiAndToolbar($"Add Existing - type: '{nameof(TestToolbarIcons)}'",
+    Kit.Toolbar.Empty(target.ChildrenMultiType)
+      .AddExisting(contentType: nameof(DummyData1)) // this is needed for the toolbar to pick up the icon from the content type
+      .AddExisting(contentType: nameof(TestToolbarIcons)) // this is needed for the toolbar to pick up the icon from the content type
+  )
 </ol>
